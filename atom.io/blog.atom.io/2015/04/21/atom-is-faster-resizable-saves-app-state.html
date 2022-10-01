@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2015/04/21/atom-is-faster-resizable-saves-app-state.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Faster, Better, Stronger, and Resizable | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Faster, Better, Stronger, and Resizable" />
+<meta name="author" content="benogle" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Atom 0.193.0 is out, and it’s better than ever. There are three big improvements in this release to get excited about." />
+<meta property="og:description" content="Atom 0.193.0 is out, and it’s better than ever. There are three big improvements in this release to get excited about." />
+<link rel="canonical" href="atom-is-faster-resizable-saves-app-state.html" />
+<meta property="og:url" content="atom-is-faster-resizable-saves-app-state.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-04-21T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@benogle" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2015/04/21/atom-is-faster-resizable-saves-app-state.html"},"url":"https://blog.atom.io/2015/04/21/atom-is-faster-resizable-saves-app-state.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"benogle"},"headline":"Faster, Better, Stronger, and Resizable","dateModified":"2015-04-21T00:00:00+00:00","datePublished":"2015-04-21T00:00:00+00:00","author":{"@type":"Person","name":"benogle"},"description":"Atom 0.193.0 is out, and it’s better than ever. There are three big improvements in this release to get excited about.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Faster, Better, Stronger, and Resizable</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> April 21, 2015 <a href="https://github.com/benogle" class="author-link"><img class="avatar avatar-small" alt="benogle" width="18" height="18" data-proofer-ignore="true" src="https://avatars3.githubusercontent.com/benogle?v=3&amp;s=18" srcset="https://avatars3.githubusercontent.com/benogle?v=3&amp;s=18 1x, https://avatars3.githubusercontent.com/benogle?v=3&amp;s=36 2x, https://avatars3.githubusercontent.com/benogle?v=3&amp;s=54 3x, https://avatars3.githubusercontent.com/benogle?v=3&amp;s=72 4x"> benogle</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p>Atom <a href="https://github.com/atom/atom/releases/tag/v0.193.0"><code class="highlighter-rouge">0.193.0</code></a> is out, and it’s better than ever. There are three big improvements in this release to get excited about.</p>
+
+<h3 id="pane-resizing">Pane Resizing</h3>
+
+<p>Resizing panes was one of our most <a href="https://github.com/atom/atom/issues/274">heavily requested</a> features. Community member <a href="https://github.com/liuxiong332">@liuxiong332</a> stepped up to the plate and <a href="https://github.com/atom/atom/pull/5902">got it done</a>. Thanks <a href="https://github.com/liuxiong332">@liuxiong332</a>! <img class="emoji" title=":tada:" alt=":tada:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f389.png" height="20" width="20"></p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/69169/7259166/51b3b84e-e816-11e4-8fe6-13e5202bb5fc.gif" alt="resize"></p>
+
+<h3 id="saving-application-state">Saving Application State</h3>
+
+<p>Launch Atom, open some windows, quit Atom, re-launch Atom, <a href="https://github.com/atom/atom/issues/1603">where are my windows!?!</a> That was the experience before <a href="https://github.com/maxbrunsfeld">@maxbrunsfeld</a> got his hands on it. Now when you launch Atom from the Dock or file browser, it will restart in the last-quit state.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/69169/7261869/ee95d346-e829-11e4-87bf-0f595586ed78.gif" alt="save-app-state"></p>
+
+<h3 id="improved-startup-time">Improved startup time</h3>
+
+<p><a href="https://github.com/kevinsawicki">@kevinsawicki</a> has been working hard driving startup time down. It is getting better and better with each release.</p>
+
+<p>The speedup in <code class="highlighter-rouge">0.193.0</code> is due to <a href="https://github.com/atom/atom/pull/6313">packaging Atom’s source code</a> with <a href="https://github.com/atom/asar">asar</a>. Asar allows the app’s bootstrap process to read only one file into memory, rather than thousands of small files.  On my 2 year old 15” Macbook Pro, the startup time difference between <code class="highlighter-rouge">0.192.0</code> and <code class="highlighter-rouge">0.193.0</code> is over 100ms — a 15% speedup:</p>
+
+<p>0.192.0</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/69169/7260085/81a8ddbc-e81c-11e4-9ff7-c3a219ca50a8.png" alt="atom-startup-time-192"></p>
+
+<p>0.193.0</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/69169/7259151/447c2efe-e816-11e4-83b8-df924b0d1bc9.png" alt="atom-startup-time"></p>
+
+<p>Atom started in 1.0 Preview mode via <code class="highlighter-rouge">atom --one</code> is even faster — under 500ms on my machine.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/69169/7259150/447bd468-e816-11e4-9fce-197e86306f7e.png" alt="atom-one-startup-time"></p>
+
+<h3 id="bonus-improved-installation-and-update-time">Bonus: Improved installation and update time</h3>
+
+<p>Using asar and a couple <a href="https://github.com/atom/atom/pull/6395">packaging</a> <a href="https://github.com/atom/atom/pull/6447">optimizations</a> reduced Atom’s bundled files by 85%, and shrunk the release payload by 10%. As a result, installing and updating Atom is now over 50% faster.</p>
+
+<h3 id="until-next-time">Until next time</h3>
+
+<p>More improvements are on the way including <a href="https://github.com/atom/text-document">handling larger-than-2-megabyte files</a>, <a href="https://github.com/atom-community/autocomplete-plus/issues/351">much better  autocomplete</a>, and further startup time optimizations.</p>
+
+<p>Stay tuned for a blog post on how we use asar and the effect it has on Atom.</p>
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2015/04/21/atom-is-faster-resizable-saves-app-state.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2015/04/21/atom-is-faster-resizable-saves-app-state.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:19 GMT -->
+</html>

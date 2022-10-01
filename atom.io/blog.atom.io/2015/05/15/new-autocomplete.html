@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2015/05/15/new-autocomplete.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Autocomplete just got a whole lot better | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Autocomplete just got a whole lot better" />
+<meta name="author" content="benogle" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="With the release of Atom 0.199.0, we’re happy to be bundling the first community-developed package as part of the official Atom release: autocomplete-plus." />
+<meta property="og:description" content="With the release of Atom 0.199.0, we’re happy to be bundling the first community-developed package as part of the official Atom release: autocomplete-plus." />
+<link rel="canonical" href="new-autocomplete.html" />
+<meta property="og:url" content="new-autocomplete.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-05-15T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@benogle" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2015/05/15/new-autocomplete.html"},"url":"https://blog.atom.io/2015/05/15/new-autocomplete.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"benogle"},"headline":"Autocomplete just got a whole lot better","dateModified":"2015-05-15T00:00:00+00:00","datePublished":"2015-05-15T00:00:00+00:00","author":{"@type":"Person","name":"benogle"},"description":"With the release of Atom 0.199.0, we’re happy to be bundling the first community-developed package as part of the official Atom release: autocomplete-plus.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Autocomplete just got a whole lot better</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> May 15, 2015 <a href="https://github.com/benogle" class="author-link"><img class="avatar avatar-small" alt="benogle" width="18" height="18" data-proofer-ignore="true" src="https://avatars3.githubusercontent.com/benogle?v=3&amp;s=18" srcset="https://avatars3.githubusercontent.com/benogle?v=3&s=18 1x, https://avatars3.githubusercontent.com/benogle?v=3&s=36 2x, https://avatars3.githubusercontent.com/benogle?v=3&s=54 3x, https://avatars3.githubusercontent.com/benogle?v=3&s=72 4x" /> benogle</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p>With the release of Atom 0.199.0, we’re happy to be bundling the first community-developed package as part of the official Atom release: <a href="https://github.com/atom/autocomplete-plus"><code class="highlighter-rouge">autocomplete-plus</code></a>.</p>
+
+<p><code class="highlighter-rouge">autocomplete-plus</code> is the work of <a href="https://github.com/joefitzgerald">@joefitzgerald</a> <a href="https://github.com/saschagehlich">@saschagehlich</a>, and <a href="https://github.com/park9140">@park9140</a>, who improved on the default autocomplete with better suggestion quality, suggestions displayed as you type, and extensibility. <code class="highlighter-rouge">autocomplete-plus</code> spread like wildfire; users downloaded it 330,000 times, making it the most popular package in the entire Atom ecosystem. Now <code class="highlighter-rouge">autocomplete-plus</code> will replace the original <code class="highlighter-rouge">autocomplete</code> package.</p>
+
+<h2 id="whats-new">What’s new?</h2>
+
+<p>Out of the box, you will notice two large changes: suggestions show as you are typing, and there are colored icons next to each suggestion.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/69169/7623038/ca16e330-f98a-11e4-9332-362811ec009b.png" alt="symbols" /></p>
+
+<p>Symbols from all open documents will be suggested when typing — functions, variables, and even words in strings. The icons indicate the suggestion type: right arrow for a snippet, <code class="highlighter-rouge">v</code> for variable, <code class="highlighter-rouge">c</code> for class, <code class="highlighter-rouge">f</code> for function, etc.</p>
+
+<p>Beyond symbol suggestions, Atom 0.199.0 includes deeper intelligence for HTML, CSS, the Atom API, and snippets.</p>
+
+<h3 id="html">HTML</h3>
+
+<p>There is now intelligent tag, attribute, and attribute-value suggestions in HTML and many HTML based templating languages, like PHP and ERB. Along with the suggestions are descriptions for tags and attributes, plus links to the MDN documentation.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/69169/7637208/15859d98-fa21-11e4-87db-cae05b14d367.gif" alt="ac-html-2" /></p>
+
+<h3 id="css">CSS</h3>
+
+<p>Writing CSS is a lot easier in 0.199.0 with suggestions for CSS properties and property values. The CSS suggestions also work in CSS-derived languages like LESS and SCSS. LESS and SCSS language support has improved as well, notably all builtin LESS and SCSS functions (e.g. <code class="highlighter-rouge">darken</code> or <code class="highlighter-rouge">fadeout</code>) are displayed along with their doc strings and links to the documentation.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/69169/7637610/14a8521e-fa24-11e4-8905-a587773eb7bd.gif" alt="ac-css-2" /></p>
+
+<h3 id="atom-api-suggetions">Atom API Suggetions</h3>
+
+<p>Atom now displays suggestions for the <code class="highlighter-rouge">atom</code> global. As with the HTML and CSS suggestions, each Atom API suggestion displays the description of the object with a link back to the atom.io documentation. Just type <code class="highlighter-rouge">atom.</code> in any JavaScript or CoffeeScript file in your Atom package to display the suggestions.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/69169/7638200/fcc1580e-fa27-11e4-877c-a63e2ae41ee9.png" alt="atom-api" /></p>
+
+<h3 id="snippets">Snippets</h3>
+
+<p><a href="https://flight-manual.atom.io/using-atom/sections/snippets/">Snippets</a> are useful shortcuts that generate common code like requires, functions, loops, etc. Without snippet suggestions, not even we on the Atom team would know about all the cool snippets available. Snippets are indicated by the right arrow tab-stop icon, and exist for many contexts. To get snippet suggestions, just type!</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/69169/7638163/c1b52b28-fa27-11e4-82e9-73bcd68435cf.png" alt="snip" /></p>
+
+<h2 id="extensibility">Extensibility</h2>
+
+<p>Overall, the part of <code class="highlighter-rouge">autocomplete-plus</code> that has the core team most excited is its extensibility. <code class="highlighter-rouge">autocomplete-plus</code> is able to consume other Atom packages that define an autocomplete <strong>provider</strong>. Each provider can provide suggestions for a specific language, e.g. <a href="https://atom.io/packages/autocomplete-haskell">haskell</a>, or a specific context, such as completing <a href="https://atom.io/packages/autocomplete-paths">system paths</a> when importing a module. All of the intelligent behavior for HTML, CSS, Atom API, and Snippets now bundled with the official Atom release were written as providers: <a href="https://atom.io/packages/autocomplete-html"><code class="highlighter-rouge">autocomplete-html</code></a>,
+<a href="https://atom.io/packages/autocomplete-css"><code class="highlighter-rouge">autocomplete-css</code></a>,
+<a href="https://atom.io/packages/autocomplete-atom-api"><code class="highlighter-rouge">autocomplete-atom-api</code></a>, and
+<a href="https://atom.io/packages/autocomplete-snippets"><code class="highlighter-rouge">autocomplete-snippets</code></a>.</p>
+
+<p>In addition to the bundled providers, one of the many community-built provider packages can bring greater intelligence to your favorite language: <a href="https://atom.io/packages/atom-ternjs">JavaScript</a>, <a href="https://atom.io/packages/atom-typescript">TypeScript</a>, <a href="https://atom.io/packages/autocomplete-plus-python-jedi">python</a>, <a href="https://atom.io/packages/go-plus">go lang</a>,
+<a href="https://atom.io/packages/omnisharp-atom">C#</a>, and others. See the full listing of available providers on the <a href="https://github.com/atom/autocomplete-plus/wiki/Autocomplete-Providers">autocomplete-plus wiki</a>.</p>
+
+<p>The <code class="highlighter-rouge">atom-ternjs</code> provider:</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/69169/7659203/1ff15662-faf5-11e4-9404-086812a0d019.png" alt="tern" /></p>
+
+<p>The <code class="highlighter-rouge">autocomplete-plus-python-jedi</code> provider:</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/69169/7659513/5db0e786-faf7-11e4-805e-61a56f4e0b74.png" alt="jedi" /></p>
+
+<h3 id="writing-your-own-provider">Writing your own provider</h3>
+
+<p>Check out the <a href="https://github.com/atom/autocomplete-plus/wiki/Provider-API">provider API documentation</a> to get started and use one of the many providers listed above as an example.</p>
+
+<p>There are static analysis tools and autocomplete systems for many languages that can be integrated into an <code class="highlighter-rouge">autocomplete-plus</code> provider: <a href="http://ternjs.net/">ternjs</a> for JavaScript, <a href="https://github.com/davidhalter/jedi">jedi</a> for python, <a href="https://github.com/rsense/rsense">rsense</a> for ruby, <a href="https://github.com/phildawes/racer">racer</a> for rust, <a href="https://github.com/benogle/autocomplete-clang#clang-notes">clang</a> for c/c++ and objective-c, etc. With systems like these, the <code class="highlighter-rouge">autocomplete-plus</code> provider becomes the glue code between Atom and the deeper analysis system.</p>
+
+<h3 id="improving-language-support">Improving language support</h3>
+
+<p>If writing a provider seems like too much, the suggestions from the default provider can be improved by tweaking settings in each language’s package. Check out the <a href="https://github.com/atom/autocomplete-plus/wiki/SymbolProvider-Config-API">SymbolProvider API documentation</a>, and a <a href="https://github.com/atom/language-less/blob/43ccc24025dbcefa1268d85576d3398845c46926/settings/language-less.cson#L4-L11">language package example</a> for more info.</p>
+
+<h2 id="onward">Onward</h2>
+
+<p>We’re excited about <code class="highlighter-rouge">autocomplete-plus</code> not just for the improved experience it will provide, but also for the process by which it was developed. Our philosophy with Atom has been to optimize for evolution, and the transformation of <code class="highlighter-rouge">autocomplete-plus</code> from a community fork of a simple package to the full-featured, extensible system we’re bundling today is a model for how we see Atom advancing. We believe that extensibility and modularity are not just nice-to-haves, but are actually essential to the development of complex shared infrastructure like Atom. The strength of Atom depends on the strength of Atom’s community, and we think <code class="highlighter-rouge">autocomplete-plus</code> is a fantastic example of what a smart, engaged community can do.</p>
+
+<p>Again, a big thank you to <a href="https://github.com/joefitzgerald">@joefitzgerald</a> <a href="https://github.com/saschagehlich">@saschagehlich</a>, and <a href="https://github.com/park9140">@park9140</a> for creating <code class="highlighter-rouge">autocomplete-plus</code>. And thank you to all the provider authors out there, specifically <a href="https://github.com/basarat">@basarat</a>, <a href="https://github.com/tststs">@tststs</a>, <a href="https://github.com/tinloaf">@tinloaf</a>, <a href="https://github.com/eqot">@eqot</a>, <a href="https://github.com/ctolkien">@ctolkien</a> for help with the API and keeping their providers up to date given all the recent movement!</p>
+
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2015/05/15/new-autocomplete.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2015/05/15/new-autocomplete.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:19 GMT -->
+</html>

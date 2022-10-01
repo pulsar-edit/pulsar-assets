@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2017/06/13/atom-1-18.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:35:59 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Atom 1.18 | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Atom 1.18" />
+<meta name="author" content="iolsen" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Today’s Atom 1.18 release introduces Git and GitHub integration right inside your editor!" />
+<meta property="og:description" content="Today’s Atom 1.18 release introduces Git and GitHub integration right inside your editor!" />
+<link rel="canonical" href="atom-1-18.html" />
+<meta property="og:url" content="atom-1-18.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-06-13T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@iolsen" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2017/06/13/atom-1-18.html"},"url":"https://blog.atom.io/2017/06/13/atom-1-18.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"iolsen"},"headline":"Atom 1.18","dateModified":"2017-06-13T00:00:00+00:00","datePublished":"2017-06-13T00:00:00+00:00","author":{"@type":"Person","name":"iolsen"},"description":"Today’s Atom 1.18 release introduces Git and GitHub integration right inside your editor!","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Atom 1.18</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> June 13, 2017 <a href="https://github.com/iolsen" class="author-link"><img class="avatar avatar-small" alt="iolsen" width="18" height="18" data-proofer-ignore="true" src="https://avatars0.githubusercontent.com/iolsen?v=3&amp;s=18" srcset="https://avatars0.githubusercontent.com/iolsen?v=3&amp;s=18 1x, https://avatars0.githubusercontent.com/iolsen?v=3&amp;s=36 2x, https://avatars0.githubusercontent.com/iolsen?v=3&amp;s=54 3x, https://avatars0.githubusercontent.com/iolsen?v=3&amp;s=72 4x"> iolsen</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p><img src="../../../img/posts/release-1-18.png" alt="Atom 1.18"></p>
+
+<p>Today’s <a href="https://atom.io/">Atom 1.18</a> release introduces Git and GitHub integration right inside your editor!</p>
+
+<!--more-->
+
+<h3 id="git-and-github-integration">Git and GitHub Integration</h3>
+
+<p>We’re thrilled to be shipping rich integration with Git and GitHub in Atom 1.18! This is merely the first release but we’re excited about what it already brings to the editor. Check out posts <a href="../../05/16/git-and-github-integration-comes-to-atom.html">here</a> and on the <a href="https://githubengineering.com/integrating-git-in-atom/">GitHub engineering blog</a> for more details. Or get a peek at some of the features on <a href="https://github.atom.io/">github.atom.io</a>.</p>
+
+<p><a href="../../../img/posts/github-package-git.png"><img src="../../../img/posts/github-package-git.png" alt="Git for Atom"></a></p>
+
+<h3 id="more-improvements">More Improvements</h3>
+
+<ul>
+  <li><a href="https://github.com/atom/first-mate/issues/93">Improved tokenizing performance via oniguruma caching</a></li>
+  <li><a href="https://github.com/atom/atom/pull/14287">Correctly launch Atom from Windows Subsystem for Linux</a></li>
+  <li><a href="https://github.com/atom/atom/pull/13947">Added an option to always restore previous session</a></li>
+  <li><a href="https://github.com/atom/find-and-replace/pull/847">Added settings for showing context in find-and-replace</a></li>
+  <li><a href="https://github.com/atom/autocomplete-html/pulls?utf8=%E2%9C%93&amp;q=is%3Apr%20is%3Aclosed%20author%3A50wliu%20updated%3A%3C2017-05-04">Improved suggestions in autocomplete-html</a></li>
+</ul>
+
+<p>Don’t forget to check out all the other improvements shipping with this version in the <a href="https://github.com/atom/atom/releases/tag/v1.18.0">release notes</a>! <img class="emoji" title=":memo:" alt=":memo:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dd.png" height="20" width="20"></p>
+
+<h2 id="atom-119-beta">Atom 1.19 Beta</h2>
+
+<p><img src="../../../img/release-beta.png" alt="Atom Beta"></p>
+
+<p>Atom 1.19 includes two major architectural updates and an update to Electron 1.6.9.</p>
+
+<h3 id="native-text-buffer">Native Text Buffer</h3>
+
+<p>Atom 1.19 introduces an implementation of <a href="https://github.com/atom/superstring">Atom’s underlying text buffer in native C++</a>. File saves are now asynchronous and will never block the UI. Memory usage for large files has been reduced.</p>
+
+<h3 id="editor-rendering-layer-rewrite">Editor Rendering Layer Rewrite</h3>
+
+<p>This release includes a <a href="https://github.com/atom/atom/pull/13880">full rewrite</a> of the text editor’s rendering layer. We revisited all of our DOM layout and script interactions with the goal of improving performance, reducing complexity, and taking advantage of new APIs such as <a href="https://developers.google.com/web/updates/2016/04/intersectionobserver">intersection observers</a>, <a href="https://developers.google.com/web/updates/2016/10/resizeobserver">resize observers</a>, and <a href="https://developers.google.com/web/updates/2016/06/css-containment">CSS containment boundaries</a>. Look for an in-depth post next week for more details.</p>
+
+<h3 id="other-notable-changes-and-fixes">Other Notable Changes and Fixes</h3>
+
+<ul>
+  <li><a href="https://github.com/atom/atom/pull/14694">Render line number gutter without numbers when showLineNumbers is false</a></li>
+  <li><a href="https://github.com/atom/atom/pull/14753">Improved clarity of Editor not responding actions</a></li>
+  <li><a href="https://github.com/atom/tree-view/pull/1127">Restore ability for <code class="highlighter-rouge">escape</code> to return focus to center</a></li>
+  <li><a href="https://github.com/atom/whitespace/pull/157">Optimize trailing whitespace removal using native buffer search</a></li>
+</ul>
+
+<p>There are many more details in the <a href="https://github.com/atom/atom/releases/tag/v1.19.0-beta0">release notes</a>.</p>
+
+<p>Get all these improvements today by joining the <a href="https://atom.io/beta">Atom Beta Channel</a>!</p>
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2017/06/13/atom-1-18.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2017/06/13/atom-1-18.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:00 GMT -->
+</html>

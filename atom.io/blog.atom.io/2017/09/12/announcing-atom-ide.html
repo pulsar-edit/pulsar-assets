@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2017/09/12/announcing-atom-ide.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:35:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Introducing Atom-IDE | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Introducing Atom-IDE" />
+<meta name="author" content="damieng" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="GitHub, in collaboration with Facebook, are pleased to announce the launch of Atom-IDE - a set of optional packages to bring IDE-like functionality to Atom." />
+<meta property="og:description" content="GitHub, in collaboration with Facebook, are pleased to announce the launch of Atom-IDE - a set of optional packages to bring IDE-like functionality to Atom." />
+<link rel="canonical" href="announcing-atom-ide.html" />
+<meta property="og:url" content="announcing-atom-ide.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-09-12T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@damieng" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2017/09/12/announcing-atom-ide.html"},"url":"https://blog.atom.io/2017/09/12/announcing-atom-ide.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"damieng"},"headline":"Introducing Atom-IDE","dateModified":"2017-09-12T00:00:00+00:00","datePublished":"2017-09-12T00:00:00+00:00","author":{"@type":"Person","name":"damieng"},"description":"GitHub, in collaboration with Facebook, are pleased to announce the launch of Atom-IDE - a set of optional packages to bring IDE-like functionality to Atom.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Introducing Atom-IDE</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> September 12, 2017 <a href="https://github.com/damieng" class="author-link"><img class="avatar avatar-small" alt="damieng" width="18" height="18" data-proofer-ignore="true" src="https://avatars1.githubusercontent.com/damieng?v=3&amp;s=18" srcset="https://avatars1.githubusercontent.com/damieng?v=3&s=18 1x, https://avatars1.githubusercontent.com/damieng?v=3&s=36 2x, https://avatars1.githubusercontent.com/damieng?v=3&s=54 3x, https://avatars1.githubusercontent.com/damieng?v=3&s=72 4x" /> damieng</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p><img src="https://user-images.githubusercontent.com/378023/29239014-9366bfa6-7f7d-11e7-9e04-e5cd535c3a5f.png" alt="Atom IDE" /></p>
+
+<p>GitHub, <a href="https://nuclide.io/blog/2017/09/12/Introducing-Atom-IDE-UI">in collaboration with Facebook</a>, are pleased to announce the launch of Atom-IDE - a set of optional packages to bring IDE-like functionality to Atom.</p>
+
+<!--more-->
+
+<p>The start of this journey includes smarter context-aware auto-completion as well as a host of code navigation features such as an outline view, go to definition, find all references as well as other useful functions such as hover-to-reveal information, errors and warnings (diagnostics) and document formatting.</p>
+
+<p>Our initial release includes packages for TypeScript, Flow, JavaScript, Java, C# and PHP that utilize the power of language servers to provide deep syntactical analysis of your code and projects.  The <a href="http://langserver.org/">language server protocol</a> is being adopted by a number of organizations including Microsoft, Eclipse, Sourcegraph, Palantir, Red Hat, Facebook and now GitHub too!</p>
+
+<p><img src="https://user-images.githubusercontent.com/378023/29859731-741403be-8d9e-11e7-99c5-6b914e3fff9c.png" alt="Atom IDE Screenshot" /></p>
+
+<h1 id="get-started">Get started</h1>
+
+<p>We strongly recommended you use <strong>Atom Beta 1.21</strong> as it includes the necessary file monitoring and process control to ensure the underlying language servers are running properly.</p>
+
+<p>You’ll need to install at least two packages - the user interface for Atom IDE and a package that support the language you wish to use:</p>
+
+<ol>
+  <li>Bring up Atom’s <em>Install Packages</em> dialog (Settings View: Install Packages and Themes)</li>
+  <li>Search for and install the <a href="https://atom.io/packages/atom-ide-ui">atom-ide-ui</a> package to bring in the IDE user interface</li>
+  <li>Install the IDE language support you need (e.g. <a href="https://atom.io/packages/ide-typescript">ide-typescript</a>) - a summary of the ones available at launch include:</li>
+</ol>
+
+<h3 id="typescript--javascript-ide-typescript">TypeScript &amp; JavaScript (ide-typescript)</h3>
+
+<p>The <a href="https://github.com/atom/ide-typescript/">ide-typescript</a> package takes advantage of the Microsoft TypeScript server wrapped up in a language server protocol thanks to the work of the team at SourceGraph. While targeted at TypeScript it also works great with JavaScript providing you with autocompletion, document outlines, diagnostics and errors, etc.</p>
+
+<h3 id="flow-ide-flowtype">Flow (ide-flowtype)</h3>
+
+<p>Our good friends over at Facebook have published <a href="https://github.com/flowtype/ide-flowtype">ide-flowtype</a> to bring the power of the Flow type annotation system to Atom.</p>
+
+<h3 id="c-ide-csharp">C# (ide-csharp)</h3>
+
+<p>One of the earliest examples of a language server was OmniSharp for the C# language.  By taking advantage of the node-omnisharp package we are able to bring many IDE-like features into Atom for C# via <a href="https://github.com/atom/ide-csharp/">ide-csharp</a>.</p>
+
+<h3 id="java-ide-java">Java (ide-java)</h3>
+
+<p>The Eclipse foundation and Red Hat have been a big proponent of language servers and the Java package shows!  You will need a Java 8 runtime installed to get going but then can enjoy much richer editor facilities. Check out <a href="https://github.com/atom/ide-java/">ide-java</a>.</p>
+
+<h3 id="php-ide-php">PHP (ide-php)</h3>
+
+<p>The <a href="https://github.com/atom/ide-php/">ide-php</a> utilizes a <a href="https://github.com/felixfbecker/php-language-server">PHP language server by FelixFBecker</a> to provide support for the PHP scripting language. (Requires the PHP 7 runtime installed.)</p>
+
+<h1 id="using-atom-ide">Using Atom-IDE</h1>
+
+<p>Each of the IDE packages expose a selection of functionality that is dependent on the underlying language server and is activated when you open files it supports. (Some take a few seconds to start-up and others like ide-java and ide-php will take a short while on first open to download the language server itself.)</p>
+
+<p>Here’s a quick summary of how these features are exposed within Atom IDE:</p>
+
+<h3 id="autocomplete">Autocomplete</h3>
+<p>Autocomplete is enabled in all the ide packages we are shipping today. Start typing to get improved results. Some providers may require you to manually trigger autocompletion by pressing <kbd>Ctrl</kbd><kbd>Space</kbd> for performance reasons.</p>
+
+<h3 id="diagnostics">Diagnostics</h3>
+<p>You can see diagnostics by clicking the red exclamation mark and yellow warning triangle at the bottom left of your Atom window. This will open the new Diagnostics pane that shows you the errors and warnings and allow you to click them to jump right to that location in the code. You will also see indicators to the left of line numbers in the editor itself.</p>
+
+<h3 id="find-all-references">Find all references</h3>
+<p>Position the text cursor in the class or variable you are interested in then activate <strong>Find all references</strong> either from the right-mouse button menu or <strong>Find References: Activate</strong> from the command palette.</p>
+
+<p>Some providers allow you to reformat the document. Simply select <strong>Code Format: Format Code</strong> from the command palette.</p>
+<h3 id="formatting">Formatting</h3>
+
+<h3 id="go-to-definition">Go to definition</h3>
+<p><kbd>Ctrl</kbd> click on a class or variable reference to be taken directly to where it is defined within your project.</p>
+
+<h3 id="hover">Hover</h3>
+<p>Hover the mouse pointer over a type or other supported object and you can see some additional information relating to it.</p>
+
+<h3 id="outline-view">Outline view</h3>
+<p>Many providers let you see a tree-based outline view of the current document which you can search and then click to go right to that area of code. You can toggle the new Outline View from the View menu or the <strong>Outline View: Toggle</strong> command.</p>
+
+<h3 id="reference-highlighting">Reference highlighting</h3>
+<p>Some providers let you see immediate references to the variable or object you are working on. Positioning your text cursor within that variable can highlight other references instantly.</p>
+
+<h1 id="future-plans">Future plans</h1>
+
+<p>This is just the start of our journey. With the help of our community, we plan to expand the number of languages that Atom-IDE can support and make it possible for you to run and edit applications, making Atom-IDE a true IDE.</p>
+
+<p>We hope to see future language support for the great languages out there including Rust, Go, Python, etc.</p>
+
+<p>If a language server exists for your favorite language it is incredibly easy to create your own Atom-IDE package that takes advantage of it by using our <a href="https://github.com/atom/atom-languageclient">atom-languageclient npm library</a> that provides common automatic wire-up of the major features as well as helper tools such as downloading support files and conversions.</p>
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2017/09/12/announcing-atom-ide.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2017/09/12/announcing-atom-ide.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:35:54 GMT -->
+</html>

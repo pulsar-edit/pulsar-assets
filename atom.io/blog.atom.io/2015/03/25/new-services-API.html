@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2015/03/25/new-services-API.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>New Services API | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="New Services API" />
+<meta name="author" content="jlord" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Many packages don’t just work in isolation, they depend on other packages. For instance, the vim-mode package depends on the status-bar package because it uses it to display the current editing mode." />
+<meta property="og:description" content="Many packages don’t just work in isolation, they depend on other packages. For instance, the vim-mode package depends on the status-bar package because it uses it to display the current editing mode." />
+<link rel="canonical" href="new-services-API.html" />
+<meta property="og:url" content="new-services-API.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-03-25T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@jlord" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2015/03/25/new-services-API.html"},"url":"https://blog.atom.io/2015/03/25/new-services-API.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"jlord"},"headline":"New Services API","dateModified":"2015-03-25T00:00:00+00:00","datePublished":"2015-03-25T00:00:00+00:00","author":{"@type":"Person","name":"jlord"},"description":"Many packages don’t just work in isolation, they depend on other packages. For instance, the vim-mode package depends on the status-bar package because it uses it to display the current editing mode.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">New Services API</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> March 25, 2015 <a href="https://github.com/jlord" class="author-link"><img class="avatar avatar-small" alt="jlord" width="18" height="18" data-proofer-ignore="true" src="https://avatars1.githubusercontent.com/jlord?v=3&amp;s=18" srcset="https://avatars1.githubusercontent.com/jlord?v=3&s=18 1x, https://avatars1.githubusercontent.com/jlord?v=3&s=36 2x, https://avatars1.githubusercontent.com/jlord?v=3&s=54 3x, https://avatars1.githubusercontent.com/jlord?v=3&s=72 4x" /> jlord</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p>Many packages don’t just work in isolation, they depend on other packages. For instance, the <code class="highlighter-rouge">vim-mode</code> package depends on the <code class="highlighter-rouge">status-bar</code> package because it uses it to display the current editing mode.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1305617/6344034/324fc20e-bba7-11e4-8946-855c83bcebde.png" alt="statusbar" /></p>
+
+<p>Previously a package like <code class="highlighter-rouge">vim-mode</code> would be forced to wait for all packages to load and then query the DOM for the <code class="highlighter-rouge">status-bar</code> in order to interact with it. Not only was this cumbersome, but it also created the possibility for breakage if the API of the <code class="highlighter-rouge">status-bar</code> ever changed.</p>
+
+<p>Node’s package manager, <code class="highlighter-rouge">npm</code>, solves a similar problem for static dependencies by giving each library its own copy of its dependencies based on a semantic version range. But in this case, we can’t give every package its own copy of the status bar, since there’s only one status bar in the atom workspace.</p>
+
+<h3 id="providing-and-consuming-services">Providing and Consuming Services</h3>
+
+<p>Atom’s solution is the new <a href="https://flight-manual.atom.io/behind-atom/sections/interacting-with-other-packages-via-services/">Services API</a>, which allows packages to provide semantically versioned APIs for other packages to consume. With services, the <code class="highlighter-rouge">status-bar</code> package can provide multiple versions of its API simultaneously, providing a smooth upgrade path for dependent packages when the <code class="highlighter-rouge">status-bar</code> package evolves its API.</p>
+
+<p>Services will also provide flex-points in the package ecosystem by enabling any package to provide the same service. For example, if someone wanted to implement a <code class="highlighter-rouge">status-bar-plus</code> package with a new and improved status bar, they could still provide the original <code class="highlighter-rouge">status-bar</code>’s services in order to be compatible with packages such as <code class="highlighter-rouge">vim-mode</code>. This ensures that authors will enjoy a level playing field when competing against incumbent packages by preventing calcification of the dependency graph.</p>
+
+<p>Packages define what they are providing and consuming in their <code class="highlighter-rouge">package.json</code>. The <code class="highlighter-rouge">status-bar</code> package’s <code class="highlighter-rouge">package.json</code> contains its <a href="https://github.com/atom/status-bar/blob/d4da6a42b7e5a8ec8b09807fd0e92cdb6919b0ec/package.json#L16-L23">provided services API</a> with two versioned methods:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"providedServices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"status-bar"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A container for indicators at the bottom of the workspace"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"versions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"1.0.0"</span><span class="p">:</span><span class="w"> </span><span class="s2">"provideStatusBar"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"0.58.0"</span><span class="p">:</span><span class="w"> </span><span class="s2">"legacyProvideStatusBar"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p>This gives other packages <a href="https://github.com/atom/status-bar/blob/076d51ef89f2875ba32219343787d079b4bfbf64/lib/main.coffee#L92-L96">access to the <code class="highlighter-rouge">status-bar</code> method <code class="highlighter-rouge">provideSatusBar</code></a> when they consume the ‘status-bar’ service. The <code class="highlighter-rouge">vim-mode</code> package does so by <a href="https://github.com/atom/vim-mode/blob/74cead837678bc14b3f484bce03ded1cf2996afe/package.json#L16-L21">declaring in its <code class="highlighter-rouge">package.json</code></a>:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"consumedServices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"status-bar"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"versions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"^1.0.0"</span><span class="p">:</span><span class="w"> </span><span class="s2">"consumeStatusBar"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Now when <code class="highlighter-rouge">vim-mode</code> <a href="https://github.com/atom/vim-mode/blob/762a480c93cc444746c1a8150b5a24db90836144/lib/vim-mode.coffee#L42-L46">calls <code class="highlighter-rouge">consumeStatusBar</code></a> it is returned the result of the <code class="highlighter-rouge">provideStatusBar</code> method from <code class="highlighter-rouge">status-bar</code> which it can then use to insert the user’s current state.</p>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">consumeStatusBar</span><span class="o">:</span> <span class="p">(</span><span class="nx">statusBar</span><span class="p">)</span> <span class="o">-&gt;</span>
+    <span class="vi">@</span><span class="na">statusBarManager</span><span class="p">.</span><span class="na">initialize</span><span class="p">(</span><span class="nx">statusBar</span><span class="p">)</span>
+    <span class="vi">@</span><span class="na">statusBarManager</span><span class="p">.</span><span class="na">attach</span><span class="p">()</span>
+    <span class="vi">@</span><span class="na">disposables</span><span class="p">.</span><span class="na">add</span> <span class="k">new</span> <span class="nx">Disposable</span> <span class="o">=&gt;</span>
+      <span class="vi">@</span><span class="na">statusBarManager</span><span class="p">.</span><span class="na">detach</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>For more details on the Services API see <a href="https://flight-manual.atom.io/behind-atom/sections/interacting-with-other-packages-via-services/">Interacting with Other Packages via Services</a> in the documentation.</p>
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2015/03/25/new-services-API.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2015/03/25/new-services-API.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:19 GMT -->
+</html>

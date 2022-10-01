@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2015/02/04/built-in-6to5.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Built-in 6to5 support | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Built-in 6to5 support" />
+<meta name="author" content="kevinsawicki" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Update" />
+<meta property="og:description" content="Update" />
+<link rel="canonical" href="built-in-6to5.html" />
+<meta property="og:url" content="built-in-6to5.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-02-04T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@kevinsawicki" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2015/02/04/built-in-6to5.html"},"url":"https://blog.atom.io/2015/02/04/built-in-6to5.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"kevinsawicki"},"headline":"Built-in 6to5 support","dateModified":"2015-02-04T00:00:00+00:00","datePublished":"2015-02-04T00:00:00+00:00","author":{"@type":"Person","name":"kevinsawicki"},"description":"Update","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Built-in 6to5 support</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> February 4, 2015 <a href="https://github.com/kevinsawicki" class="author-link"><img class="avatar avatar-small" alt="kevinsawicki" width="18" height="18" data-proofer-ignore="true" src="https://avatars0.githubusercontent.com/kevinsawicki?v=3&amp;s=18" srcset="https://avatars0.githubusercontent.com/kevinsawicki?v=3&s=18 1x, https://avatars0.githubusercontent.com/kevinsawicki?v=3&s=36 2x, https://avatars0.githubusercontent.com/kevinsawicki?v=3&s=54 3x, https://avatars0.githubusercontent.com/kevinsawicki?v=3&s=72 4x" /> kevinsawicki</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <h2 id="update">Update</h2>
+
+<p>Since this post was originally published the 6to5 library was renamed to babel
+so packages should now use the <code class="highlighter-rouge">"use babel";</code> pragma in their JavaScript files.</p>
+
+<p>See <a href="https://github.com/atom/atom/pull/5579">atom/atom#5579</a> for more details.</p>
+
+<h2 id="original-post">Original Post</h2>
+
+<p>Starting with yesterday’s <a href="https://github.com/atom/atom/releases/tag/v0.177.0">0.177 release</a>, Atom now has built-in support
+for preprocessing JavaScript files using the <a href="http://6to5.org/">6to5</a> library.</p>
+
+<p>This allows you to use new ECMAScript 6 features in your packages that aren’t
+yet implemented in the versions of <a href="http://www.chromium.org/Home">Chromium</a> and <a href="https://iojs.org/">io.js</a> that
+ship with Atom.</p>
+
+<p>To use this in your packages, make <code class="highlighter-rouge">"use 6to5";</code> the very first line of
+any <code class="highlighter-rouge">.js</code> files you’d like to transform using 6to5. So, for example, here is a
+package’s <code class="highlighter-rouge">main.js</code> file that uses the new ES6 <a href="http://6to5.org/docs/learn-es6/#arrows">arrow functions</a>:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"use 6to5"</span><span class="p">;</span>
+
+<span class="nx">exports</span><span class="p">.</span><span class="nx">activate</span>   <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'this package was activated'</span><span class="p">)</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">deactivate</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'this package was deactivated'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Since arrow functions aren’t natively supported yet, the code will be converted
+on-the-fly to:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">exports</span><span class="p">.</span><span class="nx">activate</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"this package was activated"</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">deactivate</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"this package was deactivated"</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>The 6to5 support uses the same caching strategy that is used for CoffeeScript,
+CSON, and Less files, so using it in your packages shouldn’t negatively impact
+startup time.</p>
+
+<p>A huge thanks goes out to <a href="https://github.com/bolinfest">Michael Bolin</a> from Facebook, who added
+this feature. You can check out <a href="https://github.com/atom/atom/pull/5299">pull request #5299</a> for the discussion
+and implementation details.</p>
+
+<p>Check out the <a href="http://6to5.org/docs/learn-es6">Learn ES6</a> article on <a href="http://6to5.org/">6to5.org</a> for more information
+about all the great new ES6 features.</p>
+
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2015/02/04/built-in-6to5.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2015/02/04/built-in-6to5.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:23 GMT -->
+</html>

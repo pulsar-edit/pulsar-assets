@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2017/10/12/atoms-new-buffer-implementation.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:35:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Atom’s new concurrency-friendly buffer implementation | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Atom’s new concurrency-friendly buffer implementation" />
+<meta name="author" content="nathansobo" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Several Atom features depend on potentially long-running computations based on the contents of open buffers, but until recently, it was only possible to access a buffer’s text from JavaScript running on the main thread. This made it difficult to guarantee Atom’s responsiveness in all scenarios, especially when editing larger files. That situation changed with the release of Atom 1.19, which opened the door to greatly increased parallelism via a new text-storage data structure that is implemented in C++. This new design provides many benefits for performance and scalability, chief among them the ability for worker threads to read snapshots of previous buffer states without blocking writes on the main thread. In this post, we’ll describe Atom’s new approach to text storage in depth, then explore the first of many optimizations it makes possible." />
+<meta property="og:description" content="Several Atom features depend on potentially long-running computations based on the contents of open buffers, but until recently, it was only possible to access a buffer’s text from JavaScript running on the main thread. This made it difficult to guarantee Atom’s responsiveness in all scenarios, especially when editing larger files. That situation changed with the release of Atom 1.19, which opened the door to greatly increased parallelism via a new text-storage data structure that is implemented in C++. This new design provides many benefits for performance and scalability, chief among them the ability for worker threads to read snapshots of previous buffer states without blocking writes on the main thread. In this post, we’ll describe Atom’s new approach to text storage in depth, then explore the first of many optimizations it makes possible." />
+<link rel="canonical" href="atoms-new-buffer-implementation.html" />
+<meta property="og:url" content="atoms-new-buffer-implementation.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-10-12T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@nathansobo" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2017/10/12/atoms-new-buffer-implementation.html"},"url":"https://blog.atom.io/2017/10/12/atoms-new-buffer-implementation.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"nathansobo"},"headline":"Atom’s new concurrency-friendly buffer implementation","dateModified":"2017-10-12T00:00:00+00:00","datePublished":"2017-10-12T00:00:00+00:00","author":{"@type":"Person","name":"nathansobo"},"description":"Several Atom features depend on potentially long-running computations based on the contents of open buffers, but until recently, it was only possible to access a buffer’s text from JavaScript running on the main thread. This made it difficult to guarantee Atom’s responsiveness in all scenarios, especially when editing larger files. That situation changed with the release of Atom 1.19, which opened the door to greatly increased parallelism via a new text-storage data structure that is implemented in C++. This new design provides many benefits for performance and scalability, chief among them the ability for worker threads to read snapshots of previous buffer states without blocking writes on the main thread. In this post, we’ll describe Atom’s new approach to text storage in depth, then explore the first of many optimizations it makes possible.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Atom's new concurrency-friendly buffer implementation</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> October 12, 2017 <a href="https://github.com/nathansobo" class="author-link"><img class="avatar avatar-small" alt="nathansobo" width="18" height="18" data-proofer-ignore="true" src="https://avatars1.githubusercontent.com/nathansobo?v=3&amp;s=18" srcset="https://avatars1.githubusercontent.com/nathansobo?v=3&s=18 1x, https://avatars1.githubusercontent.com/nathansobo?v=3&s=36 2x, https://avatars1.githubusercontent.com/nathansobo?v=3&s=54 3x, https://avatars1.githubusercontent.com/nathansobo?v=3&s=72 4x" /> nathansobo</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p>Several Atom features depend on potentially long-running computations based on the contents of open buffers, but until recently, it was only possible to access a buffer’s text from JavaScript running on the main thread. This made it difficult to guarantee Atom’s responsiveness in all scenarios, especially when editing larger files.</p>
+
+<p>That situation changed with the release of Atom 1.19, which opened the door to greatly increased parallelism via a new text-storage data structure that is implemented in C++. This new design provides many benefits for performance and scalability, chief among them the ability for worker threads to read snapshots of previous buffer states without blocking writes on the main thread. In this post, we’ll describe Atom’s new approach to text storage in depth, then explore the first of many optimizations it makes possible.</p>
+
+<!--more-->
+
+<h2 id="layering-changes">Layering changes</h2>
+
+<p>The key idea behind Atom’s new buffer representation is to separate the contents of a buffer into two major pieces of state. First, there is the <em>base text</em>, which corresponds to the version of the document that was most recently read from or written to disk. The base text is immutable and stored in a single, contiguously allocated block of memory. Superimposed on top of the base text are the <em>unsaved changes</em>, which are stored in a separate sparse data structure called a <em>patch</em>. To record edits, rather than shifting the buffer’s entire contents around in memory, we simply mutate the patch.</p>
+
+<p><img src="../../../img/posts/base-text-plus-changes.png" alt="Base Text Plus Changes" /></p>
+
+<p>There can actually be multiple layers of patches in existence at any one time. The patch in the topmost layer is always mutable, but we can create a read-only <em>snapshot</em> of the current buffer contents by freezing the topmost patch and pushing a new patch to the top of the stack. Edits flow into this new patch until the snapshot is no longer needed, at which point the topmost patch can be merged down into the patch on the previous layer.</p>
+
+<p><img src="../../../img/posts/layered-changes.png" alt="Layered Changes" /></p>
+
+<p>To read the buffer state, we iterate through successive “chunks”, where each chunk corresponds to a change from one of the layered patches or a slice from the array containing the base text.</p>
+
+<p><img src="../../../img/posts/text-composition-animation.png" alt="Composing the text contents" /></p>
+
+<h2 id="the-patch-data-structure">The patch data structure</h2>
+
+<p>At the heart of this entire system is the <code class="highlighter-rouge">Patch</code> data structure, which describes how a sequence of textual changes can be applied on some input to produce a new output. It contains essentially the same information as you’d obtain by running a <code class="highlighter-rouge">diff</code> on the input and the output, but instead of being constructed by comparing the contents of two buffers, it is constructed incrementally by composing together a series of edits.</p>
+
+<h3 id="the-problem">The problem</h3>
+
+<p>To better understand the problem solved by the <code class="highlighter-rouge">Patch</code>, consider the following example. We start with a buffer containing <code class="highlighter-rouge">xxxx</code>, then perform the following insertions:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">insert B @ 2</code> -&gt; <code class="highlighter-rouge">xxBxx</code></li>
+  <li><code class="highlighter-rouge">insert C @ 4</code> -&gt; <code class="highlighter-rouge">xxBxCx</code></li>
+  <li><code class="highlighter-rouge">insert A @ 1</code> -&gt; <code class="highlighter-rouge">xAxBxCx</code></li>
+</ul>
+
+<p>Afterward, we want a summary of our changes, expressed as a character-wise diff like this:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span>
+  <span class="p">{</span><span class="na">oldRange</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="na">oldText</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span> <span class="na">newRange</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="na">newText</span><span class="p">:</span> <span class="s1">'A'</span><span class="p">},</span>
+  <span class="p">{</span><span class="na">oldRange</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="na">oldText</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span> <span class="na">newRange</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="na">newText</span><span class="p">:</span> <span class="s1">'B'</span><span class="p">},</span>
+  <span class="p">{</span><span class="na">oldRange</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="na">oldText</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span> <span class="na">newRange</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="na">newText</span><span class="p">:</span> <span class="s1">'C'</span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<p>Each entry in this diff has an <code class="highlighter-rouge">oldRange</code> that does not account for any other changes present in the patch. For example, the entry describing the insertion of <code class="highlighter-rouge">C</code> has an <code class="highlighter-rouge">oldRange</code> of <code class="highlighter-rouge">[3, 3]</code>, which excludes the impact of inserting <code class="highlighter-rouge">A</code> and <code class="highlighter-rouge">B</code>. In contrast, each change’s <code class="highlighter-rouge">newRange</code> reflects the spatial impact of all other edits in the patch. For example, the insertion of <code class="highlighter-rouge">C</code> has <code class="highlighter-rouge">newRange</code> of <code class="highlighter-rouge">[5, 6]</code>, which accounts for the insertion of <code class="highlighter-rouge">A</code> and <code class="highlighter-rouge">B</code> earlier in the buffer.</p>
+
+<p>This kind of summary isn’t available from the original stream of edits without additional processing. Consider the insertion of <code class="highlighter-rouge">C</code> at index <code class="highlighter-rouge">4</code>. This index already accounts for the prior insertion of <code class="highlighter-rouge">B</code>, but it doesn’t account for <code class="highlighter-rouge">A</code>, which was inserted prior to <code class="highlighter-rouge">C</code> in <em>space</em> but subsequent to <code class="highlighter-rouge">C</code> in <em>time</em>. To produce the <code class="highlighter-rouge">oldRange</code> and <code class="highlighter-rouge">newRange</code> in the diff shown above, we need to understand the spatial relationship of each change to every other change, regardless of their temporal ordering.</p>
+
+<h3 id="a-naive-solution">A naive solution</h3>
+
+<p>A simple solution to this problem is to store each change in a list, with each change storing its <code class="highlighter-rouge">oldText</code>, <code class="highlighter-rouge">newText</code>, and <code class="highlighter-rouge">distanceFromPreviousChange</code>. We determine the insertion location for each new entry in this list by walking over existing changes. Here is how the change list would evolve given the insertions from the example above.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">assert</span><span class="p">.</span><span class="nx">deepEqual</span><span class="p">(</span><span class="nx">patch</span><span class="p">.</span><span class="nx">changes</span><span class="p">,</span> <span class="p">[])</span>
+
+<span class="nx">patch</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">)</span>
+
+<span class="nx">assert</span><span class="p">.</span><span class="nx">deepEqual</span><span class="p">(</span><span class="nx">patch</span><span class="p">.</span><span class="nx">changes</span><span class="p">,</span> <span class="p">[</span>
+  <span class="p">{</span><span class="na">distanceFromPreviousChange</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">oldText</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span> <span class="na">newText</span><span class="p">:</span> <span class="s1">'B'</span><span class="p">}</span>
+<span class="p">])</span>
+
+<span class="nx">patch</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">)</span>
+
+<span class="nx">assert</span><span class="p">.</span><span class="nx">deepEqual</span><span class="p">(</span><span class="nx">patch</span><span class="p">.</span><span class="nx">changes</span><span class="p">,</span> <span class="p">[</span>
+  <span class="p">{</span><span class="na">oldText</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span> <span class="na">newText</span><span class="p">:</span> <span class="s1">'B'</span><span class="p">,</span> <span class="na">distanceFromPreviousChange</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+  <span class="p">{</span><span class="na">oldText</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span> <span class="na">newText</span><span class="p">:</span> <span class="s1">'C'</span><span class="p">,</span> <span class="na">distanceFromPreviousChange</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="p">])</span>
+
+<span class="nx">patch</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">'A'</span><span class="p">)</span>
+
+<span class="nx">assert</span><span class="p">.</span><span class="nx">deepEqual</span><span class="p">(</span><span class="nx">patch</span><span class="p">.</span><span class="nx">changes</span><span class="p">,</span> <span class="p">[</span>
+  <span class="p">{</span><span class="na">oldText</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span> <span class="na">newText</span><span class="p">:</span> <span class="s1">'A'</span><span class="p">,</span> <span class="na">distanceFromPreviousChange</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
+  <span class="p">{</span><span class="na">oldText</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span> <span class="na">newText</span><span class="p">:</span> <span class="s1">'B'</span><span class="p">,</span> <span class="na">distanceFromPreviousChange</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
+  <span class="p">{</span><span class="na">oldText</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span> <span class="na">newText</span><span class="p">:</span> <span class="s1">'C'</span><span class="p">,</span> <span class="na">distanceFromPreviousChange</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="p">])</span>
+</code></pre></div></div>
+
+<p>In this case, <code class="highlighter-rouge">oldText</code> is always empty because we’re only performing insertions, but it’s easy to express deletions or replacements by using a non-empty value for <code class="highlighter-rouge">oldText</code>. Once we have this list of changes, we can produce the desired summary by iterating through the list, basing the start of each change’s <code class="highlighter-rouge">oldRange</code> and <code class="highlighter-rouge">newRange</code> on the end of these ranges in the previous change.</p>
+
+<h3 id="splay-trees">Splay trees</h3>
+
+<p>The problem with the above approach is that inserting a change in the list may require us to examine every other change, which produces a time complexity of O(n²).</p>
+
+<p>To ensure good performance in the production implementation, we improve the time bound to O(n•log₂n) by using a <a href="https://en.wikipedia.org/wiki/Splay_tree"><em>splay tree</em></a> instead of a simple list. Splay trees are a version of binary search trees that are fairly simple to implement and have a really cool property of being “self-optimizing”. That means that as they are queried and modified, they automatically adjust their structure to make it cheaper to access nodes in close proximity to recently accessed nodes. For randomized workloads, this property isn’t helpful, but for workloads exhibiting a high degree of locality such as those that occur in a text editor, this self-optimizing behavior is super useful.</p>
+
+<p>Splay trees revolve around a remarkably simple principle. Each time a node is accessed, it is rotated to the root of the tree through a special series of pointer rotations known as a <em>splay</em>. Splaying not only moves the node to the root of the tree, but it also reduces the depth of the tree in the vicinity of the node, ensuring that next time we access a nearby node it will be closer to the root and therefore faster to find.</p>
+
+<p><img src="../../../img/posts/splay-diagram.png" alt="Splay diagram" /></p>
+
+<p>One caveat to this entire approach is that O(n•log₂n) is an <em>amortized</em> bound. The cost of any single operation could be as much as O(n), but we pay for any expensive operation by restructuring the tree to make subsequent operations cheaper. In practice, this is fine. Any single linear-time operation usually doesn’t cause a performance issue. It’s only when we start performing <em>multiple</em> linear-time operations in a batch that the time complexity becomes quadratic, and it’s exactly this situation that splay trees help us avoid.</p>
+
+<p>If you’d like to learn more about splay trees, <a href="https://www.youtube.com/watch?v=QnPl_Y6EqMo">this lecture by David Karger from MIT</a> is a great introduction.</p>
+
+<h3 id="augmenting-splay-trees-for-our-use-case">Augmenting splay trees for our use case</h3>
+
+<p>In the literature, splay trees are always presented as simple ordered mappings between keys and values. With our <code class="highlighter-rouge">Patch</code>, we’re solving a somewhat more complicated problem: Our tree needs to maintain the position of each node in both the new and old coordinate spaces in such a way that we can efficiently update the positions of all subsequent nodes whenever a new change is inserted. To do this, instead of associating each node with a constant key, we’ll associate each node with relatively-expressed values that represent the node’s distance from its <em>left ancestor</em> in both old and new coordinate spaces.</p>
+
+<p><img src="../../../img/posts/patch-tree-layout.png" alt="Patch tree layout" /></p>
+
+<p>In the diagram above, each change is shown as a trapezoid that graphically represents the spatial impact of replacing a run of characters. In the list representation we illustrated earlier, the distance from the previous change is always the same in both coordinate spaces, because the text between any two changes is left unmodified. In the tree version, each change stores the distance to its left ancestor, which summarizes the spatial impact of the entire subtree to the left of that change. Each of the darker-shaded nodes above have changes in their left subtrees and therefore differing values for each coordinate space for the distance to their left ancestor. To convert these relative distances into absolute positions, we accumulate a running total in both coordinate spaces as we descend the tree from root to leaf.</p>
+
+<p>To insert a new change, we splay the existing changes that most closely bound the range we are replacing. As we rearrange pointers during the splay operations, we can update the distances to each node’s left ancestor based on locally-available information. Once the lower and upper bound nodes have been rotated to the root of the tree, any nodes <em>between</em> them will be encompassed by the change we are inserting, meaning they can be deleted. We then insert our new change, merging it with one or both of the nodes at the root of the tree depending on whether it overlaps them.</p>
+
+<p><img src="../../../img/posts/patch-tree-splice.png" alt="Patch tree splice" /></p>
+
+<p>For our patch structure, splaying is more than just a mechanism for keeping the tree more balanced. We actually depend on the ability to move nodes to the root of the tree in order to splice new changes into the structure. With a more rigidly balanced data structure such as a red-black tree, it would have been more difficult to rotate nodes to the root in this way without violating critical invariants.</p>
+
+<p>It’s worth noting that in all of the above examples, we’ve used scalar values to represent positions and distances for clarity. In reality, these values are expressed as 2-dimensional vectors made up of rows and columns. This adds some complexity, but the basic ideas remain the same. It’s also worth noting that this structure has utility beyond the buffer representation described in this post. We originally created it to aggregate all changes occurring within each transaction so we can <a href="https://github.com/atom/text-buffer/blob/042704a00354f1fd75207910b4a5736a958f6265/src/text-buffer.coffee#L1940-L1947">notify change listeners with a diff</a> and <a href="https://github.com/atom/text-buffer/blob/042704a00354f1fd75207910b4a5736a958f6265/src/default-history-provider.coffee#L69">store the most compact representation in the undo stack</a>. We also use a patch to <a href="https://github.com/atom/text-buffer/blob/042704a00354f1fd75207910b4a5736a958f6265/src/display-layer.js#L291">index the translation between buffer and screen coordinates</a> in the presence of presentation-oriented transformations such as soft-wrapping and code folding. It’s a <a href="https://github.com/atom/superstring/blob/a8f727614e056bb4511084a8e483161b9691a33b/src/core/patch.cc">complex piece of code</a>, but we get a lot out of it.</p>
+
+<h2 id="some-initial-optimizations">Some initial optimizations</h2>
+
+<p>Moving our buffer implementation to C++ was a win in itself in terms of Atom’s overall efficiency. JavaScript can be quite fast, but fundamentally it’s a scripting language with the unavoidable overhead that implies. By implementing buffers in C++, we eliminate the overhead of JS and gain the control we need to maximize efficiency. We also relieve pressure on the V8 garbage collector by simplifying the heap and allocating fewer short-lived objects on hot code paths. But these improvements are just the beginning. The true value of this new representation is in the optimizations enabled by its layered design.</p>
+
+<h3 id="efficient-backups-of-unsaved-changes">Efficient backups of unsaved changes</h3>
+
+<p>Last January, we had just wrapped up another improvement that enabled Atom to handle much larger files when we discovered a frustrating bottleneck. One of the biggest annoyances when editing big files was the overhead associated with periodically writing the unsaved state of large buffers to disk. At sufficient sizes, even collecting the contents of the buffer up to write asynchronously introduced noticeable pauses, and though we could have muddled through with clever use of <code class="highlighter-rouge">requestIdleCallback</code> and an output stream, we were concerned about the energy impact of writing that much data several times a minute. We’d been thinking about this new buffer design for a while, and we decided that efficient background saves was a good initial motivation to build it.</p>
+
+<p>For the purposes of crash recovery, we only care about the unsaved changes, which our new buffer representation conveniently provides. Now, instead of writing out the entire contents of the buffer, we <a href="https://github.com/atom/superstring/blob/a8f727614e056bb4511084a8e483161b9691a33b/src/core/text-buffer.cc#L636">simply compose all outstanding layers into a single patch</a> and serialize it to disk along with a digest of the base text. The amount of data we’re writing scales with the number of changes rather than the file size, making it much more efficient in most circumstances. There’s still work to do to around files with tens of megabytes of unsaved changes, but these situations are quite rare.</p>
+
+<h3 id="asynchronous-saves">Asynchronous saves</h3>
+
+<p>Prior to 1.19, saving buffers in Atom was a <em>synchronous</em> operation 😱. This is because the code path for writing files pre-dated the creation of Electron, and in those days performing asynchronous I/O from a browser-based desktop application wasn’t as easy as it is today. Happily, this new buffer implementation gave us an opportunity to finally fix this problem in an elegant fashion. Converting the buffer’s contents from UTF-16 to the user’s desired encoding and writing them to disk <a href="https://github.com/atom/superstring/blob/a8f727614e056bb4511084a8e483161b9691a33b/src/bindings/text-buffer-wrapper.cc#L910">is now performed entirely in C++ on a background thread</a>. Before starting the save, we create a snapshot so that the user is free to make additional changes even when saving is slow, such as when using a network drive.</p>
+
+<h3 id="subsequence-matching-in-the-background-during-autocomplete">Subsequence-matching in the background during autocomplete</h3>
+
+<p>By default, Atom’s autocomplete system suggests words from open buffers based on a subsequence match against the characters preceding the cursor. For example, <code class="highlighter-rouge">bna|</code> would produce <code class="highlighter-rouge">banana</code>, <code class="highlighter-rouge">bandaid</code>, and <code class="highlighter-rouge">bandana</code> as suggestions. We then sort suggestions based on a score indicating the quality of the match.</p>
+
+<p>Prior to Atom 1.22, we implemented this feature by maintaining a unique word list for each buffer and running JavaScript on the main thread to match, score, and sort suggestions. While this worked okay for most files, as file sizes increased, the word lists started to consume serious memory and matching suggestions on the main thread could noticeably block the UI.</p>
+
+<p>Thanks to the new buffer implementation, we’re rolling out a new autocomplete provider behind a feature flag with Atom 1.22 that leverages snapshots to do the same job with no memory overhead and no threat to Atom’s responsiveness. Most of the heavy lifting is now performed in a new <code class="highlighter-rouge">TextBuffer.findWordsWithSubsequence</code> method in core that performs <a href="https://github.com/atom/superstring/blob/a8f727614e056bb4511084a8e483161b9691a33b/src/core/text-buffer.cc#L407">matching, scoring, and sorting</a> in a background thread. This means we can start searching for suggestions immediately after each keystroke while other work proceeds on the main thread. By the time the next frame paints, the suggestions are usually available, but we’ll never delay a frame while we search for them. In the rare scenario that suggestions take longer than a frame to compute, we’ll simply render them in a subsequent frame.</p>
+
+<p>To give this new provider a try today, <a href="https://atom.io/beta">download 1.22 beta</a>, navigate to <code class="highlighter-rouge">autocomplete-plus</code> in settings view, and switch the <code class="highlighter-rouge">Default Provider</code> option to <code class="highlighter-rouge">Subsequence</code>.</p>
+
+<p><img src="../../../img/posts/subsequence-provider-setting.png" alt="Subsequence provider setting" /></p>
+
+<p>Please let us know if you experience any issues with the new matching logic. If all goes well, this will be the only default provider included in Atom 1.23.</p>
+
+<h2 id="future-returns">Future returns</h2>
+
+<p>This new buffer representation lays the foundation for many improvements in the future. In the near term, the ability to do non-blocking reads in worker threads will help us improve responsiveness in a number of areas, many of which we have yet to explore.</p>
+
+<p>In the long term, switching our buffer implementation to C++ opens the door to porting other subsystems as well. We’re gradually building up a native library called <a href="https://github.com/atom/superstring"><code class="highlighter-rouge">superstring</code></a> that implements multiple performance-critical components at the core of Atom, like the patch and text storage data structures described in this post. We interoperate with this library from JavaScript via the V8 embedding APIs, but it also has working <a href="https://github.com/atom/superstring/tree/master/src/bindings/em">Emscripten bindings</a> for use outside of Electron. Now that the critical state associated with the buffer has made its way into <code class="highlighter-rouge">superstring</code>, we can incrementally port any performance-critical code path that needs access to the contents of buffers.</p>
+
+<p>To be clear, the approachability and flexibility of JavaScript is a huge asset, so we will always think twice before trading those benefits away for the raw performance of C++, but hopefully this blog post has shown that the constraints of JavaScript don’t represent a fundamental limitation in our quest to deliver excellent performance in Atom.</p>
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2017/10/12/atoms-new-buffer-implementation.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2017/10/12/atoms-new-buffer-implementation.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:35:51 GMT -->
+</html>

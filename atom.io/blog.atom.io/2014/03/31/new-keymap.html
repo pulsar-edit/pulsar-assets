@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2014/03/31/new-keymap.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:37 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Atom’s New Keymap Module | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Atom’s New Keymap Module" />
+<meta name="author" content="nathansobo" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="If you’ve been watching the Atom organization closely on GitHub, you may have noticed that we’ve open-sourced Atom’s keymap module. In this post, we’ll start with a brief overview of how Atom’s keymap works, then explore recent changes that give it better support for for ambiguous multi-keystroke bindings and vim-mode." />
+<meta property="og:description" content="If you’ve been watching the Atom organization closely on GitHub, you may have noticed that we’ve open-sourced Atom’s keymap module. In this post, we’ll start with a brief overview of how Atom’s keymap works, then explore recent changes that give it better support for for ambiguous multi-keystroke bindings and vim-mode." />
+<link rel="canonical" href="new-keymap.html" />
+<meta property="og:url" content="new-keymap.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-03-31T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@nathansobo" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2014/03/31/new-keymap.html"},"url":"https://blog.atom.io/2014/03/31/new-keymap.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"nathansobo"},"headline":"Atom’s New Keymap Module","dateModified":"2014-03-31T00:00:00+00:00","datePublished":"2014-03-31T00:00:00+00:00","author":{"@type":"Person","name":"nathansobo"},"description":"If you’ve been watching the Atom organization closely on GitHub, you may have noticed that we’ve open-sourced Atom’s keymap module. In this post, we’ll start with a brief overview of how Atom’s keymap works, then explore recent changes that give it better support for for ambiguous multi-keystroke bindings and vim-mode.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Atom's New Keymap Module</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> March 31, 2014 <a href="https://github.com/nathansobo" class="author-link"><img class="avatar avatar-small" alt="nathansobo" width="18" height="18" data-proofer-ignore="true" src="https://avatars1.githubusercontent.com/nathansobo?v=3&amp;s=18" srcset="https://avatars1.githubusercontent.com/nathansobo?v=3&s=18 1x, https://avatars1.githubusercontent.com/nathansobo?v=3&s=36 2x, https://avatars1.githubusercontent.com/nathansobo?v=3&s=54 3x, https://avatars1.githubusercontent.com/nathansobo?v=3&s=72 4x" /> nathansobo</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p>If you’ve been watching the <a href="https://github.com/atom">Atom organization</a> closely on GitHub, you
+may have noticed that we’ve <a href="https://github.com/atom/atom-keymap">open-sourced</a> Atom’s keymap module.
+In this post, we’ll start with a brief overview of how Atom’s keymap works, then
+explore recent changes that give it better support for for ambiguous
+multi-keystroke bindings and vim-mode.</p>
+
+<h2 id="background">Background</h2>
+
+<p>Atom’s keymap module associates key bindings with DOM elements in the the same
+way that CSS applies styles: Bindings are associated with CSS selectors. If
+multiple bindings match a single element the one with the most specific selector
+wins.</p>
+
+<p>When a keyboard event occurs on the document, it bubbles upward through the DOM
+as usual. As it bubbles through each element, the keymap module searches for
+the most specific matching binding. If one is found, the bubbling of the
+keyboard event is terminated and a custom <em>command event</em> is dispatched on the
+element instead.</p>
+
+<pre class="editor editor-colors" style="font-family:monospace"><div class="line"><span class="source coffee"><span class="string quoted single coffee"><span class="punctuation definition string begin coffee"><span>&#39;</span></span><span>.editor</span><span class="punctuation definition string end coffee"><span>&#39;</span></span></span><span class="keyword operator coffee"><span>:</span></span></span></div><div class="line"><span class="source coffee"><span>&nbsp;&nbsp;</span><span class="string quoted single coffee"><span class="punctuation definition string begin coffee"><span>&#39;</span></span><span>enter</span><span class="punctuation definition string end coffee"><span>&#39;</span></span></span><span class="keyword operator coffee"><span>:</span></span><span>&nbsp;</span><span class="string quoted single coffee"><span class="punctuation definition string begin coffee"><span>&#39;</span></span><span>editor:insert-newline</span><span class="punctuation definition string end coffee"><span>&#39;</span></span></span></span></div><div class="line"><span class="source coffee"><span>&nbsp;</span></span></div><div class="line"><span class="source coffee"><span class="string quoted single coffee"><span class="punctuation definition string begin coffee"><span>&#39;</span></span><span>.select-list&nbsp;.editor</span><span class="punctuation definition string end coffee"><span>&#39;</span></span></span><span class="keyword operator coffee"><span>:</span></span></span></div><div class="line"><span class="source coffee"><span>&nbsp;&nbsp;</span><span class="string quoted single coffee"><span class="punctuation definition string begin coffee"><span>&#39;</span></span><span>enter</span><span class="punctuation definition string end coffee"><span>&#39;</span></span></span><span class="keyword operator coffee"><span>:</span></span><span>&nbsp;</span><span class="string quoted single coffee"><span class="punctuation definition string begin coffee"><span>&#39;</span></span><span>core:confirm</span><span class="punctuation definition string end coffee"><span>&#39;</span></span></span></span></div></pre>
+
+<p>For example, when the above keymap is loaded, pressing <code class="highlighter-rouge">enter</code> in the editor
+will normally cause a newline to be inserted. But if the editor is inside a
+select-list (such as the autocomplete or fuzzy finder), pressing <code class="highlighter-rouge">enter</code> will
+instead emit a <code class="highlighter-rouge">core:confirm</code> command event and confirm the current selection.
+Just like in CSS, the most <em>specific</em> binding wins.</p>
+
+<p>For more information on keymaps, check out Atom’s <a href="https://flight-manual.atom.io/behind-atom/sections/keymaps-in-depth/">documentation</a>.</p>
+
+<h2 id="progress-on-vim-mode">Progress on Vim Mode</h2>
+
+<p>Thanks to the help of some <a href="https://github.com/atom/vim-mode/graphs/contributors">dedicated contributors</a>, we’ve
+been making steady progress on Atom’s <a href="https://github.com/atom/vim-mode">vim-mode</a> package. Vim users
+use a lot of multi-keystroke bindings, and with that comes greater possibility
+of ambiguity between bindings that share common keystroke prefixes. What makes
+the situation extra tricky with vim mode is that multi-keystroke sequences
+frequently span different modes.</p>
+
+<p><strong>Excerpt from vim-mode’s key bindings:</strong></p>
+
+<pre class="editor editor-colors" style="font-family:monospace"><div class="line"><span class="source coffee"><span class="string quoted single coffee"><span class="punctuation definition string begin coffee"><span>&#39;</span></span><span>.editor.command-mode,&nbsp;.editor.visual-mode</span><span class="punctuation definition string end coffee"><span>&#39;</span></span></span><span class="keyword operator coffee"><span>:</span></span></span></div><div class="line"><span class="source coffee"><span>&nbsp;&nbsp;</span><span class="string quoted single coffee"><span class="punctuation definition string begin coffee"><span>&#39;</span></span><span>d</span><span class="punctuation definition string end coffee"><span>&#39;</span></span></span><span class="keyword operator coffee"><span>:</span></span><span>&nbsp;</span><span class="string quoted single coffee"><span class="punctuation definition string begin coffee"><span>&#39;</span></span><span>vim-mode:delete</span><span class="punctuation definition string end coffee"><span>&#39;</span></span></span></span></div><div class="line"><span class="source coffee"><span>&nbsp;&nbsp;</span><span class="string quoted single coffee"><span class="punctuation definition string begin coffee"><span>&#39;</span></span><span>c</span><span class="punctuation definition string end coffee"><span>&#39;</span></span></span><span class="keyword operator coffee"><span>:</span></span><span>&nbsp;</span><span class="string quoted single coffee"><span class="punctuation definition string begin coffee"><span>&#39;</span></span><span>vim-mode:change</span><span class="punctuation definition string end coffee"><span>&#39;</span></span></span></span></div><div class="line"><span class="source coffee"><span>&nbsp;</span></span></div><div class="line"><span class="source coffee"><span class="string quoted single coffee"><span class="punctuation definition string begin coffee"><span>&#39;</span></span><span>editor.operator-pending.mode,&nbsp;.editor.visual-mode</span><span class="punctuation definition string end coffee"><span>&#39;</span></span></span></span></div><div class="line"><span class="source coffee"><span>&nbsp;&nbsp;</span><span class="string quoted single coffee"><span class="punctuation definition string begin coffee"><span>&#39;</span></span><span>i&nbsp;w</span><span class="punctuation definition string end coffee"><span>&#39;</span></span></span><span class="keyword operator coffee"><span>:</span></span><span>&nbsp;</span><span class="string quoted single coffee"><span class="punctuation definition string begin coffee"><span>&#39;</span></span><span>vim-mode:select-inside-word</span><span class="punctuation definition string end coffee"><span>&#39;</span></span></span></span></div></pre>
+
+<p>So in the example above, to delete inside the current word in vim-mode you type
+<code class="highlighter-rouge">d i w</code>. Similarly, to change the current word you type <code class="highlighter-rouge">c i w</code>. But there’s no
+specific bindings for <code class="highlighter-rouge">d i w</code> and <code class="highlighter-rouge">c i w</code>. Instead, the <code class="highlighter-rouge">d</code> and <code class="highlighter-rouge">c</code> bindings
+shift the editor into <em>operator-pending</em> mode. Once in operator pending mode,
+the sequence <code class="highlighter-rouge">i w</code> is recognized as a command to apply the pending operator to
+the inner-word text object.</p>
+
+<h2 id="sentences-vs-words">Sentences vs. Words</h2>
+
+<p>You can think of individual key bindings as <em>words</em> that vim-mode combines into
+sentences. In the example above, <code class="highlighter-rouge">d</code> is a verb and <code class="highlighter-rouge">i w</code> is the direct object of
+that verb. We wouldn’t want to define a separate word for every possible
+combination. We only want the core keymap to be aware of individual bindings,
+leaving it to packages to determine how individual words are combined.</p>
+
+<p>However, as you can see with the <code class="highlighter-rouge">i w</code> binding, individual bindings can also be
+multi-keystroke. So what happens if you add the following binding?</p>
+
+<pre class="editor editor-colors" style="font-family:monospace"><div class="line"><span class="source coffee"><span class="string quoted single coffee"><span class="punctuation definition string begin coffee"><span>&#39;</span></span><span>.editor.command-mode,&nbsp;.editor.visual-mode</span><span class="punctuation definition string end coffee"><span>&#39;</span></span></span><span class="keyword operator coffee"><span>:</span></span></span></div><div class="line"><span class="source coffee"><span>&nbsp;&nbsp;</span><span class="string quoted single coffee"><span class="punctuation definition string begin coffee"><span>&#39;</span></span><span>d&nbsp;i&nbsp;c&nbsp;e</span><span class="punctuation definition string end coffee"><span>&#39;</span></span></span><span class="keyword operator coffee"><span>:</span></span><span>&nbsp;</span><span class="string quoted single coffee"><span class="punctuation definition string begin coffee"><span>&#39;</span></span><span>dice:roll</span><span class="punctuation definition string end coffee"><span>&#39;</span></span></span><span>&nbsp;</span><span class="comment line number-sign coffee"><span class="punctuation definition comment coffee"><span>#</span></span><span>&nbsp;&lt;--&nbsp;new&nbsp;binding&nbsp;that&#39;s&nbsp;ambiguous&nbsp;with&nbsp;`d`</span></span></span></div><div class="line"><span class="source coffee"><span>&nbsp;&nbsp;</span><span class="string quoted single coffee"><span class="punctuation definition string begin coffee"><span>&#39;</span></span><span>d</span><span class="punctuation definition string end coffee"><span>&#39;</span></span></span><span class="keyword operator coffee"><span>:</span></span><span>&nbsp;</span><span class="string quoted single coffee"><span class="punctuation definition string begin coffee"><span>&#39;</span></span><span>vim-mode:delete</span><span class="punctuation definition string end coffee"><span>&#39;</span></span></span></span></div><div class="line"><span class="source coffee"><span>&nbsp;&nbsp;</span><span class="string quoted single coffee"><span class="punctuation definition string begin coffee"><span>&#39;</span></span><span>c</span><span class="punctuation definition string end coffee"><span>&#39;</span></span></span><span class="keyword operator coffee"><span>:</span></span><span>&nbsp;</span><span class="string quoted single coffee"><span class="punctuation definition string begin coffee"><span>&#39;</span></span><span>vim-mode:change</span><span class="punctuation definition string end coffee"><span>&#39;</span></span></span></span></div><div class="line"><span class="source coffee"><span>&nbsp;</span></span></div><div class="line"><span class="source coffee"><span class="string quoted single coffee"><span class="punctuation definition string begin coffee"><span>&#39;</span></span><span>editor.operator-pending.mode,&nbsp;.editor.visual-mode</span><span class="punctuation definition string end coffee"><span>&#39;</span></span></span></span></div><div class="line"><span class="source coffee"><span>&nbsp;&nbsp;</span><span class="string quoted single coffee"><span class="punctuation definition string begin coffee"><span>&#39;</span></span><span>i&nbsp;w</span><span class="punctuation definition string end coffee"><span>&#39;</span></span></span><span class="keyword operator coffee"><span>:</span></span><span>&nbsp;</span><span class="string quoted single coffee"><span class="punctuation definition string begin coffee"><span>&#39;</span></span><span>vim-mode:select-inside-word</span><span class="punctuation definition string end coffee"><span>&#39;</span></span></span></span></div></pre>
+
+<p>Now when you type <code class="highlighter-rouge">d i</code>, there’s still a chance that you might be typing <code class="highlighter-rouge">d i c
+e</code>. If you end up typing the remaining <code class="highlighter-rouge">c e</code>, we never want to enter operator
+pending mode. But if you end up typing <code class="highlighter-rouge">w</code>, we want to delete inside the current
+word. How can we achieve this behavior without entangling the keymap in the
+business of composing keystrokes.</p>
+
+<h2 id="instant-replay">Instant Replay</h2>
+
+<p>We ended up settling on a solution that <em>enqueues</em> keystrokes when there are
+ambiguous bindings and then <em>replays</em> those keystrokes when the ambiguity is
+resolved. So events in this example situation can unfold in the following ways:</p>
+
+<p>Typing <code class="highlighter-rouge">d i c e</code>:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">d</code>: The keymap notices a partially-matching binding and enters a pending
+state with <code class="highlighter-rouge">d</code> enqueued.</li>
+  <li><code class="highlighter-rouge">i</code>, <code class="highlighter-rouge">c</code>: For both keystrokes, there’s still a partially-matching binding,
+so we enqueue them and renew the pending state.</li>
+  <li><code class="highlighter-rouge">e</code>: There’s an exact match. We clear the queue and invoke the <code class="highlighter-rouge">dice:roll</code>
+command.</li>
+</ul>
+
+<p>Typing <code class="highlighter-rouge">d i w</code>:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">d</code>: The keymap notices a partially-matching binding and enters a pending
+state with <code class="highlighter-rouge">d</code> enqueued.</li>
+  <li><code class="highlighter-rouge">i</code>: There’s still a partially-matching binding, so we enqueue the keystroke
+and renew the pending state.</li>
+  <li><code class="highlighter-rouge">w</code>: No single binding matches <code class="highlighter-rouge">d i w</code>, so we terminate the pending state.
+We temporarily disable the previous partially-matching bindings and replay
+the enqueued keystrokes:
+    <ul>
+      <li><code class="highlighter-rouge">d</code>: This time <code class="highlighter-rouge">d</code> only matches <code class="highlighter-rouge">vim-mode:delete</code> because the <code class="highlighter-rouge">d i c e</code>
+binding is disabled, so we enter operator-pending mode.</li>
+      <li><code class="highlighter-rouge">i</code>: The keymap sees the partially matching <code class="highlighter-rouge">i w</code> binding and puts us
+back in pending mode.</li>
+      <li><code class="highlighter-rouge">w</code>: We replay the <code class="highlighter-rouge">w</code> and now have an exact match against the <code class="highlighter-rouge">i w</code>
+binding, so we dispatch the <code class="highlighter-rouge">vim-mode:select-inside-word</code> command.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Whenever the keymap enters a pending state, it also starts a one second timer
+after which the replay will begin automatically if there are no additional
+keystrokes.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Vim mode still has a ways to go, but hopefully this post illustrates that we
+take modal editing seriously and plan to eventually support the full power of
+Vim’s compositional approach. Operator pending mode along with these changes to
+the keymap were critical first steps.</p>
+
+<p>We’re also excited to see how atom-keymap can be used in other applications.
+It’s pretty Atom-specific right now, meaning it makes some assumptions about
+Atom’s unique Node-enabled environment. But a little work with
+<a href="https://github.com/substack/node-browserify">Browserify</a> should make it possible to incorporate it into
+browser-based web applications.</p>
+
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2014/03/31/new-keymap.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2014/03/31/new-keymap.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:37 GMT -->
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2017/04/18/improving-startup-time.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:02 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Improving Startup Time | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Improving Startup Time" />
+<meta name="author" content="as-cii" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Over the last months, the Atom team has been working hard on improving one of the aspects of the editor our users care about the most: startup time. We will first provide the reader with some background about why reducing startup time is a non-trivial task, then illustrate the optimizations we have shipped in Atom 1.17 (currently in beta) and, finally, describe what other improvements to expect in the future." />
+<meta property="og:description" content="Over the last months, the Atom team has been working hard on improving one of the aspects of the editor our users care about the most: startup time. We will first provide the reader with some background about why reducing startup time is a non-trivial task, then illustrate the optimizations we have shipped in Atom 1.17 (currently in beta) and, finally, describe what other improvements to expect in the future." />
+<link rel="canonical" href="improving-startup-time.html" />
+<meta property="og:url" content="improving-startup-time.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-04-18T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@as-cii" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2017/04/18/improving-startup-time.html"},"url":"https://blog.atom.io/2017/04/18/improving-startup-time.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"as-cii"},"headline":"Improving Startup Time","dateModified":"2017-04-18T00:00:00+00:00","datePublished":"2017-04-18T00:00:00+00:00","author":{"@type":"Person","name":"as-cii"},"description":"Over the last months, the Atom team has been working hard on improving one of the aspects of the editor our users care about the most: startup time. We will first provide the reader with some background about why reducing startup time is a non-trivial task, then illustrate the optimizations we have shipped in Atom 1.17 (currently in beta) and, finally, describe what other improvements to expect in the future.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Improving Startup Time</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> April 18, 2017 <a href="https://github.com/as-cii" class="author-link"><img class="avatar avatar-small" alt="as-cii" width="18" height="18" data-proofer-ignore="true" src="https://avatars2.githubusercontent.com/as-cii?v=3&amp;s=18" srcset="https://avatars2.githubusercontent.com/as-cii?v=3&amp;s=18 1x, https://avatars2.githubusercontent.com/as-cii?v=3&amp;s=36 2x, https://avatars2.githubusercontent.com/as-cii?v=3&amp;s=54 3x, https://avatars2.githubusercontent.com/as-cii?v=3&amp;s=72 4x"> as-cii</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p>Over the last months, the Atom team has been working hard on improving one of the aspects of the editor our users care about the most: startup time. We will first provide the reader with some background about why reducing startup time is a non-trivial task, then illustrate the optimizations we have shipped in Atom 1.17 (currently in <a href="https://atom.io/beta">beta</a>) and, finally, describe what other improvements to expect in the future.</p>
+
+<p><img src="../../../img/posts/startup-time.png" alt="Startup Time Illustration"></p>
+
+<!--more-->
+
+<p>For a long time, we’ve been wanting to have more control over Atom’s startup code. In November of last year, as part of this effort, we created an <a href="https://github.com/atom/atom/issues/13253">in-depth issue</a> that carefully described where time was spent when opening an Atom window. We realized that many of the operations happening during startup were redundant and that we could use the information we knew at build-time to minimize their cost.</p>
+
+<h3 id="v8-snapshots">V8 snapshots</h3>
+
+<p><a href="https://v8project.blogspot.it/2015/09/custom-startup-snapshots.html">V8 snapshots</a> allow Electron applications to execute some arbitrary JavaScript code and output a binary file containing a serialized heap with all the data that is left in memory after running a GC at the end of the provided script.</p>
+
+<p>This perfectly suits the startup scenario described above because snapshots can be used to eagerly perform work when building Atom; then, at runtime, we can simply reuse the JavaScript objects that were created as part of the snapshotting phase, thus reducing the amount of work needed to load a window. The tricky part of using this technology, however, is that the code is executed in a bare V8 context. In other words, it only allows us to run plain JavaScript code and does not provide access to native modules, Node/Electron APIs or DOM manipulation.</p>
+
+<p>While this constraint was remarkably restrictive, we still saw a great potential in using snapshots as a tool to make our startup situation better, and so we started experimenting with different approaches that could allow us to use them in Atom. One of them was to try using V8 native APIs to load Node/Electron into the snapshot context so that we could work around the limitation of not being able to use modules like <code class="highlighter-rouge">path</code>, <code class="highlighter-rouge">fs</code>, etc. This turned out to be non-trivial though, especially because some of the modules that Electron and Node access when they boot up rely on native code, which is very difficult to deal with in snapshots.</p>
+
+<p>Therefore, in order to circumvent some of the restrictions discussed above, we started exploring a simpler approach. Specifically, we decided to defer the usage of forbidden APIs until runtime so that all the other computation could still happen as part of the snapshot script. To do so, we set out to create a tool that automated this process without compromising code readability: electron-link.</p>
+
+<h3 id="electron-link">electron-link</h3>
+
+<p><a href="https://github.com/atom/electron-link">electron-link</a> is a node module that takes a JavaScript file (typically the entry point of an application) and a list of modules that need to be required lazily (see <a href="https://github.com/atom/atom/blob/d9ebd7e125d5f07def1a057a0a8278d4d9d7d23a/script/lib/generate-startup-snapshot.js#L19-L65">Atom’s build scripts</a> for an example). Then, starting from that file, it traverses the entire require graph and replaces all the forbidden <code class="highlighter-rouge">require</code> calls in each file with a function that will be called at runtime. The output is a single script containing the code for all the modules reachable from the entry point. This file can be then supplied to <code class="highlighter-rouge">mksnapshot</code> to generate the snapshot blob, which will be eventually used by Electron.</p>
+
+<p>electron-link can also determine whether a module can be snapshotted or not. For instance, the following code can be snapshotted:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'path'</span><span class="p">)</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>And generates the following code:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">path</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">get_path</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">path</span> <span class="o">||</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'path'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">get_path</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>You can notice that the above code is valid because the forbidden module (i.e. <code class="highlighter-rouge">path</code>) is used inside a function that doesn’t get called when requiring the script. On the other hand, when trying to process the following code, electron-link will throw an error because it is trying to access a forbidden module right when it gets required:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'path'</span><span class="p">)</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Being a tool based on static analysis, however, electron-link is unable to detect all the cases where a piece of code can’t be included in a snapshot. Therefore, as part of the build process, Atom will <a href="https://github.com/atom/atom/blob/d9ebd7e125d5f07def1a057a0a8278d4d9d7d23a/script/lib/generate-startup-snapshot.js#L70-L71">run the generated JavaScript file</a> in an empty V8 context (similar to the one provided by <code class="highlighter-rouge">mksnapshot</code>) and catch any invalid code that potentially slipped through.</p>
+
+<h3 id="custom-elements-and-jquery">Custom Elements and jQuery</h3>
+
+<p>As you may remember from the previous section, requiring native modules or using Node APIs is not the only forbidden operation in V8 snapshots. In fact, DOM APIs can’t be accessed either when requiring a script. This was quite challenging from a technical standpoint, because many of our bundled packages used jQuery or HTML custom elements. The former used some feature detection techniques that relied on DOM globals, while, in order to use the latter, objects needed to extend the <code class="highlighter-rouge">HTMLElement</code> class, which is not available when generating a snapshot.</p>
+
+<p>To solve both of these issues we could have taken some shortcuts by, for example, patching jQuery to stop performing feature detection at require time. However, we realized that neither jQuery nor custom elements were providing any tangible benefit to our users. In the case of jQuery it was quite the opposite, as sometimes it would cause unnecessary DOM reflows and a slower user experience. As such, we decided to take this as an opportunity to remove them from the codebase and improve Atom’s code quality.</p>
+
+<p>For the most curious, <a href="https://github.com/atom/atom/issues/13254">#13254</a> provides a summary of all the work that went into this process, along with the relevant pull requests.</p>
+
+<h3 id="improving-require-time">Improving <code class="highlighter-rouge">require</code> time</h3>
+
+<p>All the tasks illustrated in the sections above laid the groundwork for finally reducing startup time. After dealing with all those roadblocks, we started addressing one of the major sources of slowness when opening Atom: calling <code class="highlighter-rouge">require</code>. Requiring a module involves the following steps:</p>
+
+<ul>
+  <li>Resolving the module, as explained in <a href="https://nodejs.org/api/modules.html#modules_all_together">Node’s documentation</a>.</li>
+  <li>Reading synchronously its contents.</li>
+  <li>Compiling it.</li>
+  <li>Executing it.</li>
+</ul>
+
+<p>Each of them has a cost, and in a big codebase like Atom’s this cost is even more emphasized. For instance, take the following CPU profile of the initialization code:</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/482957/24651248/64939ff2-192d-11e7-9101-5cb22a7aa1da.png" alt="before-require-improvements"></p>
+
+<p>You can notice how a lot of it is spent in <code class="highlighter-rouge">Module._compile</code> and <code class="highlighter-rouge">require</code>. On average it took <code class="highlighter-rouge">~ 0.9s-1.0s</code> to load a stock Atom window and activate its packages when no editor was open and the tree-view was closed. By using snapshots, we were able to cut this cost down to <code class="highlighter-rouge">~ 0.7s-0.8s</code>, thus improving startup time by 15-20%.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/482957/24651246/64864370-192d-11e7-85db-7ee669b36a07.png" alt="after-require-improvements"></p>
+
+<p>For more details, please check out <a href="https://github.com/atom/atom/pull/13916">#13916</a>.</p>
+
+<h3 id="eagerly-constructing-the-atom-global">Eagerly constructing the <code class="highlighter-rouge">atom</code> global</h3>
+
+<p>Atom exposes many of its functionality through the <code class="highlighter-rouge">atom</code> global. This object is an instance of <code class="highlighter-rouge">AtomEnvironment</code> and, when created, takes care of loading the workspace, keymaps, configuration, etc. This is summarized by the following CPU profile:</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/482957/24651244/64709aac-192d-11e7-9da2-712ebfc9d38b.png" alt="before-atom-env-improvements"></p>
+
+<p>Even though some of these tasks are dynamic (e.g. reading the user’s configuration), others are repeated every time a new window is created and, thus, waste CPU cycles and I/O resources. Similarly to what we did for requiring modules, we used snapshots to improve this code path, making it two times faster.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/482957/24651245/64732542-192d-11e7-8108-1e1bae8cd7cb.png" alt="after-atom-env-improvements"></p>
+
+<p>For more details, please check out <a href="https://github.com/atom/atom/pull/14024">#14024</a>.</p>
+
+<h3 id="optimizing-style-sheet-loading">Optimizing style sheet loading</h3>
+
+<p>After the improvements described above, all the noise related to requiring modules and constructing the <code class="highlighter-rouge">AtomEnvironment</code> disappeared from the graph, which emphasized other problems that were affecting startup time. Specifically, we started noticing that reading style sheets was causing significant slowdowns, especially on machines with a slow hard drive:</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/482957/24651247/64872dc6-192d-11e7-9b64-e1a54be9e2db.png" alt="before-style-sheets-improvements"></p>
+
+<p>Almost every package that ships with Atom has a style sheet that customizes its appearance; considering that we ship 58 packages, we decided to bake all the core style sheets into the snapshot in order to make them already available when loading core packages at runtime. This resulted in a <code class="highlighter-rouge">~ 100ms</code> improvement on a fast machine with an SSD but, since most of this work was I/O bound, we expect it to be even more noticeable on slower hardware.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/482957/24651243/646f6876-192d-11e7-80d6-11a30e207dc9.png" alt="after-style-sheets-improvements"></p>
+
+<p>For more details, please check out <a href="https://github.com/atom/atom/pull/14038">#14038</a>.</p>
+
+<h3 id="preloading-bundled-packages">Preloading bundled packages</h3>
+
+<p>The last optimization that could be achieved thanks to snapshots was to reduce the cost associated to loading and activating bundled packages. This involves reading keymaps, settings, menus, etc. and registering them. As shown in the CPU profile below, doing this work in the snapshot allowed us to save <code class="highlighter-rouge">~ 60-90ms</code>:</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/482957/24651242/646efdb4-192d-11e7-9a4b-ec33cee7866d.png" alt="after-packages-preloading"></p>
+
+<p>This is confirmed by Timecop, which highlights how packages loading alone became almost instantaneous:</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/482957/24651241/646e8398-192d-11e7-9bc7-79b0dc789064.png" alt="timecop-after-packages-preloading"></p>
+
+<p>For more details, please check out <a href="https://github.com/atom/atom/pull/14080">#14080</a>.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>This marks the end of the first round of performance improvements to startup time. Overall, on a stock installation, we made loading Atom almost <strong>50% faster</strong> and snapshots were a crucial tool that enabled some otherwise impossible optimizations.</p>
+
+<p>Performance continues to be one of the concerns the Atom team cares about the most. We believe there are still many things we can do to reduce startup time even further and, in the future, we would like to explore an approach where we take full advantage of Electron’s multi-process architecture. Specifically, the main process (which was not affected by the improvements described in this blog post) and the renderer process could load almost in parallel, as opposed to the current situation where we fully load the main process first and only then spawn child renderer processes.</p>
+
+<p>As always, we will keep you posted as we make progress on these enhancements. In the meantime we hope you will enjoy opening your editor faster with <a href="https://atom.io/beta">Atom 1.17 Beta</a>! <img class="emoji" title=":zap:" alt=":zap:" src="https://github.githubassets.com/images/icons/emoji/unicode/26a1.png" height="20" width="20"></p>
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2017/04/18/improving-startup-time.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2017/04/18/improving-startup-time.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:02 GMT -->
+</html>

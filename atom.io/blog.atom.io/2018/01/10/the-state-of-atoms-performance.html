@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2018/01/10/the-state-of-atoms-performance.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:35:34 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>The State of Atom’s Performance | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="The State of Atom’s Performance" />
+<meta name="author" content="maxbrunsfeld" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Our original goal in building Atom was to create the most hackable text editor that we could imagine. This overarching goal shaped Atom’s architecture and our team’s early priorities. Since Atom launched, its extensibility has been validated by numerous ambitious projects that have been built on top of it, like Facebook’s Nuclide, the Juno IDE for Julia, and the Learn.co IDE, as well as by the thousands of community packages and themes published to atom.io. Atom has proven to be as extensible as we had hoped, and our focus over the last two years has shifted from building out an extensible system to achieving excellent performance. Now that 2017 has come to an end, we’re taking a moment to reflect on the performance improvements that we’ve made in the past year and the next improvements we’ll be tackling in 2018." />
+<meta property="og:description" content="Our original goal in building Atom was to create the most hackable text editor that we could imagine. This overarching goal shaped Atom’s architecture and our team’s early priorities. Since Atom launched, its extensibility has been validated by numerous ambitious projects that have been built on top of it, like Facebook’s Nuclide, the Juno IDE for Julia, and the Learn.co IDE, as well as by the thousands of community packages and themes published to atom.io. Atom has proven to be as extensible as we had hoped, and our focus over the last two years has shifted from building out an extensible system to achieving excellent performance. Now that 2017 has come to an end, we’re taking a moment to reflect on the performance improvements that we’ve made in the past year and the next improvements we’ll be tackling in 2018." />
+<link rel="canonical" href="the-state-of-atoms-performance.html" />
+<meta property="og:url" content="the-state-of-atoms-performance.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-01-10T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@maxbrunsfeld" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2018/01/10/the-state-of-atoms-performance.html"},"url":"https://blog.atom.io/2018/01/10/the-state-of-atoms-performance.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"maxbrunsfeld"},"headline":"The State of Atom’s Performance","dateModified":"2018-01-10T00:00:00+00:00","datePublished":"2018-01-10T00:00:00+00:00","author":{"@type":"Person","name":"maxbrunsfeld"},"description":"Our original goal in building Atom was to create the most hackable text editor that we could imagine. This overarching goal shaped Atom’s architecture and our team’s early priorities. Since Atom launched, its extensibility has been validated by numerous ambitious projects that have been built on top of it, like Facebook’s Nuclide, the Juno IDE for Julia, and the Learn.co IDE, as well as by the thousands of community packages and themes published to atom.io. Atom has proven to be as extensible as we had hoped, and our focus over the last two years has shifted from building out an extensible system to achieving excellent performance. Now that 2017 has come to an end, we’re taking a moment to reflect on the performance improvements that we’ve made in the past year and the next improvements we’ll be tackling in 2018.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">The State of Atom's Performance</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> January 10, 2018 <a href="https://github.com/maxbrunsfeld" class="author-link"><img class="avatar avatar-small" alt="maxbrunsfeld" width="18" height="18" data-proofer-ignore="true" src="https://avatars3.githubusercontent.com/maxbrunsfeld?v=3&amp;s=18" srcset="https://avatars3.githubusercontent.com/maxbrunsfeld?v=3&s=18 1x, https://avatars3.githubusercontent.com/maxbrunsfeld?v=3&s=36 2x, https://avatars3.githubusercontent.com/maxbrunsfeld?v=3&s=54 3x, https://avatars3.githubusercontent.com/maxbrunsfeld?v=3&s=72 4x" /> maxbrunsfeld</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p>Our original goal in building Atom was to create the most hackable text editor that we could imagine. This overarching goal shaped Atom’s architecture and our team’s early priorities. Since Atom launched, its extensibility has been validated by numerous ambitious projects that have been built on top of it, like <a href="https://nuclide.io/">Facebook’s Nuclide</a>, <a href="http://junolab.org/">the Juno IDE for Julia</a>, and <a href="https://learn.co/lessons/learn-environment-setup">the Learn.co IDE</a>, as well as by the thousands of community packages and themes published to <a href="https://atom.io/packages">atom.io</a>.</p>
+
+<p>Atom has proven to be as extensible as we had hoped, and our focus over the last two years has shifted from building out an extensible system to achieving excellent performance. Now that 2017 has come to an end, we’re taking a moment to reflect on the performance improvements that we’ve made in the past year and the next improvements we’ll be tackling in 2018.</p>
+
+<!--more-->
+
+<h1 id="startup-time">Startup Time</h1>
+
+<p>Atom takes longer to start up than text editors like Vim and Sublime Text because of the dynamic architecture of the app. The majority of our code is written in JavaScript as opposed to C or C++, which is important for Atom’s extensibility, but makes it more challenging to ensure that the app starts quickly.</p>
+
+<h3 id="2017s-improvements">2017’s Improvements</h3>
+
+<p><strong>Startup Snapshots</strong> - In March, we started making use of a relatively new feature of the V8 JavaScript runtime called <a href="https://v8project.blogspot.com/2015/09/custom-startup-snapshots.html"><em>custom startup snapshots</em></a>. This feature allows us to perform major parts of Atom’s initialization ahead of time on our build servers: not just source code compilation (as is done with C or C++) but even <a href="https://github.com/atom/atom/pull/14024">the construction of complex object graphs on the heap</a>. Using startup snapshots required us to make major architectural changes. In order to avoid making DOM calls during initialization, we removed the use of jQuery and custom HTML elements from our entire codebase, and we built a tool called <a href="http://github.com/atom/electron-link">electron-link</a> to <em>transform</em> our code into a script suitable for snapshotting. These investments paid off: we’ve already cut our initial startup time in half.</p>
+
+<h3 id="next-steps">Next Steps</h3>
+
+<p><strong>Expanding our Startup Snapshot</strong> - Since we made our initial investments in startup snapshots, the V8 team has <a href="https://v8project.blogspot.com/2017/05/energizing-atom-with-v8s-custom-start.html">made further improvements</a> to the feature. It is now possible for us to include in the snapshot even more parts of our code, such as those that include bindings to native code.</p>
+
+<p><strong>Deferring Package Loading</strong> - Many packages can be loaded after the window has initially rendered without affecting the experience of using Atom. By doing this, we can mostly eliminate the impact of users’ installed packages on startup time.</p>
+
+<p><strong>Snapshotting Installed Packages</strong> - Some packages <em>do</em> need to be activated before we render anything. One weakness of our current startup snapshot is that it does not include the code of any community packages that you have installed.  We may start including the snapshot-creation utilities as part of Atom so that we can automatically create snapshots of users’ customized Atom environments.</p>
+
+<p><strong>Native Launcher</strong> - Currently, opening an Atom window requires briefly starting up a new Electron process even if the Atom application is already running. We plan to rework our application startup process by introducing a dedicated native executable that checks for a running Atom application and boots one up if needed.</p>
+
+<h1 id="typing-latency">Typing Latency</h1>
+
+<p>Historically, Atom’s extensibility has required us to perform some expensive computation on every keystroke. Last year, we made several major changes to eliminate these costs without sacrificing hackability.</p>
+
+<h3 id="2017s-improvements-1">2017’s Improvements</h3>
+
+<p><strong>Text Rendering Rewrite</strong> - Atom renders text using the DOM in order to allow for effortless theming and customization. In May, we <a href="../../../2017/06/22/a-new-approach-to-text-rendering.html">rewrote Atom’s text rendering system</a> from scratch, with the goal of making DOM updates after keystrokes as efficient as possible. We made use of the latest DOM technologies and rendering techniques, and built a tiny React-like library called <a href="https://github.com/atom/etch"><code class="highlighter-rouge">etch</code></a> that allows us to structure our rendering code cleanly while still allowing for imperative DOM manipulation for maximal performance in certain code paths. The result is that when typing, typical DOM updates now take less than 5 milliseconds: well within the range required for smooth animation and low energy usage.</p>
+
+<p><strong>Batched Text Change Events</strong> - In order to allow packages to customize every aspect of Atom’s behavior, we expose numerous event APIs for observing different kinds of changes in the editor. Originally, some of these events were emitted many times during bulk editing operations like multi-cursor typing. In October, we <a href="https://github.com/atom/text-buffer/pull/270">reworked</a> <a href="https://github.com/atom/text-buffer/pull/273">these</a> <a href="https://github.com/atom/text-buffer/pull/274">APIs</a> to batch the change events up until the ends of <em>transactions</em> such that packages won’t introduce latency by using these event APIs.</p>
+
+<h3 id="next-steps-1">Next Steps</h3>
+
+<p><strong>Further Batching of Text Change Handling</strong> - Now that we have reworked our editor change events, we can defer other change handling in our system with the knowledge that package code will never be notified of a change in the middle of a transaction.</p>
+
+<p><strong>Batching marker events</strong> – Atom has an abstraction called markers that allow logical regions to be tracked in the presence of changes to the buffer. Markers currently expose a subscription API that allows a listener to be notified whenever a marker changes position. Unfortunately, when the number of markers is large, subscribing to markers individually via these APIs produces the same kinds of problems as subscribing to individual change events, and we need to take steps to push the ecosystem toward batched APIs for markers as well.</p>
+
+<p><strong>Simplifying Markup and Styling</strong> - There are still ways we can optimize our text rendering further. After the rewrite, one expensive step in each frame is <a href="https://developers.google.com/web/fundamentals/performance/rendering/reduce-the-scope-and-complexity-of-style-calculations"><em>style recalculation</em></a>. We believe that this step takes longer than necessary because some of our CSS is written in a naive style that makes heavy use of nested selectors. We’re already writing new CSS in the more efficient <a href="http://getbem.com/">BEM style</a> and going forward, we’ll be migrating our older style sheets to use this style.</p>
+
+<p><strong>New Parsing System</strong> - One source of latency in Atom’s keystroke handling is our syntax-highlighting system, <a href="https://github.com/atom/first-mate"><code class="highlighter-rouge">First Mate</code></a>, which implements the TextMate grammar API. In the coming months, we’ll be <a href="https://github.com/atom/atom/pull/16299">rolling out</a> a new incremental parsing system called <a href="http://github.com/tree-sitter/tree-sitter"><code class="highlighter-rouge">Tree-sitter</code></a> that will serve as the basis for improved syntax highlighting, code folding, auto-indent, and other new features. Using Tree-sitter, we will be able to perform parsing more efficiently and on background threads in some cases. Moving away from TextMate grammars will also allow us to produce simpler markup for syntax-highlighting, which should further reduce the style recalculation times mentioned above.</p>
+
+<h1 id="scaling-to-large-files-and-projects">Scaling to Large Files and Projects</h1>
+
+<p>Many features in Atom were initially developed and tested using files and repositories of moderate sizes. Last year we took our biggest steps yet in overhauling Atom from the core outward so that it handles large files and projects optimally.</p>
+
+<h3 id="2017s-improvements-2">2017’s Improvements</h3>
+
+<p><strong>Native Text Buffer</strong> - In June, we <a href="../../../2017/10/12/atoms-new-buffer-implementation.html">rewrote</a> our core TextBuffer data structure in C++ using a memory-efficient data structure similar to a <a href="https://en.wikipedia.org/wiki/Piece_table">Piece Table</a>. The result is that large files now open quickly, and Atom’s core data structures no longer impose significant memory costs when editing them. This change also makes it very easy to perform computations based on the buffer in background threads.</p>
+
+<p><strong>Autocomplete Rewrite</strong> - In September, we <a href="https://github.com/atom/superstring/pull/22">developed</a> a new autocomplete system that performs fuzzy searching and scoring on background threads. This allowed us to get rid of an expensive indexing strategy that our previous autocomplete system required and to fully enable autocomplete in buffers of any size.</p>
+
+<h3 id="next-steps-2">Next Steps</h3>
+
+<p><strong>New Filesystem Watcher</strong> - Atom watches your filesystem so that it can quickly respond to changes in your project files or Git state. When working in large directories, this filesystem-watching can be memory-intensive. That’s why we have developed <a href="https://github.com/atom/watcher">a brand-new cross-platform filesystem watching library</a> with performance and scalability in mind. Integrating this library into Atom will fix a number of filesystem-related performance problems.</p>
+
+<p><strong>Native Display Index</strong> - Now that the text buffer itself has been dropped to native code, there are a few related code paths in Atom that would benefit significantly from being ported to C++ or Rust and incorporating background threads. One is Atom’s <em>display index</em> - the structure that stores the locations of things like soft wraps, folds and hard tabs. This data structure is already very compact in memory, but the code that populates it can be slow. Currently, if you open a very large file in Atom and try to immediately scroll to the bottom, Atom will hang while the display index is populated.</p>
+
+<p><strong>Native Find-and-replace</strong> - Another computation that we can now move to a background thread is the core of our find-and-replace implementation. This code is already pretty efficient thanks to our native <a href="https://github.com/atom/superstring#markerindex">Marker Index</a> data structure, but it causes perceptible lag when there are upwards of a hundred thousand search results. We can now remove JavaScript entirely from this code path and prevent it from blocking the UI at all.</p>
+
+<p><strong>Removing remaining synchronous IO:</strong> - Atom still uses synchronous IO (which blocks the UI thread) in some places. This is because we created Atom before GitHub created <a href="https://electronjs.org/">Electron</a>, so Node.js APIs were not available from the outset. Much of the synchronous IO has been eliminated, but there are several Git-related code paths that we still have not updated, and which kills the experience of editing on remote drives like SSHFS for some users. We need to revisit these code paths and convert them all to use asynchronous IO.</p>
+
+<p><strong>Faster Project Search Tools</strong> - We’d like to start using <a href="https://github.com/ggreer/the_silver_searcher">The Silver Searcher</a> or <a href="https://github.com/BurntSushi/ripgrep">ripgrep</a> to power our project search and <a href="https://github.com/sharkdp/fd"><code class="highlighter-rouge">fd</code></a> or similar to populate our fuzzy-finder list. This would improve the experience of using Atom in very large directories.</p>
+
+<h1 id="baseline-memory-usage">Baseline Memory Usage</h1>
+
+<p>Atom currently uses more memory than text editors like Vim, but the app’s typical memory usage has decreased significantly in the last two years. Our goal is to improve Atom’s memory efficiency to the point where it is never significant.</p>
+
+<h3 id="2017s-improvements-3">2017’s Improvements</h3>
+
+<p>Several of the improvements discussed in previous sections have had side effects of improving Atom’s memory usage significantly. In August, after we released Atom 1.19 (which included the text buffer and text rendering rewrites), our friends at Facebook shared with us a graph that showed a significant drop in Atom’s memory usage for engineers within Facebook. Atom 1.19 used less than half as much memory as Atom 1.18 for these users. Note also that these numbers are for users running Nuclide, which adds substantial functionality to Atom and increases its memory usage. Typical Atom users should see lower memory consumption.</p>
+
+<p><img src="../../../img/posts/nuclide-memory-usage-graph.png" alt="Decline in Memory Usage" /></p>
+
+<h3 id="next-steps-3">Next Steps</h3>
+
+<p><strong>Native Spawn server</strong> - A significant fraction of Atom’s typical memory consumption is due to a helper process that we use to work around a <a href="https://github.com/nodejs/node/issues/14917">performance issue</a> with the Node.js child process APIs. We plan to eliminate this memory usage by <a href="https://github.com/nathansobo/spawn-server">rewriting this helper process</a> in <a href="https://www.rust-lang.org/">Rust</a>.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>In 2017, we invested heavily in improving Atom’s performance. Many of those investments will continue to pay off in 2018, and we will continue to invest in the structural improvements necessary to achieve world-class performance in Atom. If you’re interested in getting involved with these performance improvements, please do! For more information about how to get involved, see Atom’s <a href="https://github.com/atom/atom/blob/master/CONTRIBUTING.md">Contributing guide</a>.</p>
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2018/01/10/the-state-of-atoms-performance.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2018/01/10/the-state-of-atoms-performance.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:35:35 GMT -->
+</html>

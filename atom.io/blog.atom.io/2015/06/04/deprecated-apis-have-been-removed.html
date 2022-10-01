@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2015/06/04/deprecated-apis-have-been-removed.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Deprecated APIs Have Been Removed | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Deprecated APIs Have Been Removed" />
+<meta name="author" content="benogle" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="As of Atom 0.206.0, deprecated APIs will not be available by default, and packages using deprecated APIs will no longer be loaded." />
+<meta property="og:description" content="As of Atom 0.206.0, deprecated APIs will not be available by default, and packages using deprecated APIs will no longer be loaded." />
+<link rel="canonical" href="deprecated-apis-have-been-removed.html" />
+<meta property="og:url" content="deprecated-apis-have-been-removed.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-06-04T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@benogle" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2015/06/04/deprecated-apis-have-been-removed.html"},"url":"https://blog.atom.io/2015/06/04/deprecated-apis-have-been-removed.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"benogle"},"headline":"Deprecated APIs Have Been Removed","dateModified":"2015-06-04T00:00:00+00:00","datePublished":"2015-06-04T00:00:00+00:00","author":{"@type":"Person","name":"benogle"},"description":"As of Atom 0.206.0, deprecated APIs will not be available by default, and packages using deprecated APIs will no longer be loaded.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Deprecated APIs Have Been Removed</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> June 4, 2015 <a href="https://github.com/benogle" class="author-link"><img class="avatar avatar-small" alt="benogle" width="18" height="18" data-proofer-ignore="true" src="https://avatars3.githubusercontent.com/benogle?v=3&amp;s=18" srcset="https://avatars3.githubusercontent.com/benogle?v=3&amp;s=18 1x, https://avatars3.githubusercontent.com/benogle?v=3&amp;s=36 2x, https://avatars3.githubusercontent.com/benogle?v=3&amp;s=54 3x, https://avatars3.githubusercontent.com/benogle?v=3&amp;s=72 4x"> benogle</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p>As of Atom <a href="https://github.com/atom/atom/releases/tag/v0.206.0"><code class="highlighter-rouge">0.206.0</code></a>, deprecated APIs will not be available by default, and packages using deprecated APIs will no longer be loaded.</p>
+
+<h2 id="the-journey">The Journey</h2>
+
+<p>When Atom was first released, the API was a product of organic growth. At the time, we were the only consumers of the API, so we added methods here and there guided by the needs of the internal packages. The resulting API was incomplete and inconsistent, but it was a necessary step in the evolution to our API today. It was a period of exploration. What kinds of things do we need to do? How should those things be exposed? The original API that shipped with Atom ended up being a great rough draft.</p>
+
+<p>After releasing Atom into the wild and seeing hundreds of packages written against the API, our understanding of the requirements deepened. We saw what people were <a href="https://github.com/atom/atom/pull/5277">struggling with</a>, what <a href="https://github.com/atom/atom/pull/3469">was slow</a>, and patterns many <a href="../../../2014/07/24/decorations.html">package authors were repeating</a> over and over. This knowledge led to a major refactor of the API and <a href="https://atom.io/docs/api/latest/Atom">new docs</a> that were released <a href="../../01/15/announcing-the-atom-1-api.html">nearly 6 months ago</a>.</p>
+
+<p>Since then, the new API has been holding up with minimal additions to the nearly 1000 new packages and 800 upgraded packages.</p>
+
+<h2 id="what-is-changing">What is changing</h2>
+
+<h3 id="faster">Faster</h3>
+
+<p>Atom <code class="highlighter-rouge">0.206.0</code>’s startup time and general performance has improved—it no longer needs to emit old events or create unnecessary objects. Removing these APIs also frees us up to make optimizations that would be hard to shoehorn into the code in a backward-compatible way.</p>
+
+<h3 id="some-packages-will-not-load">Some packages will not load</h3>
+
+<p>There are <a href="https://gist.github.com/benogle/afad37e6c8de58272128">172 remaining packages</a> with deprecations. Atom will not load these packages in their current form. When starting Atom <code class="highlighter-rouge">0.206.0</code> for the first time, you may see a notification indicating which packages were not loaded:</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/69169/7992929/87bb0f8c-0ab7-11e5-9b0a-97ecb58f7a8b.png" alt="notification"></p>
+
+<p>The button will take you to a page in the Settings View explaining exactly why each package was not loaded, and what you can do:</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/69169/7992930/87bde90a-0ab7-11e5-8576-15f848c0608e.png" alt="settings-view"></p>
+
+<p>These packages are not dead forever! You can load them once they are updated to be deprecation free. If you see a package on <a href="https://gist.github.com/benogle/afad37e6c8de58272128">the list</a> that you rely on, feel free open an issue on the package repo, or offer to take over as maintainer.</p>
+
+<h3 id="a-short-term-stopgap">A short-term stopgap</h3>
+
+<p>For a short time you will still be able to load deprecated packages by starting atom with the <code class="highlighter-rouge">--include-deprecated-apis</code> flag. e.g. <code class="highlighter-rouge">atom --include-deprecated-apis .</code> This will both enable the deprecated APIs and allow packages that use these APIs to load. To be clear: we plan to remove this flag and all of the deprecated APIs before the end of June. But we wanted to offer a way out for people who depend on a deprecated package.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Even though packages that won’t load may cause some pain, removing deprecated APIs will pave the way for a tighter, more consistent, and more performant Atom. Shedding the weight of our original API gets us one step closer to Atom 1.0, helps us remove code debt, and frees up the core team to focus on user-facing tasks.</p>
+
+<p>I wanted to give a huge shout-out to all those who updated their packages in the <a href="https://github.com/atom/atom/issues/6867">last two weeks</a>. You have significantly reduced the frustration caused by removing these APIs. <img class="emoji" title=":heart:" alt=":heart:" src="https://github.githubassets.com/images/icons/emoji/unicode/2764.png" height="20" width="20"> <img class="emoji" title=":green_heart:" alt=":green_heart:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f49a.png" height="20" width="20"></p>
+
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2015/06/04/deprecated-apis-have-been-removed.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2015/06/04/deprecated-apis-have-been-removed.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:19 GMT -->
+</html>

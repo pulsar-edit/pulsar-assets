@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2015/11/12/atom-1-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Atom 1.2 | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Atom 1.2" />
+<meta name="author" content="benogle" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Two weeks ago we released Atom 1.1.0 which was first stable release to pass through the new Atom beta channel. We’d like to keep up the release cadence and get new things into your hands as quickly as we can. Today, we’re proud to announce Atom 1.2 stable and 1.3.0-beta0." />
+<meta property="og:description" content="Two weeks ago we released Atom 1.1.0 which was first stable release to pass through the new Atom beta channel. We’d like to keep up the release cadence and get new things into your hands as quickly as we can. Today, we’re proud to announce Atom 1.2 stable and 1.3.0-beta0." />
+<link rel="canonical" href="atom-1-2.html" />
+<meta property="og:url" content="atom-1-2.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-11-12T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@benogle" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2015/11/12/atom-1-2.html"},"url":"https://blog.atom.io/2015/11/12/atom-1-2.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"benogle"},"headline":"Atom 1.2","dateModified":"2015-11-12T00:00:00+00:00","datePublished":"2015-11-12T00:00:00+00:00","author":{"@type":"Person","name":"benogle"},"description":"Two weeks ago we released Atom 1.1.0 which was first stable release to pass through the new Atom beta channel. We’d like to keep up the release cadence and get new things into your hands as quickly as we can. Today, we’re proud to announce Atom 1.2 stable and 1.3.0-beta0.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Atom 1.2</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> November 12, 2015 <a href="https://github.com/benogle" class="author-link"><img class="avatar avatar-small" alt="benogle" width="18" height="18" data-proofer-ignore="true" src="https://avatars3.githubusercontent.com/benogle?v=3&amp;s=18" srcset="https://avatars3.githubusercontent.com/benogle?v=3&s=18 1x, https://avatars3.githubusercontent.com/benogle?v=3&s=36 2x, https://avatars3.githubusercontent.com/benogle?v=3&s=54 3x, https://avatars3.githubusercontent.com/benogle?v=3&s=72 4x" /> benogle</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p>Two weeks ago we released Atom 1.1.0 which was first stable release to pass through the new Atom <a href="https://atom.io/beta">beta</a> channel. We’d like to keep up the release cadence and get new things into your hands as quickly as we can. Today, we’re proud to announce Atom 1.2 stable and 1.3.0-beta0.</p>
+
+<h2 id="the-big-changes-in-120-stable">The Big Changes in 1.2.0 Stable</h2>
+
+<h3 id="cjk-softwrap">CJK softwrap</h3>
+
+<p>Atom 1.2.0 wraps CJK characters.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/482957/10524695/31cfbf36-7381-11e5-981b-114a0cafee7c.gif" alt="cjkwrap" /></p>
+
+<p>See <a href="https://github.com/atom/atom/pull/9162">the PR</a> for more details.</p>
+
+<h3 id="upgrade-to-electron-0340">Upgrade to Electron 0.34.0</h3>
+
+<p>Atom 1.2.0 stable is on the latest minor version of Electron which uses Chrome 45 and node 4.1.1. This upgrade was a large jump from 0.30.x included in Atom 1.1.0 which used Chrome 44 and node 3.1.x. The new version of electron brings greater stability and fixes a couple of <a href="https://github.com/atom/atom/issues/3593">pretty</a> <a href="https://github.com/atom/atom/issues/7061">bad</a>, long-standing bugs.</p>
+
+<p>See the pull requests for more information: <a href="https://github.com/atom/atom/pull/8779">atom/atom#8779</a> and <a href="https://github.com/atom/atom/pull/9184">atom/atom#9184</a>.</p>
+
+<h3 id="custom-package-testing-environment">Custom Package Testing Environment</h3>
+
+<p>Want to run your package specs with something other than jasmine 1.3? Now you can specify your own test runner. See <a href="https://github.com/atom/atom/pull/8968">the PR</a> and <a href="https://github.com/atom/docs/blob/92f3f4d419472963ec9050d867edf1da077f76cd/book/03-hacking-atom/sections/A02-writing-specs.asc#customizing-your-test-runner">the  docs</a> for more information.</p>
+
+<h3 id="fixed-crashing-when-opening-files-in-some-cases">Fixed crashing when opening files in some cases</h3>
+
+<p>Atom was crashing when opening files from git repos with submodules <a href="https://github.com/atom/atom/issues/9339">in some cases</a>. The solution was to <a href="https://github.com/atom/atom/pull/9471">upgrade git-utils</a>. As of Atom 1.2.0 stable, you should no longer experience this crash.</p>
+
+<h3 id="tree-view-speed-and-api-improvements">Tree View speed and API improvements</h3>
+
+<p>As of 1.2.0, the tree-view is faster <a href="https://github.com/atom/tree-view/pull/616">with many files</a> and has an <a href="https://github.com/atom/tree-view#api">API</a> to specify icons next to files.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/69169/11129168/addcbbe4-8932-11e5-9baf-ac567fd7dc03.png" alt="file-icons" /></p>
+
+<p>Previous to this API, packages like <a href="https://atom.io/packages/file-icons">file-icons</a> were using hacks to replace the icons. Check out the <a href="https://github.com/atom/tree-view#api">API docs</a> for more information.</p>
+
+<h2 id="available-now-in-atom-130-beta0">Available now in Atom 1.3.0-beta0</h2>
+
+<p>With another stable release comes another <a href="https://atom.io/beta">beta</a>. Note that you can always <a href="https://atom.io/beta">install the beta</a> to get these features right now. Here is a preview of the big things going into 1.3.0.</p>
+
+<h3 id="startup-speed-improvements">Startup speed improvements</h3>
+
+<p>One of the team focuses has been improving performance, and we’re happy to report that we’ve been making great progress in the startup department. All in, these changes contribute to a <strong>20% - 30% speedup</strong> depending on how many packages you have installed. We’ll go into more depth in another post, but if you’re interested, check out the pull requests.</p>
+
+<ul>
+  <li><a href="https://github.com/atom/atom/pull/9318">NativeCompileCache</a></li>
+  <li><a href="https://github.com/atom/atom/pull/9468">Unfold all improvements</a></li>
+  <li><a href="https://github.com/atom/atom/pull/9507">Lazyload of snippets</a></li>
+  <li><a href="https://github.com/atom/atom/pull/9508">Improved config loading</a>, and <a href="https://github.com/atom/atom/pull/9524">even more improvement</a></li>
+</ul>
+
+<h3 id="marker-find-and-replace-speed-improvements">Marker (find and replace!) speed improvements</h3>
+
+<p>Along the performance improvement theme, we’ve been focusing on improving the data structures related to markers. Markers are pretty core to Atom—they are the underpinnings for cursors, selections, the autocomplete suggestion box, and find result markers. Making them fast will improve performance for all of these cases, especially when there are tons of markers defined. Similar to the startup improvements, we’ll write an in-depth blog post on the topic.</p>
+
+<ul>
+  <li><a href="https://github.com/atom/atom/pull/9426">Marker layers, and a treap-based marker index</a></li>
+</ul>
+
+<h3 id="portable-mode">Portable mode</h3>
+
+<p>Windows portable mode has been a <a href="https://github.com/atom/atom/issues/2939">heavily requested feature</a> for a long time. Atom 1.3.0-beta0 has a portable mode for Windows <em>and</em> Linux (with Mac on the way).</p>
+
+<ul>
+  <li><a href="https://github.com/atom/atom/pull/8442">Portable mode for Windows</a></li>
+  <li><a href="https://github.com/atom/atom/pull/9422">Portable mode for Linux</a></li>
+  <li><a href="https://github.com/atom/atom/pull/9419">A command line param to setup a portable .atom directory</a></li>
+</ul>
+
+<h3 id="upgrade-to-electron-0343">Upgrade to Electron 0.34.3</h3>
+
+<p>Atom 1.3.0-beta0 is on <a href="https://github.com/atom/atom/pull/9481">Electron 0.34.3</a>, bringing it up to the latest and greatest version.</p>
+
+<h2 id="until-next-time">Until next time</h2>
+
+<p>We’re continuing to crank away at performance and heavily requested features. Atom 1.3 is just around the corner, and along with it will come a new beta with more improvements. Additionally, we’re excited to share in-depth explanations of the performance work and detailed metrics on the improvements.</p>
+
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2015/11/12/atom-1-2.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2015/11/12/atom-1-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:19 GMT -->
+</html>

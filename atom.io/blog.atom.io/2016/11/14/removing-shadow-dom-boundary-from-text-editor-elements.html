@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2016/11/14/removing-shadow-dom-boundary-from-text-editor-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:02 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Removing Shadow DOM boundaries from text editor elements | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Removing Shadow DOM boundaries from text editor elements" />
+<meta name="author" content="as-cii" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="We recently released Atom 1.13 Beta and it features a foundational change to the editor rendering internals that we would like to share with you: the removal of the Shadow DOM boundary from &lt;atom-text-editor&gt; elements. In this blog post we are going to shed some light on the reasons that drove its introduction, as well as why we eventually decided to transition away from it and employ a different technique instead." />
+<meta property="og:description" content="We recently released Atom 1.13 Beta and it features a foundational change to the editor rendering internals that we would like to share with you: the removal of the Shadow DOM boundary from &lt;atom-text-editor&gt; elements. In this blog post we are going to shed some light on the reasons that drove its introduction, as well as why we eventually decided to transition away from it and employ a different technique instead." />
+<link rel="canonical" href="removing-shadow-dom-boundary-from-text-editor-elements.html" />
+<meta property="og:url" content="removing-shadow-dom-boundary-from-text-editor-elements.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-11-14T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@as-cii" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2016/11/14/removing-shadow-dom-boundary-from-text-editor-elements.html"},"url":"https://blog.atom.io/2016/11/14/removing-shadow-dom-boundary-from-text-editor-elements.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"as-cii"},"headline":"Removing Shadow DOM boundaries from text editor elements","dateModified":"2016-11-14T00:00:00+00:00","datePublished":"2016-11-14T00:00:00+00:00","author":{"@type":"Person","name":"as-cii"},"description":"We recently released Atom 1.13 Beta and it features a foundational change to the editor rendering internals that we would like to share with you: the removal of the Shadow DOM boundary from &lt;atom-text-editor&gt; elements. In this blog post we are going to shed some light on the reasons that drove its introduction, as well as why we eventually decided to transition away from it and employ a different technique instead.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Removing Shadow DOM boundaries from text editor elements</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> November 14, 2016 <a href="https://github.com/as-cii" class="author-link"><img class="avatar avatar-small" alt="as-cii" width="18" height="18" data-proofer-ignore="true" src="https://avatars2.githubusercontent.com/as-cii?v=3&amp;s=18" srcset="https://avatars2.githubusercontent.com/as-cii?v=3&amp;s=18 1x, https://avatars2.githubusercontent.com/as-cii?v=3&amp;s=36 2x, https://avatars2.githubusercontent.com/as-cii?v=3&amp;s=54 3x, https://avatars2.githubusercontent.com/as-cii?v=3&amp;s=72 4x"> as-cii</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p>We recently released Atom 1.13 Beta and it features a foundational change to the editor rendering internals that we would like to share with you: the removal of the Shadow DOM boundary from <code class="highlighter-rouge">&lt;atom-text-editor&gt;</code> elements. In this blog post we are going to shed some light on the reasons that drove its introduction, as well as why we eventually decided to transition away from it and employ a different technique instead.</p>
+
+<p><img src="../../../img/posts/shadow-dom.png" alt="Shadow DOM"></p>
+
+<!--more-->
+
+<h1 id="a-little-bit-of-history">A little bit of history</h1>
+
+<p>On the road to 1.0, the number of packages in the Atom ecosystem was growing very rapidly. Back then, we started observing collisions caused by syntactic scopes with generic names (e.g. <code class="highlighter-rouge">.notification</code>) clashing with outer style sheets targeting unrelated HTML elements (e.g. Atom notifications).</p>
+
+<p>At the same time, a web standard aimed at solving a similar problem was being developed and an early implementation of it was already available in the Chrome version Atom was using: the Shadow DOM. Therefore, <a href="../../../2014/11/18/avoiding-style-pollution-with-the-shadow-dom.html">back in 2014</a>, we decided to embrace this new technology and changed Atom text editors to render their contents inside a Shadow DOM boundary instead.</p>
+
+<p>What we did not realize at the time was that, although this new mechanism helped in many ways, it came with some negative trade-offs, too. In particular, it forced us to duplicate some of the style sheets (e.g. the syntax theme ones) within each shadow root so that package and theme authors could have still been able to explicitly target the editor visual elements. An alternative solution to this problem that we suggested (before the Shadow DOM spec was finalized) was to use <code class="highlighter-rouge">/deep/</code> and <code class="highlighter-rouge">::shadow</code> pseudo selectors, which are now unfortunately <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=489954">being deprecated</a>.</p>
+
+<p>Even more importantly, this architecture was getting in the way of making <code class="highlighter-rouge">atom-text-editor</code> a reusable component, because it made it even more coupled to Atom (and its ecosystem) and notably complicated the interface for injecting styles into the editor. <a href="https://github.com/atom/atom/issues/4590">Other issues</a> were being reported too, causing a more complex user experience for package and theme authors. Ultimately, we started feeling like the extra complexity of the Shadow DOM was not worth its benefits.</p>
+
+<h1 id="transitioning-to-the-light-dom">Transitioning to the Light DOM</h1>
+
+<p>For all the reasons stated above, today we are happy to announce that we have recently merged a <a href="https://github.com/atom/atom/pull/12903">pull request</a> that removes Shadow DOM boundaries from <code class="highlighter-rouge">&lt;atom-text-editor&gt;</code> elements. It does so in a way that prevents grammar scopes from being mistakenly styled from the outside by a package. Specifically, every syntactic class name will now be prepended with <code class="highlighter-rouge">syntax--</code> to avoid collisions or style mismatches; as a result, styling a JavaScript operator will now look similar to the following snippet:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.syntax--source.syntax--js</span> <span class="nc">.syntax--operator</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#000000</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This has a number of advantages over using a shadow boundary, the first being simplicity and ease of use. In addition, it provides a solution to the problems listed above that does not clutter the DOM with duplicate style sheets and <a href="https://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201/#toc-style-cat-hat">shadow-piercing selectors</a>.</p>
+
+<p>This is a backward-incompatible change, but we haven’t yet accumulated enough API changes to warrant a bump of Atom’s major version number to 2.0.0. Instead, we’re following a familiar strategy of deprecating the old API while keeping it working by automatically upgrading old selectors and showing a deprecation warning in the status bar. You can <a href="https://github.com/atom/autocomplete-plus/pull/779">take a look</a> at <a href="https://github.com/atom/atom-dark-syntax/pull/31">some</a> of the <a href="https://github.com/atom/atom-dark-ui/pull/64">pull requests</a> we have opened on bundled packages to get a sense of how style sheets will need to be changed. We have also updated the <a href="https://flight-manual.atom.io/">flight manual</a> to provide guidance on the upgrade process.</p>
+
+<p>Please note that once you change your style sheets to remove the deprecated shadow DOM selectors, they will no longer be compatible with versions of Atom prior to 1.13. As such, we recommend that package and theme authors set the Atom version to <code class="highlighter-rouge">&gt;= 1.13</code> in the <code class="highlighter-rouge">engines</code> section of their packages’ <code class="highlighter-rouge">package.json</code> to prevent the upgraded packages from being installed on older versions of Atom.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>Removing the Shadow DOM is an important step for the editor’s future, as doing so will allow us to extract it, clean it up and continue optimizations. This change was rolled out with Atom 1.13 beta and we are really excited for you to try it out! <img class="emoji" title=":zap:" alt=":zap:" src="https://github.githubassets.com/images/icons/emoji/unicode/26a1.png" height="20" width="20"></p>
+
+<p>We expect package breakage to be minimal but, considering the invasive nature of this change, we would <img class="emoji" title=":heart:" alt=":heart:" src="https://github.githubassets.com/images/icons/emoji/unicode/2764.png" height="20" width="20"> to have your feedback! If you notice any problem you think could be related to the Shadow DOM removal, please create an issue and we will be happy to fix it!</p>
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2016/11/14/removing-shadow-dom-boundary-from-text-editor-elements.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2016/11/14/removing-shadow-dom-boundary-from-text-editor-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:02 GMT -->
+</html>

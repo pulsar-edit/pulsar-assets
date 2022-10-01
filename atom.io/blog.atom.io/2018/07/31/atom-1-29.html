@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2018/07/31/atom-1-29.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:35:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Atom 1.29 | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Atom 1.29" />
+<meta name="author" content="daviwil" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Atom 1.29 is out now, providing many new fixes and improvements including Tree-sitter performance improvements and co-author suggestions in the GitHub package." />
+<meta property="og:description" content="Atom 1.29 is out now, providing many new fixes and improvements including Tree-sitter performance improvements and co-author suggestions in the GitHub package." />
+<link rel="canonical" href="atom-1-29.html" />
+<meta property="og:url" content="atom-1-29.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-07-31T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@daviwil" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2018/07/31/atom-1-29.html"},"url":"https://blog.atom.io/2018/07/31/atom-1-29.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"daviwil"},"headline":"Atom 1.29","dateModified":"2018-07-31T00:00:00+00:00","datePublished":"2018-07-31T00:00:00+00:00","author":{"@type":"Person","name":"daviwil"},"description":"Atom 1.29 is out now, providing many new fixes and improvements including Tree-sitter performance improvements and co-author suggestions in the GitHub package.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Atom 1.29</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> July 31, 2018 <a href="https://github.com/daviwil" class="author-link"><img class="avatar avatar-small" alt="daviwil" width="18" height="18" data-proofer-ignore="true" src="https://avatars3.githubusercontent.com/daviwil?v=3&amp;s=18" srcset="https://avatars3.githubusercontent.com/daviwil?v=3&amp;s=18 1x, https://avatars3.githubusercontent.com/daviwil?v=3&amp;s=36 2x, https://avatars3.githubusercontent.com/daviwil?v=3&amp;s=54 3x, https://avatars3.githubusercontent.com/daviwil?v=3&amp;s=72 4x"> daviwil</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p>Atom 1.29 is out now, providing many new fixes and improvements including Tree-sitter performance improvements and co-author suggestions in the GitHub package.</p>
+
+<!--more-->
+
+<h3 id="tree-sitter-performance-improvements">Tree-sitter performance improvements</h3>
+
+<p>We’re making steady progress on Atom’s experimental <a href="https://github.com/atom/atom/pull/16299">new parsing system</a>, <a href="https://github.com/tree-sitter/tree-sitter">Tree-sitter</a>. This month we completed one of the last major steps on the road toward enabling Tree-sitter by default: all parsing is now <a href="https://github.com/atom/atom/pull/17339">performed on a background thread</a>. This frees up more time on the main thread, improving Atom’s responsiveness and ensuring that parsing can never impact the frame rate:</p>
+
+<p><img src="https://user-images.githubusercontent.com/326587/40439999-7dc549be-5e71-11e8-9540-fc02c12f0b6c.gif" alt="tree-sitter async parsing demo"></p>
+
+<p>If you use one of the <a href="https://tree-sitter.github.io/tree-sitter/#available-parsers">languages that Tree-sitter supports</a> you can try it out by checking the <code class="highlighter-rouge">Use Tree-sitter Parsers</code> box in the settings view. And if you want to work on adding support for more languages, we’d love your help! Check out the <a href="http://tree-sitter.github.io/tree-sitter">Tree-sitter documentation</a> for more information.</p>
+
+<h3 id="github-package-improvements">GitHub package improvements</h3>
+
+<p>The GitHub package now <a href="https://github.com/atom/github/pull/1476">fetches co-author suggestions</a> by querying the GitHub API for users that are mentionable in any of the remotes of the local repo. This allows you to autocomplete by GitHub username. You can also exclude individuals from future co-author suggestions by pressing <kbd>Shift + Del</kbd> when the author is highlighted in the suggestion list.</p>
+
+<p><img src="https://user-images.githubusercontent.com/17565/41681810-be73e748-74a3-11e8-87ed-f0dc62bf3b27.gif" alt="co-author username completion"></p>
+
+<!-- end of stable changes -->
+
+<p>Don’t forget to check out all the other improvements shipping with Atom 1.29 in the <a href="https://github.com/atom/atom/releases/tag/v1.29.0">release notes</a>! <img class="emoji" title=":memo:" alt=":memo:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dd.png" height="20" width="20"></p>
+
+<p><img src="../../../img/release-beta.png" alt="Atom Beta"></p>
+
+<h2 id="atom-130-beta">Atom 1.30 Beta</h2>
+
+<h3 id="view-and-check-out-pull-requests">View and check out Pull Requests</h3>
+
+<p>The GitHub tab (open with <kbd>Ctrl+8</kbd>) shows the pull request associated with the current branch at the top. Underneath is a list of the most recently created pull requests. This lets you stay informed about new pull requests and keep an eye on their build status even when switching to another branch.</p>
+
+<p><img src="https://user-images.githubusercontent.com/378023/43128609-5c49b6e4-8f6d-11e8-81c0-35d877ad2bfe.png" alt="pr list"></p>
+
+<p>Clicking on a pull request in the list opens a pane from which you can read its description, follow its conversation, get more details about its build status, and even check out its source code. It’s a handy way to switch between branches that have pull requests without ever having to bother about the branch name.</p>
+
+<p><img src="https://user-images.githubusercontent.com/378023/43114977-9c43f592-8f3c-11e8-8768-41a66e0cd419.gif" alt="checkout PR"></p>
+
+<p>If the current branch has no associated pull request, the GitHub tab offers you a button to push your current branch and create a new pull request on github.com.</p>
+
+<p><img src="https://user-images.githubusercontent.com/378023/43128605-5c0a3e74-8f6d-11e8-9ab8-f7eb9c348cfd.png" alt="open pr"></p>
+
+<ul>
+  <li>
+<a href="https://github.com/atom/github/pull/1523">atom/github#1523</a> <em>Pull request list</em>
+</li>
+  <li>
+<a href="https://github.com/atom/github/pull/1563">atom/github#1653</a> <em>Checkout pull request</em>
+</li>
+  <li>
+<a href="https://github.com/atom/github/pull/1583">atom/github#1583</a> <em>Pull request pane improvements</em>
+</li>
+</ul>
+
+<h3 id="emojis-in-commit-messages">Emojis in commit messages</h3>
+
+<p>The recent commit list now renders <code class="highlighter-rouge">:emoji:</code> in commit messages: <img class="emoji" title=":cake:" alt=":cake:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f370.png" height="20" width="20"> <img class="emoji" title=":tada:" alt=":tada:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f389.png" height="20" width="20"> <img class="emoji" title=":confetti_ball:" alt=":confetti_ball:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f38a.png" height="20" width="20"> Need inspiration for adding emojis to your commits? Here are <a href="https://github.com/atom/atom/blob/master/CONTRIBUTING.md#git-commit-messages">some suggestions</a> from the Atom team.</p>
+
+<p><img src="https://user-images.githubusercontent.com/378023/43128604-5bc8e9b0-8f6d-11e8-8914-1929a7477046.png" alt="emojis"></p>
+
+<ul>
+  <li><a href="https://github.com/atom/github/pull/1532">atom/github#1532</a></li>
+</ul>
+
+<h3 id="github-package-metrics">GitHub package metrics</h3>
+
+<p>To help us see what’s useful and what isn’t, for those of you who have enabled metrics <img class="emoji" title=":bow:" alt=":bow:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f647.png" height="20" width="20">, we are now collecting activity metrics for GitHub package usage. We’re also beginning to <a href="../../06/20/atom-metrics.html">migrate our collection endpoint</a> from Google Analytics to our own metrics pipeline. Moving forward, this will help us make more informed decisions about what capabilities are most used and which are less useful or less known.</p>
+
+<ul>
+  <li>
+<a href="https://github.com/atom/github/pull/1562">atom/github#1562</a> <em>Integrate metrics</em>
+</li>
+</ul>
+
+<h3 id="new-languages-supported-by-tree-sitter">New languages supported by Tree-sitter</h3>
+
+<p>Atom’s new parsing system, <a href="https://github.com/tree-sitter/tree-sitter">Tree-sitter</a> (discussed above), now <a href="https://github.com/atom/language-ruby/pull/225">supports Ruby</a>. It can also now handle <a href="https://github.com/atom/atom/pull/17551">files that contain multiple languages</a>. So far, we’re using this capabilities to parse the following combinations of languages:</p>
+<ul>
+  <li>JavaScript inside of <code class="highlighter-rouge">script</code> tags in HTML files</li>
+  <li>JavaScript and HTML in <code class="highlighter-rouge">.ejs</code> files</li>
+  <li>Ruby and HTML in <code class="highlighter-rouge">.erb</code> files</li>
+  <li>HTML inside of certain template literals in JavaScript</li>
+  <li>HTML inside of certain heredocs in Ruby</li>
+</ul>
+
+<p>Other language combinations are easy to add using the new experimental APIs described in <a href="https://github.com/atom/atom/pull/17551">the pull request</a>. We’re now only a few features away from enabling Tree-sitter by default, at which point these APIs will be documented and stabilized.</p>
+
+<!-- end of beta changes -->
+
+<p>There are many more details in the <a href="https://github.com/atom/atom/releases/tag/v1.30.0-beta0">release notes</a>.</p>
+
+<p>Get all these improvements today by joining the <a href="https://atom.io/beta">Atom Beta Channel</a>!</p>
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2018/07/31/atom-1-29.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2018/07/31/atom-1-29.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:35:23 GMT -->
+</html>

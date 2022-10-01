@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2017/01/18/atom-on-windows.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:02 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Atom on Windows | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Atom on Windows" />
+<meta name="author" content="damieng" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Last year I joined the Atom team with the goal of making Atom a better experience on Windows and thought it would be worth highlighting some of our work so far as well as a few of the things new in Atom 1.14 (currently in beta). If you haven’t tried Atom on Windows in a while or were just plain heads-down on your projects here’s some Windows-specific improvements you may have missed." />
+<meta property="og:description" content="Last year I joined the Atom team with the goal of making Atom a better experience on Windows and thought it would be worth highlighting some of our work so far as well as a few of the things new in Atom 1.14 (currently in beta). If you haven’t tried Atom on Windows in a while or were just plain heads-down on your projects here’s some Windows-specific improvements you may have missed." />
+<link rel="canonical" href="atom-on-windows.html" />
+<meta property="og:url" content="atom-on-windows.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-01-18T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@damieng" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2017/01/18/atom-on-windows.html"},"url":"https://blog.atom.io/2017/01/18/atom-on-windows.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"damieng"},"headline":"Atom on Windows","dateModified":"2017-01-18T00:00:00+00:00","datePublished":"2017-01-18T00:00:00+00:00","author":{"@type":"Person","name":"damieng"},"description":"Last year I joined the Atom team with the goal of making Atom a better experience on Windows and thought it would be worth highlighting some of our work so far as well as a few of the things new in Atom 1.14 (currently in beta). If you haven’t tried Atom on Windows in a while or were just plain heads-down on your projects here’s some Windows-specific improvements you may have missed.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Atom on Windows</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> January 18, 2017 <a href="https://github.com/damieng" class="author-link"><img class="avatar avatar-small" alt="damieng" width="18" height="18" data-proofer-ignore="true" src="https://avatars1.githubusercontent.com/damieng?v=3&amp;s=18" srcset="https://avatars1.githubusercontent.com/damieng?v=3&s=18 1x, https://avatars1.githubusercontent.com/damieng?v=3&s=36 2x, https://avatars1.githubusercontent.com/damieng?v=3&s=54 3x, https://avatars1.githubusercontent.com/damieng?v=3&s=72 4x" /> damieng</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p>Last year I joined the Atom team with the goal of making Atom a better experience on Windows and thought it would be worth highlighting some of our work so far as well as a few of the things new in Atom 1.14 (currently in beta).</p>
+
+<p>If you haven’t tried Atom on Windows in a while or were just plain heads-down on your projects here’s some Windows-specific improvements you may have missed.</p>
+
+<!--more-->
+
+<h2 id="64-bit">64-bit</h2>
+
+<p>In 1.14 two architectures of Atom are now available for Windows.  The existing 32-bit (ia32/x86) version and the shiny new 64-bit (amd64/x64) version.</p>
+
+<p>The new version leaves the 32-bit resource limits behind and can take advantage of faster 64-bit instructions in lower layers such as node, v8 and native modules.</p>
+
+<p>In order to ensure compatibility current installations will not switch to a new architecture without intervention - you’ll need to grab the 64-bit version yourself. Visitors to <a href="https://atom.io/">Atom.io</a> will be offered x64 versions from 1.14 onwards if they are on an x64 system.</p>
+
+<p>Your settings and extensions will be preserved when switching although there may be a delay while apm rebuilds native modules for any packages you have installed.  Let us know if you run into any issues!</p>
+
+<h2 id="file-association">File association</h2>
+
+<p>Atom’s auto-update mechanism happens transparently behind the scenes without services running full-time to make that happen.  This does however mean that the Atom executable path changes between revisions so files you manually associated with atom.exe would break.</p>
+
+<p>Now however Atom registers itself as a file handler automatically meaning it shows up right away in <em>Open With…</em> and you can just chose it from there. When Atom upgrades itself it will rewrite these associations for you so no more broken links.  If you want to change this behavior you can turn it off with a single check in the <em>Atom &gt; Settings &gt; System</em> pane. Once associated you’ll see a sparkly new Atom document icon for the file.</p>
+
+<p>Also in Atom 1.14 you will find an atom.exe stub one level up in the file system that never moves! You can point apps that don’t support Windows file associations like Cyberduck here as an alternative.</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>Installation is often overlooked but can be a real pain if you don’t get it right thanks to the proliferation of malware and the responsive measures from the anti-virus community.</p>
+
+<p>We have improvements to help ensure Atom gets installed correctly on your system including:</p>
+
+<ul>
+  <li>Stronger code signing with sha256, timestamping and a new certificate</li>
+  <li>Extract-in-place to prevent on-access scanners interfering with files being moved</li>
+  <li>An <a href="https://flight-manual.atom.io/getting-started/sections/installing-atom/#msi-installer-for-windows">MSI installer</a> that installs a personal copy of Atom for each user as they sign in</li>
+  <li>Better update reliability for pins and shortcuts via <a href="https://github.com/Squirrel/Squirrel.Windows">Squirrel</a> (the install/update system we use)</li>
+</ul>
+
+<h2 id="contributing">Contributing</h2>
+
+<p>Using Windows to contribute to Atom was a little harder than it should have been.</p>
+
+<p>The <a href="https://github.com/atom/atom/blob/master/docs/build-instructions/windows.md">Windows build instructions</a> have been updated with accurate steps on getting started as well as a more comprehensive troubleshooting for scenarios you may run into.  You can now even use the much smaller “C++ Build Tools” instead of a full Visual Studio installation.</p>
+
+<p>Atom’s test suite now runs and passes on Windows 64-bit builds so just type <code class="highlighter-rouge">script\test</code> to ensure no regressions (or <code class="highlighter-rouge">atom --test</code> if contributing to an Atom package).  Debugging inside Developer Tools you’ll see the sources navigator is no longer jumbled (Windows backslashes in sourcemaps were confusing it).</p>
+
+<p>We also added a new section to the Atom Flight Manual called <a href="https://flight-manual.atom.io/hacking-atom/sections/cross-platform-compatibility/">Cross-Platform Compatibility</a> that gives some guidance on how to make sure your code works well across platforms.</p>
+
+<p>Finally AppVeyor is now running <a href="https://github.com/atom/atom/blob/master/docs/build-instructions/build-status.md">CI builds of our core packages and important  libraries</a> for Windows.</p>
+
+<h2 id="portable-mode">Portable mode</h2>
+
+<p>The <a href="https://flight-manual.atom.io/getting-started/sections/installing-atom/#portable-mode">portable mode</a> was finally documented and some important changes made in the forthcoming 1.14 release;</p>
+
+<ul>
+  <li>The <code class="highlighter-rouge">ATOM_HOME</code> environment variable no longer prevents portable mode</li>
+  <li>The <code class="highlighter-rouge">--portable</code> argument was removed as it caused confusion (it copied your .atom folder to be portable not actually forced portable mode)</li>
+</ul>
+
+<p>Getting up and running with a portable version is simple:</p>
+
+<ol>
+  <li>Download the atom-windows.zip and extract it where you want it</li>
+  <li>Create a <code class="highlighter-rouge">.atom</code> folder in the folder above <code class="highlighter-rouge">atom.exe</code> where your config will live (or copy your existing one from %userprofile%)</li>
+  <li>Launch Atom from the folder!</li>
+</ol>
+
+<p>In 1.14 you can also create an <code class="highlighter-rouge">electronUserData</code> folder in there and have Atom store the Electron data there instead of in your roaming appdata. (where DevTools console history etc. lives)</p>
+
+<p>Some have asked for Atom to use the portable drives even for temporary and cache files. While we don’t recommend it as these drives are slower than modern SSDs you can put a simple .cmd file on your drive to achieve it and launch atom via that:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@echo off
+SET "TEMP=%~d0\temp"
+"%~dp0resources\cli\atom.cmd" %*
+</code></pre></div></div>
+
+<p>Setting TEMP is necessary to ensure Atom and its various dependencies store temporary files in the right place.</p>
+
+<h2 id="shell-extension-option">Shell extension option</h2>
+
+<p>We heard from some passionate users that they didn’t like the <em>Open with Atom</em> context-menu that appeared throughout Explorer for every single file and folder.</p>
+
+<p>There was no performance hit, it was simply an icon and label in the registry. But it’s clutter if you don’t use it, and redundant now that we have proper file associations working, so now off by default.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/118951/20823658/0d6a7fd0-b80b-11e6-8729-e0215e9e4cb2.png" alt="Screenshot of new System Settings for Windows" /></p>
+
+<p>If you want to switch it on you can head to our new <em>System settings</em> pane shown above and check a box to get it back for either files or folders.  If you’ve had Atom installed a while it is still on for you so you can also head into System settings to turn it off.</p>
+
+<h2 id="taskbar-enhancements">Taskbar enhancements</h2>
+
+<p>The taskbar on Windows is capable of supporting menu options and in 1.14 you’ll see a New Window task as well as recent files and integration with our new <a href="https://github.com/atom/atom/pull/13046">reopen projects feature</a> either of which you can pin to for fast access.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/118951/20551914/4e1a0630-b0fa-11e6-9207-f9b5203e88be.png" alt="Screenshot of Atom’s taskbar menu" /></p>
+
+<h2 id="package-installation">Package installation</h2>
+
+<p>Sometimes installing an Atom package doesn’t succeed for any number of reasons. We’ve made improvements that help including;</p>
+
+<ul>
+  <li>Detecting <code class="highlighter-rouge">git.exe</code> from GitHub Desktop when git isn’t on your path</li>
+  <li>Bypassing auto-run scripts when we shell out to avoid parsing errors</li>
+  <li>Supporting “C++ Build Tools” for native dependencies (instead of Visual Studio)</li>
+</ul>
+
+<h2 id="little-extras">Little extras</h2>
+
+<p>Of course there are many other improvements and tweaks this year that benefit Windows users - some exclusively and some cross-platform including;</p>
+
+<ul>
+  <li>International <kbd>AltGr</kbd> keyboard support</li>
+  <li>Path length improvements with npm3</li>
+  <li>Simultaneous use of Atom by multiple signed-in users</li>
+  <li>Atom file icon for associations in the Windows style</li>
+  <li>CP 850 support (DOS codepage in Europe)</li>
+  <li>No command-line noise when launching <code class="highlighter-rouge">atom.exe</code> directly</li>
+  <li>Improved C# syntax highlighting</li>
+  <li>Better handling of spaces in paths</li>
+  <li>Improved command-line launching from cygwin, Git Bash, and msys</li>
+  <li>File and Selection menus accessible with <kbd>alt</kbd>-<kbd>f</kbd> and <kbd>alt</kbd>-<kbd>s</kbd></li>
+</ul>
+
+<p>Share and Enjoy!</p>
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2017/01/18/atom-on-windows.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2017/01/18/atom-on-windows.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:02 GMT -->
+</html>

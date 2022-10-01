@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2015/01/15/announcing-the-atom-1-api.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:25 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Announcing The Atom 1.0 API | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Announcing The Atom 1.0 API" />
+<meta name="author" content="nathansobo" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Over the past several months, we’ve spent a lot of energy getting Atom’s API into a condition that we’re confident supporting over the long term. With the release of Atom 0.174.0, we’re happy to announce a stable 1.0 pre-release of Atom’s API. We will be adding a few features in the coming months, but we don’t plan on breaking anything that is documented as public today." />
+<meta property="og:description" content="Over the past several months, we’ve spent a lot of energy getting Atom’s API into a condition that we’re confident supporting over the long term. With the release of Atom 0.174.0, we’re happy to announce a stable 1.0 pre-release of Atom’s API. We will be adding a few features in the coming months, but we don’t plan on breaking anything that is documented as public today." />
+<link rel="canonical" href="announcing-the-atom-1-api.html" />
+<meta property="og:url" content="announcing-the-atom-1-api.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-01-15T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@nathansobo" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2015/01/15/announcing-the-atom-1-api.html"},"url":"https://blog.atom.io/2015/01/15/announcing-the-atom-1-api.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"nathansobo"},"headline":"Announcing The Atom 1.0 API","dateModified":"2015-01-15T00:00:00+00:00","datePublished":"2015-01-15T00:00:00+00:00","author":{"@type":"Person","name":"nathansobo"},"description":"Over the past several months, we’ve spent a lot of energy getting Atom’s API into a condition that we’re confident supporting over the long term. With the release of Atom 0.174.0, we’re happy to announce a stable 1.0 pre-release of Atom’s API. We will be adding a few features in the coming months, but we don’t plan on breaking anything that is documented as public today.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Announcing The Atom 1.0 API</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> January 15, 2015 <a href="https://github.com/nathansobo" class="author-link"><img class="avatar avatar-small" alt="nathansobo" width="18" height="18" data-proofer-ignore="true" src="https://avatars1.githubusercontent.com/nathansobo?v=3&amp;s=18" srcset="https://avatars1.githubusercontent.com/nathansobo?v=3&amp;s=18 1x, https://avatars1.githubusercontent.com/nathansobo?v=3&amp;s=36 2x, https://avatars1.githubusercontent.com/nathansobo?v=3&amp;s=54 3x, https://avatars1.githubusercontent.com/nathansobo?v=3&amp;s=72 4x"> nathansobo</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p>Over the past several months, we’ve spent a lot of energy getting Atom’s API into a condition that we’re confident supporting over the long term. With the release of Atom 0.174.0, we’re happy to announce a stable 1.0 pre-release of Atom’s API. We will be adding a few features in the coming months, but we don’t plan on breaking anything that is <a href="https://atom.io/docs/api/latest">documented as public</a> today.</p>
+
+<p>This overhaul represents a huge investment in Atom’s future. The new API is cleaner, more consistent, and better-documented than what we launched with last February. It also removes some critical obstacles to achieving good performance and guides package authors toward more performant approaches. Equally important has been our focus on making the core API more minimal and framework-agnostic, which ensures that Atom’s ecosystem can freely evolve with changing trends and technologies for years to come.</p>
+
+<h2 id="whats-included">What’s Included?</h2>
+
+<p>We don’t plan on making any breaking changes before 1.0 unless we find a serious bug. Beyond 1.0, we’ll be following semantic versioning, meaning that we won’t make any breaking changes until version 2.0. It’s important to note that Atom’s packages are versioned independently of core, so bundled packages like tabs or the tree-view may change going forward. This shouldn’t be an issue for the vast majority of packages, because the API surface area represented by our bundled packages is tiny compared to the core API.</p>
+
+<p>Today’s changes focus largely on Atom’s scripting interface, but we’ve also made some changes to the structure of the DOM, deprecating some CSS classes that were previously used to style elements in the workspace. The old classes will continue to be supported by workspace elements and the bundled UI themes for the time being to give package and theme authors a chance to transition before they are removed. For theme authors, that will mean targeting new custom tag names in the workspace. For package authors, that will mean using programmatic APIs to add panels rather than performing direct DOM manipulation.</p>
+
+<p>2.0 will likely focus on solidifying Atom’s style guide and more tightly codifying the DOM as an official part of our API. Until then, we’ll avoid additional disruptions to DOM structure as far as styling is concerned. As a rule, programmatic DOM manipulation should not be considered part of the stable API at this time. If you mutate the DOM directly, be prepared to update your package when things change.</p>
+
+<h2 id="help-us-transition">Help Us Transition</h2>
+
+<p>We’re going to need help from the Atom community to finish the job and leave the technical debt of the old APIs behind us. Atom is now entering a deprecation period designed to transition the ecosystem off of the old APIs so they can be removed from the system. We’ve prepared a detailed <a href="https://flight-manual.atom.io/upgrading-to-1-0-apis/sections/upgrading-your-package/">upgrade guide</a> to help you get your packages ready for 1.0, and we’ll also be providing dynamic feedback directly in the application.</p>
+
+<p>Starting with version 0.174.0, packages that use deprecated APIs will cause a warning indicator to appear in the status bar, which you can click to reveal the <em>deprecation cop</em>. This view will show you which deprecated facilities are being used by which packages, link you to the location where deprecated calls occur, and suggest non-deprecated alternatives. You’ll see similar warnings in the spec runner when you run your package’s spec suite.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1789/5766279/7473f99c-9cbd-11e4-91fb-46f16bf50c4a.png" alt="Warning Indicator"></p>
+
+<h2 id="looking-forward">Looking Forward</h2>
+
+<p>It’s never fun to make breaking changes, but considering that Atom is still a relatively young project, we think it makes sense to jettison this extra code now rather than carrying it forever. Now that we’re satisfied with the quality of the API, we’re excited to refocus our full attention on performance and features as we push toward 1.0. Thanks for your help and patience through this transition. 2015 is going to be a great year for the Atom community. <img class="emoji" title=":tada:" alt=":tada:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f389.png" height="20" width="20"></p>
+
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2015/01/15/announcing-the-atom-1-api.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2015/01/15/announcing-the-atom-1-api.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:25 GMT -->
+</html>

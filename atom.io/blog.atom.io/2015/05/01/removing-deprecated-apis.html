@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2015/05/01/removing-deprecated-apis.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Removing Deprecated APIs | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Removing Deprecated APIs" />
+<meta name="author" content="kevinsawicki" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="On June 1st all deprecated APIs in Atom will be removed in preparation for the 1.0 Atom release later that month." />
+<meta property="og:description" content="On June 1st all deprecated APIs in Atom will be removed in preparation for the 1.0 Atom release later that month." />
+<link rel="canonical" href="removing-deprecated-apis.html" />
+<meta property="og:url" content="removing-deprecated-apis.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-05-01T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@kevinsawicki" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2015/05/01/removing-deprecated-apis.html"},"url":"https://blog.atom.io/2015/05/01/removing-deprecated-apis.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"kevinsawicki"},"headline":"Removing Deprecated APIs","dateModified":"2015-05-01T00:00:00+00:00","datePublished":"2015-05-01T00:00:00+00:00","author":{"@type":"Person","name":"kevinsawicki"},"description":"On June 1st all deprecated APIs in Atom will be removed in preparation for the 1.0 Atom release later that month.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Removing Deprecated APIs</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> May 1, 2015 <a href="https://github.com/kevinsawicki" class="author-link"><img class="avatar avatar-small" alt="kevinsawicki" width="18" height="18" data-proofer-ignore="true" src="https://avatars0.githubusercontent.com/kevinsawicki?v=3&amp;s=18" srcset="https://avatars0.githubusercontent.com/kevinsawicki?v=3&s=18 1x, https://avatars0.githubusercontent.com/kevinsawicki?v=3&s=36 2x, https://avatars0.githubusercontent.com/kevinsawicki?v=3&s=54 3x, https://avatars0.githubusercontent.com/kevinsawicki?v=3&s=72 4x" /> kevinsawicki</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p>On <strong>June 1st</strong> all deprecated APIs in Atom will be removed in preparation for
+the 1.0 Atom release later that month.</p>
+
+<p>To make the migration as easy as possible on package authors, Atom has built-in
+tooling for finding and reporting these deprecations, and also a new mode to
+preview the 1.0 API with deprecations completely removed.</p>
+
+<p>Make sure to upgrade your packages early and often as authors publish new
+versions with the deprecations removed. Run <code class="highlighter-rouge">apm upgrade</code> from the command line
+or open the <strong>Settings View</strong> and select the <strong>Updates</strong> tab to see which
+packages are out-of-date.</p>
+
+<p>If you have any problems upgrading your package to the new APIs, please open
+an issue on the <a href="http://github.com/atom/atom/issues">atom/atom</a> repository with the
+details, and we’ll be happy to help make your package ready for 1.0.</p>
+
+<h1 id="finding-deprecations">Finding Deprecations</h1>
+
+<p>Since the 1.0 API was <a href="../../01/15/announcing-the-atom-1-api.html">announced</a>
+in January, packages that use deprecated APIs have caused a warning indicator to
+appear in the status bar, which you can click to reveal the deprecation cop.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1789/5766279/7473f99c-9cbd-11e4-91fb-46f16bf50c4a.png" alt="status bar" /></p>
+
+<p>This view will show you which deprecated APIs are being used by which
+packages, link you to the location where deprecated calls occur, and suggest
+non-deprecated alternatives.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/671378/7433537/367bb332-efe7-11e4-93e0-ef0a26dcf025.png" alt="deprecation cop" /></p>
+
+<p>You’ll see similar warnings in the spec runner when you run your package’s spec
+suite.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/671378/7433786/c0e86856-efe9-11e4-8dcc-bc196d7d60bd.png" alt="deprecations in specs" /></p>
+
+<h1 id="10-api-preview-mode">1.0 API Preview Mode</h1>
+
+<p>Atom now has a 1.0 API preview mode that opens an Atom window with all
+deprecated APIs completely removed. This will simulate the 1.0 API experience,
+so you can make sure all the packages you rely on are working correctly against
+the APIs available in Atom 1.0.</p>
+
+<p>Run the <code class="highlighter-rouge">atom</code> command with the <code class="highlighter-rouge">--one</code> flag to start it up in this mode.</p>
+
+<p>This flag is also supported by the <code class="highlighter-rouge">apm test</code> command so package authors can now
+run their package specs with <code class="highlighter-rouge">apm test --one</code> to launch the spec runner in
+1.0 API preview mode.</p>
+
+<p>You might see error notifications about missing properties or methods coming
+from packages still relying on APIs that are going away when 1.0 ships.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/671378/7422456/d29ffaa8-ef41-11e4-8fbd-50ab5147c999.png" alt="error notification" /></p>
+
+<p>Creating an issue from the notification is a great way to let the package author
+know that 1.0 is coming and now is the time to update their package and publish
+a new version.</p>
+
+<p>Be sure to upgrade to Atom 0.197 (or later) <strong>before</strong> trying out API preview
+mode.</p>
+
+<p>Also make sure to update the <code class="highlighter-rouge">engines</code> field in your package’s <code class="highlighter-rouge">package.json</code>
+file to mark it as 1.0-compatible:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"engines"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"atom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&gt;=0.185.0 &lt;2.0.0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2015/05/01/removing-deprecated-apis.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2015/05/01/removing-deprecated-apis.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:19 GMT -->
+</html>
