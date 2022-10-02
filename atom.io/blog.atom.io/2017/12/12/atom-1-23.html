@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2017/12/12/atom-1-23.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:35:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Atom 1.23 | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Atom 1.23" />
+<meta name="author" content="iolsen" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Atom 1.23 is now available on the stable channel and includes a new feature for packages to register URI handlers, the ability to register hidden commands, as well as editor performance improvements." />
+<meta property="og:description" content="Atom 1.23 is now available on the stable channel and includes a new feature for packages to register URI handlers, the ability to register hidden commands, as well as editor performance improvements." />
+<link rel="canonical" href="atom-1-23.html" />
+<meta property="og:url" content="atom-1-23.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-12-12T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@iolsen" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2017/12/12/atom-1-23.html"},"url":"https://blog.atom.io/2017/12/12/atom-1-23.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"iolsen"},"headline":"Atom 1.23","dateModified":"2017-12-12T00:00:00+00:00","datePublished":"2017-12-12T00:00:00+00:00","author":{"@type":"Person","name":"iolsen"},"description":"Atom 1.23 is now available on the stable channel and includes a new feature for packages to register URI handlers, the ability to register hidden commands, as well as editor performance improvements.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Atom 1.23</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> December 12, 2017 <a href="https://github.com/iolsen" class="author-link"><img class="avatar avatar-small" alt="iolsen" width="18" height="18" data-proofer-ignore="true" src="https://avatars0.githubusercontent.com/iolsen?v=3&amp;s=18" srcset="https://avatars0.githubusercontent.com/iolsen?v=3&amp;s=18 1x, https://avatars0.githubusercontent.com/iolsen?v=3&amp;s=36 2x, https://avatars0.githubusercontent.com/iolsen?v=3&amp;s=54 3x, https://avatars0.githubusercontent.com/iolsen?v=3&amp;s=72 4x"> iolsen</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p><img src="../../../img/posts/release-1-23.png" alt="Atom 1.23"></p>
+
+<p>Atom 1.23 is now available on the stable channel and includes a new feature for packages to register URI handlers, the ability to register hidden commands, as well as editor performance improvements.</p>
+
+<!--more-->
+
+<h3 id="uri-handling">URI Handling</h3>
+
+<p>Atom packages <a href="https://github.com/atom/atom/pull/11399">can now register a URI handler function</a> that will be invoked any time the user visits a URI that starts with <code class="highlighter-rouge">atom://package-name/</code>. This feature is <a href="https://flight-manual.atom.io/hacking-atom/sections/handling-uris/">documented in our flight manual</a>, so if you’re a package author, give it a try and let us know what you think.</p>
+
+<h3 id="commandregistry-improvements">CommandRegistry improvements</h3>
+
+<p>When registering commands via <code class="highlighter-rouge">atom.commands.add</code>, you now have the option to <a href="https://github.com/atom/command-palette/pull/92">hide specific commands in the command palette</a>. Here’s an example:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">atom</span><span class="p">.</span><span class="nx">commands</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'atom-workspace'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="s1">'my-package:weird-command'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">didDispatch</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">},</span>
+    <span class="na">hideInCommandPalette</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>This example also demonstrates the fairly new ability to pass an object instead of a function as the command listener. Using this expanded system allows you to also specify a custom <code class="highlighter-rouge">displayName</code> and <code class="highlighter-rouge">description</code> for commands. Check out the <a href="https://atom.io/docs/api/latest/CommandRegistry#instance-add">API docs for <code class="highlighter-rouge">CommandRegistry.add</code></a> for details.</p>
+
+<h3 id="improved-compatibility-with-external-git-tools">Improved compatibility with external Git tools</h3>
+
+<p>The GitHub package <a href="https://github.com/atom/github/pull/1238">no longer locks the index</a>, making it easier to use the CLI or other Git tools with Atom open in the background. You should no longer see errors about <code class="highlighter-rouge">index.lock</code> when running a rebase or other operations in other tools.</p>
+
+<h3 id="editor-performance-improvements">Editor performance improvements</h3>
+
+<p>Atom has always provided a rich set of APIs that allow packages to respond to any type of change in the application. For example, Atom packages can track every text change that occurs in a particular text buffer using the <code class="highlighter-rouge">TextBuffer.onDidChange</code> method. Unfortunately, APIs like this one have made it easy for third-party Atom packages to accidentally introduce slowness in cases where many changes happen rapidly, such as when typing with multiple cursors.</p>
+
+<p>In Atom 1.23 Beta, we’ve addressed this performance problem by <a href="change-1.html">changing</a> <a href="change-2.html">the</a> <a href="change-3.html">behavior</a> of several of these APIs so that callbacks are never called more than once in a text buffer <em>transaction</em>. The transaction is a construct that Atom uses to group changes so that they can be undone and redone as a single operation. As always, in making this change, we have taken steps to ensure that existing packages will not be negatively affected. Code using the existing event APIs should continue to work. We have also <a href="https://github.com/t9md/atom-vim-mode-plus/issues/939">notified</a> the maintainers of every package using these APIs that their behavior will subtly change in this release.</p>
+
+<p>You can check out all the other improvements shipping with this version in the <a href="https://github.com/atom/atom/releases/tag/v1.23.0">release notes</a>. <img class="emoji" title=":memo:" alt=":memo:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dd.png" height="20" width="20"></p>
+
+<h2 id="also-now-available-teletype-030">Also Now Available: Teletype 0.3.0</h2>
+
+<p><img src="../../../img/posts/teletype/teletype.png" alt="Teletype 0.3.0">
+Continuing <a href="../../11/15/code-together-in-real-time-with-teletype-for-atom.html">our quest</a> to make it just as easy to code together as it is to code alone, <a href="https://teletype.atom.io/">Teletype</a> 0.3.0 lets developers simultaneously collaborate on multiple files. Hosts can add new files to their workspace to share those files with guests. Guests can edit shared files independently of the file that the host is currently editing. We’re excited to get these enhancements in your hands, and we’re already working on the <a href="https://github.com/atom/teletype/issues/268">next round of improvements</a>.</p>
+
+<p>Teletype 0.3.0 also includes several bug fixes and connectivity improvements. 🐛🔨</p>
+
+<p>Visit <a href="https://teletype.atom.io/">teletype.atom.io</a> to start coding together in Atom today.</p>
+
+<h2 id="atom-124-beta">Atom 1.24 Beta</h2>
+
+<p><img src="../../../img/release-beta.png" alt="Atom Beta"></p>
+
+<p>Atom 1.24 hits beta today with a raft of improvements to keep you warm this holiday season.</p>
+
+<h3 id="performance-and-responsiveness">Performance and Responsiveness</h3>
+
+<p><img src="../../../img/posts/snow-falling-on-async-context-menu.gif" alt="Snowy Context Menu"></p>
+
+<ul>
+  <li>ContextMenus are <a href="https://github.com/atom/atom/pull/16192">now asynchronous</a>, keeping the editor responsive while they’re visible.</li>
+  <li>Atom now <a href="https://github.com/atom/atom/pull/16092">automatically scrolls</a> to keep your cursor visible after folding or unfolding a large block of code.</li>
+  <li>
+<a href="https://github.com/atom/command-palette/pulls?utf8=%E2%9C%93&amp;q=is%3Apr+merged%3A2017-11-05..2017-12-07">Several fixes</a> to add caching and render less often yield a perceptibly faster command palette.</li>
+</ul>
+
+<h3 id="editor-enhancements">Editor Enhancements</h3>
+
+<ul>
+  <li>Someone on the wrong side of the tabs vs. spaces debate wrote the initial Toggle Line Comment implementation, as it always inserted spaces. It will now <a href="https://github.com/atom/atom/issues/16193">honor your settings</a>.</li>
+  <li>New <a href="https://github.com/atom/bookmarks/pull/91">“Select to Next / Previous Bookmark” commands</a> are now available.</li>
+  <li>You can now <a href="https://github.com/atom/notifications/pull/164">display recent notifications in a dock</a>. Search for <code class="highlighter-rouge">notifications</code> in the command palette or map a keybinding to <code class="highlighter-rouge">notifications:toggle-log</code> to check it out.</li>
+</ul>
+
+<h3 id="developer-and-api-updates">Developer and API Updates</h3>
+
+<ul>
+  <li>
+<code class="highlighter-rouge">TextEditor</code> elements <a href="https://github.com/atom/atom/pull/16294">now support</a> a <code class="highlighter-rouge">readonly</code> attribute. We expect this to be useful for IDE package developers who want to display code that isn’t present on the local drive.</li>
+  <li>HTML handling within the PHP grammar has been <a href="https://github.com/atom/language-php/pull/217">cleanly separated</a> such that it’s now possible to reuse strictly the PHP grammar in packages.</li>
+  <li>A number of fixes to package deactivation land in this release. Join us and resolve to improve your package hygiene in 2018!</li>
+</ul>
+
+<!-- release notes -->
+
+<p>There are many more details in the <a href="https://github.com/atom/atom/releases/tag/v1.24.0-beta0">release notes</a>.</p>
+
+<p>Get all these improvements today by joining the <a href="https://atom.io/beta">Atom Beta Channel</a>.</p>
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2017/12/12/atom-1-23.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2017/12/12/atom-1-23.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:35:38 GMT -->
+</html>

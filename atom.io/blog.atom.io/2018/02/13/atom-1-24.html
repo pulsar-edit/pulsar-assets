@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2018/02/13/atom-1-24.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:35:31 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Atom 1.24 | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Atom 1.24" />
+<meta name="author" content="smashwilson" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Atom 1.24 has been released on our stable channel and includes read-only TextEditors, asynchronous context menus, and automatic scrolling on folding and unfolding." />
+<meta property="og:description" content="Atom 1.24 has been released on our stable channel and includes read-only TextEditors, asynchronous context menus, and automatic scrolling on folding and unfolding." />
+<link rel="canonical" href="atom-1-24.html" />
+<meta property="og:url" content="atom-1-24.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-02-13T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@smashwilson" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2018/02/13/atom-1-24.html"},"url":"https://blog.atom.io/2018/02/13/atom-1-24.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"smashwilson"},"headline":"Atom 1.24","dateModified":"2018-02-13T00:00:00+00:00","datePublished":"2018-02-13T00:00:00+00:00","author":{"@type":"Person","name":"smashwilson"},"description":"Atom 1.24 has been released on our stable channel and includes read-only TextEditors, asynchronous context menus, and automatic scrolling on folding and unfolding.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Atom 1.24</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> February 13, 2018 <a href="https://github.com/smashwilson" class="author-link"><img class="avatar avatar-small" alt="smashwilson" width="18" height="18" data-proofer-ignore="true" src="https://avatars1.githubusercontent.com/smashwilson?v=3&amp;s=18" srcset="https://avatars1.githubusercontent.com/smashwilson?v=3&amp;s=18 1x, https://avatars1.githubusercontent.com/smashwilson?v=3&amp;s=36 2x, https://avatars1.githubusercontent.com/smashwilson?v=3&amp;s=54 3x, https://avatars1.githubusercontent.com/smashwilson?v=3&amp;s=72 4x"> smashwilson</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p><img src="../../../img/posts/release-1-24.png" alt="Atom 1.24"></p>
+
+<p>Atom 1.24 has been released on our stable channel and includes read-only TextEditors, asynchronous context menus, and automatic scrolling on folding and unfolding.</p>
+
+<!--more-->
+
+<h3 id="read-only-texteditors">Read-only TextEditors</h3>
+
+<p>Packages can apply a <a href="https://github.com/atom/atom/pull/16294"><code class="highlighter-rouge">readonly</code> attribute to TextEditors</a> to disable input. This is useful when you wish to display code with syntax highlighting and allow copying to the clipboard, but it doesn’t make sense for the user to be able to change it, for example because it’s code in your git history or it isn’t on your local drive.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;atom-text-editor</span> <span class="na">readonly</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">editorElement</span><span class="p">.</span><span class="nx">setReadOnly</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="context-menus-are-now-asynchronous">Context menus are now asynchronous</h3>
+
+<p>Right-clicking no longer locks up the event loop! <a href="https://github.com/atom/atom/pull/16192">Context menus are asynchronous</a>, allowing other processing and rendering to occur while the menu is shown.</p>
+
+<p><img src="../../../img/posts/snow-falling-on-async-context-menu.gif" alt="Snowy Context Menu"></p>
+
+<h3 id="new-languagemode-api">New LanguageMode API</h3>
+
+<p>The mechanism by which editors are tokenized for syntax highlighting and folding <a href="#improved-syntax-highlighting-and-code-folding">is changing soon</a>. To prepare for this, the existing APIs that deal with configuring a grammar on an editor are being altered, and the <a href="https://github.com/atom/atom/pull/16087">first of these changes</a> are included in Atom 1.24.</p>
+
+<p>Rather than calling <code class="highlighter-rouge">.setGrammar(grammar)</code> on an editor:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">grammar</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="nx">grammars</span><span class="p">.</span><span class="nx">grammarForScopeName</span><span class="p">(</span><span class="s1">'source.js'</span><span class="p">)</span>
+<span class="nx">editor</span><span class="p">.</span><span class="nx">setGrammar</span><span class="p">(</span><span class="nx">grammar</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Assign a <em>language mode</em> to the underlying buffer on the <code class="highlighter-rouge">atom.grammar</code> registry:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">buffer</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="nx">getBuffer</span><span class="p">()</span>
+<span class="nx">atom</span><span class="p">.</span><span class="nx">grammars</span><span class="p">.</span><span class="nx">assignLanguageMode</span><span class="p">(</span><span class="nx">buffer</span><span class="p">,</span> <span class="s1">'source.js'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Additionally:</p>
+
+<ul>
+  <li>
+<code class="highlighter-rouge">atom.grammars.autoAssignLanguageMode(buffer)</code> will deduce a language mode for a buffer based on its file extension and current contents.</li>
+  <li>
+<code class="highlighter-rouge">atom.grammars.maintainLanguageMode(buffer)</code> will assign the buffer a deduced language mode and continue to update it as the buffer’s file path changes or as additional language packages are loaded.</li>
+</ul>
+
+<p>The <code class="highlighter-rouge">Grammar</code>-specific APIs continue to work for backwards compatibility, but will be deprecated at some point in the future.</p>
+
+<h3 id="automatic-scrolling-when-folding-or-unfolding">Automatic scrolling when folding or unfolding</h3>
+
+<p>Folding or unfolding large blocks of code could easily move your cursor off screen. Now, Atom will <a href="https://github.com/atom/atom/pull/16092">automatically scroll the editor</a> to keep your cursors visible after the folding operation is complete.</p>
+
+<!-- release notes -->
+
+<p>Don’t forget to check out all the other improvements shipping with this version in the <a href="https://github.com/atom/atom/releases/tag/v1.24.0">release notes</a>! <img class="emoji" title=":memo:" alt=":memo:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dd.png" height="20" width="20"></p>
+
+<h2 id="atom-125-beta">Atom 1.25 Beta</h2>
+
+<p><img src="../../../img/release-beta.png" alt="Atom Beta"></p>
+
+<h3 id="electron-upgrade">Electron upgrade</h3>
+
+<p>Electron has been upgraded to 1.7.11. See <a href="https://electronjs.org/releases#1.7.11">the Electron release</a> for more information.</p>
+
+<h3 id="improved-syntax-highlighting-and-code-folding">Improved syntax highlighting and code folding</h3>
+
+<p>Syntax highlighting and code folding is about to be revamped substantially. A brand-new incremental parsing system called <a href="https://github.com/tree-sitter/tree-sitter">tree-sitter</a> has been in development for some time, and it’s <a href="https://github.com/atom/atom/pull/16299">available for testing in beta today</a>. Tree-sitter grammars exist today for JavaScript, TypeScript, Python, C, C++, Go, and Bash.</p>
+
+<p>Tree-sitter is currently disabled by default. If you want to give it a shot, enable the “Use Tree Sitter Parsers” setting in Atom’s core settings.</p>
+
+<p>To give a taste of what’s possible with tree-sitter grammars, code folds are currently based entirely on indentation. It’s a decent heuristic, but falls apart in more complex situations. Consider this function signature, and the way it folds today:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">left</span><span class="p">,</span>
+        <span class="kt">int</span> <span class="n">right</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><img src="../../../img/tree-sitter-fold-before.png" alt="Folding by indentation"></p>
+
+<p>With tree-sitter, it can be folded more usefully:</p>
+
+<p><img src="../../../img/tree-sitter-fold-after.png" alt="Syntax-aware tree-sitter fold"></p>
+
+<p>As another example, tree-sitter lets you expand and contract selections by syntax nodes:</p>
+
+<p><img src="../../../img/tree-sitter-syntax-selection.gif" alt="Tree-sitter syntax selection"></p>
+
+<h3 id="python-and-html-language-improvements">Python and HTML language improvements</h3>
+
+<p>The Python and HTML language packages got some love this release. When editing Python source, the tokenizer now supports <a href="https://github.com/atom/language-python/pull/228">function annotations</a>, <a href="https://github.com/atom/language-python/pull/231">async functions</a>, <a href="https://github.com/atom/language-python/pull/224">string formatting</a>, <a href="https://github.com/atom/language-python/pull/227">f-strings</a>, and <a href="https://github.com/atom/language-python/pull/232">binary strings</a>. Within HTML documents, <code class="highlighter-rouge">style</code> attributes are <a href="https://github.com/atom/language-html/pull/170">tokenized as CSS</a>.</p>
+
+<h3 id="github-package">GitHub package</h3>
+
+<p>The GitHub package allows you to stage and view changes involving <a href="https://github.com/atom/github/pull/1275">file mode changes and changes to symbolic links</a>. Furthermore, the diff view <a href="https://github.com/atom/github/pull/1281">no longer resets its scrolling position when you don’t want it to</a>.</p>
+
+<p>There is also a <a href="https://github.com/atom/github/pull/1223">new configuration setting</a> that controls whether or not commit messages composed within the mini editor are hard-wrapped to 72 columns. Commit messages composed in a full-pane editor continue to be preserved as-is.</p>
+
+<h3 id="performance-and-responsiveness">Performance and Responsiveness</h3>
+
+<p>The <code class="highlighter-rouge">atom --wait</code> command will now <a href="https://github.com/atom/atom/pull/16497">open files in existing Atom windows</a>. This makes Atom more useful for tasks like editing commit messages, where the editor must block until a file is closed. Try using <code class="highlighter-rouge">atom-beta --wait</code> as your <a href="https://git-scm.com/docs/git-var#git-var-GITEDITOR">GIT_EDITOR</a> today!</p>
+
+<p><a href="https://github.com/atom/atom/pull/16229">“Confirm”</a> and <a href="https://github.com/atom/atom/pull/16245">“save”</a> dialogs launched with the Atom API may now be asynchronous. Internal callers have been updated, but note that package authors will need to opt-in to the asynchronous forms of both by providing callback arguments.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Asynchronous atom.confirm()</span>
+<span class="nx">atom</span><span class="p">.</span><span class="nx">confirm</span><span class="p">({</span>
+  <span class="na">message</span><span class="p">:</span> <span class="s1">'Click yes to win'</span><span class="p">,</span>
+  <span class="na">buttons</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Yes'</span><span class="p">,</span> <span class="s1">'No'</span><span class="p">]</span>
+<span class="p">},</span> <span class="nx">response</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">response</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'YOU WIN!'</span><span class="p">)</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Well well aren't we contrary"</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+
+<span class="c1">// Asynchronous showSaveDialog()</span>
+<span class="nx">atom</span><span class="p">.</span><span class="nx">getCurrentWindow</span><span class="p">().</span><span class="nx">showSaveDialog</span><span class="p">({</span>
+  <span class="na">title</span><span class="p">:</span> <span class="s1">'Save File'</span><span class="p">,</span>
+  <span class="na">defaultPath</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">cwd</span><span class="p">()</span>
+<span class="p">},</span> <span class="nx">chosenPath</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Successfully saved to </span><span class="p">${</span><span class="nx">chosenPath</span><span class="p">}</span><span class="s2">.`</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<!-- release notes -->
+
+<p>There are many more details in the <a href="https://github.com/atom/atom/releases/tag/v1.25.0-beta0">release notes</a>.</p>
+
+<p>Get all these improvements today by joining the <a href="https://atom.io/beta">Atom Beta Channel</a>!</p>
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2018/02/13/atom-1-24.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2018/02/13/atom-1-24.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:35:34 GMT -->
+</html>

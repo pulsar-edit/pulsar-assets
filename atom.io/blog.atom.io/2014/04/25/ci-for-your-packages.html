@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2014/04/25/ci-for-your-packages.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:37 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>CI For Your Packages | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="CI For Your Packages" />
+<meta name="author" content="kevinsawicki" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Looking to get your Atom package building on CI so that pull requests are updated automatically when tests pass or fail?" />
+<meta property="og:description" content="Looking to get your Atom package building on CI so that pull requests are updated automatically when tests pass or fail?" />
+<link rel="canonical" href="ci-for-your-packages.html" />
+<meta property="og:url" content="ci-for-your-packages.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-04-25T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@kevinsawicki" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2014/04/25/ci-for-your-packages.html"},"url":"https://blog.atom.io/2014/04/25/ci-for-your-packages.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"kevinsawicki"},"headline":"CI For Your Packages","dateModified":"2014-04-25T00:00:00+00:00","datePublished":"2014-04-25T00:00:00+00:00","author":{"@type":"Person","name":"kevinsawicki"},"description":"Looking to get your Atom package building on CI so that pull requests are updated automatically when tests pass or fail?","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">CI For Your Packages</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> April 25, 2014 <a href="https://github.com/kevinsawicki" class="author-link"><img class="avatar avatar-small" alt="kevinsawicki" width="18" height="18" data-proofer-ignore="true" src="https://avatars0.githubusercontent.com/kevinsawicki?v=3&amp;s=18" srcset="https://avatars0.githubusercontent.com/kevinsawicki?v=3&s=18 1x, https://avatars0.githubusercontent.com/kevinsawicki?v=3&s=36 2x, https://avatars0.githubusercontent.com/kevinsawicki?v=3&s=54 3x, https://avatars0.githubusercontent.com/kevinsawicki?v=3&s=72 4x" /> kevinsawicki</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p>Looking to get your Atom package building on CI so that pull requests are
+updated automatically when tests pass or fail?</p>
+
+<p>Look no further, we just published a new <a href="https://github.com/atom/ci">ci</a> repository with <a href="https://github.com/atom/ci/blob/master/README.md">instructions</a>
+for building and testing your Atom packages on <a href="https://travis-ci.org/">Travis CI</a>.</p>
+
+<p>All you need to do is add the following <code class="highlighter-rouge">.travis.yml</code> file to the root of
+your repository and <a href="http://docs.travis-ci.com/user/getting-started/#Step-two%3A-Activate-GitHub-Webhook">configure your project on Travis</a>.</p>
+
+<pre class="editor editor-colors" style="font-family:monospace"><div class="line"><span class="source yaml"><span class="string unquoted yaml"><span class="entity name tag yaml"><span>language</span><span class="punctuation separator key-value yaml"><span>:</span></span></span><span>&nbsp;</span><span class="string unquoted yaml"><span>objective-c</span></span></span></span></div><div class="line"><span class="source yaml"><span>&nbsp;</span></span></div><div class="line"><span class="source yaml"><span class="string unquoted yaml"><span class="entity name tag yaml"><span>notifications</span><span class="punctuation separator key-value yaml"><span>:</span></span></span></span></span></div><div class="line"><span class="source yaml"><span>&nbsp;&nbsp;</span><span class="string unquoted yaml"><span class="entity name tag yaml"><span>email</span><span class="punctuation separator key-value yaml"><span>:</span></span></span></span></span></div><div class="line"><span class="source yaml"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="string unquoted yaml"><span class="entity name tag yaml"><span>on_success</span><span class="punctuation separator key-value yaml"><span>:</span></span></span><span>&nbsp;</span><span class="string unquoted yaml"><span>never</span></span></span></span></div><div class="line"><span class="source yaml"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="string unquoted yaml"><span class="entity name tag yaml"><span>on_failure</span><span class="punctuation separator key-value yaml"><span>:</span></span></span><span>&nbsp;</span><span class="string unquoted yaml"><span>change</span></span></span></span></div><div class="line"><span class="source yaml"><span>&nbsp;</span></span></div><div class="line"><span class="source yaml"><span class="string unquoted yaml"><span class="entity name tag yaml"><span>script</span><span class="punctuation separator key-value yaml"><span>:</span></span></span><span>&nbsp;</span><span class="string quoted single yaml"><span class="punctuation definition string begin yaml"><span>&#39;</span></span><span>curl&nbsp;-s&nbsp;https://raw.githubusercontent.com/atom/ci/master/build-package.sh&nbsp;|&nbsp;sh</span><span class="punctuation definition string end yaml"><span>&#39;</span></span></span></span></span></div></pre>
+
+<p>This will run your package’s <a href="http://jasmine.github.io/">Jasmine</a> specs against the latest
+<a href="https://atom.io/releases">Atom release</a> using the <a href="https://github.com/atom/apm">apm</a> <code class="highlighter-rouge">test</code> command.</p>
+
+<p>You can see it in action for the <a href="https://github.com/atom/wrap-guide">wrap-guide</a> package <a href="https://travis-ci.org/atom/wrap-guide/builds/23774579">here</a>.</p>
+
+<p>Happy testing!</p>
+
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2014/04/25/ci-for-your-packages.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2014/04/25/ci-for-your-packages.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:37 GMT -->
+</html>

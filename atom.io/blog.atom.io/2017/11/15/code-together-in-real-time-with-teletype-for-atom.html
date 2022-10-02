@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2017/11/15/code-together-in-real-time-with-teletype-for-atom.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:35:38 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Code together in real time with Teletype for Atom | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Code together in real time with Teletype for Atom" />
+<meta name="author" content="nathansobo" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Writing code with another programmer is a great way to absorb knowledge, challenge yourself with new perspectives, and ultimately write better software. It can also be a fulfilling way to get to know the mind of another human being. Unfortunately, the logistics of writing code with another programmer can be such a hassle that many people don’t bother. Here are some of the common obstacles: Sharing the same physical machine is impossible for remote teams, and can be challenging to organize even when teammates share the same office. Cloud-based IDEs and remote tmux sessions ask you to move your entire workflow into a hosted environment, which isn’t always possible or desirable. The connection latency of screen sharing can lead to an awkward dynamic where only one collaborator can comfortably edit. Social coding shouldn’t have to be this hard! Today, we’re taking a first step toward making it just as easy to code together as it is to code alone with Teletype for Atom. At the dawn of computing, teletypes were used to create a real-time circuit between two machines so that anything typed on one machine appeared at the other end immediately. Following in these electro-mechanical footsteps, Teletype for Atom wires the keystrokes of remote collaborators directly into your programming environment, enabling conflict-free, low-latency collaborative editing for any file you can open in Atom." />
+<meta property="og:description" content="Writing code with another programmer is a great way to absorb knowledge, challenge yourself with new perspectives, and ultimately write better software. It can also be a fulfilling way to get to know the mind of another human being. Unfortunately, the logistics of writing code with another programmer can be such a hassle that many people don’t bother. Here are some of the common obstacles: Sharing the same physical machine is impossible for remote teams, and can be challenging to organize even when teammates share the same office. Cloud-based IDEs and remote tmux sessions ask you to move your entire workflow into a hosted environment, which isn’t always possible or desirable. The connection latency of screen sharing can lead to an awkward dynamic where only one collaborator can comfortably edit. Social coding shouldn’t have to be this hard! Today, we’re taking a first step toward making it just as easy to code together as it is to code alone with Teletype for Atom. At the dawn of computing, teletypes were used to create a real-time circuit between two machines so that anything typed on one machine appeared at the other end immediately. Following in these electro-mechanical footsteps, Teletype for Atom wires the keystrokes of remote collaborators directly into your programming environment, enabling conflict-free, low-latency collaborative editing for any file you can open in Atom." />
+<link rel="canonical" href="code-together-in-real-time-with-teletype-for-atom.html" />
+<meta property="og:url" content="code-together-in-real-time-with-teletype-for-atom.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:image" content="../../../img/posts/teletype/teletype.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-11-15T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@nathansobo" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2017/11/15/code-together-in-real-time-with-teletype-for-atom.html"},"url":"https://blog.atom.io/2017/11/15/code-together-in-real-time-with-teletype-for-atom.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"nathansobo"},"headline":"Code together in real time with Teletype for Atom","dateModified":"2017-11-15T00:00:00+00:00","datePublished":"2017-11-15T00:00:00+00:00","author":{"@type":"Person","name":"nathansobo"},"image":"https://blog.atom.io/img/posts/teletype/teletype.png","description":"Writing code with another programmer is a great way to absorb knowledge, challenge yourself with new perspectives, and ultimately write better software. It can also be a fulfilling way to get to know the mind of another human being. Unfortunately, the logistics of writing code with another programmer can be such a hassle that many people don’t bother. Here are some of the common obstacles: Sharing the same physical machine is impossible for remote teams, and can be challenging to organize even when teammates share the same office. Cloud-based IDEs and remote tmux sessions ask you to move your entire workflow into a hosted environment, which isn’t always possible or desirable. The connection latency of screen sharing can lead to an awkward dynamic where only one collaborator can comfortably edit. Social coding shouldn’t have to be this hard! Today, we’re taking a first step toward making it just as easy to code together as it is to code alone with Teletype for Atom. At the dawn of computing, teletypes were used to create a real-time circuit between two machines so that anything typed on one machine appeared at the other end immediately. Following in these electro-mechanical footsteps, Teletype for Atom wires the keystrokes of remote collaborators directly into your programming environment, enabling conflict-free, low-latency collaborative editing for any file you can open in Atom.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Code together in real time with Teletype for Atom</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> November 15, 2017 <a href="https://github.com/nathansobo" class="author-link"><img class="avatar avatar-small" alt="nathansobo" width="18" height="18" data-proofer-ignore="true" src="https://avatars1.githubusercontent.com/nathansobo?v=3&amp;s=18" srcset="https://avatars1.githubusercontent.com/nathansobo?v=3&s=18 1x, https://avatars1.githubusercontent.com/nathansobo?v=3&s=36 2x, https://avatars1.githubusercontent.com/nathansobo?v=3&s=54 3x, https://avatars1.githubusercontent.com/nathansobo?v=3&s=72 4x" /> nathansobo</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p><img src="../../../img/posts/teletype/original-teletype.jpg" alt="Old-school teletype" /></p>
+
+<p>Writing code with another programmer is a great way to absorb knowledge, challenge yourself with new perspectives, and ultimately write better software. It can also be a fulfilling way to get to know the mind of another human being. Unfortunately, the <em>logistics</em> of writing code with another programmer can be such a hassle that many people don’t bother. Here are some of the common obstacles:</p>
+
+<ul>
+  <li>Sharing the same physical machine is impossible for remote teams, and can be challenging to organize even when teammates share the same office.</li>
+  <li>Cloud-based IDEs and remote <code class="highlighter-rouge">tmux</code> sessions ask you to move your entire workflow into a hosted environment, which isn’t always possible or desirable.</li>
+  <li>The connection latency of screen sharing can lead to an awkward dynamic where only one collaborator can comfortably edit.</li>
+</ul>
+
+<p>Social coding shouldn’t have to be this hard! Today, we’re taking a first step toward making it just as easy to code together as it is to code alone with <a href="https://teletype.atom.io/">Teletype for Atom</a>. At the dawn of computing, teletypes were used to create a real-time circuit between two machines so that anything typed on one machine appeared at the other end immediately. Following in these electro-mechanical footsteps, Teletype for Atom wires the keystrokes of remote collaborators directly into your programming environment, enabling conflict-free, low-latency collaborative editing for any file you can open in Atom.</p>
+
+<p><img src="../../../img/posts/teletype/teletype.png" alt="Atom Teletype" /></p>
+
+<!--more-->
+
+<h2 id="getting-started-with-teletype">Getting started with Teletype</h2>
+
+<p>Once you install Teletype via Atom’s settings view or <code class="highlighter-rouge">apm install teletype</code> on the command line, you can open a “portal” into your local workspace from the new collaboration menu on the status bar.</p>
+
+<p><img src="../../../img/posts/teletype/share.gif" alt="Share your portal and copy its secret ID" /></p>
+
+<p>Then just share your portal’s secret ID with collaborators via your preferred chat service.</p>
+
+<p><img src="../../../img/posts/teletype/invite.gif" alt="Send the portal ID to a collaborator via a chat service" /></p>
+
+<p>Collaborators can enter your portal by clicking “Join” in the collaboration menu and entering the portal ID.</p>
+
+<p><img src="../../../img/posts/teletype/join.gif" alt="Once someone has your portal ID, they can join" /></p>
+
+<p>After joining your portal, collaborators see a new tab in their workspace that lets them view and edit the contents of your active editor. Everyone gets their own cursor, and everyone can type at the same time, but since sharing is at the keystroke-level rather than the pixel-level, participants all keep their own custom key bindings, packages, and themes.</p>
+
+<p><img src="../../../img/posts/teletype/code-together.gif" alt="Everyone gets a cursor" /></p>
+
+<p>When you share a portal, your code stays on your local disk. As you switch between files, the contents of your current active editor are transmitted to collaborators so they can follow along, but otherwise your workflow will be unchanged.</p>
+
+<p><img src="../../../img/posts/teletype/follow.gif" alt="Guests follow the host" /></p>
+
+<h2 id="implementation-details">Implementation details</h2>
+
+<h3 id="conflict-free-editing">Conflict-free editing</h3>
+
+<p>Collaborative editing is a tricky theoretical problem. To ensure responsive editing, each collaborator maintains their own replica of each document, applying local edits immediately before transmitting them to other collaborators. In the face of concurrency, edits end up being applied in a different order on each replica, but when the dust settles, all replicas need to have the same contents.</p>
+
+<p>After several late nights reading research papers, we ended up deciding to base Teletype on the theoretical framework of <a href="https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type">conflict-free replicated data types</a>, or <em>CRDTs</em>. Basically, CRDTs are data structures that always converge on the same representation when updated with the same set of operations, even if those operations are applied in different orders. The CRDT for text editing we wrote for the heart of this system is available as a standalone library called <a href="https://github.com/atom/teletype-crdt">teletype-crdt</a>.</p>
+
+<h3 id="connecting-peers">Connecting peers</h3>
+
+<p>To connect collaborators, we use  <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API">WebRTC</a> <a href="https://developer.mozilla.org/en-US/docs/Web/API/RTCDataChannel">data channels</a>. After an initial handshake that exchanges connection metadata via GitHub’s servers, all data flows over encrypted peer-to-peer connections. Our servers never see your files or edits, which maximizes your privacy and minimizes latency between you and your collaborators, regardless of your proximity to our data centers.</p>
+
+<h3 id="editor-agnostic-client-library">Editor-agnostic client library</h3>
+
+<p>The <a href="https://github.com/atom/teletype">Teletype Atom package</a> implements UI components and Atom-specific integration code, but most of the logic lives in an editor-agnostic library called  <a href="https://github.com/atom/teletype-client"><code class="highlighter-rouge">teletype-client</code></a>. Our protocols and API may churn for a while as we develop the system, but it should be possible to integrate <code class="highlighter-rouge">teletype-client</code> into any web-based application or even package it in an Electron-based server to talk to it from native editors. Supporting inter-operation between different text editors is definitely part of our long term vision.</p>
+
+<h2 id="carriage-return-line-feed">Carriage return, line feed</h2>
+
+<p>For now, Teletype only transmits text, so it’s a good idea to combine it with an application for voice communication. Traditional screen sharing can also be helpful for sharing the state of applications outside of Atom. Ultimately, we want to incorporate these kinds of features directly into the package along with a long list of other improvements.</p>
+
+<p>But rather than waiting for perfection, we are releasing a beta version of this package now, because we think it’s useful today. We’ve been using Teletype to build Teletype for a few months now, happily working together across two continents and three time zones. Daily teletyping has made us happier and more productive, and we hope it will do the same for you and your teammates.</p>
+
+<p>Visit <a href="https://teletype.atom.io/">teletype.atom.io</a> to start coding together in Atom today.</p>
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2017/11/15/code-together-in-real-time-with-teletype-for-atom.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2017/11/15/code-together-in-real-time-with-teletype-for-atom.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:35:43 GMT -->
+</html>

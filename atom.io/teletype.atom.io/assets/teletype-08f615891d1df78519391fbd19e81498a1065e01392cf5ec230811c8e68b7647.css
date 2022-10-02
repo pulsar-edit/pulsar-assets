@@ -1,0 +1,1635 @@
+/*
+
+
+
+ *
+
+
+**/
+/* line 26, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+html {
+  font: 14px/1.5 normal normal;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #efdab9;
+  background-color: #343233;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* line 34, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+body {
+  margin: 0;
+}
+
+/* line 38, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+h2 {
+  margin: 0 0 2rem 0;
+  font-weight: 300;
+  font-size: 2.2em;
+  letter-spacing: 0.05em;
+}
+
+/* line 44, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+h3 {
+  margin: 3rem 0 1rem 0;
+  font-weight: 300;
+  font-size: 1.6em;
+  letter-spacing: 0.05em;
+}
+
+/* line 51, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+h4 {
+  margin: 2rem 0 1rem 0;
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+/* line 57, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+a {
+  color: #e2ad4b;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+/* line 62, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+a:hover {
+  text-decoration: underline;
+}
+
+/* line 66, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+hr {
+  margin: 4rem 6rem;
+  border: none;
+  border-top: 1px solid #635c55;
+}
+
+/* line 72, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+strong {
+  color: #8bbbae;
+}
+
+/* line 76, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+li {
+  padding: .5rem;
+  line-height: 1.4;
+}
+
+/* line 81, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+img {
+  max-width: 100%;
+}
+
+/* line 84, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+p > img {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* line 88, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+p:last-child > img {
+  margin-bottom: 0;
+}
+
+/* line 92, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+code {
+  padding: .2em .4em;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-weight: 600;
+  font-size: 85%;
+  color: #f6ebda;
+  background-color: #494647;
+  border-radius: 3px;
+}
+
+/* line 102, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.is-centered {
+  text-align: center;
+}
+
+/* Wrapper -------------------------- */
+/* line 110, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.wrapper {
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* line 115, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.wrapper + .wrapper {
+  padding-top: 0;
+}
+
+/* line 119, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.wrapper--full {
+  text-align: center;
+}
+
+/* Video -------------------------- */
+/* line 134, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.video-container {
+  display: flex;
+  position: relative;
+  padding-top: 56.25%;
+}
+
+/* line 139, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  box-shadow: 0px 15px 20px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* line 149, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.video-hud {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+}
+
+/* line 157, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.video-hud.is-hidden {
+  display: none;
+}
+
+/* line 161, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.video-play-button.mega-octicon {
+  margin: auto;
+  padding: 0;
+  width: 1.5em;
+  height: 1.5em;
+  line-height: 1;
+  font-size: 76px;
+  border-radius: 2em;
+  color: #1a1919;
+  border: 4px solid;
+  background-color: #dda131;
+  cursor: pointer;
+  outline: none;
+}
+/* line 175, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.video-play-button.mega-octicon:before {
+  left: 0.05em;
+  position: relative;
+}
+
+/* line 181, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.video-play-button:focus {
+  border-style: dashed;
+}
+
+/* line 184, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.video-play-button:hover {
+  background-color: #e5b55d;
+}
+
+/* line 187, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.video-play-button:active {
+  transform: scale(0.96);
+  background-color: #d39522;
+}
+
+/* Hide play button on iOS */
+/* Content -------------------------- */
+/* line 202, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.logo {
+  margin-top: 1rem;
+  height: 60px;
+}
+
+/* line 207, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.intro {
+  text-align: center;
+}
+
+/* line 211, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.intro h2 {
+  font-size: 2.2em;
+}
+
+/* line 215, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.intro p {
+  font-size: 1.3em;
+}
+/* line 218, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.intro p sup {
+  font-size: 60%;
+}
+
+/* line 223, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.privacy-img {
+  margin: 0;
+}
+
+/* line 227, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.privacy-list {
+  padding-left: 0;
+  list-style: none;
+}
+/* line 231, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.privacy-list li {
+  padding: 0;
+  margin-top: 3em;
+}
+
+/* Love -------------------------- */
+/* line 240, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.love {
+  text-decoration: none;
+  text-align: center;
+}
+
+/* line 245, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.love .octicon-logo-github {
+  position: relative;
+  top: 0.11em;
+}
+
+/* line 250, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.love a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Background lines -------------------------- */
+/* line 257, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.hero {
+  padding-top: 100px;
+  background-image: url(real-time-lines-8877bd915afdac4297b572bbd54d10cba87e27072457bb198f1dfb3b72c89ed2.svg), url(real-time-bg-d9e669764788551ca503d4a51dc26d413d63c8773f45f58dd65392cbe33f6e20.svg);
+  background-repeat: no-repeat;
+  background-position: -580px 30px, calc(100% + 215px) -260px;
+  background-size: auto 68px, auto 340px;
+}
+
+/* line 265, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.wrapper--video {
+  background-image: url(real-time-lines-8877bd915afdac4297b572bbd54d10cba87e27072457bb198f1dfb3b72c89ed2.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 68px;
+}
+
+/* line 272, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+body {
+  padding-bottom: 200px;
+  background-image: url(real-time-lines-8877bd915afdac4297b572bbd54d10cba87e27072457bb198f1dfb3b72c89ed2.svg), url(real-time-bg-d9e669764788551ca503d4a51dc26d413d63c8773f45f58dd65392cbe33f6e20.svg);
+  background-repeat: no-repeat;
+  background-position: calc(100% + 500px) calc(100% - 50px), -170px calc(100% - -155px);
+  background-size: auto 68px, auto 340px;
+}
+
+/* Responsive -------------------------- */
+/* Medium */
+@media (min-width: 600px) {
+  /* line 285, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+  html {
+    font-size: 15px;
+  }
+
+  /* line 288, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+  .wrapper {
+    max-width: 560px;
+    padding: 4rem 2rem;
+  }
+
+  /* line 292, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+  .wrapper--full {
+    max-width: none;
+  }
+
+  /* line 295, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+  .wrapper--video {
+    margin-bottom: 4rem;
+  }
+
+  /* line 298, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+  .logo {
+    width: 116px;
+    height: 106px;
+  }
+
+  /* line 302, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+  .privacy-list {
+    display: flex;
+    margin: 2rem 0;
+  }
+  /* line 306, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+  .privacy-list li {
+    flex: 1;
+    margin: 0;
+  }
+  /* line 311, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+  .privacy-list p {
+    margin: 0;
+  }
+  /* line 315, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+  .privacy-list p:last-child {
+    margin-top: 1rem;
+    padding: 1rem;
+    font-size: .9em;
+    border-radius: 6px;
+    border: 1px solid #494647;
+    background-color: #393738;
+  }
+  /* line 324, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+  .privacy-list li + li {
+    margin-left: 1rem;
+  }
+
+  /* line 329, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+  .privacy-img-wrapper {
+    text-align: center;
+  }
+
+  /* Background lines -------------------------- */
+  /* line 335, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+  .hero {
+    padding-top: 0;
+    background-position: -1340px 50px, calc(100% + 550px) -490px;
+    background-size: auto;
+  }
+
+  /* line 341, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+  .wrapper--video {
+    background-image: url(real-time-lines-8877bd915afdac4297b572bbd54d10cba87e27072457bb198f1dfb3b72c89ed2.svg), url(real-time-bg-d9e669764788551ca503d4a51dc26d413d63c8773f45f58dd65392cbe33f6e20.svg);
+    background-position: center;
+    background-size: auto;
+    margin-bottom: 5rem;
+  }
+
+  /* line 348, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+  body {
+    background-image: url(real-time-lines-8877bd915afdac4297b572bbd54d10cba87e27072457bb198f1dfb3b72c89ed2.svg), url(real-time-bg-d9e669764788551ca503d4a51dc26d413d63c8773f45f58dd65392cbe33f6e20.svg);
+    background-position: calc(100% + 1140px) calc(100% - 60px), -420px calc(100% - -500px);
+    background-size: auto;
+  }
+}
+/* Large */
+@media (min-width: 1000px) {
+  /* line 359, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+  html {
+    font-size: 16px;
+  }
+
+  /* line 363, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+  .wrapper {
+    padding: 5rem 0;
+  }
+
+  /* line 367, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+  .video-container {
+    padding-top: 0;
+  }
+
+  /* line 371, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+  .video {
+    position: relative;
+    margin: auto;
+    top: initial;
+    left: initial;
+    width: 960px;
+    height: 540px;
+  }
+
+  /* Background lines -------------------------- */
+  /* line 383, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+  .hero {
+    background-position: -1200px 80px, calc(100% + 470px) -420px;
+  }
+
+  /* line 386, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+  body {
+    background-position: calc(100% + 1140px) calc(100% - 60px), -420px calc(100% - -360px);
+  }
+}
+/* ------------------------------------------------------------------------------ */
+/* Login -------------------------- */
+/* line 396, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.section.hero--login .wrapper.intro h2 {
+  font-size: 2.4em;
+}
+/* line 399, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.section.hero--login .wrapper.intro h2 sup {
+  font-size: 0.4em;
+}
+
+/* line 405, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.section.login .wrapper {
+  padding-top: 0px;
+  text-align: center;
+}
+/* line 409, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.section.login .wrapper h3 {
+  margin-top: 0px;
+}
+
+/* line 414, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.hero .wrapper {
+  padding-bottom: 2rem;
+}
+
+/* line 418, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.wrapper.intro {
+  padding-bottom: 0;
+}
+
+/* line 422, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.account-token {
+  margin-top: 4em;
+}
+
+/* line 426, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.account-token h3 {
+  font-size: 1.1em;
+}
+
+/* line 430, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.account-token-form {
+  background: #fff;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 350px;
+  padding: 1em;
+}
+/* line 440, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.account-token-form label {
+  color: #333;
+  text-align: left;
+  font-weight: 600;
+}
+
+/* line 447, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.account-token-form input {
+  margin: 1em 0;
+}
+
+/* line 451, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.account-token-form input,
+.account-token-form button {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  padding: .5em 1em;
+  border-radius: 3px;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+/* line 462, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.show-token {
+  flex: 1;
+  text-align: center;
+  border: 1px solid #d1d1d2;
+}
+
+/* line 468, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.copy-token {
+  border: none;
+  color: #ffffff;
+  border: 1px solid transparent;
+  background-color: #dda131;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  outline: none;
+}
+
+/* line 477, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.copy-token:focus,
+.copy-token:hover {
+  background-color: #e5b55d;
+}
+
+/* line 481, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.copy-token:active {
+  background-color: #d39522;
+}
+
+/* sign-in-explanation */
+/* line 487, /home/runner/work/atom-io/atom-io/app/assets/stylesheets/teletype.scss */
+.note {
+  color: #939395;
+  margin: 0 0 3em;
+}
+@charset "UTF-8";
+@font-face {
+  font-family: 'octicons';
+  src: url(octicons/octicons/octicons-9c162bcbd21831c1c86623d8352a5b883d3d638b5b5e889caf9cf6817523c376d41d.eot?#iefix) format("embedded-opentype"), url(octicons/octicons/octicons-cc5c5a519a545518743243db9cbfd19cc01662693d4bea686c54d622b0944b0b.woff) format("woff"), url(octicons/octicons/octicons-b06360cb96ebabeb54faaa03d75c758a7c58e99cb0566fef78dc58e092d07932.ttf) format("truetype"), url(octicons/octicons/octicons-685f15d151c86713c12ae8bb4ad5e8fadb618ae27c5dbde9e923f00dde3896df.svg#octicons) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 13, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon {
+  font: normal normal 16px octicons;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 21, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.mega-octicon {
+  font: normal normal 32px octicons;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 30, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-alert:before {
+  content: '\f02d';
+}
+
+/*  */
+/* line 31, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-alignment-align:before {
+  content: '\f08a';
+}
+
+/*  */
+/* line 32, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-alignment-aligned-to:before {
+  content: '\f08e';
+}
+
+/*  */
+/* line 33, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-alignment-unalign:before {
+  content: '\f08b';
+}
+
+/*  */
+/* line 34, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-arrow-down:before {
+  content: '\f03f';
+}
+
+/*  */
+/* line 35, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-arrow-left:before {
+  content: '\f040';
+}
+
+/*  */
+/* line 36, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-arrow-right:before {
+  content: '\f03e';
+}
+
+/*  */
+/* line 37, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-arrow-small-down:before {
+  content: '\f0a0';
+}
+
+/*  */
+/* line 38, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-arrow-small-left:before {
+  content: '\f0a1';
+}
+
+/*  */
+/* line 39, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-arrow-small-right:before {
+  content: '\f071';
+}
+
+/*  */
+/* line 40, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-arrow-small-up:before {
+  content: '\f09f';
+}
+
+/*  */
+/* line 41, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-arrow-up:before {
+  content: '\f03d';
+}
+
+/*  */
+/* line 42, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-beer:before {
+  content: '\f069';
+}
+
+/*  */
+/* line 43, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-book:before {
+  content: '\f007';
+}
+
+/*  */
+/* line 44, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-bookmark:before {
+  content: '\f07b';
+}
+
+/*  */
+/* line 45, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-briefcase:before {
+  content: '\f0d3';
+}
+
+/*  */
+/* line 46, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-broadcast:before {
+  content: '\f048';
+}
+
+/*  */
+/* line 47, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-browser:before {
+  content: '\f0c5';
+}
+
+/*  */
+/* line 48, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-bug:before {
+  content: '\f091';
+}
+
+/*  */
+/* line 49, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-calendar:before {
+  content: '\f068';
+}
+
+/*  */
+/* line 50, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-check:before {
+  content: '\f03a';
+}
+
+/*  */
+/* line 51, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-checklist:before {
+  content: '\f076';
+}
+
+/*  */
+/* line 52, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-chevron-down:before {
+  content: '\f0a3';
+}
+
+/*  */
+/* line 53, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-chevron-left:before {
+  content: '\f0a4';
+}
+
+/*  */
+/* line 54, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-chevron-right:before {
+  content: '\f078';
+}
+
+/*  */
+/* line 55, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-chevron-up:before {
+  content: '\f0a2';
+}
+
+/*  */
+/* line 56, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-circle-slash:before {
+  content: '\f084';
+}
+
+/*  */
+/* line 57, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-circuit-board:before {
+  content: '\f0d6';
+}
+
+/*  */
+/* line 58, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-clippy:before {
+  content: '\f035';
+}
+
+/*  */
+/* line 59, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-clock:before {
+  content: '\f046';
+}
+
+/*  */
+/* line 60, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-cloud-download:before {
+  content: '\f00b';
+}
+
+/*  */
+/* line 61, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-cloud-upload:before {
+  content: '\f00c';
+}
+
+/*  */
+/* line 62, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-code:before {
+  content: '\f05f';
+}
+
+/*  */
+/* line 63, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-color-mode:before {
+  content: '\f065';
+}
+
+/*  */
+/* line 64, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-comment-add:before,
+.octicon-comment:before {
+  content: '\f02b';
+}
+
+/*  */
+/* line 66, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-comment-discussion:before {
+  content: '\f04f';
+}
+
+/*  */
+/* line 67, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-credit-card:before {
+  content: '\f045';
+}
+
+/*  */
+/* line 68, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-dash:before {
+  content: '\f0ca';
+}
+
+/*  */
+/* line 69, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-dashboard:before {
+  content: '\f07d';
+}
+
+/*  */
+/* line 70, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-database:before {
+  content: '\f096';
+}
+
+/*  */
+/* line 71, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-device-camera:before {
+  content: '\f056';
+}
+
+/*  */
+/* line 72, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-device-camera-video:before {
+  content: '\f057';
+}
+
+/*  */
+/* line 73, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-device-desktop:before {
+  content: '\f27c';
+}
+
+/*  */
+/* line 74, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-device-mobile:before {
+  content: '\f038';
+}
+
+/*  */
+/* line 75, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-diff:before {
+  content: '\f04d';
+}
+
+/*  */
+/* line 76, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-diff-added:before {
+  content: '\f06b';
+}
+
+/*  */
+/* line 77, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-diff-ignored:before {
+  content: '\f099';
+}
+
+/*  */
+/* line 78, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-diff-modified:before {
+  content: '\f06d';
+}
+
+/*  */
+/* line 79, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-diff-removed:before {
+  content: '\f06c';
+}
+
+/*  */
+/* line 80, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-diff-renamed:before {
+  content: '\f06e';
+}
+
+/*  */
+/* line 81, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-ellipsis:before {
+  content: '\f09a';
+}
+
+/*  */
+/* line 82, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-eye-unwatch:before,
+.octicon-eye-watch:before,
+.octicon-eye:before {
+  content: '\f04e';
+}
+
+/*  */
+/* line 85, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-file-binary:before {
+  content: '\f094';
+}
+
+/*  */
+/* line 86, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-file-code:before {
+  content: '\f010';
+}
+
+/*  */
+/* line 87, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-file-directory:before {
+  content: '\f016';
+}
+
+/*  */
+/* line 88, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-file-media:before {
+  content: '\f012';
+}
+
+/*  */
+/* line 89, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-file-pdf:before {
+  content: '\f014';
+}
+
+/*  */
+/* line 90, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-file-submodule:before {
+  content: '\f017';
+}
+
+/*  */
+/* line 91, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-file-symlink-directory:before {
+  content: '\f0b1';
+}
+
+/*  */
+/* line 92, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-file-symlink-file:before {
+  content: '\f0b0';
+}
+
+/*  */
+/* line 93, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-file-text:before {
+  content: '\f011';
+}
+
+/*  */
+/* line 94, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-file-zip:before {
+  content: '\f013';
+}
+
+/*  */
+/* line 95, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-flame:before {
+  content: '\f0d2';
+}
+
+/*  */
+/* line 96, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-fold:before {
+  content: '\f0cc';
+}
+
+/*  */
+/* line 97, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-gear:before {
+  content: '\f02f';
+}
+
+/*  */
+/* line 98, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-gift:before {
+  content: '\f042';
+}
+
+/*  */
+/* line 99, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-gist:before {
+  content: '\f00e';
+}
+
+/*  */
+/* line 100, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-gist-secret:before {
+  content: '\f08c';
+}
+
+/*  */
+/* line 101, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-git-branch-create:before,
+.octicon-git-branch-delete:before,
+.octicon-git-branch:before {
+  content: '\f020';
+}
+
+/*  */
+/* line 104, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-git-commit:before {
+  content: '\f01f';
+}
+
+/*  */
+/* line 105, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-git-compare:before {
+  content: '\f0ac';
+}
+
+/*  */
+/* line 106, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-git-merge:before {
+  content: '\f023';
+}
+
+/*  */
+/* line 107, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-git-pull-request-abandoned:before,
+.octicon-git-pull-request:before {
+  content: '\f009';
+}
+
+/*  */
+/* line 109, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-globe:before {
+  content: '\f0b6';
+}
+
+/*  */
+/* line 110, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-graph:before {
+  content: '\f043';
+}
+
+/*  */
+/* line 111, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-heart:before {
+  content: '\2665';
+}
+
+/* ♥ */
+/* line 112, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-history:before {
+  content: '\f07e';
+}
+
+/*  */
+/* line 113, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-home:before {
+  content: '\f08d';
+}
+
+/*  */
+/* line 114, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-horizontal-rule:before {
+  content: '\f070';
+}
+
+/*  */
+/* line 115, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-hourglass:before {
+  content: '\f09e';
+}
+
+/*  */
+/* line 116, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-hubot:before {
+  content: '\f09d';
+}
+
+/*  */
+/* line 117, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-inbox:before {
+  content: '\f0cf';
+}
+
+/*  */
+/* line 118, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-info:before {
+  content: '\f059';
+}
+
+/*  */
+/* line 119, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-issue-closed:before {
+  content: '\f028';
+}
+
+/*  */
+/* line 120, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-issue-opened:before {
+  content: '\f026';
+}
+
+/*  */
+/* line 121, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-issue-reopened:before {
+  content: '\f027';
+}
+
+/*  */
+/* line 122, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-jersey:before {
+  content: '\f019';
+}
+
+/*  */
+/* line 123, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-jump-down:before {
+  content: '\f072';
+}
+
+/*  */
+/* line 124, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-jump-left:before {
+  content: '\f0a5';
+}
+
+/*  */
+/* line 125, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-jump-right:before {
+  content: '\f0a6';
+}
+
+/*  */
+/* line 126, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-jump-up:before {
+  content: '\f073';
+}
+
+/*  */
+/* line 127, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-key:before {
+  content: '\f049';
+}
+
+/*  */
+/* line 128, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-keyboard:before {
+  content: '\f00d';
+}
+
+/*  */
+/* line 129, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-law:before {
+  content: '\f0d8';
+}
+
+/*  */
+/* line 130, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-light-bulb:before {
+  content: '\f000';
+}
+
+/*  */
+/* line 131, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-link:before {
+  content: '\f05c';
+}
+
+/*  */
+/* line 132, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-link-external:before {
+  content: '\f07f';
+}
+
+/*  */
+/* line 133, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-list-ordered:before {
+  content: '\f062';
+}
+
+/*  */
+/* line 134, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-list-unordered:before {
+  content: '\f061';
+}
+
+/*  */
+/* line 135, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-location:before {
+  content: '\f060';
+}
+
+/*  */
+/* line 136, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-gist-private:before,
+.octicon-mirror-private:before,
+.octicon-git-fork-private:before,
+.octicon-lock:before {
+  content: '\f06a';
+}
+
+/*  */
+/* line 140, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-logo-github:before {
+  content: '\f092';
+}
+
+/*  */
+/* line 141, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-mail:before {
+  content: '\f03b';
+}
+
+/*  */
+/* line 142, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-mail-read:before {
+  content: '\f03c';
+}
+
+/*  */
+/* line 143, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-mail-reply:before {
+  content: '\f051';
+}
+
+/*  */
+/* line 144, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-mark-github:before {
+  content: '\f00a';
+}
+
+/*  */
+/* line 145, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-markdown:before {
+  content: '\f0c9';
+}
+
+/*  */
+/* line 146, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-megaphone:before {
+  content: '\f077';
+}
+
+/*  */
+/* line 147, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-mention:before {
+  content: '\f0be';
+}
+
+/*  */
+/* line 148, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-microscope:before {
+  content: '\f089';
+}
+
+/*  */
+/* line 149, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-milestone:before {
+  content: '\f075';
+}
+
+/*  */
+/* line 150, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-mirror-public:before,
+.octicon-mirror:before {
+  content: '\f024';
+}
+
+/*  */
+/* line 152, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-mortar-board:before {
+  content: '\f0d7';
+}
+
+/*  */
+/* line 153, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-move-down:before {
+  content: '\f0a8';
+}
+
+/*  */
+/* line 154, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-move-left:before {
+  content: '\f074';
+}
+
+/*  */
+/* line 155, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-move-right:before {
+  content: '\f0a9';
+}
+
+/*  */
+/* line 156, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-move-up:before {
+  content: '\f0a7';
+}
+
+/*  */
+/* line 157, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-mute:before {
+  content: '\f080';
+}
+
+/*  */
+/* line 158, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-no-newline:before {
+  content: '\f09c';
+}
+
+/*  */
+/* line 159, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-octoface:before {
+  content: '\f008';
+}
+
+/*  */
+/* line 160, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-organization:before {
+  content: '\f037';
+}
+
+/*  */
+/* line 161, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-package:before {
+  content: '\f0c4';
+}
+
+/*  */
+/* line 162, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-paintcan:before {
+  content: '\f0d1';
+}
+
+/*  */
+/* line 163, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-pencil:before {
+  content: '\f058';
+}
+
+/*  */
+/* line 164, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-person-add:before,
+.octicon-person-follow:before,
+.octicon-person:before {
+  content: '\f018';
+}
+
+/*  */
+/* line 167, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-pin:before {
+  content: '\f041';
+}
+
+/*  */
+/* line 168, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-playback-fast-forward:before {
+  content: '\f0bd';
+}
+
+/*  */
+/* line 169, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-playback-pause:before {
+  content: '\f0bb';
+}
+
+/*  */
+/* line 170, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-playback-play:before {
+  content: '\f0bf';
+}
+
+/*  */
+/* line 171, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-playback-rewind:before {
+  content: '\f0bc';
+}
+
+/*  */
+/* line 172, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-plug:before {
+  content: '\f0d4';
+}
+
+/*  */
+/* line 173, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-repo-create:before,
+.octicon-gist-new:before,
+.octicon-file-directory-create:before,
+.octicon-file-add:before,
+.octicon-plus:before {
+  content: '\f05d';
+}
+
+/*  */
+/* line 178, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-podium:before {
+  content: '\f0af';
+}
+
+/*  */
+/* line 179, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-primitive-dot:before {
+  content: '\f052';
+}
+
+/*  */
+/* line 180, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-primitive-square:before {
+  content: '\f053';
+}
+
+/*  */
+/* line 181, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-pulse:before {
+  content: '\f085';
+}
+
+/*  */
+/* line 182, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-puzzle:before {
+  content: '\f0c0';
+}
+
+/*  */
+/* line 183, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-question:before {
+  content: '\f02c';
+}
+
+/*  */
+/* line 184, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-quote:before {
+  content: '\f063';
+}
+
+/*  */
+/* line 185, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-radio-tower:before {
+  content: '\f030';
+}
+
+/*  */
+/* line 186, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-repo-delete:before,
+.octicon-repo:before {
+  content: '\f001';
+}
+
+/*  */
+/* line 188, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-repo-clone:before {
+  content: '\f04c';
+}
+
+/*  */
+/* line 189, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-repo-force-push:before {
+  content: '\f04a';
+}
+
+/*  */
+/* line 190, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-gist-fork:before,
+.octicon-repo-forked:before {
+  content: '\f002';
+}
+
+/*  */
+/* line 192, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-repo-pull:before {
+  content: '\f006';
+}
+
+/*  */
+/* line 193, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-repo-push:before {
+  content: '\f005';
+}
+
+/*  */
+/* line 194, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-rocket:before {
+  content: '\f033';
+}
+
+/*  */
+/* line 195, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-rss:before {
+  content: '\f034';
+}
+
+/*  */
+/* line 196, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-ruby:before {
+  content: '\f047';
+}
+
+/*  */
+/* line 197, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-screen-full:before {
+  content: '\f066';
+}
+
+/*  */
+/* line 198, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-screen-normal:before {
+  content: '\f067';
+}
+
+/*  */
+/* line 199, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-search-save:before,
+.octicon-search:before {
+  content: '\f02e';
+}
+
+/*  */
+/* line 201, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-server:before {
+  content: '\f097';
+}
+
+/*  */
+/* line 202, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-settings:before {
+  content: '\f07c';
+}
+
+/*  */
+/* line 203, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-log-in:before,
+.octicon-sign-in:before {
+  content: '\f036';
+}
+
+/*  */
+/* line 205, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-log-out:before,
+.octicon-sign-out:before {
+  content: '\f032';
+}
+
+/*  */
+/* line 207, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-split:before {
+  content: '\f0c6';
+}
+
+/*  */
+/* line 208, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-squirrel:before {
+  content: '\f0b2';
+}
+
+/*  */
+/* line 209, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-star-add:before,
+.octicon-star-delete:before,
+.octicon-star:before {
+  content: '\f02a';
+}
+
+/*  */
+/* line 212, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-steps:before {
+  content: '\f0c7';
+}
+
+/*  */
+/* line 213, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-stop:before {
+  content: '\f08f';
+}
+
+/*  */
+/* line 214, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-repo-sync:before,
+.octicon-sync:before {
+  content: '\f087';
+}
+
+/*  */
+/* line 216, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-tag-remove:before,
+.octicon-tag-add:before,
+.octicon-tag:before {
+  content: '\f015';
+}
+
+/*  */
+/* line 219, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-telescope:before {
+  content: '\f088';
+}
+
+/*  */
+/* line 220, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-terminal:before {
+  content: '\f0c8';
+}
+
+/*  */
+/* line 221, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-three-bars:before {
+  content: '\f05e';
+}
+
+/*  */
+/* line 222, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-tools:before {
+  content: '\f031';
+}
+
+/*  */
+/* line 223, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-trashcan:before {
+  content: '\f0d0';
+}
+
+/*  */
+/* line 224, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-triangle-down:before {
+  content: '\f05b';
+}
+
+/*  */
+/* line 225, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-triangle-left:before {
+  content: '\f044';
+}
+
+/*  */
+/* line 226, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-triangle-right:before {
+  content: '\f05a';
+}
+
+/*  */
+/* line 227, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-triangle-up:before {
+  content: '\f0aa';
+}
+
+/*  */
+/* line 228, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-unfold:before {
+  content: '\f039';
+}
+
+/*  */
+/* line 229, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-unmute:before {
+  content: '\f0ba';
+}
+
+/*  */
+/* line 230, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-versions:before {
+  content: '\f064';
+}
+
+/*  */
+/* line 231, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-remove-close:before,
+.octicon-x:before {
+  content: '\f081';
+}
+
+/*  */
+/* line 233, /home/runner/work/atom-io/atom-io/vendor/assets/bower_components/octicons/octicons/sprockets-octicons.scss */
+.octicon-zap:before {
+  content: '\26A1';
+}
+
+/* ⚡ */

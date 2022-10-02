@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2017/06/22/a-new-approach-to-text-rendering.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:35:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>A new approach to text rendering | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="A new approach to text rendering" />
+<meta name="author" content="nathansobo" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In Atom 1.19, we’re landing a complete rewrite of the text editor’s DOM interaction layer that improves rendering performance and simplifies the code. Prompted by the availability of some valuable new DOM APIs with the upgrade to Electron 1.6, we decided to start over from the beginning and take a critical look at the structure and performance of every aspect of our DOM interaction. You should observe the biggest difference when scrolling. Here is a typical frame after scrolling by 15 lines before and after the rewrite: Before: Scrolling 15 lines in Atom 1.18 (~30ms): After: Scrolling 15 lines in Atom 1.19 (~16ms): About a 50% improvement, give or take some noise on any given frame." />
+<meta property="og:description" content="In Atom 1.19, we’re landing a complete rewrite of the text editor’s DOM interaction layer that improves rendering performance and simplifies the code. Prompted by the availability of some valuable new DOM APIs with the upgrade to Electron 1.6, we decided to start over from the beginning and take a critical look at the structure and performance of every aspect of our DOM interaction. You should observe the biggest difference when scrolling. Here is a typical frame after scrolling by 15 lines before and after the rewrite: Before: Scrolling 15 lines in Atom 1.18 (~30ms): After: Scrolling 15 lines in Atom 1.19 (~16ms): About a 50% improvement, give or take some noise on any given frame." />
+<link rel="canonical" href="a-new-approach-to-text-rendering.html" />
+<meta property="og:url" content="a-new-approach-to-text-rendering.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-06-22T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@nathansobo" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2017/06/22/a-new-approach-to-text-rendering.html"},"url":"https://blog.atom.io/2017/06/22/a-new-approach-to-text-rendering.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"nathansobo"},"headline":"A new approach to text rendering","dateModified":"2017-06-22T00:00:00+00:00","datePublished":"2017-06-22T00:00:00+00:00","author":{"@type":"Person","name":"nathansobo"},"description":"In Atom 1.19, we’re landing a complete rewrite of the text editor’s DOM interaction layer that improves rendering performance and simplifies the code. Prompted by the availability of some valuable new DOM APIs with the upgrade to Electron 1.6, we decided to start over from the beginning and take a critical look at the structure and performance of every aspect of our DOM interaction. You should observe the biggest difference when scrolling. Here is a typical frame after scrolling by 15 lines before and after the rewrite: Before: Scrolling 15 lines in Atom 1.18 (~30ms): After: Scrolling 15 lines in Atom 1.19 (~16ms): About a 50% improvement, give or take some noise on any given frame.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">A new approach to text rendering</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> June 22, 2017 <a href="https://github.com/nathansobo" class="author-link"><img class="avatar avatar-small" alt="nathansobo" width="18" height="18" data-proofer-ignore="true" src="https://avatars1.githubusercontent.com/nathansobo?v=3&amp;s=18" srcset="https://avatars1.githubusercontent.com/nathansobo?v=3&s=18 1x, https://avatars1.githubusercontent.com/nathansobo?v=3&s=36 2x, https://avatars1.githubusercontent.com/nathansobo?v=3&s=54 3x, https://avatars1.githubusercontent.com/nathansobo?v=3&s=72 4x" /> nathansobo</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p>In Atom 1.19, we’re landing <a href="https://github.com/atom/atom/pull/13880">a complete rewrite of the text editor’s DOM interaction layer</a> that improves rendering performance and simplifies the code. Prompted by the availability of some valuable new DOM APIs with the upgrade to Electron 1.6, we decided to start over from the beginning and take a critical look at the structure and performance of every aspect of our DOM interaction. You should observe the biggest difference when scrolling. Here is a typical frame after scrolling by 15 lines before and after the rewrite:</p>
+
+<p><strong>Before: Scrolling 15 lines in Atom 1.18 (~30ms):</strong></p>
+
+<p><img src="../../../img/posts/scrolling-in-1-18.png" alt="Timeline: Scrolling half a screen in Atom 1.18" /></p>
+
+<p><strong>After: Scrolling 15 lines in Atom 1.19 (~16ms):</strong></p>
+
+<p><img src="../../../img/posts/scrolling-in-1-19.png" alt="Timeline: Scrolling half a screen in Atom 1.19" /></p>
+
+<p>About a 50% improvement, give or take some noise on any given frame.</p>
+
+<!--more-->
+
+<p>You should also experience more responsive typing. Here’s a before-and-after for a typical frame following a character insertion:</p>
+
+<p><strong>Before: Rendering a character insertion in Atom 1.18 (~8ms):</strong></p>
+
+<p><img src="../../../img/posts/insertion-in-1-18.png" alt="Timeline: Rendering a character insertion in Atom 1.18" /></p>
+
+<p><strong>After: Rendering a character insertion in Atom 1.19 (~5.7ms):</strong></p>
+
+<p><img src="../../../img/posts/insertion-in-1-19.png" alt="Timeline: Rendering a character insertion in Atom 1.19" /></p>
+
+<p>In this case the speedup is around 30%. We’re seeing similar improvements for other common updates such as cursor and selection movements.</p>
+
+<p>In the rest of this post, we’ll share some highlights from this rewrite to give you a sense of how things have changed.</p>
+
+<h2 id="back-to-a-virtual-dom">Back to a virtual DOM</h2>
+
+<p>Building a text editor on top of the DOM requires a disciplined interaction with the document. To minimize overhead for style recalculation and layout, we only render the lines that are actually visible on screen in a given frame. In addition, we use absolutely-positioned elements to render cursors, selections, and overlays like the autocomplete menu. This requires us to measure horizontal character positions directly from rendered content in order to support mixed font weights, variable-width characters, and ligatures, which means we need to break each frame into a pre- and post-measurement update. We also recycle the nodes making up the lines and line numbers to minimize pressure on the garbage collector. For all these reasons and more, we deliberately stuck to a rather low level of abstraction for the previous editor implementation.</p>
+
+<p>Since that time, however, we have developed a small, focused library for DOM manipulation called <a href="https://github.com/atom/etch">Etch</a> that was largely inspired by our experience with Atom’s text editor. We’ve been using it in many of Atom’s bundled packages for a while now, but this is the first time we have used it in core. The main idea behind Etch is to offer a React-like abstraction based on tree diffing for updating the DOM, but with a strong focus on encapsulation and clean interoperation with other libraries in a multi-tenant document. Mixing manual DOM manipulation with declarative code feels very natural in Etch, and while JSX is supported, Etch is also designed to be used without a transpiler.</p>
+
+<p>Using Etch, we <a href="https://github.com/atom/atom/blob/4b2a26e74f8290f7206e6ca5706fb2a51bc04200/src/text-editor-component.js#L402">switched</a> the majority of our manual DOM manipulation code over to a virtual DOM and removed a ton of boilerplate in the process. We continue to construct lines and line numbers <a href="https://github.com/atom/atom/blob/4b2a26e74f8290f7206e6ca5706fb2a51bc04200/src/text-editor-component.js#L3442">manually</a> with imperative DOM APIs to obtain the best possible performance for our most intensive update paths and to <a href="https://github.com/atom/atom/blob/4b2a26e74f8290f7206e6ca5706fb2a51bc04200/src/text-editor-component.js#L3122">recycle DOM nodes</a>.</p>
+
+<h2 id="intersection-and-resize-observers">Intersection and resize observers</h2>
+
+<p>As we mentioned earlier, we only render the visible lines in any given frame. This means we need to measure the dimensions of the editor and the height of our lines, and we need to respond when these dimensions change due to font size changes or changes to the document’s structure. If we decide to re-measure and the editor isn’t currently visible, we need to wait until it becomes visible again before performing our measurements.</p>
+
+<p>Prior to Electron 1.6, however, there weren’t a lot of tools for detecting these kinds of changes to the document. A simple solution would have been to expose methods on the editor that could be manually called to update dimensions, but that would have been annoying and error-prone for package authors that want to use editors outside of Atom’s panes. So unfortunately, the best solution we could come up with prior to Atom 1.19 was a global <a href="https://hacks.mozilla.org/2012/05/dom-mutationobserver-reacting-to-dom-changes-without-killing-browser-performance/"><code class="highlighter-rouge">MutationObserver</code></a> that scheduled lightweight measurements whenever the document changed. While that approach worked and we were never able to measure a serious performance consequence, globally associating <em>any</em> amount of work with DOM manipulation made us uneasy, and we were anxious for better APIs that could enable a more targeted solution.</p>
+
+<p>With improvements to the <a href="https://developers.google.com/web/updates/2016/04/intersectionobserver"><code class="highlighter-rouge">IntersectionObserver</code></a> API and the introduction of the  <a href="https://developers.google.com/web/updates/2016/10/resizeobserver"><code class="highlighter-rouge">ResizeObserver</code></a> API behind a flag in Chrome 56, however, we finally have a sane approach to detecting changes to editor dimensions and visibility in a fine-grained way. We now use intersection observers to <a href="https://github.com/atom/atom/blob/4b2a26e74f8290f7206e6ca5706fb2a51bc04200/src/text-editor-component.js#L1344">detect when editors are hidden and shown</a> and resize observers to <a href="https://github.com/atom/atom/blob/4b2a26e74f8290f7206e6ca5706fb2a51bc04200/src/text-editor-component.js#L1354">detect when editors change size</a>. We’ve deleted the global mutation observer and any potential performance tax it was imposing on DOM manipulation.</p>
+
+<h2 id="css-containment">CSS containment</h2>
+
+<p>Another valuable feature that’s become available since we last worked on editor rendering is <a href="https://developers.google.com/web/updates/2016/06/css-containment">CSS containment declarations</a>, which allows us to tell the browser that the contents of a particular element don’t affect the layout and painting of external elements. This leads to the browser performing work on smaller subtrees of the document when elements are updated.</p>
+
+<p>In our rewrite, we used <code class="highlighter-rouge">contain: strict</code> on as many elements as possible, basically whenever we were able to assign an explicit height and width on an element. For example, we break the lines and line numbers into explicitly-sized tiles that contain six lines each, then <a href="https://github.com/atom/atom/blob/4b2a26e74f8290f7206e6ca5706fb2a51bc04200/src/text-editor-component.js#L617">apply strict containment to the tiles</a>. This means that for a given edit, only a subset of the lines in the editor will be invalidated.</p>
+
+<h2 id="new-decoration-apis">New decoration APIs</h2>
+
+<p>Soon after getting the rewritten editor into a usable state, we learned that our changes ran afoul of some monkey-patching being performed in the <a href="https://atom.io/packages/vim-mode-plus">vim-mode-plus</a> and <a href="https://atom.io/packages/pigments">pigments</a> packages. Rather than having them port their monkey-patches to the new rendering system, we decided to add support for what they were trying to achieve via official decoration APIs.</p>
+
+<p><img src="../../../img/posts/text-decorations-in-1-19.gif" alt="Text decorations in action" /></p>
+
+<p>To support the pigments package, which changes the foreground and background color of CSS color expressions, we added <a href="https://github.com/atom/atom/pull/14790/files#diff-561e90889eebfd1149f1b29006d738c4R1790"><code class="highlighter-rouge">text</code> decorations</a>. These are similar to highlight decorations, in that you associate a class or inline style with a marker’s range, but text decorations are rendered by injecting spans around runs of text that intersect the marked range. This makes it easy to apply arbitrary styling such as changing the foreground and background colors or font weight. However, font size won’t work for now because we don’t yet support variable line heights in the editor.</p>
+
+<p>For vim-mode-plus, we added <code class="highlighter-rouge">cursor</code> decorations, which allow you to apply classes or inline styles to Atom’s cursors by decorating a cursor’s associated marker. You can also create and style your own synthetic cursors by passing a non-selection marker, which might be useful for packages that implement pair programming.</p>
+
+<h2 id="next-steps">Next steps</h2>
+
+<p>Rendering has improved a lot and things should feel smoother, but there’s still room for improvement. Let’s take another look at a typical frame when scrolling downward by half a screen (around 15 lines).</p>
+
+<p><img src="../../../img/posts/scrolling-in-1-19-breakdown.png" alt="Timeline breakdown: Scrolling in Atom 1.19" /></p>
+
+<p>One frustrating component of the above breakdown is the time spent recalculating styles. At this point, it looks like the only way to solve this within the current paradigm is to use CSS less and reduce the number of selectors in the application, but that’s going to be a hard fought battle given the huge number of themes in the ecosystem. Another option is to skip CSS entirely for the purposes of applying syntax highlights and use a proprietary system to render inline styles, but that would raise the barrier to entry for theme developers and break Atom’s huge ecosystem of existing themes. Instead, it’s looking like our best option might be to continue to support CSS selectors for theming, but to implement our own custom code path for matching them against nodes in our syntax tree. This would allow us to render fewer overall nodes and reuse work across nodes with a common syntactic ancestry.</p>
+
+<p>But if we’re going so far as to bypass Chrome’s CSS engine, maybe we should try to bypass the DOM entirely. If you look at the above flame graph, a huge percentage of our frame time is going to DOM manipulation (highlighted in yellow) and DOM-related overhead (highlighted in purple). If we could eliminate this work, rendering a frame would only involve executing some domain-specific update logic and painting, which could be fraction of the current time. Next time we cycle back to this area of the code base, we’d like to explore using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">canvas API</a> to render the most intensive parts of the editor such as the lines and line numbers. Now that our text storage has been ported to C++ (<a href="(https_/github.com/atom/superstring/pull/5).html">which also landed in 1.19</a>), we could even move the rendering code to C++ (along with the <a href="https://github.com/atom/text-buffer/blob/1dfb7b4061de55a5bfa2445451dbb9197297718e/src/display-layer.js">DisplayLayer</a>’s spatial index) to minimize overhead even further.</p>
+
+<p>For now, however, we need to move on to improving other areas of the system. If anyone reading this is interested in contributing and would like to give canvas a shot, please reach out to us on Slack or open an issue and we’d be keen to facilitate if you’re serious.</p>
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2017/06/22/a-new-approach-to-text-rendering.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2017/06/22/a-new-approach-to-text-rendering.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:35:59 GMT -->
+</html>

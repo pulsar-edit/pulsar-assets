@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2014/07/24/decorations.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:31 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Decorations | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Decorations" />
+<meta name="author" content="benogle" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="One very common pattern we’ve seen in packages is highlighting bits of the editor. A package might add an icon to line numbers, colorize lines, or draw a rectangle around a word." />
+<meta property="og:description" content="One very common pattern we’ve seen in packages is highlighting bits of the editor. A package might add an icon to line numbers, colorize lines, or draw a rectangle around a word." />
+<link rel="canonical" href="decorations.html" />
+<meta property="og:url" content="decorations.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-07-24T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@benogle" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2014/07/24/decorations.html"},"url":"https://blog.atom.io/2014/07/24/decorations.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"benogle"},"headline":"Decorations","dateModified":"2014-07-24T00:00:00+00:00","datePublished":"2014-07-24T00:00:00+00:00","author":{"@type":"Person","name":"benogle"},"description":"One very common pattern we’ve seen in packages is highlighting bits of the editor. A package might add an icon to line numbers, colorize lines, or draw a rectangle around a word.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Decorations</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> July 24, 2014 <a href="https://github.com/benogle" class="author-link"><img class="avatar avatar-small" alt="benogle" width="18" height="18" data-proofer-ignore="true" src="https://avatars3.githubusercontent.com/benogle?v=3&amp;s=18" srcset="https://avatars3.githubusercontent.com/benogle?v=3&s=18 1x, https://avatars3.githubusercontent.com/benogle?v=3&s=36 2x, https://avatars3.githubusercontent.com/benogle?v=3&s=54 3x, https://avatars3.githubusercontent.com/benogle?v=3&s=72 4x" /> benogle</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p>One very common pattern we’ve seen in packages is highlighting bits of the editor. A package might add an icon to line numbers, colorize lines, or draw a rectangle around a word.</p>
+
+<p>Other than the gutter, there was no API for highlighting things. There are <a href="https://atom.io/docs/api/latest/api/classes/Marker.html">markers</a>, but markers offered no visual representation. So each package had to implement its own version of <a href="https://github.com/atom/find-and-replace/blob/master/lib/marker-view.coffee">marker views</a> and <a href="https://atom.io/packages/merge-conflicts">line highlighting</a>. Implementing these things is redundant and error prone. Some package authors may have even avoided writing neat features because they needed to do this work.</p>
+
+<p>With the Decoration API available in the <a href="../22/default-to-react-editor.html">React editor</a>, you no longer need to re-implement these things. It’s as simple as this:</p>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">range</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="na">getSelectedBufferRange</span><span class="p">()</span> <span class="c1"># or any range you like</span>
+<span class="nx">marker</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="na">markBufferRange</span><span class="p">(</span><span class="nx">range</span><span class="p">)</span>
+<span class="nx">decoration</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="na">decorateMarker</span><span class="p">(</span><span class="nx">marker</span><span class="p">,</span> <span class="p">{</span><span class="na">type</span><span class="o">:</span> <span class="s">'line'</span><span class="p">,</span> <span class="na">class</span><span class="o">:</span> <span class="s">'my-line-class'</span><span class="p">})</span>
+</code></pre></div></div>
+
+<p>Decorations are based on <a href="https://atom.io/docs/api/latest/api/classes/Marker.html">markers</a>. Markers allow you to mark a range in an editor and follow the marked text around as changes are made to the buffer. eg. Add a marker on line 10, and a newline on line 1. Your marker will now point to line 11. A decoration is the visual representation of a marker.</p>
+
+<p>Pulling decorations into Atom core gives us another advantage: performance. By controlling the decoration rendering, we can make sure they are fast. And each performance enhancement we make to decorations will speed up big chunks of the entire editor: selections, folds, find and replace, and even your packages.</p>
+
+<h2 id="in-use-today">In use today</h2>
+
+<p>Now that the <a href="../22/default-to-react-editor.html">React editor</a> is enabled by default, <a href="https://github.com/atom/atom/blob/a82ea86a050a2a44d29a7c9e9f14c4581bd9d131/src/selection.coffee#L18">selections</a>, <a href="https://github.com/atom/atom/blob/a82ea86a050a2a44d29a7c9e9f14c4581bd9d131/src/display-buffer.coffee#L1097">fold markers</a>, and <a href="https://github.com/atom/atom/blob/a82ea86a050a2a44d29a7c9e9f14c4581bd9d131/src/editor.coffee#L1244">cursor line indicators</a> are all decorations.</p>
+
+<p>Several of the built in packages use decorations as well: <a href="https://github.com/atom/git-diff">git-diff</a> (for gutter diff indicators), <a href="https://github.com/atom/bookmarks">bookmarks</a> (for gutter book mark indicators), and <a href="https://github.com/atom/find-and-replace">find-and-replace</a> (for boxes around found search terms).</p>
+
+<h2 id="resources">Resources</h2>
+
+<p>Check out <a href="https://atom.io/docs/api/latest/api/classes/Editor.html#decorateMarker-instance">Editor::decorateMarker</a>, the <a href="https://atom.io/docs/api/latest/api/classes/Decoration.html">Decoration API</a> docs, <a href="https://atom.io/docs/api/latest/api/classes/TextBuffer.html#markRange-instance">TextBuffer::markRange</a> and the <a href="https://atom.io/docs/api/latest/api/classes/Marker.html">Marker</a> docs.</p>
+
+<p>We’ve made a <a href="https://github.com/atom/decoration-example">decoration-example</a> package demonstrating the capabilities of the Decoration API.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/69169/3518389/d9a8344e-06ff-11e4-9283-c32c9d99e0c1.gif" alt="decoration-example" /></p>
+
+<h2 id="update-your-packages">Update your packages</h2>
+
+<p>Decorations are the future. Decorations will only be rendered when the new React editor is enabled, which is the default. The API is available no matter which editor is use, so you can start using Decorations right away. This duality will be going away very shortly — the old editor will be removed entirely within the next couple weeks.</p>
+
+<p>We’re excited to see what you come up with!</p>
+
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2014/07/24/decorations.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2014/07/24/decorations.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:31 GMT -->
+</html>

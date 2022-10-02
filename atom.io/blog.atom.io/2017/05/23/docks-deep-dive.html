@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2017/05/23/docks-deep-dive.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Docks Deep Dive | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Docks Deep Dive" />
+<meta name="author" content="matthewwithanm" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This is a guest post written by Facebook’s Nuclide team member @matthewwithanm. He tells the story how the new docks got introduced to Atom and how package authors can make great use of them. One of the things that the Nuclide team has always really loved about Atom is how it lets us extend and experiment with UI. Tools like Outline View, Console, Diagnostics, and the Debugger all need custom UI and, up until recently, their natural home was Atom’s Panels. Located at the edges of the window, panels are a great place for these kind of graphical tools but they have a couple of issues." />
+<meta property="og:description" content="This is a guest post written by Facebook’s Nuclide team member @matthewwithanm. He tells the story how the new docks got introduced to Atom and how package authors can make great use of them. One of the things that the Nuclide team has always really loved about Atom is how it lets us extend and experiment with UI. Tools like Outline View, Console, Diagnostics, and the Debugger all need custom UI and, up until recently, their natural home was Atom’s Panels. Located at the edges of the window, panels are a great place for these kind of graphical tools but they have a couple of issues." />
+<link rel="canonical" href="docks-deep-dive.html" />
+<meta property="og:url" content="docks-deep-dive.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-05-23T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@matthewwithanm" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2017/05/23/docks-deep-dive.html"},"url":"https://blog.atom.io/2017/05/23/docks-deep-dive.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"matthewwithanm"},"headline":"Docks Deep Dive","dateModified":"2017-05-23T00:00:00+00:00","datePublished":"2017-05-23T00:00:00+00:00","author":{"@type":"Person","name":"matthewwithanm"},"description":"This is a guest post written by Facebook’s Nuclide team member @matthewwithanm. He tells the story how the new docks got introduced to Atom and how package authors can make great use of them. One of the things that the Nuclide team has always really loved about Atom is how it lets us extend and experiment with UI. Tools like Outline View, Console, Diagnostics, and the Debugger all need custom UI and, up until recently, their natural home was Atom’s Panels. Located at the edges of the window, panels are a great place for these kind of graphical tools but they have a couple of issues.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Docks Deep Dive</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> May 23, 2017 <a href="https://github.com/matthewwithanm" class="author-link"><img class="avatar avatar-small" alt="matthewwithanm" width="18" height="18" data-proofer-ignore="true" src="https://avatars0.githubusercontent.com/matthewwithanm?v=3&amp;s=18" srcset="https://avatars0.githubusercontent.com/matthewwithanm?v=3&s=18 1x, https://avatars0.githubusercontent.com/matthewwithanm?v=3&s=36 2x, https://avatars0.githubusercontent.com/matthewwithanm?v=3&s=54 3x, https://avatars0.githubusercontent.com/matthewwithanm?v=3&s=72 4x" /> matthewwithanm</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p><img src="../../../img/posts/docks.png" alt="Docks graphic" /></p>
+
+<blockquote>
+  <p>This is a guest post written by Facebook’s <a href="https://nuclide.io/">Nuclide</a> team member <a href="https://github.com/matthewwithanm">@matthewwithanm</a>. He tells the story how the new docks got introduced to Atom and how package authors can make great use of them.</p>
+</blockquote>
+
+<p>One of the things that the Nuclide team has always really loved about Atom is how it lets us extend and experiment with UI. Tools like Outline View, Console, Diagnostics, and the Debugger all need custom UI and, up until recently, their natural home was Atom’s Panels. Located at the edges of the window, panels are a great place for these kind of graphical tools but they have a couple of issues.</p>
+
+<!--more-->
+
+<ol>
+  <li>They stack, and can easily end up consuming a lot of valuable screen real estate.</li>
+  <li>Though most panels need to be closable, they each have their own UI for it.</li>
+</ol>
+
+<p>In addition to these UX issues, they also require extra work from developers. For example, the Atom tree view had special logic that allowed users to show it on either the left or right side of their screen. Anybody wanting similar functionality for their package had to duplicate this logic.</p>
+
+<p>To get around these limitations, Nuclide introduced collapsible pane containers—now called “docks”—at the edges of the window. Each dock can hold multiple items, which users can reposition in order to get their layout of choice. Thanks to help from the Atom team, we’ve contributed this functionality upstream for Atom 1.17. We’re super excited for the community to start taking advantage of them but, before you do, we figured we should tell you how they work 😊</p>
+
+<p><img src="../../../img/posts/docks-demo.gif" alt="Docks Demo" /></p>
+
+<h1 id="opening-items-in-docks">Opening Items in Docks</h1>
+
+<p>At their core, docks are just new places that workspace items can go in. What’s a workspace item? The most common example is a text editor, but there are plenty of others: the settings view, search results, and welcome guide are all workspace items. Knowing that, it probably won’t be too surprising that we haven’t added much new API to Atom—instead, we’ve built on the APIs that already existed for managing these items. The most basic of these is <code class="highlighter-rouge">atom.workspace.open()</code>. Traditionally, this method has accepted a URL which Atom then associates with a view. This functionality maintains intact, but you can also open an item directly now:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">item</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">element</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'div'</span><span class="p">),</span>
+  <span class="na">getTitle</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="s1">'My Awesome Item'</span><span class="p">,</span>
+  <span class="na">getURI</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="s1">'atom://my-package/my-item'</span><span class="p">,</span>
+  <span class="na">getDefaultLocation</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="s1">'right'</span>
+<span class="p">};</span>
+<span class="nx">atom</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>You’ve probably noticed the item’s <code class="highlighter-rouge">getDefaultLocation()</code> method. This is a new (optional) method that returns one of <code class="highlighter-rouge">'right'</code>, <code class="highlighter-rouge">'left'</code>, <code class="highlighter-rouge">'bottom'</code>, or <code class="highlighter-rouge">'center'</code> depending on where you—the package author—want your view to appear initially. The difference between this and something like <code class="highlighter-rouge">atom.workspace.addRightPanel()</code> is that it’s only a suggestion; if a user moves the item to a new location, their preference will be remembered and used the next time an item with the same URI is opened. Of course, sometimes you may want to limit the locations that users can move your item to. For that, you can add a <code class="highlighter-rouge">getAllowedLocations()</code> method to your item:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">getAllowedLocations</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'left'</span><span class="p">,</span> <span class="s1">'right'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>Other newly supported item methods include <code class="highlighter-rouge">getPreferredWidth()</code> and <code class="highlighter-rouge">getPreferredHeight()</code>, which determine the initial size of the dock.</p>
+
+<h1 id="toggling-items">Toggling Items</h1>
+
+<p>When you have multiple items sharing a single dock, toggling an item isn’t as straightforward as just  <code class="highlighter-rouge">open()</code>ing and <code class="highlighter-rouge">destroy()</code>ing it. If your item isn’t visible, it should be made visible, but if it is, the entire dock should be hidden. It can be tough to get this logic right (not to mention a pain to have to implement it every time), so we added a new API for doing it: <code class="highlighter-rouge">atom.workspace.toggle()</code>. Just pass it an item or URI and it’ll do the rest. In Nuclide, we use this to create “toggle” commands:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">atom</span><span class="p">.</span><span class="nx">commands</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span>
+  <span class="s1">'atom-workspace'</span><span class="p">,</span>
+  <span class="s1">'my-package:toggle'</span><span class="p">,</span>
+  <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">atom</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">toggle</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+  <span class="p">},</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<p>If the item is visible and in a dock, the dock will be collapsed; if it’s in the workspace center, the item will be destroyed. Like <code class="highlighter-rouge">open()</code>, <code class="highlighter-rouge">toggle()</code> accepts URIs as well as items. This is useful for when you can have multiple copies of your item in the workspace—for example, if you want to allow users to split your item and create a duplicate. Instead of having to keep track of the items yourself, just make sure their <code class="highlighter-rouge">getURI()</code> methods return the same URI. Passing that URI to <code class="highlighter-rouge">toggle()</code> will Do The Right Thing.</p>
+
+<h1 id="digging-deeper">Digging Deeper</h1>
+
+<p>So far we’ve just looked at the API for dealing with items. In general, they work like this: items declare things about how they want to be displayed and Atom (taking into account user preferences), displays them. This relationship is really important because it gives users more control over their workspace and Atom the ability to make innovations without requiring any updates from you.</p>
+
+<p>However, for those occasions where you just can’t handle giving up control, there are imperative APIs for interacting directly with docks: <code class="highlighter-rouge">atom.workspace.getLeftDock()</code>, <code class="highlighter-rouge">atom.workspace.getRightDock()</code>, and (you guessed it) <code class="highlighter-rouge">atom.workspace.getBottomDock()</code>. The returned object allows direct control over the dock with methods like <code class="highlighter-rouge">show()</code>, <code class="highlighter-rouge">hide()</code>, and <code class="highlighter-rouge">toggle()</code>, as well as manipulation of its panes and pane items via methods like <code class="highlighter-rouge">observePanes()</code> and <code class="highlighter-rouge">getActivePaneItem()</code>. A similar object, which represents the center of the workspace and normally houses your text editors, is returned by <code class="highlighter-rouge">atom.workspace.getCenter()</code>.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>Docks have been an important addition to Nuclide. Not only have they made the experience more consistent, but they’ve also given developers here at Facebook more control over their editor’s real estate. We’re really excited to have been able to collaborate with the Atom team to bring this feature to everybody…and even more excited to see what you build with it! Why not get started now by checking out the <a href="https://flight-manual.atom.io/hacking-atom/sections/package-active-editor-info/">Active Editor Info tutorial</a>?</p>
+
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2017/05/23/docks-deep-dive.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2017/05/23/docks-deep-dive.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:01 GMT -->
+</html>

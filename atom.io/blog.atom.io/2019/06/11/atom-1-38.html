@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2019/06/11/atom-1-38.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:33:17 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Atom 1.38 | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Atom 1.38" />
+<meta name="author" content="nathansobo" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Atom 1.38 includes some improvements to the GitHub package and improvements to JS, ERB, Python, and JSON language support. Atom 1.39 beta includes a new ripgrep-based project search backend, an upgrade to Electron 3.1, and much improved loading times for multi-megabyte files containing only a single line of text." />
+<meta property="og:description" content="Atom 1.38 includes some improvements to the GitHub package and improvements to JS, ERB, Python, and JSON language support. Atom 1.39 beta includes a new ripgrep-based project search backend, an upgrade to Electron 3.1, and much improved loading times for multi-megabyte files containing only a single line of text." />
+<link rel="canonical" href="atom-1-38.html" />
+<meta property="og:url" content="atom-1-38.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-06-11T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@nathansobo" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2019/06/11/atom-1-38.html"},"url":"https://blog.atom.io/2019/06/11/atom-1-38.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"nathansobo"},"headline":"Atom 1.38","dateModified":"2019-06-11T00:00:00+00:00","datePublished":"2019-06-11T00:00:00+00:00","author":{"@type":"Person","name":"nathansobo"},"description":"Atom 1.38 includes some improvements to the GitHub package and improvements to JS, ERB, Python, and JSON language support. Atom 1.39 beta includes a new ripgrep-based project search backend, an upgrade to Electron 3.1, and much improved loading times for multi-megabyte files containing only a single line of text.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Atom 1.38</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> June 11, 2019 <a href="https://github.com/nathansobo" class="author-link"><img class="avatar avatar-small" alt="nathansobo" width="18" height="18" data-proofer-ignore="true" src="https://avatars1.githubusercontent.com/nathansobo?v=3&amp;s=18" srcset="https://avatars1.githubusercontent.com/nathansobo?v=3&s=18 1x, https://avatars1.githubusercontent.com/nathansobo?v=3&s=36 2x, https://avatars1.githubusercontent.com/nathansobo?v=3&s=54 3x, https://avatars1.githubusercontent.com/nathansobo?v=3&s=72 4x" /> nathansobo</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p>Atom 1.38 includes some improvements to the GitHub package and improvements to JS, ERB, Python, and JSON language support. Atom 1.39 beta includes a new <code class="highlighter-rouge">ripgrep</code>-based project search backend, an upgrade to Electron 3.1, and much improved loading times for multi-megabyte files containing only a single line of text.</p>
+
+<!--more-->
+
+<h3 id="github-package-improvements">Github package improvements</h3>
+
+<ul>
+  <li>Now Atom <a href="https://github.com/atom/github/pull/2057">displays an “edited” label</a> next to a pull request comment if it has been edited.</li>
+  <li>User badges (like “First time contributor” or “Collaborator”) <a href="https://github.com/atom/github/pull/2085">are shown</a> next to the authors on PRs and review comments to encourage people to be kind to new folks.</li>
+  <li>Resolved comments <a href="https://github.com/atom/github/pull/2117">are grouped together</a> to make the pull request conversation easier to read.</li>
+</ul>
+
+<h3 id="improvements-to-js-erb-and-python-language-grammars">Improvements to JS, ERB, and Python language grammars</h3>
+
+<p>A few fixes have been added to the language parsers/syntax highlighter. Now Atom allows <a href="https://github.com/atom/language-javascript/pull/644">folding the <code class="highlighter-rouge">default</code> label of <code class="highlighter-rouge">switch</code> statements in JS</a>, it improves <a href="https://github.com/atom/atom/pull/19279">the handling of comment characters in ERB</a> and it fixes an issue when <a href="https://github.com/atom/language-python/pull/300">folding <code class="highlighter-rouge">if</code> statements in Python</a>.</p>
+
+<h3 id="tree-sitter-parsing-support-for-json">Tree-sitter parsing support for JSON</h3>
+
+<p>Syntax highlighting performance on JSON files is now substantially improved thanks to Atom now <a href="https://github.com/atom/language-json/pull/68">using Tree-sitter to syntax highlight JSON files by default</a>. Syntax-based folding and selection while editing JSON are another nice benefit of the switch to Tree-sitter.</p>
+
+<!-- end of stable changes -->
+
+<p>There are many more details in the <a href="https://github.com/atom/atom/releases/tag/v1.38.0">release notes</a>.</p>
+
+<h2 id="atom-139-beta">Atom 1.39 Beta</h2>
+
+<h3 id="ripgrep-based-find-and-replace">Ripgrep based find and replace</h3>
+
+<p>Performing a project-wide search on a large repository <a href="https://github.com/atom/find-and-replace/pull/1086">just got a lot faster</a> with a new search backend based on <a href="https://github.com/BurntSushi/ripgrep">ripgrep</a>. For now, ripgrep is an experimental option that can be toggled in the settings for the <code class="highlighter-rouge">find-and-replace</code> package.</p>
+
+<p><img src="https://user-images.githubusercontent.com/408035/58342205-5d575a00-7e50-11e9-8f2a-307cd3cf2b93.png" alt="" /></p>
+
+<p>Here are some results from our testing against repositories of various sizes. We’re seeing searches run up to 22 times faster.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Num Files</th>
+      <th>Time (standard)</th>
+      <th>Time (ripgrep)</th>
+      <th>Improvements</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Small</td>
+      <td>2K</td>
+      <td>940ms</td>
+      <td>62ms</td>
+      <td><strong>15X</strong> faster  🎉</td>
+    </tr>
+    <tr>
+      <td>Medium</td>
+      <td>30K</td>
+      <td>7.7s</td>
+      <td>620ms</td>
+      <td><strong>12X</strong> faster 🎉</td>
+    </tr>
+    <tr>
+      <td>Large (returning 5 results)</td>
+      <td>270K</td>
+      <td>129s</td>
+      <td>5.9s</td>
+      <td><strong>22X</strong> faster 🎉</td>
+    </tr>
+    <tr>
+      <td>Large (returning 26k results)</td>
+      <td>270K</td>
+      <td>142s</td>
+      <td>17.5s</td>
+      <td><strong>8X</strong> faster 🎉</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="upgrade-to-electron-31">Upgrade to Electron 3.1</h3>
+
+<p><a href="https://github.com/atom/atom/pull/19419">Atom now runs on Electron 3.1</a>, which advances our underlying browser implementation from Chrome 61 to Chrome 66 and gives packages access to new browser features, including <a href="https://developers.google.com/web/updates/2017/12/nic63#iterators-generators">native support for async iterators and generators</a>.</p>
+
+<h3 id="improved-performance-loading-large-single-line-files">Improved performance loading large single-line files</h3>
+
+<p>In the past, loading multi-megabyte files containing a single line has caused performance problems for Atom. In 1.39, these kinds of files <a href="https://github.com/atom/text-buffer/pull/312">now load about 75 times faster</a> than they did previously.</p>
+
+<h3 id="improved-jsx-support-in-typescript">Improved JSX support in TypeScript</h3>
+
+<p>JSX expressions in <code class="highlighter-rouge">.tsx</code> files are now supported by the <a href="https://github.com/atom/ide-typescript"><code class="highlighter-rouge">ide-typescript</code></a> package when Tree-sitter is enabled. In addition, you <a href="https://github.com/tree-sitter/tree-sitter-typescript/pull/68">can now provide type arguments</a> in JSX expressions without confusing Atom’s syntax highlighting.</p>
+
+<h3 id="community-contribution-highlights">Community Contribution Highlights</h3>
+
+<p>We’re thankful for the community contributors that help Atom get better on each release. These are some of them:</p>
+
+<p>As usual, <a href="https://github.com/50wliu">@50wliu</a> makes a strong showing with multiple pull requests. He helped us <a href="https://github.com/atom/atom/pull/19370">fix apm installation issues on Linux</a>, <a href="https://github.com/atom/atom/pull/16100">improved our approach to deserializing workspace items added by packages</a>, and added the ability to <a href="https://github.com/atom/tree-view/pull/1257">hold ctrl/cmd when dragging to copy items in the tree view</a>. He also contributed a few other PRs that were less visible but equally important. See the release notes for details.</p>
+
+<p>Long-time contributor <a href="https://github.com/Ben3eee">@Ben3eee</a> continued his refinement of language support in Atom with <a href="https://github.com/atom/language-c/pull/328">a PR to improve the styling of strings in the Tree-sitter C grammar</a> and <a href="https://github.com/atom/language-json/pull/68">added support for Tree-sitter to our JSON language package</a>.</p>
+
+<p>Also on the Tree-sitter front, <a href="https://github.com/Caleb531">@Caleb531</a> <a href="https://github.com/atom/language-python/pull/303">improved the handling of <code class="highlighter-rouge">*args</code> and <code class="highlighter-rouge">**kwargs</code></a> in our Python grammar.</p>
+
+<!-- end of beta changes -->
+
+<p>Check out many more improvements and bug fixes in the <a href="https://github.com/atom/atom/releases/tag/v1.39.0-beta0">release notes</a>.</p>
+
+<p>Get all these improvements today by joining the <a href="https://atom.io/beta">Atom Beta Channel</a>!</p>
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2019/06/11/atom-1-38.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2019/06/11/atom-1-38.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:33:17 GMT -->
+</html>

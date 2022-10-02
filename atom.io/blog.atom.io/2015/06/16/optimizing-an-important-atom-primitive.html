@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2015/06/16/optimizing-an-important-atom-primitive.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Optimizing An Important Atom Primitive | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Optimizing An Important Atom Primitive" />
+<meta name="author" content="nathansobo" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="As we’ve focused on improving Atom’s performance over the past few months, one interesting optimization challenge has been a construct called markers. Markers allow a logical region in a buffer to be tracked, even as the contents of the buffer change. For example, the marker represented by the green highlight below continues to cover the same region, even as the text is edited:" />
+<meta property="og:description" content="As we’ve focused on improving Atom’s performance over the past few months, one interesting optimization challenge has been a construct called markers. Markers allow a logical region in a buffer to be tracked, even as the contents of the buffer change. For example, the marker represented by the green highlight below continues to cover the same region, even as the text is edited:" />
+<link rel="canonical" href="optimizing-an-important-atom-primitive.html" />
+<meta property="og:url" content="optimizing-an-important-atom-primitive.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-06-16T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@nathansobo" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2015/06/16/optimizing-an-important-atom-primitive.html"},"url":"https://blog.atom.io/2015/06/16/optimizing-an-important-atom-primitive.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"nathansobo"},"headline":"Optimizing An Important Atom Primitive","dateModified":"2015-06-16T00:00:00+00:00","datePublished":"2015-06-16T00:00:00+00:00","author":{"@type":"Person","name":"nathansobo"},"description":"As we’ve focused on improving Atom’s performance over the past few months, one interesting optimization challenge has been a construct called markers. Markers allow a logical region in a buffer to be tracked, even as the contents of the buffer change. For example, the marker represented by the green highlight below continues to cover the same region, even as the text is edited:","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Optimizing An Important Atom Primitive</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> June 16, 2015 <a href="https://github.com/nathansobo" class="author-link"><img class="avatar avatar-small" alt="nathansobo" width="18" height="18" data-proofer-ignore="true" src="https://avatars1.githubusercontent.com/nathansobo?v=3&amp;s=18" srcset="https://avatars1.githubusercontent.com/nathansobo?v=3&s=18 1x, https://avatars1.githubusercontent.com/nathansobo?v=3&s=36 2x, https://avatars1.githubusercontent.com/nathansobo?v=3&s=54 3x, https://avatars1.githubusercontent.com/nathansobo?v=3&s=72 4x" /> nathansobo</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p>As we’ve focused on improving Atom’s performance over the past few months, one interesting optimization challenge has been a construct called <em><a href="https://atom.io/docs/api/latest/Marker">markers</a></em>. Markers allow a logical region in a buffer to be tracked, even as the contents of the buffer change. For example, the marker represented by the green highlight below continues to cover the same region, even as the text is edited:</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1789/8137921/10846602-1147-11e5-8116-f21101af20c5.gif" alt="markers animation" /></p>
+
+<p>Markers are fundamental primitives that support a wide variety of features in Atom: Find and replace uses them to <a href="https://github.com/atom/find-and-replace/blob/a241d88f7c747b715d5221c565234af6eaabf40f/lib/buffer-search.coffee#L208">highlight search results</a>. Snippets use them to track the <a href="https://github.com/atom/snippets/blob/550b9d11e91eb17a4c11779b02f96224725d7bb9/lib/snippet-expansion.coffee#L36">location of tab stops</a> when the text changes. Spell check uses them to <a href="https://github.com/atom/spell-check/blob/bb5c967a67b9a74c037a1a337ecec9aa0ce9c43e/lib/misspelling-view.coffee#L13">mark misspelled words</a> and re-check them when their text changes. The text editor itself uses them to <a href="https://github.com/atom/atom/blob/ebc5758d79e421f61f2b6669a886a27ee7283816/src/text-editor.coffee#L1890">implement selections and cursors</a>. And this is just a few of their uses.</p>
+
+<p>But prior to the last few releases, markers were also some of the worst offenders in certain situations when it came to performance, especially for features that created a large number of them, like find and replace. Over the past couple of months, we’ve been working to change that, and we thought the experience was interesting enough to warrant sharing.</p>
+
+<h2 id="why-markers-were-slow">Why Markers Were Slow</h2>
+
+<p>To understand how we optimized markers, let’s start with what was wrong with our initial <a href="https://github.com/atom/text-buffer/blob/d655122d3e0f0d532ca7686fb82dcd82b0d58133/src/marker-manager.coffee">naive implementation</a>. Previously, every time we applied a change to the buffer, we simply iterated through every marker and adjusted its position based on the change. Making matters worse, we also were updating each marker’s location in a data structure that enabled efficient range queries, making the total cost of updating markers on a text update <a href="https://en.wikipedia.org/wiki/Big_O_notation"><code class="highlighter-rouge">O(n*log(n))</code></a> where <code class="highlighter-rouge">n</code> was the total number of markers.</p>
+
+<p>When there weren’t very many markers, the performance of this approach was reasonable. But as the number of markers scaled up in certain cases, it became extremely problematic. For example, the find and replace package uses markers to highlight search results, and if you ran a search for the letter <code class="highlighter-rouge">e</code> in a large file, the excessive time spent updating thousands of markers on every keystroke was intolerable. Here’s a <a href="https://developer.chrome.com/devtools/docs/cpu-profiling">CPU profile</a> from Atom 0.198.0 of inserting a newline with all the <code class="highlighter-rouge">e</code> characters in jQuery highlighted. It looks about as ugly as typing felt in that version of Atom in this scenario:</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1789/8119828/fdac3f36-1098-11e5-807d-19387a441aad.png" alt="screenshot 2015-06-12 00 15 11" /></p>
+
+<h2 id="how-we-made-markers-fast">How We Made Markers Fast</h2>
+
+<p>We could have chewed at the edges of the problem by using markers less intensively. For example, we could have only created markers for search results that were actually visible on screen, then updated them when the editor scrolled. But the whole point of markers was to provide a convenient abstraction to support a very common use case. Because they are such an important tool, it was critical that we made markers cheap enough to use in a straightforward way, even in extreme conditions.</p>
+
+<p>The core of our problem was that our simple approach of representing the location of each marker in absolute terms was forcing us to perform computation for every marker on every edit. However, we don’t always need to track the exact location of every marker at all times… in many cases, just knowing the locations of the markers that are visible on screen is sufficient, and we can wait to compute that until the next time we need to repaint the screen.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1789/8166960/7ce2ab0a-139b-11e5-8a30-430ef077dff9.png" alt="marker-visible-eye" /></p>
+
+<p>We needed to make marker computation more incremental. Instead of eagerly computing the position of every marker every time the buffer changed, we needed a way to defer the bulk of the effort associated with computing this information until it was actually needed. And for that, we needed a different representation.</p>
+
+<h3 id="expressing-markers-relatively">Expressing Markers Relatively</h3>
+
+<p>A key insight that can help us solve our problem is revealed in the following diagram. When the beginning of the sentence is edited, the position of the marked words changes in absolute terms. But their distance <em>from each other</em> remains constant:</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1789/8149498/68bf69d2-12c5-11e5-9016-c625904b9fa5.png" alt="markers-relationships" /></p>
+
+<p>So long as no edits occur between a pair of markers, their distance from each other remains constant during edits, and we can exploit this fact to defer the bulk of the computation we were previously performing when changes are made to the buffer.</p>
+
+<p>As we discussed above, we originally represented the state of markers based on their absolute locations:</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1789/8149599/5df0a15c-12c9-11e5-9133-fa785a099c6b.png" alt="markers-absolute" /></p>
+
+<p>Instead, we can encode markers in terms of their distance from one another. To do so, we subdivide the buffer into regions. Each region is associated with an <em>extent</em>, expressing how many characters are spanned by that region, and a set of <em>marker ids</em>, expressing which markers contain that region:</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1789/8149654/9cf2d404-12cb-11e5-81ed-6ec9cfcb4a4b.png" alt="markers-relative" /></p>
+
+<p>It’s worth noting that markers can overlap in arbitrary ways, so the set of marker ids for a given region can contain more than one id, and the same marker id can appear in multiple contiguous regions:</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1789/8150645/e48fa848-12f1-11e5-8d5a-9205112f45bf.gif" alt="animated-relative-overlap" /></p>
+
+<h3 id="efficient-writes">Efficient Writes</h3>
+
+<p>In this arrangement, to express the effects of a textual change, we only need to update the extent of a single region, and every subsequent region (along with its markers) will be shifted over by the correct amount.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1789/8150640/c5be8718-12f1-11e5-85de-8fcd47d597dd.gif" alt="relative-markers-animation" /></p>
+
+<p>The problem with this implementation is to find the range for a given marker, we need to compute its absolute position by walking through the regions one-by-one from the beginning. We also have to do this to find which region’s extent we need to update when there’s a change to the buffer.  This is a good start, because we no longer need to update every marker after a change, but updates are still <code class="highlighter-rouge">O(n)</code> in the total number of markers.</p>
+
+<h3 id="efficient-reads">Efficient Reads</h3>
+
+<p>In this last step, we’ll eliminate the linear scan required in the simplified version of the marker storage data structure by replacing the simple list with a balanced search tree. There are many different approaches to implementing balanced trees, but in our case, we’ll use a modified version of a <a href="https://en.wikipedia.org/wiki/B+_tree">B+ tree</a>.</p>
+
+<p>The fundamental idea of any search tree is that nodes that are higher in the tree <em>summarize</em> essential information about nodes that are lower in the tree, allowing large portions of the tree to be discarded as a search proceeds downward through the tree. In our region tree, each interior node summarizes the total extent of its children, along with the union of the marker ids of its children. A tree for the colorful overlapping markers example from earlier looks like this:</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1789/8167247/3be8dc80-139d-11e5-97fa-e244b6eae9e3.png" alt="markers-btree" /></p>
+
+<p>This structure enables a variety of operations to be performed much more efficiently (<code class="highlighter-rouge">O(log(n))</code> rather than <code class="highlighter-rouge">O(n)</code>). When text is inserted, we don’t have to iterate through every region to find the region we want to update. Instead, we exploit the summarization to skip large sections of the tree and jump directly to the node we need to update.</p>
+
+<p>For example, say we insert a character at index 22. We can skip directly to the region containing this index by traversing downward only into nodes we know contain the desired index:</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1789/8170645/8ac0cda8-13b2-11e5-993c-72b7acbe4303.gif" alt="btree-stab" /></p>
+
+<p>In this small tree, it doesn’t make a big difference. But as the tree grows larger, this approach lets us to skip many nodes that we otherwise would have needed to visit. Here’s an example of a much larger tree to give you an idea of how many nodes we can skip in scenarios with more markers:</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1789/8171952/60a50980-13bc-11e5-8a21-1895b665b3db.gif" alt="big-btree" /></p>
+
+<p>If we’re looking for the range of a particular marker, we can also walk downward from the tree, traversing into children containing the desired marker and keeping track of our offset as we descend.</p>
+
+<p>We can also perform range queries, returning the set of markers that intersect a given range. This is the final step toward scaling the bulk of marker computation in terms of only the visible markers. After an arbitrary number of updates forces us to redraw the editor, we can efficiently query for the visible markers and compute only their ranges, leaving the remaining markers untouched.</p>
+
+<p>This gives us the following profile for typing a newline in <code class="highlighter-rouge">jquery.js</code> with all the <code class="highlighter-rouge">e</code>s highlighted. The total time for the operation drops from over 800ms to around 50ms.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1789/8172411/9d75fe56-13c0-11e5-8fb6-68151bcb6be7.png" alt="screenshot 2015-06-16 00 42 44" /></p>
+
+<p>This is really just an overview of the approach we used to optimize markers. It should be a good starting point for exploring the full implementation, which consists of a <a href="https://github.com/atom/text-buffer/blob/0855c8c5e36faf252b8be467a8a67c2dce28bafa/src/marker-index.coffee">marker-index class</a> that maintains the B-tree and a <a href="https://github.com/atom/text-buffer/blob/0855c8c5e36faf252b8be467a8a67c2dce28bafa/src/marker-store.coffee">marker-store wrapper class</a> that deals with ancillary details. The full implementation addresses many other concerns needed to support the full markers API, including marker invalidation, maintaining a balanced tree, and restoring marker states on undo and redo.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Many of our early optimizations with Atom concerned improving our interaction with the DOM. We’ll be blogging more about rendering improvements soon, but we’ve made enough progress there to start focusing on deeper layers of the system. Electron’s Node integration gives us the option to drop critical Atom components to C++ if necessary, but this overhaul of markers is a good example of the kind of improvements we can get by simply investing in better algorithms. Atom has gotten a lot faster in the last few months, and as we apply optimizations like this one to other areas of the system, that improvement will continue.</p>
+
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2015/06/16/optimizing-an-important-atom-primitive.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2015/06/16/optimizing-an-important-atom-primitive.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:19 GMT -->
+</html>

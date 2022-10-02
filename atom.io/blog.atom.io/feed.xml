@@ -1,0 +1,727 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://blog.atom.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.atom.io/" rel="alternate" type="text/html" /><updated>2019-07-23T14:07:23+00:00</updated><id>https://blog.atom.io/feed.xml</id><title type="html">Atom Blog</title><subtitle>A hackable text editor for the 21st Century</subtitle><entry><title type="html">Atom 1.39</title><link href="https://blog.atom.io/2019/07/23/atom-1-39.html" rel="alternate" type="text/html" title="Atom 1.39" /><published>2019-07-23T00:00:00+00:00</published><updated>2019-07-23T00:00:00+00:00</updated><id>https://blog.atom.io/2019/07/23/atom-1-39</id><content type="html" xml:base="https://blog.atom.io/2019/07/23/atom-1-39.html">&lt;p&gt;Atom 1.39 speeds up find-and-replace operations by an order of magnitude, improves loading performance for large, single-line files, and upgrades Atom to Electron 3.1. Atom 1.40 beta brings richer integration with GitHub pull requests, improved reliability for many common operations, and continued enhancements to support for numerous programming languages.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h3 id=&quot;ripgrep-based-find-and-replace&quot;&gt;Ripgrep-based find and replace&lt;/h3&gt;
+
+&lt;p&gt;Performing a project-wide search on a large repository &lt;a href=&quot;https://github.com/atom/find-and-replace/pull/1086&quot;&gt;just got &lt;em&gt;a lot&lt;/em&gt; faster&lt;/a&gt; with a new search backend based on &lt;a href=&quot;https://github.com/BurntSushi/ripgrep&quot;&gt;ripgrep&lt;/a&gt;. For now, ripgrep is an experimental option that can be toggled in the settings for the &lt;code class=&quot;highlighter-rouge&quot;&gt;find-and-replace&lt;/code&gt; package.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/408035/58342205-5d575a00-7e50-11e9-8f2a-307cd3cf2b93.png&quot; alt=&quot;Enable ripgrep via in the find-and-replace settings&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We’ve been testing against repositories of various sizes, and we’re seeing searches run up to 22 times faster.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Num Files&lt;/th&gt;
+      &lt;th&gt;Time (standard)&lt;/th&gt;
+      &lt;th&gt;Time (ripgrep)&lt;/th&gt;
+      &lt;th&gt;Improvements&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Small&lt;/td&gt;
+      &lt;td&gt;2K&lt;/td&gt;
+      &lt;td&gt;940ms&lt;/td&gt;
+      &lt;td&gt;62ms&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;15X&lt;/strong&gt; faster  🎉&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Medium&lt;/td&gt;
+      &lt;td&gt;30K&lt;/td&gt;
+      &lt;td&gt;7.7s&lt;/td&gt;
+      &lt;td&gt;620ms&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;12X&lt;/strong&gt; faster 🎉&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Large (returning 5 results)&lt;/td&gt;
+      &lt;td&gt;270K&lt;/td&gt;
+      &lt;td&gt;129s&lt;/td&gt;
+      &lt;td&gt;5.9s&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;22X&lt;/strong&gt; faster 🎉&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Large (returning 26k results)&lt;/td&gt;
+      &lt;td&gt;270K&lt;/td&gt;
+      &lt;td&gt;142s&lt;/td&gt;
+      &lt;td&gt;17.5s&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;8X&lt;/strong&gt; faster 🎉&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;upgrade-to-electron-31&quot;&gt;Upgrade to Electron 3.1&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/atom/atom/pull/19419&quot;&gt;Atom now runs on Electron 3.1&lt;/a&gt;, which advances our underlying browser implementation from Chrome 61 to Chrome 66 and gives packages access to new browser features, including &lt;a href=&quot;https://developers.google.com/web/updates/2017/12/nic63#iterators-generators&quot;&gt;native support for async iterators and generators&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;improved-performance-loading-large-single-line-files&quot;&gt;Improved performance loading large single-line files&lt;/h3&gt;
+
+&lt;p&gt;In the past, loading multi-megabyte files containing a single line has caused performance problems for Atom. In 1.39, these kinds of files &lt;a href=&quot;https://github.com/atom/text-buffer/pull/312&quot;&gt;now load about 75 times faster&lt;/a&gt; than they did previously.&lt;/p&gt;
+
+&lt;h3 id=&quot;improved-jsx-support-in-typescript&quot;&gt;Improved JSX support in TypeScript&lt;/h3&gt;
+
+&lt;p&gt;JSX expressions in &lt;code class=&quot;highlighter-rouge&quot;&gt;.tsx&lt;/code&gt; files are now supported by the &lt;a href=&quot;https://github.com/atom/ide-typescript&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ide-typescript&lt;/code&gt;&lt;/a&gt; package. In addition, you &lt;a href=&quot;https://github.com/tree-sitter/tree-sitter-typescript/pull/68&quot;&gt;can now provide type arguments&lt;/a&gt; in JSX expressions without confusing Atom’s syntax highlighting.&lt;/p&gt;
+
+&lt;h3 id=&quot;community-contribution-highlights&quot;&gt;Community contribution highlights&lt;/h3&gt;
+
+&lt;p&gt;We’re thankful for the community contributors that help Atom get better on each release. 💟&lt;/p&gt;
+
+&lt;p&gt;As usual, &lt;a href=&quot;https://github.com/50wliu&quot;&gt;@50wliu&lt;/a&gt; makes a strong showing with multiple pull requests. He helped us &lt;a href=&quot;https://github.com/atom/atom/pull/19370&quot;&gt;fix apm installation issues on Linux&lt;/a&gt;, &lt;a href=&quot;https://github.com/atom/atom/pull/16100&quot;&gt;improved our approach to deserializing workspace items added by packages&lt;/a&gt;, and added the ability to &lt;a href=&quot;https://github.com/atom/tree-view/pull/1257&quot;&gt;hold ctrl/cmd when dragging to copy items in the tree view&lt;/a&gt;. He also contributed a few other PRs that were less visible but equally important. See the release notes for details.&lt;/p&gt;
+
+&lt;p&gt;Long-time contributor &lt;a href=&quot;https://github.com/Ben3eee&quot;&gt;@Ben3eee&lt;/a&gt; continued his refinement of language support in Atom with &lt;a href=&quot;https://github.com/atom/language-c/pull/328&quot;&gt;a PR to improve the styling of strings in the Tree-sitter C grammar&lt;/a&gt; and &lt;a href=&quot;https://github.com/atom/language-json/pull/68&quot;&gt;added support for Tree-sitter to our JSON language package&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Also on the Tree-sitter front, &lt;a href=&quot;https://github.com/Caleb531&quot;&gt;@Caleb531&lt;/a&gt; &lt;a href=&quot;https://github.com/atom/language-python/pull/303&quot;&gt;improved the handling of &lt;code class=&quot;highlighter-rouge&quot;&gt;*args&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;**kwargs&lt;/code&gt;&lt;/a&gt; in our Python grammar.&lt;/p&gt;
+
+&lt;!-- end of stable changes --&gt;
+
+&lt;p&gt;There are many more details in the &lt;a href=&quot;https://github.com/atom/atom/releases/tag/v1.39.0&quot;&gt;release notes&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;atom-140-beta&quot;&gt;Atom 1.40 Beta&lt;/h2&gt;
+
+&lt;h3 id=&quot;see-the-status-of-pull-request-checks-right-inside-atom&quot;&gt;See the status of pull request checks right inside Atom&lt;/h3&gt;
+
+&lt;p&gt;When you’re working on a repository that has build statuses reported through the &lt;a href=&quot;https://developer.github.com/v3/checks/&quot;&gt;Checks API&lt;/a&gt;, you’ll now see the overall build status in the GitHub tab, and you can &lt;a href=&quot;https://github.com/atom/github/pull/2102&quot;&gt;see the status of each individual check&lt;/a&gt; in the detail view for the pull request.&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;777&quot; alt=&quot;Status of Checks inside Atom&quot; src=&quot;https://user-images.githubusercontent.com/2988/61642340-bbe15e80-ac6e-11e9-88e6-0ca4e5b1b769.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And speaking of pull requests, you can now &lt;a href=&quot;https://github.com/atom/github/pull/2124&quot;&gt;edit pull request review comments and summaries&lt;/a&gt; directly within Atom as well.&lt;/p&gt;
+
+&lt;h3 id=&quot;enjoy-enhanced-reliability&quot;&gt;Enjoy enhanced reliability&lt;/h3&gt;
+
+&lt;p&gt;Atom 1.40 beta brings a more reliable experience across numerous common operations. When updating Atom, the “restart and install” operation provides &lt;a href=&quot;https://github.com/atom/atom/pull/19594&quot;&gt;more dependable behavior&lt;/a&gt;. Atom &lt;a href=&quot;https://github.com/atom/github/pull/2195&quot;&gt;no longer stalls&lt;/a&gt; when opening a branch for a pull request that has a large patch (more than 1 megabyte). And the GitHub package now gracefully detects a loss of network connectivity and attempts to reconnect when the network becomes available again.&lt;/p&gt;
+
+&lt;h3 id=&quot;experience-improved-language-support&quot;&gt;Experience improved language support&lt;/h3&gt;
+
+&lt;p&gt;This release continues the march toward a rich and robust syntax highlighting experience for the many programming languages that Atom supports out-of-the-box. Among the improvements in Atom 1.40 beta are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Support for &lt;a href=&quot;https://github.com/atom/atom/pull/19556&quot;&gt;parsing and syntax highlighting&lt;/a&gt; of Rust macros&lt;/li&gt;
+  &lt;li&gt;Ability to &lt;a href=&quot;https://github.com/atom/atom/pull/18738&quot;&gt;use Tree-sitter grammars from the grammar selector&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Improved &lt;a href=&quot;https://github.com/atom/language-c/pull/330&quot;&gt;syntax&lt;/a&gt; &lt;a href=&quot;https://github.com/atom/language-c/pull/331&quot;&gt;highlighting&lt;/a&gt; for C and C++&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- end of beta changes --&gt;
+
+&lt;p&gt;Check out many more improvements and bug fixes in the &lt;a href=&quot;https://github.com/atom/atom/releases/tag/v1.40.0-beta0&quot;&gt;release notes&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Get all these improvements today by joining the &lt;a href=&quot;https://atom.io/beta&quot;&gt;Atom Beta Channel&lt;/a&gt;!&lt;/p&gt;</content><author><name>jasonrudolph</name></author><summary type="html">Atom 1.39 speeds up find-and-replace operations by an order of magnitude, improves loading performance for large, single-line files, and upgrades Atom to Electron 3.1. Atom 1.40 beta brings richer integration with GitHub pull requests, improved reliability for many common operations, and continued enhancements to support for numerous programming languages.</summary></entry><entry><title type="html">Introducing Atom Nightly Releases</title><link href="https://blog.atom.io/2019/06/21/introducing-atom-nightly-releases.html" rel="alternate" type="text/html" title="Introducing Atom Nightly Releases" /><published>2019-06-21T00:00:00+00:00</published><updated>2019-06-21T00:00:00+00:00</updated><id>https://blog.atom.io/2019/06/21/introducing-atom-nightly-releases</id><content type="html" xml:base="https://blog.atom.io/2019/06/21/introducing-atom-nightly-releases.html">&lt;p&gt;&lt;a href=&quot;https://atom.io/nightly&quot;&gt;&lt;img src=&quot;/img/posts/atom-nightly-heading.png&quot; alt=&quot;Atom Nightly&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Today we’re excited to introduce &lt;a href=&quot;https://atom.io/nightly&quot;&gt;Atom Nightly releases&lt;/a&gt;!  This new release channel gives you access to Atom’s latest feature improvements and bug fixes each day as they are merged into our &lt;code class=&quot;highlighter-rouge&quot;&gt;master&lt;/code&gt; branch. If you want to have an influence on the future of Atom, this release channel is for you.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h2 id=&quot;atom-release-channels&quot;&gt;Atom Release Channels&lt;/h2&gt;
+
+&lt;p&gt;Atom has been producing &lt;a href=&quot;http://blog.atom.io/2015/10/21/introducing-the-atom-beta-channel.html&quot;&gt;stable and beta releases&lt;/a&gt; at a monthly cadence since late 2015, enabling the team to introduce new features to the beta channel without disrupting users of the stable channel.  Each month we ship the latest changes in Atom’s &lt;code class=&quot;highlighter-rouge&quot;&gt;master&lt;/code&gt; branch into our new beta release and then roll the previous beta changes into the new stable release:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/posts/atom-nightly-1.png&quot; alt=&quot;Diagram 1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We’ve found that while this release model certainly helps protect Atom Stable users from regressions, it slows down the pace at which we’re able to get feedback on new features and bug fixes as they’re being implemented.  Thus, we created the &lt;a href=&quot;https://atom.io/nightly&quot;&gt;Atom Nightly channel&lt;/a&gt; to enable a much tighter feedback loop with our most intrepid early adopters.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/posts/atom-nightly-2.png&quot; alt=&quot;Diagram 2&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;why-use-atom-nightly&quot;&gt;Why Use Atom Nightly?&lt;/h2&gt;
+
+&lt;p&gt;In the past if a user wanted to try daily improvements to Atom, they had to clone the Atom repository and run a full product build.  Building Atom takes time and requires a number of development prerequisites, making this a poor experience if you merely want to try out new features.  Some users figured out how to download Atom’s developer builds but there was never a way to update them without installing a newer build manually.  Atom Nightly removes this friction by providing an official release channel that gets updated any day there have been changes on &lt;code class=&quot;highlighter-rouge&quot;&gt;master&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you’re an Atom Beta user, you’re likely using it because you want access to improvements earlier than they appear in Atom Stable releases. If this sounds like you, you’ll love Atom Nightly even more:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;You’ll get to try the latest Atom improvements every day&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Your feedback will support the daily efforts of the Atom maintainers&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;caveats&quot;&gt;Caveats&lt;/h3&gt;
+
+&lt;p&gt;You should be aware of a few limitations that impact the new nightly channel:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;On Linux, Atom (Stable, Beta and Nightly) does not support automatic updates. Please, use &lt;a href=&quot;https://flight-manual.atom.io/getting-started/sections/installing-atom/#platform-linux&quot;&gt;the official debian or rpm repositories&lt;/a&gt; to manually update Atom when new releases come out.&lt;/li&gt;
+  &lt;li&gt;On Windows, installing Atom Nightly and &lt;a href=&quot;https://github.com/atom/atom/issues/9247&quot;&gt;Atom Stable/Beta&lt;/a&gt; side-by-side is not currently supported.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;try-it-out-today&quot;&gt;Try it out Today&lt;/h2&gt;
+
+&lt;p&gt;We hope you’ll consider trying the &lt;a href=&quot;https://atom.io/nightly&quot;&gt;Atom Nightly&lt;/a&gt; channel. Any time you spend using Nightly releases will be greatly beneficial to Atom’s continued improvement. Since this is a bleeding-edge release it’s likely that you will hit the occasional bug, so please &lt;a href=&quot;https://github.com/atom/atom/blob/master/CONTRIBUTING.md#reporting-bugs&quot;&gt;file an issue&lt;/a&gt; for anything that you come across.&lt;/p&gt;
+
+&lt;p&gt;Thanks again for all of your support of Atom :heart:&lt;/p&gt;</content><author><name>rafeca</name></author><summary type="html">Today we’re excited to introduce Atom Nightly releases! This new release channel gives you access to Atom’s latest feature improvements and bug fixes each day as they are merged into our master branch. If you want to have an influence on the future of Atom, this release channel is for you.</summary></entry><entry><title type="html">Atom 1.38</title><link href="https://blog.atom.io/2019/06/11/atom-1-38.html" rel="alternate" type="text/html" title="Atom 1.38" /><published>2019-06-11T00:00:00+00:00</published><updated>2019-06-11T00:00:00+00:00</updated><id>https://blog.atom.io/2019/06/11/atom-1-38</id><content type="html" xml:base="https://blog.atom.io/2019/06/11/atom-1-38.html">&lt;p&gt;Atom 1.38 includes some improvements to the GitHub package and improvements to JS, ERB, Python, and JSON language support. Atom 1.39 beta includes a new &lt;code class=&quot;highlighter-rouge&quot;&gt;ripgrep&lt;/code&gt;-based project search backend, an upgrade to Electron 3.1, and much improved loading times for multi-megabyte files containing only a single line of text.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h3 id=&quot;github-package-improvements&quot;&gt;Github package improvements&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Now Atom &lt;a href=&quot;https://github.com/atom/github/pull/2057&quot;&gt;displays an “edited” label&lt;/a&gt; next to a pull request comment if it has been edited.&lt;/li&gt;
+  &lt;li&gt;User badges (like “First time contributor” or “Collaborator”) &lt;a href=&quot;https://github.com/atom/github/pull/2085&quot;&gt;are shown&lt;/a&gt; next to the authors on PRs and review comments to encourage people to be kind to new folks.&lt;/li&gt;
+  &lt;li&gt;Resolved comments &lt;a href=&quot;https://github.com/atom/github/pull/2117&quot;&gt;are grouped together&lt;/a&gt; to make the pull request conversation easier to read.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;improvements-to-js-erb-and-python-language-grammars&quot;&gt;Improvements to JS, ERB, and Python language grammars&lt;/h3&gt;
+
+&lt;p&gt;A few fixes have been added to the language parsers/syntax highlighter. Now Atom allows &lt;a href=&quot;https://github.com/atom/language-javascript/pull/644&quot;&gt;folding the &lt;code class=&quot;highlighter-rouge&quot;&gt;default&lt;/code&gt; label of &lt;code class=&quot;highlighter-rouge&quot;&gt;switch&lt;/code&gt; statements in JS&lt;/a&gt;, it improves &lt;a href=&quot;https://github.com/atom/atom/pull/19279&quot;&gt;the handling of comment characters in ERB&lt;/a&gt; and it fixes an issue when &lt;a href=&quot;https://github.com/atom/language-python/pull/300&quot;&gt;folding &lt;code class=&quot;highlighter-rouge&quot;&gt;if&lt;/code&gt; statements in Python&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;tree-sitter-parsing-support-for-json&quot;&gt;Tree-sitter parsing support for JSON&lt;/h3&gt;
+
+&lt;p&gt;Syntax highlighting performance on JSON files is now substantially improved thanks to Atom now &lt;a href=&quot;https://github.com/atom/language-json/pull/68&quot;&gt;using Tree-sitter to syntax highlight JSON files by default&lt;/a&gt;. Syntax-based folding and selection while editing JSON are another nice benefit of the switch to Tree-sitter.&lt;/p&gt;
+
+&lt;!-- end of stable changes --&gt;
+
+&lt;p&gt;There are many more details in the &lt;a href=&quot;https://github.com/atom/atom/releases/tag/v1.38.0&quot;&gt;release notes&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;atom-139-beta&quot;&gt;Atom 1.39 Beta&lt;/h2&gt;
+
+&lt;h3 id=&quot;ripgrep-based-find-and-replace&quot;&gt;Ripgrep based find and replace&lt;/h3&gt;
+
+&lt;p&gt;Performing a project-wide search on a large repository &lt;a href=&quot;https://github.com/atom/find-and-replace/pull/1086&quot;&gt;just got a lot faster&lt;/a&gt; with a new search backend based on &lt;a href=&quot;https://github.com/BurntSushi/ripgrep&quot;&gt;ripgrep&lt;/a&gt;. For now, ripgrep is an experimental option that can be toggled in the settings for the &lt;code class=&quot;highlighter-rouge&quot;&gt;find-and-replace&lt;/code&gt; package.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/408035/58342205-5d575a00-7e50-11e9-8f2a-307cd3cf2b93.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here are some results from our testing against repositories of various sizes. We’re seeing searches run up to 22 times faster.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Num Files&lt;/th&gt;
+      &lt;th&gt;Time (standard)&lt;/th&gt;
+      &lt;th&gt;Time (ripgrep)&lt;/th&gt;
+      &lt;th&gt;Improvements&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Small&lt;/td&gt;
+      &lt;td&gt;2K&lt;/td&gt;
+      &lt;td&gt;940ms&lt;/td&gt;
+      &lt;td&gt;62ms&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;15X&lt;/strong&gt; faster  🎉&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Medium&lt;/td&gt;
+      &lt;td&gt;30K&lt;/td&gt;
+      &lt;td&gt;7.7s&lt;/td&gt;
+      &lt;td&gt;620ms&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;12X&lt;/strong&gt; faster 🎉&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Large (returning 5 results)&lt;/td&gt;
+      &lt;td&gt;270K&lt;/td&gt;
+      &lt;td&gt;129s&lt;/td&gt;
+      &lt;td&gt;5.9s&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;22X&lt;/strong&gt; faster 🎉&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Large (returning 26k results)&lt;/td&gt;
+      &lt;td&gt;270K&lt;/td&gt;
+      &lt;td&gt;142s&lt;/td&gt;
+      &lt;td&gt;17.5s&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;8X&lt;/strong&gt; faster 🎉&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;upgrade-to-electron-31&quot;&gt;Upgrade to Electron 3.1&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/atom/atom/pull/19419&quot;&gt;Atom now runs on Electron 3.1&lt;/a&gt;, which advances our underlying browser implementation from Chrome 61 to Chrome 66 and gives packages access to new browser features, including &lt;a href=&quot;https://developers.google.com/web/updates/2017/12/nic63#iterators-generators&quot;&gt;native support for async iterators and generators&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;improved-performance-loading-large-single-line-files&quot;&gt;Improved performance loading large single-line files&lt;/h3&gt;
+
+&lt;p&gt;In the past, loading multi-megabyte files containing a single line has caused performance problems for Atom. In 1.39, these kinds of files &lt;a href=&quot;https://github.com/atom/text-buffer/pull/312&quot;&gt;now load about 75 times faster&lt;/a&gt; than they did previously.&lt;/p&gt;
+
+&lt;h3 id=&quot;improved-jsx-support-in-typescript&quot;&gt;Improved JSX support in TypeScript&lt;/h3&gt;
+
+&lt;p&gt;JSX expressions in &lt;code class=&quot;highlighter-rouge&quot;&gt;.tsx&lt;/code&gt; files are now supported by the &lt;a href=&quot;https://github.com/atom/ide-typescript&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ide-typescript&lt;/code&gt;&lt;/a&gt; package when Tree-sitter is enabled. In addition, you &lt;a href=&quot;https://github.com/tree-sitter/tree-sitter-typescript/pull/68&quot;&gt;can now provide type arguments&lt;/a&gt; in JSX expressions without confusing Atom’s syntax highlighting.&lt;/p&gt;
+
+&lt;h3 id=&quot;community-contribution-highlights&quot;&gt;Community Contribution Highlights&lt;/h3&gt;
+
+&lt;p&gt;We’re thankful for the community contributors that help Atom get better on each release. These are some of them:&lt;/p&gt;
+
+&lt;p&gt;As usual, &lt;a href=&quot;https://github.com/50wliu&quot;&gt;@50wliu&lt;/a&gt; makes a strong showing with multiple pull requests. He helped us &lt;a href=&quot;https://github.com/atom/atom/pull/19370&quot;&gt;fix apm installation issues on Linux&lt;/a&gt;, &lt;a href=&quot;https://github.com/atom/atom/pull/16100&quot;&gt;improved our approach to deserializing workspace items added by packages&lt;/a&gt;, and added the ability to &lt;a href=&quot;https://github.com/atom/tree-view/pull/1257&quot;&gt;hold ctrl/cmd when dragging to copy items in the tree view&lt;/a&gt;. He also contributed a few other PRs that were less visible but equally important. See the release notes for details.&lt;/p&gt;
+
+&lt;p&gt;Long-time contributor &lt;a href=&quot;https://github.com/Ben3eee&quot;&gt;@Ben3eee&lt;/a&gt; continued his refinement of language support in Atom with &lt;a href=&quot;https://github.com/atom/language-c/pull/328&quot;&gt;a PR to improve the styling of strings in the Tree-sitter C grammar&lt;/a&gt; and &lt;a href=&quot;https://github.com/atom/language-json/pull/68&quot;&gt;added support for Tree-sitter to our JSON language package&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Also on the Tree-sitter front, &lt;a href=&quot;https://github.com/Caleb531&quot;&gt;@Caleb531&lt;/a&gt; &lt;a href=&quot;https://github.com/atom/language-python/pull/303&quot;&gt;improved the handling of &lt;code class=&quot;highlighter-rouge&quot;&gt;*args&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;**kwargs&lt;/code&gt;&lt;/a&gt; in our Python grammar.&lt;/p&gt;
+
+&lt;!-- end of beta changes --&gt;
+
+&lt;p&gt;Check out many more improvements and bug fixes in the &lt;a href=&quot;https://github.com/atom/atom/releases/tag/v1.39.0-beta0&quot;&gt;release notes&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Get all these improvements today by joining the &lt;a href=&quot;https://atom.io/beta&quot;&gt;Atom Beta Channel&lt;/a&gt;!&lt;/p&gt;</content><author><name>nathansobo</name></author><summary type="html">Atom 1.38 includes some improvements to the GitHub package and improvements to JS, ERB, Python, and JSON language support. Atom 1.39 beta includes a new ripgrep-based project search backend, an upgrade to Electron 3.1, and much improved loading times for multi-megabyte files containing only a single line of text.</summary></entry><entry><title type="html">Atom 1.37</title><link href="https://blog.atom.io/2019/05/12/atom-1-37.html" rel="alternate" type="text/html" title="Atom 1.37" /><published>2019-05-12T00:00:00+00:00</published><updated>2019-05-12T00:00:00+00:00</updated><id>https://blog.atom.io/2019/05/12/atom-1-37</id><content type="html" xml:base="https://blog.atom.io/2019/05/12/atom-1-37.html">&lt;p&gt;Atom 1.37 has shipped! This version introduces a complete flow for handling review comments you’ve received on a pull request and an experimental faster mode in fuzzy finder that dramatically improves its performance.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/6842965/55832018-8a3ef000-5ae2-11e9-9256-54199f38082a.png&quot; alt=&quot;In-editor pull request review comments&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;pull-request-review-comments-in-the-github-package&quot;&gt;Pull request review comments in the GitHub package&lt;/h3&gt;
+
+&lt;p&gt;Responding to review comments that a reviewer has left on a pull request you’ve submitted can be cumbersome. You need to cross-reference lines back and forth between GitHub and your editor, using the diff context and line numbers to find the place where the comment was made.&lt;/p&gt;
+
+&lt;p&gt;Now, to reduce the amount of mental context switching you need to do, we show &lt;a href=&quot;https://github.com/atom/github/pull/1995&quot;&gt;reviews and review comments right in your favorite editor&lt;/a&gt; :tada: To open the all-new reviews tab, click on the “see reviews” button in the GitHub tab while you’re on a branch associated with a pull request, or click “see reviews” in the footer of a pull request detail view.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/17565/55828904-70e67580-5adb-11e9-8923-7df4178433ee.png&quot; alt=&quot;see reviews footer button&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;With the reviews tab open, expand any review comment thread to read how awesome your code is. Click “Jump To File” to open or focus an editor and scroll to that line, or click “open diff” to scroll to the commented line on the diff in the pull request detail view. We’ll automatically account for any changes you’ve made locally but haven’t pushed yet.&lt;/p&gt;
+
+&lt;p&gt;While you’re in an editor, any lines that have been commented on are highlighted. Click on the comment icon in the left gutter to jump back to that comment in the review tab.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/17565/55828621-d25a1480-5ada-11e9-9994-e84c5674b2ec.png&quot; alt=&quot;jump to file&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Beneath the comment thread in the reviews tab, you can respond to the thread directly with the provided text box to keep the conversation going, or react with a reaction emoji. When you’re satisfied that you’ve addressed the feedback from a specific comment thread, click “Resolve conversation” to mark the thread as resolved. To help you keep track of your progress through review feedback, resolved comment threads will be greyed out and counted in a progress bar at the top of the tab.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/7910250/55824306-77afc100-5ab8-11e9-8d5b-d5d7a7f50282.gif&quot; alt=&quot;reply and resolve&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Get the bar green, get those green checks, and get your code shipped! :rocket: :rocket: :rocket:&lt;/p&gt;
+
+&lt;h3 id=&quot;dramatic-fuzzy-finder-performance-boost&quot;&gt;Dramatic fuzzy-finder performance boost&lt;/h3&gt;
+
+&lt;p&gt;The fuzzy finder’s project crawling performance has been &lt;a href=&quot;https://github.com/atom/fuzzy-finder/pull/369&quot;&gt;improved dramatically&lt;/a&gt; by switching to a &lt;a href=&quot;https://github.com/BurntSushi/ripgrep&quot;&gt;ripgrep&lt;/a&gt;-powered backend.&lt;/p&gt;
+
+&lt;p&gt;Similarly, the filtering performance has been drastically improved. This means that results will show much faster while typing on the fuzzy finder.&lt;/p&gt;
+
+&lt;p&gt;These two improvements are most noticeable in projects with large numbers of files - for example, we measured a &lt;strong&gt;14x&lt;/strong&gt; speed boost in the crawling performance on a project with 270K files.&lt;/p&gt;
+
+&lt;p&gt;Since these changes cause some slightly different results, we’ve placed them behind a configuration option for now while we work out any unexpected kinks in the transition. When you open a project with a large amount of files you’ll see a prompt to enable it:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/408035/57457179-54229680-726f-11e9-8102-f4cb26ab9694.png&quot; alt=&quot;fuzzy finder prompt&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;authenticate-and-encrypt-communications-over-atoms-activation-socket&quot;&gt;Authenticate and encrypt communications over Atom’s activation socket&lt;/h3&gt;
+
+&lt;p&gt;While it’s launching, Atom uses a UNIX domain socket (on macOS and Linux) or a named pipe (on Windows) to determine if an existing main process is hanging around to open a window for you before starting a new one. Now, all communication that occurs through that channel is &lt;a href=&quot;https://github.com/atom/atom/pull/19109&quot;&gt;authenticated and encrypted&lt;/a&gt; to keep other people with access to your machine from reading or interfering with those messages.&lt;/p&gt;
+
+&lt;p&gt;As a related change, &lt;a href=&quot;https://github.com/atom/atom/pull/19103&quot;&gt;the &lt;code class=&quot;highlighter-rouge&quot;&gt;--socket-path&lt;/code&gt; command-line argument has been removed&lt;/a&gt;, although it doesn’t look like it was used outside of internal testing.&lt;/p&gt;
+
+&lt;h3 id=&quot;language-package-improvements&quot;&gt;Language package improvements&lt;/h3&gt;
+
+&lt;p&gt;The bundled language packages have another set of goodies in the pipeline in beta as well:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;language-clojure&lt;/code&gt; can &lt;a href=&quot;https://github.com/atom/language-clojure/pull/82&quot;&gt;handle non-ASCII characters&lt;/a&gt; in keywords, symbols, and identifiers, like the clojure compiler itself, thanks to &lt;a href=&quot;https://github.com/PEZ&quot;&gt;@PEZ&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/caleb531&quot;&gt;@caleb531&lt;/a&gt; made the &lt;code class=&quot;highlighter-rouge&quot;&gt;language-python&lt;/code&gt; tree-sitter grammar able to recognize &lt;a href=&quot;https://github.com/atom/language-python/pull/296&quot;&gt;shebang lines that reference “python2” or “python3”&lt;/a&gt; instead of just “python”.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;language-toml&lt;/code&gt; now correctly tokenizes multiple key/value pairs on a single line, again thanks to &lt;a href=&quot;https://github.com/caleb531&quot;&gt;@caleb531&lt;/a&gt; :smile:&lt;/li&gt;
+  &lt;li&gt;Finally, &lt;code class=&quot;highlighter-rouge&quot;&gt;language-ruby&lt;/code&gt; &lt;a href=&quot;https://github.com/atom/language-ruby/pull/262&quot;&gt;recognizes “next” as a keyword&lt;/a&gt; thanks to &lt;a href=&quot;https://github.com/willcosgrove&quot;&gt;@willcosgrove&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- end of stable changes --&gt;
+
+&lt;h3 id=&quot;and-more&quot;&gt;And more&lt;/h3&gt;
+
+&lt;p&gt;Don’t forget to check out all the other improvements shipping with Atom 1.37 in the &lt;a href=&quot;https://github.com/atom/atom/releases/tag/v1.37.0&quot;&gt;release notes&lt;/a&gt;! :memo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/release-beta.png&quot; alt=&quot;Atom Beta&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;atom-138-beta&quot;&gt;Atom 1.38 Beta&lt;/h2&gt;
+
+&lt;p&gt;Atom 1.38 beta includes some improvements on the GitHub package and a few fixes on the language parsers.&lt;/p&gt;
+
+&lt;h3 id=&quot;github-package-improvements&quot;&gt;Github package improvements&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Now Atom &lt;a href=&quot;https://github.com/atom/github/pull/2057&quot;&gt;displays an “edited” label&lt;/a&gt; next to a pull request comment if it has been edited.&lt;/li&gt;
+  &lt;li&gt;User badges (like “First time contributor” or “Collaborator”) &lt;a href=&quot;https://github.com/atom/github/pull/2085&quot;&gt;are shown&lt;/a&gt; next to the authors on PRs and review comments to encourage people to be kind to new folks.&lt;/li&gt;
+  &lt;li&gt;Resolved comments &lt;a href=&quot;https://github.com/atom/github/pull/2117&quot;&gt;are grouped together&lt;/a&gt; to make the pull request conversation easier to read.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;fixes-when-handling-some-languages&quot;&gt;Fixes when handling some languages&lt;/h3&gt;
+
+&lt;p&gt;A few fixes have been added to the language parsers/syntax highlighter. Now Atom allows &lt;a href=&quot;https://github.com/atom/language-javascript/pull/644&quot;&gt;folding the &lt;code class=&quot;highlighter-rouge&quot;&gt;default&lt;/code&gt; label in &lt;code class=&quot;highlighter-rouge&quot;&gt;switch&lt;/code&gt; statements&lt;/a&gt;, it improves &lt;a href=&quot;https://github.com/atom/atom/pull/19279&quot;&gt;the handling of comment characters in ERB&lt;/a&gt; and it fixes an issue when &lt;a href=&quot;https://github.com/atom/language-python/pull/300&quot;&gt;folding &lt;code class=&quot;highlighter-rouge&quot;&gt;if&lt;/code&gt; statements in Python&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;community-contribution-highlights&quot;&gt;Community Contribution Highlights&lt;/h3&gt;
+
+&lt;p&gt;We’re thankful for the community contributors that help Atom get better on each release. These are some of them:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Thanks &lt;a href=&quot;https://github.com/50Wliu&quot;&gt;@50Wliu&lt;/a&gt; for adding &lt;a href=&quot;https://github.com/atom/tree-view/pull/1180&quot;&gt;a way to move conflicting entries&lt;/a&gt;, this is a really nice improvement to the Tree View!&lt;/li&gt;
+  &lt;li&gt;Props to &lt;a href=&quot;https://github.com/brainsnail&quot;&gt;@brainsnail&lt;/a&gt; for &lt;a href=&quot;https://github.com/atom/language-go/pull/156&quot;&gt;adding support for Go module and checksum files&lt;/a&gt; in our language parser, now people can use new Go features in Atom and get proper highlighting.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- end of beta changes --&gt;
+
+&lt;p&gt;There are many more details in the &lt;a href=&quot;https://github.com/atom/atom/releases/tag/v1.38.0-beta0&quot;&gt;release notes&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Get all these improvements today by joining the &lt;a href=&quot;https://atom.io/beta&quot;&gt;Atom Beta Channel&lt;/a&gt;!&lt;/p&gt;</content><author><name>rafeca</name></author><summary type="html">Atom 1.37 has shipped! This version introduces a complete flow for handling review comments you’ve received on a pull request and an experimental faster mode in fuzzy finder that dramatically improves its performance.</summary></entry><entry><title type="html">Atom 1.36</title><link href="https://blog.atom.io/2019/04/09/atom-1-36.html" rel="alternate" type="text/html" title="Atom 1.36" /><published>2019-04-09T00:00:00+00:00</published><updated>2019-04-09T00:00:00+00:00</updated><id>https://blog.atom.io/2019/04/09/atom-1-36</id><content type="html" xml:base="https://blog.atom.io/2019/04/09/atom-1-36.html">&lt;p&gt;Atom 1.36 has shipped! Upgrade today to open single files in large directories much faster, see pull request review comments from GitHub, specify multiple wrap guides at once, and more.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h3 id=&quot;open-a-single-file-without-its-parent-directory&quot;&gt;Open a single file without its parent directory&lt;/h3&gt;
+
+&lt;p&gt;Have you ever wanted to make a quick edit to a single file in your home directory, only to have Atom dutifully process and index &lt;em&gt;all&lt;/em&gt; of your files?&lt;/p&gt;
+
+&lt;p&gt;When a root directory is added to your open project, we do a bunch of work to understand its contents, watching for relevant filesystem changes and populating the tree view. Previously, when you opened Atom on a single file, we automatically added its containing directory as a root directory. This was good for restoring persisted session state, but had the unfortunate consequence of slowing things to a crawl when that directory was a large one. Now we &lt;a href=&quot;https://github.com/atom/atom/pull/18608&quot;&gt;only open the file you’ve asked us to&lt;/a&gt;, which we can do much more quickly.&lt;/p&gt;
+
+&lt;p&gt;Happy dotfile editing! :sparkles:&lt;/p&gt;
+
+&lt;h3 id=&quot;fuzzy-finder-performance&quot;&gt;Fuzzy Finder Performance&lt;/h3&gt;
+
+&lt;p&gt;Once upon a time, there was a noticeable lag between when you opened Atom with a large repository and when you could use the fuzzy finder to actually open files. Thanks to some smart detective work, fuzzy finder performance is now much improved! This release &lt;a href=&quot;https://github.com/atom/fuzzy-finder/pull/366&quot;&gt;shaves a whopping 40%&lt;/a&gt; off the time it takes to index files in medium and large repositories.&lt;/p&gt;
+
+&lt;h3 id=&quot;pull-request-review-comments-and-large-diff-detection-in-the-github-package&quot;&gt;Pull request review comments and large diff detection in the GitHub package&lt;/h3&gt;
+
+&lt;p&gt;The GitHub package allows you to &lt;a href=&quot;https://github.com/atom/github/pull/1856&quot;&gt;read review comments left on pull requests&lt;/a&gt; without leaving the comfort of your editor. Open the “files changed” tab of a pull request detail view to check it out.&lt;/p&gt;
+
+&lt;p&gt;We’ve been researching and iterating and refining on this one heavily in the past few months. Peek ahead at the &lt;a href=&quot;#atom-137-beta&quot;&gt;beta release notes&lt;/a&gt; below to see where we’ve taken the review experience next :eyes:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/378023/52465966-f32de880-2bc3-11e9-8de5-2d93dd42920c.png&quot; alt=&quot;pull requests comments&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You can also &lt;a href=&quot;https://github.com/atom/github/pull/1913&quot;&gt;collapse and expand&lt;/a&gt; any files within diff views that show diffs from multiple files, such as commit preview and the pull request files view. Large files are collapsed by default, because you probably don’t need to see those 800 lines of &lt;code class=&quot;highlighter-rouge&quot;&gt;package-lock.json&lt;/code&gt; changes in such great detail. (And if you do, just expand them!)&lt;/p&gt;
+
+&lt;p&gt;Keyboard shortcuts for finding text &lt;a href=&quot;https://github.com/atom/github/pull/1922&quot;&gt;now work within the diff view&lt;/a&gt;. That’ll make it easier to remove all those forgotten &lt;code class=&quot;highlighter-rouge&quot;&gt;console.log()&lt;/code&gt; statements you were about to commit.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/378023/52465967-f3c67f00-2bc3-11e9-80d7-336c77c27b12.gif&quot; alt=&quot;find text&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;On a related note, if you write a package that embeds a &lt;code class=&quot;highlighter-rouge&quot;&gt;TextEditor&lt;/code&gt; within a custom workspace item, you too can wire it up to integrate with find-and-replace by implementing the &lt;a href=&quot;https://github.com/atom/find-and-replace/pull/1068&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;getEmbeddedTextEditor()&lt;/code&gt;&lt;/a&gt; or &lt;a href=&quot;https://github.com/atom/find-and-replace/pull/1069&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;observeEmbeddedTextEditors()&lt;/code&gt;&lt;/a&gt; methods on your item.&lt;/p&gt;
+
+&lt;h3 id=&quot;auto-updater-improvements-for-windows-and-macos&quot;&gt;Auto-updater improvements for Windows and macOS&lt;/h3&gt;
+
+&lt;p&gt;We’ve taken care of some rough edges that had accumulated in our auto-updater logic. On Windows, if the &lt;code class=&quot;highlighter-rouge&quot;&gt;core.automaticallyUpdate&lt;/code&gt; setting was set to &lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt;, Atom would incorrectly tell you that you couldn’t &lt;em&gt;manually&lt;/em&gt; upgrade from the “About” pane. Meanwhile, on macOS, clicking “restart and install update” would close Atom but not properly re-launch as the new version. Both of these have been fixed.&lt;/p&gt;
+
+&lt;h3 id=&quot;multiple-wrap-guides&quot;&gt;Multiple wrap guides&lt;/h3&gt;
+
+&lt;p&gt;Hat tip to &lt;a href=&quot;https://github.com/lexicalunit&quot;&gt;@lexicalunit&lt;/a&gt; for this one: you may now configure &lt;a href=&quot;https://github.com/atom/wrap-guide/pull/56&quot;&gt;multiple wrap guide columns&lt;/a&gt;. This can be useful if you want to give yourself a “soft limit” to let yourself know you should be wrapping up that line soon.&lt;/p&gt;
+
+&lt;p&gt;To turn it on, edit your &lt;code class=&quot;highlighter-rouge&quot;&gt;config.cson&lt;/code&gt; file to include the array of guide columns:&lt;/p&gt;
+
+&lt;div class=&quot;language-coffeescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;'wrap-guide'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;'columns'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;72&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;120&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;language-package-improvements&quot;&gt;Language package improvements&lt;/h3&gt;
+
+&lt;p&gt;We have a host of improvements to bundled language packages in this release:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/cuberoot&quot;&gt;@cuberoot&lt;/a&gt; added &lt;a href=&quot;https://github.com/atom/language-coffee-script/pull/172&quot;&gt;JSX support&lt;/a&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;language-coffeescript&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Thanks to &lt;a href=&quot;https://github.com/Ingramz&quot;&gt;@Ingramz&lt;/a&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;language-html&lt;/code&gt; will &lt;a href=&quot;https://github.com/atom/language-html/pull/221&quot;&gt;correctly use the “GraphQL” grammar for embedded GraphQL&lt;/a&gt; in script tags. Note that you’ll need to install the &lt;a href=&quot;https://atom.io/packages/language-graphql&quot;&gt;community GraphQL package&lt;/a&gt; to syntax-highlight properly.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;language-javascript&lt;/code&gt; now understands tagged template strings that accept arguments, like those from &lt;a href=&quot;https://www.styled-components.com/&quot;&gt;the Styled Components library&lt;/a&gt;. &lt;a href=&quot;https://github.com/bennypowers&quot;&gt;@bennypowers&lt;/a&gt; also taught it to understand &lt;code class=&quot;highlighter-rouge&quot;&gt;css&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;graphql&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;sql&lt;/code&gt; sub-grammars within template literals that use the appropriate tags.&lt;/li&gt;
+  &lt;li&gt;Finally, the tree-sitter grammar on &lt;code class=&quot;highlighter-rouge&quot;&gt;language-ruby&lt;/code&gt; has improved the way it highlights certain float and integer literals.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;isolated-atom-environment-for-jasmine-tests&quot;&gt;Isolated Atom environment for Jasmine tests&lt;/h3&gt;
+
+&lt;p&gt;Package authors take note! Previously, if your package used the &lt;a href=&quot;https://flight-manual.atom.io/hacking-atom/sections/writing-specs/&quot;&gt;default Jasmine test runner&lt;/a&gt;, the Atom environment used by your tests would activate any packages that you happened to have installed locally. This could cause your tests to unexpectedly fail if there were any problems with your other packages, or, worse, to silently depend on something that was changed by a different package. We now &lt;a href=&quot;https://github.com/atom/atom/pull/18801&quot;&gt;further isolate the Atom environment&lt;/a&gt; to keep things nice and reproducible.&lt;/p&gt;
+
+&lt;p&gt;If your tests &lt;em&gt;do&lt;/em&gt; depend on another package being activated, set the &lt;code class=&quot;highlighter-rouge&quot;&gt;APM_TEST_PACKAGES&lt;/code&gt; environment variable to a space-separated list of package names and they will be available to your tests. Conveniently, this is the same way that &lt;a href=&quot;https://github.com/atom/ci#how-do-i-install-other-atom-packages-that-my-package-build-depends-on&quot;&gt;atom/ci&lt;/a&gt; allows you to specify package dependencies.&lt;/p&gt;
+
+&lt;!-- end of stable changes --&gt;
+
+&lt;h3 id=&quot;and-more&quot;&gt;And more&lt;/h3&gt;
+
+&lt;p&gt;Don’t forget to check out all the other improvements shipping with Atom 1.36 in the &lt;a href=&quot;https://github.com/atom/atom/releases/tag/v1.36.0&quot;&gt;release notes&lt;/a&gt;! :memo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/release-beta.png&quot; alt=&quot;Atom Beta&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;atom-137-beta&quot;&gt;Atom 1.37 Beta&lt;/h2&gt;
+
+&lt;p&gt;Atom 1.37 beta introduces a complete flow for handling review comments you’ve received on a pull request.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/6842965/55832018-8a3ef000-5ae2-11e9-9256-54199f38082a.png&quot; alt=&quot;In-editor pull request review comments&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;pull-request-review-comments-in-the-github-package&quot;&gt;Pull request review comments in the GitHub package&lt;/h3&gt;
+
+&lt;p&gt;Responding to review comments that a reviewer has left on a pull request you’ve submitted can be cumbersome. You need to cross-reference lines back and forth between GitHub and your editor, using the diff context and line numbers to find the place where the comment was made.&lt;/p&gt;
+
+&lt;p&gt;Now, to reduce the amount of mental context switching you need to do, we show &lt;a href=&quot;https://github.com/atom/github/pull/1995&quot;&gt;reviews and review comments right in your favorite editor&lt;/a&gt; :tada: To open the all-new reviews tab, click on the “see reviews” button in the GitHub tab while you’re on a branch associated with a pull request, or click “see reviews” in the footer of a pull request detail view.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/17565/55828904-70e67580-5adb-11e9-8923-7df4178433ee.png&quot; alt=&quot;see reviews footer button&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;With the reviews tab open, expand any review comment thread to read how awesome your code is. Click “Jump To File” to open or focus an editor and scroll to that line, or click “open diff” to scroll to the commented line on the diff in the pull request detail view. We’ll automatically account for any changes you’ve made locally but haven’t pushed yet.&lt;/p&gt;
+
+&lt;p&gt;While you’re in an editor, any lines that have been commented on are highlighted. Click on the comment icon in the left gutter to jump back to that comment in the review tab.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/17565/55828621-d25a1480-5ada-11e9-9994-e84c5674b2ec.png&quot; alt=&quot;jump to file&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Beneath the comment thread in the reviews tab, you can respond to the thread directly with the provided text box to keep the conversation going, or react with a reaction emoji. When you’re satisfied that you’ve addressed the feedback from a specific comment thread, click “Resolve conversation” to mark the thread as resolved. To help you keep track of your progress through review feedback, resolved comment threads will be greyed out and counted in a progress bar at the top of the tab.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/7910250/55824306-77afc100-5ab8-11e9-8d5b-d5d7a7f50282.gif&quot; alt=&quot;reply and resolve&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Get the bar green, get those green checks, and get your code shipped! :rocket: :rocket: :rocket:&lt;/p&gt;
+
+&lt;h3 id=&quot;dramatic-fuzzy-finder-performance-boost&quot;&gt;Dramatic fuzzy-finder performance boost&lt;/h3&gt;
+
+&lt;p&gt;The fuzzy finder’s project crawling performance has been &lt;a href=&quot;https://github.com/atom/fuzzy-finder/pull/369&quot;&gt;improved dramatically&lt;/a&gt; by switching to a &lt;a href=&quot;https://github.com/BurntSushi/ripgrep&quot;&gt;ripgrep&lt;/a&gt;-powered backend. This is most noticeable in projects with large numbers of files - for example, we measured a &lt;strong&gt;14x&lt;/strong&gt; speed boost in a project with 270K files.&lt;/p&gt;
+
+&lt;p&gt;The ripgrep-powered search returns somewhat different results, so we’ve placed it behind a configuration option for now while we work out any unexpected kinks in the transition. To turn it on, open the fuzzy-finder package settings in your Settings view and enable the “Use Rip Grep” option.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/17565/55829735-63ca8600-5add-11e9-98e9-b52d3caf471f.png&quot; alt=&quot;ripgrep option&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;authenticate-and-encrypt-communications-over-atoms-activation-socket&quot;&gt;Authenticate and encrypt communications over Atom’s activation socket&lt;/h3&gt;
+
+&lt;p&gt;While it’s launching, Atom uses a UNIX domain socket (on macOS and Linux) or a named pipe (on Windows) to determine if an existing main process is hanging around to open a window for you before starting a new one. Now, all communication that occurs through that channel is &lt;a href=&quot;https://github.com/atom/atom/pull/19109&quot;&gt;authenticated and encrypted&lt;/a&gt; to keep other people with access to your machine from reading or interfering with those messages.&lt;/p&gt;
+
+&lt;p&gt;As a related change, &lt;a href=&quot;https://github.com/atom/atom/pull/19103&quot;&gt;the &lt;code class=&quot;highlighter-rouge&quot;&gt;--socket-path&lt;/code&gt; command-line argument has been removed&lt;/a&gt;, although it doesn’t look like it was used outside of internal testing.&lt;/p&gt;
+
+&lt;h3 id=&quot;language-package-improvements-1&quot;&gt;Language package improvements&lt;/h3&gt;
+
+&lt;p&gt;The bundled language packages have another set of goodies in the pipeline in beta as well:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;language-clojure&lt;/code&gt; can &lt;a href=&quot;https://github.com/atom/language-clojure/pull/82&quot;&gt;handle non-ASCII characters&lt;/a&gt; in keywords, symbols, and identifiers, like the clojure compiler itself, thanks to &lt;a href=&quot;https://github.com/PEZ&quot;&gt;@PEZ&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/caleb531&quot;&gt;@caleb531&lt;/a&gt; made the &lt;code class=&quot;highlighter-rouge&quot;&gt;language-python&lt;/code&gt; tree-sitter grammar able to recognize &lt;a href=&quot;https://github.com/atom/language-python/pull/296&quot;&gt;shebang lines that reference “python2” or “python3”&lt;/a&gt; instead of just “python”.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;language-toml&lt;/code&gt; now correctly tokenizes multiple key/value pairs on a single line, again thanks to &lt;a href=&quot;https://github.com/caleb531&quot;&gt;@caleb531&lt;/a&gt; :smile:&lt;/li&gt;
+  &lt;li&gt;Finally, &lt;code class=&quot;highlighter-rouge&quot;&gt;language-ruby&lt;/code&gt; &lt;a href=&quot;https://github.com/atom/language-ruby/pull/262&quot;&gt;recognizes “next” as a keyword&lt;/a&gt; thanks to &lt;a href=&quot;https://github.com/willcosgrove&quot;&gt;@willcosgrove&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- end of beta changes --&gt;
+
+&lt;p&gt;There are many more details in the &lt;a href=&quot;https://github.com/atom/atom/releases/tag/v1.37.0-beta0&quot;&gt;release notes&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Get all these improvements today by joining the &lt;a href=&quot;https://atom.io/beta&quot;&gt;Atom Beta Channel&lt;/a&gt;!&lt;/p&gt;</content><author><name>smashwilson</name></author><summary type="html">Atom 1.36 has shipped! Upgrade today to open single files in large directories much faster, see pull request review comments from GitHub, specify multiple wrap guides at once, and more.</summary></entry><entry><title type="html">Atom 1.35</title><link href="https://blog.atom.io/2019/03/12/atom-1-35.html" rel="alternate" type="text/html" title="Atom 1.35" /><published>2019-03-12T00:00:00+00:00</published><updated>2019-03-12T00:00:00+00:00</updated><id>https://blog.atom.io/2019/03/12/atom-1-35</id><content type="html" xml:base="https://blog.atom.io/2019/03/12/atom-1-35.html">&lt;p&gt;With Atom 1.35 comes a fix for the recent Chrome vulnerability, ability to view the full diff for pull requests directly within Atom, and a variety of enhancements and stability improvements.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h3 id=&quot;chrome-vulnerability-fix&quot;&gt;Chrome Vulnerability Fix&lt;/h3&gt;
+
+&lt;p&gt;You might have heard about a &lt;a href=&quot;https://chromereleases.googleblog.com/2019/03/stable-channel-update-for-desktop.html&quot;&gt;high-severity vulnerability in Chrome&lt;/a&gt;, involving remote code execution.  Electron has &lt;a href=&quot;https://electronjs.org/blog/filereader-fix&quot;&gt;published a fix&lt;/a&gt;, which we have pulled into Atom.  Be diligent about upgrading any other apps you run that are powered by Chromium.&lt;/p&gt;
+
+&lt;h3 id=&quot;commit-details&quot;&gt;Commit Details&lt;/h3&gt;
+
+&lt;p&gt;Have you ever committed some changes, had a brain fart, and then thought to yourself “what the heck did I just write?” :scream:  Worry not — now you can more easily perform code archaeology in the comfort of your editor.  The GitHub package now supports &lt;a href=&quot;https://github.com/atom/github/pull/1807&quot;&gt;viewing the contents of any commit in a pane&lt;/a&gt;.  To try it out, you can either click on a commit in the “Recent Commits” view, or you can use the command palette (&lt;code class=&quot;highlighter-rouge&quot;&gt;github:open-commit&lt;/code&gt;) and input the SHA of any commit in the current repository.  Good news for keyboard users, too: the recent commits view now supports keyboard navigation.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/378023/50674082-5dcc9100-1026-11e9-8acd-2ce593aa8457.png&quot; alt=&quot;commit-details&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;pull-request-diffs&quot;&gt;Pull Request Diffs&lt;/h3&gt;
+
+&lt;p&gt;The GitHub pull request view has a new tab that &lt;a href=&quot;https://github.com/atom/github/pull/1829&quot;&gt;shows all files changed in that pull request&lt;/a&gt;.  It allows users to view pull requests diffs without context switching to GitHub.com, and brings us one step closer to code review in the editor.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/378023/50674081-5d33fa80-1026-11e9-8780-a4be819ec9cb.png&quot; alt=&quot;changed-files&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;community-contribution-highlights&quot;&gt;Community Contribution Highlights&lt;/h3&gt;
+
+&lt;p&gt;Shout out to contributor &lt;a href=&quot;https://github.com/karevn&quot;&gt;@karevn&lt;/a&gt; for making it so that  &lt;a href=&quot;https://github.com/atom/atom/pull/17529&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;File -&amp;gt; Open&lt;/code&gt; works even if there are no open Atom windows&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Do you love trying to log in when you can’t see what you’re typing? Neither do we! Props to community contributor &lt;a href=&quot;https://github.com/ericcornelissen&quot;&gt;@ericcornelissen&lt;/a&gt; for adding the ability to &lt;a href=&quot;https://github.com/atom/github/pull/1808&quot;&gt;show and hide password text in the SSH password field&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;There are many more details in the &lt;a href=&quot;https://github.com/atom/atom/releases/tag/v1.35.0&quot;&gt;release notes&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!-- end of stable changes --&gt;
+
+&lt;p&gt;Don’t forget to check out all the other improvements shipping with Atom 1.35 in the &lt;a href=&quot;https://github.com/atom/atom/releases/tag/v1.35.0&quot;&gt;release notes&lt;/a&gt;! :memo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/release-beta.png&quot; alt=&quot;Atom Beta&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;atom-136-beta&quot;&gt;Atom 1.36 Beta&lt;/h2&gt;
+
+&lt;p&gt;Atom 1.36 gives you a faster fuzzy finder, comments in the GitHub pull request view, and a smoother Atom upgrade process on macOS and Windows.&lt;/p&gt;
+
+&lt;h3 id=&quot;fuzzy-finder-performance&quot;&gt;Fuzzy Finder Performance&lt;/h3&gt;
+
+&lt;p&gt;Once upon a time, there was a noticeable lag between when you opened Atom with a large repository, and when you could use the fuzzy finder to actually open files.  Thanks to some smart detective work, fuzzy finder performance is now much improved!  This release &lt;a href=&quot;https://github.com/atom/fuzzy-finder/pull/366&quot;&gt;shaves a whopping 40%&lt;/a&gt; off the time it takes to index files in medium and large repositories.&lt;/p&gt;
+
+&lt;h3 id=&quot;smoother-atom-upgrades&quot;&gt;Smoother Atom Upgrades&lt;/h3&gt;
+
+&lt;p&gt;We have heard from users that Atom updates can be a headache, and we are listening.  Now, Atom users on macOS will &lt;a href=&quot;https://github.com/atom/atom/pull/18775&quot;&gt;no longer have to restart Atom twice&lt;/a&gt; during the update process.  For our Windows users, we’ve &lt;a href=&quot;https://github.com/atom/atom/pull/18750&quot;&gt;fixed an unfortunate regression&lt;/a&gt; that caused Atom to believe it couldn’t automatically update on Windows while &lt;code class=&quot;highlighter-rouge&quot;&gt;core.automaticallyUpdate&lt;/code&gt; was set to &lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;github-package-improvements&quot;&gt;GitHub Package Improvements&lt;/h3&gt;
+
+&lt;p&gt;The GitHub package now allows you to &lt;a href=&quot;https://github.com/atom/github/pull/1856&quot;&gt;read comments on pull requests&lt;/a&gt; without leaving the comfort of your editor.  You can also &lt;a href=&quot;https://github.com/atom/github/pull/1913&quot;&gt;collapse and expand&lt;/a&gt; any files within multi-file diff views (such as commit preview and the pull request files view).  Large files are collapsed by default, because you probably don’t need to see those 800 lines of &lt;code class=&quot;highlighter-rouge&quot;&gt;package-lock.json&lt;/code&gt; changes in such great detail. (And if you do, just expand them!)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/378023/52465966-f32de880-2bc3-11e9-8de5-2d93dd42920c.png&quot; alt=&quot;pull requests comments&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Also, keyboard shortcuts for finding text &lt;a href=&quot;https://github.com/atom/github/pull/1922&quot;&gt;now work within the diff view&lt;/a&gt;. That’ll make it easier to remove all those forgotten &lt;code class=&quot;highlighter-rouge&quot;&gt;console.log()&lt;/code&gt; statements you were about to commit.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/378023/52465967-f3c67f00-2bc3-11e9-80d7-336c77c27b12.gif&quot; alt=&quot;find text&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;community-contribution-highlights-1&quot;&gt;Community Contribution Highlights&lt;/h3&gt;
+
+&lt;p&gt;Get ready for some love to the settings view from longtime maintainers.  Thanks to &lt;a href=&quot;https://github.com/arcanemagus&quot;&gt;@arcanemagus&lt;/a&gt;, &lt;a href=&quot;https://github.com/atom/settings-view/pull/1119&quot;&gt;settings view now uses the repository URL defined by atom.io&lt;/a&gt;, preventing potential author impersonation issues.  &lt;a href=&quot;https://github.com/atom/settings-view/pull/1109&quot;&gt;Single quotes are now escaped correctly in CSON files&lt;/a&gt; thanks to &lt;a href=&quot;https://github.com/aerijo&quot;&gt;@aerijo&lt;/a&gt;, so go forth and copy paste from your snippets file.&lt;/p&gt;
+
+&lt;p&gt;Sometimes, better empty states fill the emptiness inside. All jokes aside, props to first time contributor &lt;a href=&quot;https://github.com/robertrossmann&quot;&gt;@robertrossmann&lt;/a&gt; for polishing the &lt;a href=&quot;https://github.com/atom/github/pull/1927&quot;&gt;remote selector and no remove views&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Writing code isn’t the only way to contribute to Atom.  Bug reports are also a crucial component of a healthy open source project.  Props to &lt;a href=&quot;https://github.com/issacgerges&quot;&gt;@issacgerges &lt;/a&gt; for &lt;a href=&quot;https://github.com/atom/atom-keymap/issues/237&quot;&gt;reporting a problem with the keybinding resolver incorrectly resolving non-Latin characters&lt;/a&gt;, which we were able to &lt;a href=&quot;https://github.com/atom/atom-keymap/pull/238&quot;&gt;fix&lt;/a&gt; in this release.&lt;/p&gt;
+
+&lt;!-- end of beta changes --&gt;
+
+&lt;p&gt;There are many more details in the &lt;a href=&quot;https://github.com/atom/atom/releases/tag/v1.36.0-beta0&quot;&gt;release notes&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Get all these improvements today by joining the &lt;a href=&quot;https://atom.io/beta&quot;&gt;Atom Beta Channel&lt;/a&gt;!&lt;/p&gt;</content><author><name>annthurium</name></author><summary type="html">With Atom 1.35 comes a fix for the recent Chrome vulnerability, ability to view the full diff for pull requests directly within Atom, and a variety of enhancements and stability improvements.</summary></entry><entry><title type="html">Atom 1.34</title><link href="https://blog.atom.io/2019/01/08/atom-1-34.html" rel="alternate" type="text/html" title="Atom 1.34" /><published>2019-01-08T00:00:00+00:00</published><updated>2019-01-08T00:00:00+00:00</updated><id>https://blog.atom.io/2019/01/08/atom-1-34</id><content type="html" xml:base="https://blog.atom.io/2019/01/08/atom-1-34.html">&lt;p&gt;Atom 1.34 is out! With this release, you’ll enjoy a host of enhancements to help you craft the perfect commit, including a faster diff view, the ability to preview all staged changes, and support for commit message templates.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h3 id=&quot;commit-previews&quot;&gt;Commit Previews&lt;/h3&gt;
+
+&lt;p&gt;Are you the conscientious sort, who loves to double check the specific changes that are going into each commit?  When crafting commit messages, do you have a desire to draw inspiration from the diff of your staged changes?  If so, you’re going to love the &lt;a href=&quot;https://github.com/atom/github/pull/1767&quot;&gt;commit preview&lt;/a&gt; feature. Just click the “See All Staged Changes” button above the commit message box, and you’ll see all of your staged changes in a single pane.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/378023/49013232-5c09e500-f1bf-11e8-9217-bc135bbbb4bd.png&quot; alt=&quot;commit preview&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;improved-diffs&quot;&gt;Improved Diffs&lt;/h3&gt;
+
+&lt;p&gt;Calling performance enthusiasts: the GitHub package now &lt;a href=&quot;https://github.com/atom/github/pull/1512&quot;&gt;renders diff views with a &lt;code class=&quot;highlighter-rouge&quot;&gt;TextEditor&lt;/code&gt;&lt;/a&gt;.  &lt;code class=&quot;highlighter-rouge&quot;&gt;TextEditor&lt;/code&gt; offers many performance enhancements, allowing us to render large diffs faster.  Furthermore, your text editor key bindings now work in diffs.&lt;/p&gt;
+
+&lt;h3 id=&quot;commit-message-templates&quot;&gt;Commit Message Templates&lt;/h3&gt;
+
+&lt;p&gt;Thanks to community contributor &lt;a href=&quot;https://github.com/gauravchl&quot;&gt;@gauravchl&lt;/a&gt;, Atom now supports &lt;a href=&quot;https://github.com/atom/github/pull/1756&quot;&gt;commit message templates&lt;/a&gt;. You can add a template on a per-project basis or globally through your &lt;a href=&quot;https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration&quot;&gt;git configuration&lt;/a&gt;. The template text will then appear in the commit input box within Atom.&lt;/p&gt;
+
+&lt;h3 id=&quot;community-contribution-highlights&quot;&gt;Community Contribution Highlights&lt;/h3&gt;
+
+&lt;p&gt;When editing markdown code blocks, the Kotlin language now has &lt;a href=&quot;https://github.com/atom/language-gfm/pull/236&quot;&gt;syntax highlighting&lt;/a&gt;. Thanks &lt;a href=&quot;https://github.com/radixdev&quot;&gt;@radixdev&lt;/a&gt; for your first-time contribution to Atom.&lt;/p&gt;
+
+&lt;p&gt;Long time volunteer maintainer &lt;a href=&quot;https://github.com/50Wliu&quot;&gt;@50Wliu&lt;/a&gt; &lt;a href=&quot;https://github.com/atom/settings-view/pull/1065&quot;&gt;fixed&lt;/a&gt; a nasty bug where package searches from the settings view were &lt;a href=&quot;https://github.com/atom/settings-view/issues/1052&quot;&gt;throwing uncaught exceptions&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Thanks to first-time contributor &lt;a href=&quot;https://github.com/edahlseng&quot;&gt;@edahlseng&lt;/a&gt;, you can now &lt;a href=&quot;https://github.com/atom/tree-view/pull/1287&quot;&gt;collapse all directories in the tree view&lt;/a&gt; even if nothing is selected.&lt;/p&gt;
+
+&lt;!-- end of stable changes --&gt;
+
+&lt;p&gt;Don’t forget to check out all the other improvements shipping with Atom 1.34 in the &lt;a href=&quot;https://github.com/atom/atom/releases/tag/v1.34.0&quot;&gt;release notes&lt;/a&gt;! :memo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/release-beta.png&quot; alt=&quot;Atom Beta&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;atom-135-beta&quot;&gt;Atom 1.35 Beta&lt;/h2&gt;
+
+&lt;p&gt;With Atom 1.35 Beta comes quick access to details for recent commits, ability to view the full diff for pull requests directly within Atom, and a variety of enhancements and stability improvements.&lt;/p&gt;
+
+&lt;h3 id=&quot;commit-details&quot;&gt;Commit Details&lt;/h3&gt;
+
+&lt;p&gt;Have you ever committed some changes, had a brain fart, and then thought to yourself “what the heck did I just write?” :scream:  Worry not — now you can more easily perform code archaeology in the comfort of your editor.  The GitHub package now supports &lt;a href=&quot;https://github.com/atom/github/pull/1807&quot;&gt;viewing the contents of any commit in a pane&lt;/a&gt;.  To try it out, you can either click on a commit in the “Recent Commits” view, or you can use the command palette (&lt;code class=&quot;highlighter-rouge&quot;&gt;github:open-commit&lt;/code&gt;) and input the SHA of any commit in the current repository.  Good news for keyboard users, too: the recent commits view now supports keyboard navigation.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/378023/50674082-5dcc9100-1026-11e9-8acd-2ce593aa8457.png&quot; alt=&quot;commit-details&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;pull-request-diffs&quot;&gt;Pull Request Diffs&lt;/h3&gt;
+
+&lt;p&gt;The GitHub pull request view has a new tab that &lt;a href=&quot;https://github.com/atom/github/pull/1829&quot;&gt;shows all files changed in that pull request&lt;/a&gt;.  It allows users to view pull requests diffs without context switching to GitHub.com, and brings us one step closer to code review in the editor.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/378023/50674081-5d33fa80-1026-11e9-8780-a4be819ec9cb.png&quot; alt=&quot;changed-files&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;community-contribution-highlights-1&quot;&gt;Community Contribution Highlights&lt;/h3&gt;
+
+&lt;p&gt;Do you love trying to log in when you can’t see what you’re typing? Neither do we! Props to community contributor &lt;a href=&quot;https://github.com/ericcornelissen&quot;&gt;@ericcornelissen&lt;/a&gt; for adding the ability to &lt;a href=&quot;https://github.com/atom/github/pull/1808&quot;&gt;show and hide password text in the SSH password field&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!-- end of beta changes --&gt;
+
+&lt;p&gt;There are many more details in the &lt;a href=&quot;https://github.com/atom/atom/releases/tag/v1.35.0-beta0&quot;&gt;release notes&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Get all these improvements today by joining the &lt;a href=&quot;https://atom.io/beta&quot;&gt;Atom Beta Channel&lt;/a&gt;!&lt;/p&gt;</content><author><name>jasonrudolph</name></author><summary type="html">Atom 1.34 is out! With this release, you’ll enjoy a host of enhancements to help you craft the perfect commit, including a faster diff view, the ability to preview all staged changes, and support for commit message templates.</summary></entry><entry><title type="html">Facebook retires Nuclide extension</title><link href="https://blog.atom.io/2018/12/12/facebook-retires-nuclide-extension.html" rel="alternate" type="text/html" title="Facebook retires Nuclide extension" /><published>2018-12-12T00:00:00+00:00</published><updated>2018-12-12T00:00:00+00:00</updated><id>https://blog.atom.io/2018/12/12/facebook-retires-nuclide-extension</id><content type="html" xml:base="https://blog.atom.io/2018/12/12/facebook-retires-nuclide-extension.html">&lt;p&gt;At this time, Facebook has decided to retire their open source efforts on Nuclide, the Atom-IDE, and other associated repos.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;As the hackable text editor, Atom has always been a place where individuals or teams can create interesting packages that help customize and tailor a developer’s workflow. Atom has shown this level of flexibility and extensibility by being the platform where contributors can build on top of the editor, ranging from robust IDEs to simple keyboard shortcuts. The packages have proved to be incredibly powerful and can change everything from the look and feel of the entire interface, to the basic operation of core functionality.&lt;/p&gt;
+
+&lt;p&gt;A few years ago, Facebook introduced Nuclide to provide a first-class IDE experience which included associated repos such as Atom IDE. Both Nuclide and Atom IDE were developed by Facebook and supported by an open source community. At this time, Facebook has decided to retire their open source efforts on Nuclide, the Atom IDE, and other associated repos. All of the source code will remain available in the Facebook Open Source Archives, and, if you’re interested, we encourage you to check it out and continue to build on top of it. More details at &lt;a href=&quot;https://nuclide.io/&quot;&gt;Nuclide.io&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;GitHub remains committed to developing and supporting Atom. We understand that while languages change and careers progress, choosing an editor to grow with is one of the most personal decisions a developer makes. Atom is home to many developers, and we look forward to continuing to make enhancements and build with the community.&lt;/p&gt;
+
+&lt;p&gt;Thanks for reading, and for being a part of the Atom community!&lt;/p&gt;</content><author><name>asheren</name></author><summary type="html">At this time, Facebook has decided to retire their open source efforts on Nuclide, the Atom-IDE, and other associated repos.</summary></entry><entry><title type="html">Atom 1.33</title><link href="https://blog.atom.io/2018/11/28/atom-1-33.html" rel="alternate" type="text/html" title="Atom 1.33" /><published>2018-11-28T00:00:00+00:00</published><updated>2018-11-28T00:00:00+00:00</updated><id>https://blog.atom.io/2018/11/28/atom-1-33</id><content type="html" xml:base="https://blog.atom.io/2018/11/28/atom-1-33.html">&lt;p&gt;Atom 1.33 is out! With this release, you’ll enjoy built-in Rust support, improved discoverability for Git and GitHub functionality, and faster performance for bracket matching.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h3 id=&quot;built-in-rust-support&quot;&gt;Built-in Rust Support&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/378023/47344983-a5f53c00-d6e4-11e8-98df-810e9df2277a.png&quot; alt=&quot;rust support&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Atom now features built-in support for &lt;a href=&quot;https://www.rust-lang.org&quot;&gt;the Rust programming language&lt;/a&gt;, using the new Tree-sitter parsing system. Thanks to &lt;a href=&quot;https://github.com/tree-sitter/tree-sitter-rust&quot;&gt;a Tree-sitter Rust parser&lt;/a&gt; initially created by &lt;a href=&quot;https://github.com/MaximSokolov&quot;&gt;@MaximSokolov&lt;/a&gt;, Rust programmers should see more consistent highlighting of things like types and struct fields, as well as more reliable code folding.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/atom/atom/pull/18257&quot;&gt;atom/atom#18257&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;github-package&quot;&gt;GitHub Package&lt;/h3&gt;
+
+&lt;p&gt;If you like commits, you’re in luck – the pull request detail view now shows &lt;a href=&quot;https://github.com/atom/github/pull/1684&quot;&gt;a list of commit details&lt;/a&gt;. The Undo Discard button now lives &lt;a href=&quot;https://github.com/atom/github/pull/1702&quot;&gt;behind a context menu&lt;/a&gt;, which should help prevent pesky accidental clicks.  We’ve &lt;a href=&quot;https://github.com/atom/github/pull/1694&quot;&gt;increased&lt;/a&gt; &lt;a href=&quot;https://github.com/atom/github/pull/1685&quot;&gt;metrics&lt;/a&gt; &lt;a href=&quot;https://github.com/atom/github/pull/1744&quot;&gt;instrumentation&lt;/a&gt; to better understand user interactions. Also, the status bar has new Git and GitHub icons, to (hopefully!) &lt;a href=&quot;https://github.com/atom/github/pull/1704&quot;&gt;improve discoverability&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/378023/47344982-a5f53c00-d6e4-11e8-94f1-fb4c29f9b3a8.png&quot; alt=&quot;open git and github from the status-bar&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Shout out to our first-time community contributors &lt;a href=&quot;https://github.com/mimidumpling&quot;&gt;@mimidumpling&lt;/a&gt; and &lt;a href=&quot;https://github.com/colinschindler&quot;&gt;@colinschindler&lt;/a&gt; for their contributions, which make the GitHub package &lt;a href=&quot;https://github.com/atom/github/pull/1731&quot;&gt;more&lt;/a&gt; &lt;a href=&quot;https://github.com/atom/github/pull/1711&quot;&gt;polished&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;soft-wrapping-improvements&quot;&gt;Soft Wrapping Improvements&lt;/h3&gt;
+
+&lt;p&gt;Previously, Atom only wrapped lines at whitespace boundaries. This meant that long character sequences like URLs would often be wrapped abruptly. Now, thanks to &lt;a href=&quot;https://github.com/ariasuni&quot;&gt;@ariasuni&lt;/a&gt;, we also soft-wrap after &lt;code class=&quot;highlighter-rouge&quot;&gt;-&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;/&lt;/code&gt; characters, which makes URLs more readable, and matches the behavior of most other programs.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/atom/atom/pull/17949&quot;&gt;atom/atom#17949&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;ability-to-disable-snippets&quot;&gt;Ability to Disable Snippets&lt;/h3&gt;
+
+&lt;p&gt;A lot of language packages provide handy snippets, which is great. But sometimes you might want to disable them. Thanks to &lt;a href=&quot;https://github.com/savetheclocktower&quot;&gt;@savetheclocktower&lt;/a&gt; and &lt;a href=&quot;https://github.com/Ben3eeE&quot;&gt;@Ben3eeE&lt;/a&gt;, you can now do so:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Open a language &lt;a href=&quot;https://flight-manual.atom.io/using-atom/sections/atom-packages/#package-settings&quot;&gt;package’s settings&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Scroll down until you see the “Snippets” section&lt;/li&gt;
+  &lt;li&gt;Click on the “Enable” checkbox&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/378023/47344975-a55ca580-d6e4-11e8-8859-622a75fbc8be.png&quot; alt=&quot;disable snippets&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now that the default snippets are disabled, you’re free to &lt;a href=&quot;https://flight-manual.atom.io/using-atom/sections/snippets/#creating-your-own-snippets&quot;&gt;create your own snippets&lt;/a&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/atom/snippets/pull/277&quot;&gt;atom/snippets#277&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/atom/settings-view/pull/1084&quot;&gt;atom/settings-view#1084&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;performance-improvements---bracket-matching&quot;&gt;Performance Improvements - Bracket Matching&lt;/h3&gt;
+
+&lt;p&gt;When you move your cursor over a bracket character like &lt;code class=&quot;highlighter-rouge&quot;&gt;(&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;{&lt;/code&gt;, or an HTML tag, Atom highlights the matching bracket or tag. This was previously done using a regex search, which was slow in the case of widely-spaced brackets. This caused lags when moving the cursor over certain characters.&lt;/p&gt;
+
+&lt;p&gt;Now, for supported languages, Atom &lt;a href=&quot;https://github.com/atom/bracket-matcher/pull/367&quot;&gt;finds the matching brackets and tags using the syntax trees&lt;/a&gt; provided by &lt;a href=&quot;https://tree-sitter.github.io/tree-sitter&quot;&gt;Tree-sitter&lt;/a&gt;. This eliminates any lag due to bracket matching!&lt;/p&gt;
+
+&lt;!-- end of stable changes --&gt;
+
+&lt;p&gt;Don’t forget to check out all the other improvements shipping with Atom 1.33 in the &lt;a href=&quot;https://github.com/atom/atom/releases/tag/v1.33.0&quot;&gt;release notes&lt;/a&gt;! :memo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/release-beta.png&quot; alt=&quot;Atom Beta&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;atom-134-beta&quot;&gt;Atom 1.34 Beta&lt;/h2&gt;
+
+&lt;p&gt;With Atom 1.34 Beta comes diff rendering improvements, commit preview functionality, and an upgrade to Electron 2.0.14.&lt;/p&gt;
+
+&lt;h3 id=&quot;github-package-1&quot;&gt;GitHub Package&lt;/h3&gt;
+&lt;p&gt;Calling performance enthusiasts: the GitHub package now &lt;a href=&quot;https://github.com/atom/github/pull/1512&quot;&gt;renders diff views with a &lt;code class=&quot;highlighter-rouge&quot;&gt;TextEditor&lt;/code&gt;&lt;/a&gt;.  &lt;code class=&quot;highlighter-rouge&quot;&gt;TextEditor&lt;/code&gt; offers many performance enhancements, allowing us to render large diffs faster.  Furthermore, your text editor key bindings now work in diffs.&lt;/p&gt;
+
+&lt;p&gt;Are you the conscientious sort, who loves to double check the specific changes that are going into each commit?  When crafting commit messages do you have a desire to draw inspiration from the diff of your staged changes?  If so, you’re going to love the &lt;a href=&quot;https://github.com/atom/github/pull/1767&quot;&gt;commit preview&lt;/a&gt; feature. Just click the “See All Staged Changes” button above the commit message box, and you’ll see all of your staged changes in a single pane.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/378023/49013232-5c09e500-f1bf-11e8-9217-bc135bbbb4bd.png&quot; alt=&quot;commit preview&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Thanks to community contributor &lt;a href=&quot;https://github.com/gauravchl&quot;&gt;@gauravchl&lt;/a&gt;, Atom now supports &lt;a href=&quot;https://github.com/atom/github/pull/1756&quot;&gt;commit message templates&lt;/a&gt;. You can add a template on a per-project basis or globally through your &lt;a href=&quot;https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration&quot;&gt;git configuration&lt;/a&gt;.  The template text will then appear in the commit input box within Atom.&lt;/p&gt;
+
+&lt;h3 id=&quot;community-contribution-highlights&quot;&gt;Community Contribution Highlights&lt;/h3&gt;
+
+&lt;p&gt;When editing markdown code blocks, the Kotlin language now has &lt;a href=&quot;https://github.com/atom/language-gfm/pull/236&quot;&gt;syntax highlighting&lt;/a&gt;.  Thanks &lt;a href=&quot;https://github.com/radixdev&quot;&gt;@radixdev&lt;/a&gt; for your first-time contribution to Atom.&lt;/p&gt;
+
+&lt;p&gt;Long time volunteer maintainer &lt;a href=&quot;https://github.com/50Wliu&quot;&gt;@50Wliu&lt;/a&gt; &lt;a href=&quot;https://github.com/atom/settings-view/pull/1065&quot;&gt;fixed&lt;/a&gt; a nasty bug where package searches from the settings view were &lt;a href=&quot;https://github.com/atom/settings-view/issues/1052&quot;&gt;throwing uncaught exceptions&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Thanks to first-time contributor &lt;a href=&quot;https://github.com/edahlseng&quot;&gt;@edahlseng&lt;/a&gt;, you can now &lt;a href=&quot;https://github.com/atom/tree-view/pull/1287&quot;&gt;collapse all directories in tree view&lt;/a&gt; even if nothing is selected.&lt;/p&gt;
+
+&lt;h3 id=&quot;electron-2014-upgrade&quot;&gt;Electron 2.0.14 Upgrade&lt;/h3&gt;
+
+&lt;p&gt;Atom is now running latest stable version of the Electron 2.x branch.  This update fixes some crashes that were happening on macOS, along with some other improvements.  Keeping Electron up to date makes future upgrades less painful. See &lt;a href=&quot;https://electronjs.org/releases#2.0.14&quot;&gt;Electron’s release notes&lt;/a&gt; for additional details.&lt;/p&gt;
+
+&lt;!-- end of beta changes --&gt;
+
+&lt;p&gt;There are many more details in the &lt;a href=&quot;https://github.com/atom/atom/releases/tag/v1.34.0-beta0&quot;&gt;release notes&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Get all these improvements today by joining the &lt;a href=&quot;https://atom.io/beta&quot;&gt;Atom Beta Channel&lt;/a&gt;!&lt;/p&gt;</content><author><name>kuychaco</name></author><summary type="html">Atom 1.33 is out! With this release, you’ll enjoy built-in Rust support, improved discoverability for Git and GitHub functionality, and faster performance for bracket matching.</summary></entry><entry><title type="html">Usability Interviews for Atom</title><link href="https://blog.atom.io/2018/11/14/github-package-uxr.html" rel="alternate" type="text/html" title="Usability Interviews for Atom" /><published>2018-11-14T00:00:00+00:00</published><updated>2018-11-14T00:00:00+00:00</updated><id>https://blog.atom.io/2018/11/14/github-package-uxr</id><content type="html" xml:base="https://blog.atom.io/2018/11/14/github-package-uxr.html">&lt;p&gt;We want to make Atom better, and we need your help.  We’ve started conducting usability interviews where we can get direct feedback from humans about how they work and how what we build affects that workflow.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h1 id=&quot;users-giving-feedback&quot;&gt;Users Giving Feedback&lt;/h1&gt;
+&lt;p&gt;We’ve been running usability interviews on other client applications such as &lt;a href=&quot;https://desktop.github.com/&quot;&gt;GitHub Desktop&lt;/a&gt; and the &lt;a href=&quot;https://visualstudio.github.com/&quot;&gt;editor integration with Visual Studio&lt;/a&gt; 
+ to get a better understanding of who uses our products, what their goals are, and how they
+use our tools to accomplish those goals. Our users have been able to walk us through workflows related to pull requests, branching, and solving 
+build errors and folks have been able to give us feedback to influence our designs and products for the better!&lt;/p&gt;
+
+&lt;p&gt;Users have been able to give us ideas, concerns, and insight on our client application products (e.g. editor integrations), GitHub.com features
+(e.g. forking a public repository flow), and even on 3rd party applications (e.g. VS Code). These conversations help us scope what parts of your workflow are
+most clunky, and explore ways of improving it.&lt;/p&gt;
+
+&lt;h1 id=&quot;what-to-expect&quot;&gt;What to Expect&lt;/h1&gt;
+&lt;p&gt;After you sign up for our usability interview we will reach out when the next available study has availability. You will then get a chance to
+sign up for a time that works best for your schedule. You can expect to receive a confirmation email ~24-hours before the interview is
+scheduled.&lt;/p&gt;
+
+&lt;p&gt;Our usability interviews are typically done remotely over video conference software and are often between 30-60 minutes (we will let you know ahead of time what amount of time to expect). We will often ask you a
+couple of questions about your typical work environment, the type of team you work on, and the way you collaborate with your team. This
+helps us understand who we are building our software for.&lt;/p&gt;
+
+&lt;p&gt;We will then often lead you through a scenario where we might give you a goal, such as “Merge That Pull Request!!” We’ll ask you to walk us through your thought process and what steps you would take to accomplish that goal. This part is a conversation, where we might ask clarifying questions to better
+understand any blockers you encounter.&lt;/p&gt;
+
+&lt;p&gt;Afterwards, we will follow up with an email thanking you and asking if you’d like to participate in any future usability interviews.&lt;/p&gt;
+
+&lt;h1 id=&quot;how-to-get-involved&quot;&gt;How to Get Involved&lt;/h1&gt;
+&lt;p&gt;If you’re interested in giving us feedback to improve Atom, there are three ways you can help.&lt;/p&gt;
+
+&lt;p&gt;We’re doing some research to learn where Atom could provide a more helpful experience for people that are just getting started. If you are new to coding, we’d love to hear from you.  Sign up for an interview &lt;a href=&quot;https://bit.ly/2Qrx6rB&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We are also conducting interviews focused on the Git / GitHub Atom integration. Our primary goal is to provide developers with an effective workflow from writing code in their editor to merging their pull request on GitHub.com. Participants of all experience levels are welcome - &lt;a href=&quot;https://goo.gl/sZgieF&quot;&gt;sign up today&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Usability interviews aren’t the only way we are learning from our users. Atom team is also running a separate initiative to improve our application’s performance.  We’re conducting a survey, so we can focus our efforts on the biggest pain points the community is experiencing.  You can fill it out &lt;a href=&quot;https://docs.google.com/forms/d/e/1FAIpQLSfQ6-1Pm3-1FMrfDaPwWl67AHK5aBeUFbdB5H7jXCTJnt-Zaw/viewform&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</content><author><name>sguthals</name></author><summary type="html">We want to make Atom better, and we need your help. We’ve started conducting usability interviews where we can get direct feedback from humans about how they work and how what we build affects that workflow.</summary></entry></feed>

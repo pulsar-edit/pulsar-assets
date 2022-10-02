@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2018/11/28/atom-1-33.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:33:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Atom 1.33 | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Atom 1.33" />
+<meta name="author" content="kuychaco" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Atom 1.33 is out! With this release, you’ll enjoy built-in Rust support, improved discoverability for Git and GitHub functionality, and faster performance for bracket matching." />
+<meta property="og:description" content="Atom 1.33 is out! With this release, you’ll enjoy built-in Rust support, improved discoverability for Git and GitHub functionality, and faster performance for bracket matching." />
+<link rel="canonical" href="atom-1-33.html" />
+<meta property="og:url" content="atom-1-33.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-11-28T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@kuychaco" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2018/11/28/atom-1-33.html"},"url":"https://blog.atom.io/2018/11/28/atom-1-33.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"kuychaco"},"headline":"Atom 1.33","dateModified":"2018-11-28T00:00:00+00:00","datePublished":"2018-11-28T00:00:00+00:00","author":{"@type":"Person","name":"kuychaco"},"description":"Atom 1.33 is out! With this release, you’ll enjoy built-in Rust support, improved discoverability for Git and GitHub functionality, and faster performance for bracket matching.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Atom 1.33</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> November 28, 2018 <a href="https://github.com/kuychaco" class="author-link"><img class="avatar avatar-small" alt="kuychaco" width="18" height="18" data-proofer-ignore="true" src="https://avatars3.githubusercontent.com/kuychaco?v=3&amp;s=18" srcset="https://avatars3.githubusercontent.com/kuychaco?v=3&amp;s=18 1x, https://avatars3.githubusercontent.com/kuychaco?v=3&amp;s=36 2x, https://avatars3.githubusercontent.com/kuychaco?v=3&amp;s=54 3x, https://avatars3.githubusercontent.com/kuychaco?v=3&amp;s=72 4x"> kuychaco</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p>Atom 1.33 is out! With this release, you’ll enjoy built-in Rust support, improved discoverability for Git and GitHub functionality, and faster performance for bracket matching.</p>
+
+<!--more-->
+
+<h3 id="built-in-rust-support">Built-in Rust Support</h3>
+
+<p><img src="https://user-images.githubusercontent.com/378023/47344983-a5f53c00-d6e4-11e8-98df-810e9df2277a.png" alt="rust support"></p>
+
+<p>Atom now features built-in support for <a href="https://www.rust-lang.org/">the Rust programming language</a>, using the new Tree-sitter parsing system. Thanks to <a href="https://github.com/tree-sitter/tree-sitter-rust">a Tree-sitter Rust parser</a> initially created by <a href="https://github.com/MaximSokolov">@MaximSokolov</a>, Rust programmers should see more consistent highlighting of things like types and struct fields, as well as more reliable code folding.</p>
+
+<ul>
+  <li><a href="https://github.com/atom/atom/pull/18257">atom/atom#18257</a></li>
+</ul>
+
+<h3 id="github-package">GitHub Package</h3>
+
+<p>If you like commits, you’re in luck – the pull request detail view now shows <a href="https://github.com/atom/github/pull/1684">a list of commit details</a>. The Undo Discard button now lives <a href="https://github.com/atom/github/pull/1702">behind a context menu</a>, which should help prevent pesky accidental clicks.  We’ve <a href="https://github.com/atom/github/pull/1694">increased</a> <a href="https://github.com/atom/github/pull/1685">metrics</a> <a href="https://github.com/atom/github/pull/1744">instrumentation</a> to better understand user interactions. Also, the status bar has new Git and GitHub icons, to (hopefully!) <a href="https://github.com/atom/github/pull/1704">improve discoverability</a>.</p>
+
+<p><img src="https://user-images.githubusercontent.com/378023/47344982-a5f53c00-d6e4-11e8-94f1-fb4c29f9b3a8.png" alt="open git and github from the status-bar"></p>
+
+<p>Shout out to our first-time community contributors <a href="https://github.com/mimidumpling">@mimidumpling</a> and <a href="https://github.com/colinschindler">@colinschindler</a> for their contributions, which make the GitHub package <a href="https://github.com/atom/github/pull/1731">more</a> <a href="https://github.com/atom/github/pull/1711">polished</a>.</p>
+
+<h3 id="soft-wrapping-improvements">Soft Wrapping Improvements</h3>
+
+<p>Previously, Atom only wrapped lines at whitespace boundaries. This meant that long character sequences like URLs would often be wrapped abruptly. Now, thanks to <a href="https://github.com/ariasuni">@ariasuni</a>, we also soft-wrap after <code class="highlighter-rouge">-</code> and <code class="highlighter-rouge">/</code> characters, which makes URLs more readable, and matches the behavior of most other programs.</p>
+
+<ul>
+  <li><a href="https://github.com/atom/atom/pull/17949">atom/atom#17949</a></li>
+</ul>
+
+<h3 id="ability-to-disable-snippets">Ability to Disable Snippets</h3>
+
+<p>A lot of language packages provide handy snippets, which is great. But sometimes you might want to disable them. Thanks to <a href="https://github.com/savetheclocktower">@savetheclocktower</a> and <a href="https://github.com/Ben3eeE">@Ben3eeE</a>, you can now do so:</p>
+
+<ol>
+  <li>Open a language <a href="https://flight-manual.atom.io/using-atom/sections/atom-packages/#package-settings">package’s settings</a>.</li>
+  <li>Scroll down until you see the “Snippets” section</li>
+  <li>Click on the “Enable” checkbox</li>
+</ol>
+
+<p><img src="https://user-images.githubusercontent.com/378023/47344975-a55ca580-d6e4-11e8-8859-622a75fbc8be.png" alt="disable snippets"></p>
+
+<p>Now that the default snippets are disabled, you’re free to <a href="https://flight-manual.atom.io/using-atom/sections/snippets/#creating-your-own-snippets">create your own snippets</a>.</p>
+
+<ul>
+  <li><a href="https://github.com/atom/snippets/pull/277">atom/snippets#277</a></li>
+  <li><a href="https://github.com/atom/settings-view/pull/1084">atom/settings-view#1084</a></li>
+</ul>
+
+<h3 id="performance-improvements---bracket-matching">Performance Improvements - Bracket Matching</h3>
+
+<p>When you move your cursor over a bracket character like <code class="highlighter-rouge">(</code> or <code class="highlighter-rouge">{</code>, or an HTML tag, Atom highlights the matching bracket or tag. This was previously done using a regex search, which was slow in the case of widely-spaced brackets. This caused lags when moving the cursor over certain characters.</p>
+
+<p>Now, for supported languages, Atom <a href="https://github.com/atom/bracket-matcher/pull/367">finds the matching brackets and tags using the syntax trees</a> provided by <a href="https://tree-sitter.github.io/tree-sitter">Tree-sitter</a>. This eliminates any lag due to bracket matching!</p>
+
+<!-- end of stable changes -->
+
+<p>Don’t forget to check out all the other improvements shipping with Atom 1.33 in the <a href="https://github.com/atom/atom/releases/tag/v1.33.0">release notes</a>! <img class="emoji" title=":memo:" alt=":memo:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dd.png" height="20" width="20"></p>
+
+<p><img src="../../../img/release-beta.png" alt="Atom Beta"></p>
+
+<h2 id="atom-134-beta">Atom 1.34 Beta</h2>
+
+<p>With Atom 1.34 Beta comes diff rendering improvements, commit preview functionality, and an upgrade to Electron 2.0.14.</p>
+
+<h3 id="github-package-1">GitHub Package</h3>
+<p>Calling performance enthusiasts: the GitHub package now <a href="https://github.com/atom/github/pull/1512">renders diff views with a <code class="highlighter-rouge">TextEditor</code></a>.  <code class="highlighter-rouge">TextEditor</code> offers many performance enhancements, allowing us to render large diffs faster.  Furthermore, your text editor key bindings now work in diffs.</p>
+
+<p>Are you the conscientious sort, who loves to double check the specific changes that are going into each commit?  When crafting commit messages do you have a desire to draw inspiration from the diff of your staged changes?  If so, you’re going to love the <a href="https://github.com/atom/github/pull/1767">commit preview</a> feature. Just click the “See All Staged Changes” button above the commit message box, and you’ll see all of your staged changes in a single pane.</p>
+
+<p><img src="https://user-images.githubusercontent.com/378023/49013232-5c09e500-f1bf-11e8-9217-bc135bbbb4bd.png" alt="commit preview"></p>
+
+<p>Thanks to community contributor <a href="https://github.com/gauravchl">@gauravchl</a>, Atom now supports <a href="https://github.com/atom/github/pull/1756">commit message templates</a>. You can add a template on a per-project basis or globally through your <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration">git configuration</a>.  The template text will then appear in the commit input box within Atom.</p>
+
+<h3 id="community-contribution-highlights">Community Contribution Highlights</h3>
+
+<p>When editing markdown code blocks, the Kotlin language now has <a href="https://github.com/atom/language-gfm/pull/236">syntax highlighting</a>.  Thanks <a href="https://github.com/radixdev">@radixdev</a> for your first-time contribution to Atom.</p>
+
+<p>Long time volunteer maintainer <a href="https://github.com/50Wliu">@50Wliu</a> <a href="https://github.com/atom/settings-view/pull/1065">fixed</a> a nasty bug where package searches from the settings view were <a href="https://github.com/atom/settings-view/issues/1052">throwing uncaught exceptions</a>.</p>
+
+<p>Thanks to first-time contributor <a href="https://github.com/edahlseng">@edahlseng</a>, you can now <a href="https://github.com/atom/tree-view/pull/1287">collapse all directories in tree view</a> even if nothing is selected.</p>
+
+<h3 id="electron-2014-upgrade">Electron 2.0.14 Upgrade</h3>
+
+<p>Atom is now running latest stable version of the Electron 2.x branch.  This update fixes some crashes that were happening on macOS, along with some other improvements.  Keeping Electron up to date makes future upgrades less painful. See <a href="https://electronjs.org/releases#2.0.14">Electron’s release notes</a> for additional details.</p>
+
+<!-- end of beta changes -->
+
+<p>There are many more details in the <a href="https://github.com/atom/atom/releases/tag/v1.34.0-beta0">release notes</a>.</p>
+
+<p>Get all these improvements today by joining the <a href="https://atom.io/beta">Atom Beta Channel</a>!</p>
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2018/11/28/atom-1-33.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2018/11/28/atom-1-33.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:33:18 GMT -->
+</html>

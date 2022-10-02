@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2019/03/12/atom-1-35.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:33:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Atom 1.35 | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Atom 1.35" />
+<meta name="author" content="annthurium" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="With Atom 1.35 comes a fix for the recent Chrome vulnerability, ability to view the full diff for pull requests directly within Atom, and a variety of enhancements and stability improvements." />
+<meta property="og:description" content="With Atom 1.35 comes a fix for the recent Chrome vulnerability, ability to view the full diff for pull requests directly within Atom, and a variety of enhancements and stability improvements." />
+<link rel="canonical" href="atom-1-35.html" />
+<meta property="og:url" content="atom-1-35.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-03-12T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@annthurium" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2019/03/12/atom-1-35.html"},"url":"https://blog.atom.io/2019/03/12/atom-1-35.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"annthurium"},"headline":"Atom 1.35","dateModified":"2019-03-12T00:00:00+00:00","datePublished":"2019-03-12T00:00:00+00:00","author":{"@type":"Person","name":"annthurium"},"description":"With Atom 1.35 comes a fix for the recent Chrome vulnerability, ability to view the full diff for pull requests directly within Atom, and a variety of enhancements and stability improvements.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Atom 1.35</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> March 12, 2019 <a href="https://github.com/annthurium" class="author-link"><img class="avatar avatar-small" alt="annthurium" width="18" height="18" data-proofer-ignore="true" src="https://avatars3.githubusercontent.com/annthurium?v=3&amp;s=18" srcset="https://avatars3.githubusercontent.com/annthurium?v=3&amp;s=18 1x, https://avatars3.githubusercontent.com/annthurium?v=3&amp;s=36 2x, https://avatars3.githubusercontent.com/annthurium?v=3&amp;s=54 3x, https://avatars3.githubusercontent.com/annthurium?v=3&amp;s=72 4x"> annthurium</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p>With Atom 1.35 comes a fix for the recent Chrome vulnerability, ability to view the full diff for pull requests directly within Atom, and a variety of enhancements and stability improvements.</p>
+
+<!--more-->
+
+<h3 id="chrome-vulnerability-fix">Chrome Vulnerability Fix</h3>
+
+<p>You might have heard about a <a href="https://chromereleases.googleblog.com/2019/03/stable-channel-update-for-desktop.html">high-severity vulnerability in Chrome</a>, involving remote code execution.  Electron has <a href="https://electronjs.org/blog/filereader-fix">published a fix</a>, which we have pulled into Atom.  Be diligent about upgrading any other apps you run that are powered by Chromium.</p>
+
+<h3 id="commit-details">Commit Details</h3>
+
+<p>Have you ever committed some changes, had a brain fart, and then thought to yourself “what the heck did I just write?” <img class="emoji" title=":scream:" alt=":scream:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f631.png" height="20" width="20">  Worry not — now you can more easily perform code archaeology in the comfort of your editor.  The GitHub package now supports <a href="https://github.com/atom/github/pull/1807">viewing the contents of any commit in a pane</a>.  To try it out, you can either click on a commit in the “Recent Commits” view, or you can use the command palette (<code class="highlighter-rouge">github:open-commit</code>) and input the SHA of any commit in the current repository.  Good news for keyboard users, too: the recent commits view now supports keyboard navigation.</p>
+
+<p><img src="https://user-images.githubusercontent.com/378023/50674082-5dcc9100-1026-11e9-8acd-2ce593aa8457.png" alt="commit-details"></p>
+
+<h3 id="pull-request-diffs">Pull Request Diffs</h3>
+
+<p>The GitHub pull request view has a new tab that <a href="https://github.com/atom/github/pull/1829">shows all files changed in that pull request</a>.  It allows users to view pull requests diffs without context switching to GitHub.com, and brings us one step closer to code review in the editor.</p>
+
+<p><img src="https://user-images.githubusercontent.com/378023/50674081-5d33fa80-1026-11e9-8780-a4be819ec9cb.png" alt="changed-files"></p>
+
+<h3 id="community-contribution-highlights">Community Contribution Highlights</h3>
+
+<p>Shout out to contributor <a href="https://github.com/karevn">@karevn</a> for making it so that  <a href="https://github.com/atom/atom/pull/17529"><code class="highlighter-rouge">File -&gt; Open</code> works even if there are no open Atom windows</a>.</p>
+
+<p>Do you love trying to log in when you can’t see what you’re typing? Neither do we! Props to community contributor <a href="https://github.com/ericcornelissen">@ericcornelissen</a> for adding the ability to <a href="https://github.com/atom/github/pull/1808">show and hide password text in the SSH password field</a>.</p>
+
+<p>There are many more details in the <a href="https://github.com/atom/atom/releases/tag/v1.35.0">release notes</a>.</p>
+
+<!-- end of stable changes -->
+
+<p>Don’t forget to check out all the other improvements shipping with Atom 1.35 in the <a href="https://github.com/atom/atom/releases/tag/v1.35.0">release notes</a>! <img class="emoji" title=":memo:" alt=":memo:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dd.png" height="20" width="20"></p>
+
+<p><img src="../../../img/release-beta.png" alt="Atom Beta"></p>
+
+<h2 id="atom-136-beta">Atom 1.36 Beta</h2>
+
+<p>Atom 1.36 gives you a faster fuzzy finder, comments in the GitHub pull request view, and a smoother Atom upgrade process on macOS and Windows.</p>
+
+<h3 id="fuzzy-finder-performance">Fuzzy Finder Performance</h3>
+
+<p>Once upon a time, there was a noticeable lag between when you opened Atom with a large repository, and when you could use the fuzzy finder to actually open files.  Thanks to some smart detective work, fuzzy finder performance is now much improved!  This release <a href="https://github.com/atom/fuzzy-finder/pull/366">shaves a whopping 40%</a> off the time it takes to index files in medium and large repositories.</p>
+
+<h3 id="smoother-atom-upgrades">Smoother Atom Upgrades</h3>
+
+<p>We have heard from users that Atom updates can be a headache, and we are listening.  Now, Atom users on macOS will <a href="https://github.com/atom/atom/pull/18775">no longer have to restart Atom twice</a> during the update process.  For our Windows users, we’ve <a href="https://github.com/atom/atom/pull/18750">fixed an unfortunate regression</a> that caused Atom to believe it couldn’t automatically update on Windows while <code class="highlighter-rouge">core.automaticallyUpdate</code> was set to <code class="highlighter-rouge">false</code>.</p>
+
+<h3 id="github-package-improvements">GitHub Package Improvements</h3>
+
+<p>The GitHub package now allows you to <a href="https://github.com/atom/github/pull/1856">read comments on pull requests</a> without leaving the comfort of your editor.  You can also <a href="https://github.com/atom/github/pull/1913">collapse and expand</a> any files within multi-file diff views (such as commit preview and the pull request files view).  Large files are collapsed by default, because you probably don’t need to see those 800 lines of <code class="highlighter-rouge">package-lock.json</code> changes in such great detail. (And if you do, just expand them!)</p>
+
+<p><img src="https://user-images.githubusercontent.com/378023/52465966-f32de880-2bc3-11e9-8de5-2d93dd42920c.png" alt="pull requests comments"></p>
+
+<p>Also, keyboard shortcuts for finding text <a href="https://github.com/atom/github/pull/1922">now work within the diff view</a>. That’ll make it easier to remove all those forgotten <code class="highlighter-rouge">console.log()</code> statements you were about to commit.</p>
+
+<p><img src="https://user-images.githubusercontent.com/378023/52465967-f3c67f00-2bc3-11e9-80d7-336c77c27b12.gif" alt="find text"></p>
+
+<h3 id="community-contribution-highlights-1">Community Contribution Highlights</h3>
+
+<p>Get ready for some love to the settings view from longtime maintainers.  Thanks to <a href="https://github.com/arcanemagus">@arcanemagus</a>, <a href="https://github.com/atom/settings-view/pull/1119">settings view now uses the repository URL defined by atom.io</a>, preventing potential author impersonation issues.  <a href="https://github.com/atom/settings-view/pull/1109">Single quotes are now escaped correctly in CSON files</a> thanks to <a href="https://github.com/aerijo">@aerijo</a>, so go forth and copy paste from your snippets file.</p>
+
+<p>Sometimes, better empty states fill the emptiness inside. All jokes aside, props to first time contributor <a href="https://github.com/robertrossmann">@robertrossmann</a> for polishing the <a href="https://github.com/atom/github/pull/1927">remote selector and no remove views</a>.</p>
+
+<p>Writing code isn’t the only way to contribute to Atom.  Bug reports are also a crucial component of a healthy open source project.  Props to <a href="https://github.com/issacgerges">@issacgerges </a> for <a href="https://github.com/atom/atom-keymap/issues/237">reporting a problem with the keybinding resolver incorrectly resolving non-Latin characters</a>, which we were able to <a href="https://github.com/atom/atom-keymap/pull/238">fix</a> in this release.</p>
+
+<!-- end of beta changes -->
+
+<p>There are many more details in the <a href="https://github.com/atom/atom/releases/tag/v1.36.0-beta0">release notes</a>.</p>
+
+<p>Get all these improvements today by joining the <a href="https://atom.io/beta">Atom Beta Channel</a>!</p>
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2019/03/12/atom-1-35.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2019/03/12/atom-1-35.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:33:18 GMT -->
+</html>

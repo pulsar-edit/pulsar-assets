@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2016/10/17/the-wonderful-world-of-keyboards.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:02 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>The Wonderful World of Keyboards | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="The Wonderful World of Keyboards" />
+<meta name="author" content="nathansobo" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="With the beta release of Atom 1.12, we’re rolling out some long-awaited improvements to Atom’s support for international keyboard layouts. Before 1.12, users on many layouts needed to install a community-maintained package called keyboard-localization to enable full support for their keyboards, but now users from all locales should experience hassle free keyboarding in Atom’s default configuration. In this post, we’ll discuss the challenges we faced recognizing keybindings and how we arrived at a solution." />
+<meta property="og:description" content="With the beta release of Atom 1.12, we’re rolling out some long-awaited improvements to Atom’s support for international keyboard layouts. Before 1.12, users on many layouts needed to install a community-maintained package called keyboard-localization to enable full support for their keyboards, but now users from all locales should experience hassle free keyboarding in Atom’s default configuration. In this post, we’ll discuss the challenges we faced recognizing keybindings and how we arrived at a solution." />
+<link rel="canonical" href="the-wonderful-world-of-keyboards.html" />
+<meta property="og:url" content="the-wonderful-world-of-keyboards.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-10-17T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@nathansobo" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2016/10/17/the-wonderful-world-of-keyboards.html"},"url":"https://blog.atom.io/2016/10/17/the-wonderful-world-of-keyboards.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"nathansobo"},"headline":"The Wonderful World of Keyboards","dateModified":"2016-10-17T00:00:00+00:00","datePublished":"2016-10-17T00:00:00+00:00","author":{"@type":"Person","name":"nathansobo"},"description":"With the beta release of Atom 1.12, we’re rolling out some long-awaited improvements to Atom’s support for international keyboard layouts. Before 1.12, users on many layouts needed to install a community-maintained package called keyboard-localization to enable full support for their keyboards, but now users from all locales should experience hassle free keyboarding in Atom’s default configuration. In this post, we’ll discuss the challenges we faced recognizing keybindings and how we arrived at a solution.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">The Wonderful World of Keyboards</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> October 17, 2016 <a href="https://github.com/nathansobo" class="author-link"><img class="avatar avatar-small" alt="nathansobo" width="18" height="18" data-proofer-ignore="true" src="https://avatars1.githubusercontent.com/nathansobo?v=3&amp;s=18" srcset="https://avatars1.githubusercontent.com/nathansobo?v=3&s=18 1x, https://avatars1.githubusercontent.com/nathansobo?v=3&s=36 2x, https://avatars1.githubusercontent.com/nathansobo?v=3&s=54 3x, https://avatars1.githubusercontent.com/nathansobo?v=3&s=72 4x" /> nathansobo</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p>With the beta release of Atom 1.12, we’re rolling out some long-awaited improvements to Atom’s support for international keyboard layouts. Before 1.12, users on many layouts needed to install a community-maintained package called <a href="https://atom.io/packages/keyboard-localization"><code class="highlighter-rouge">keyboard-localization</code></a> to enable full support for their keyboards, but now users from all locales should experience hassle free keyboarding in Atom’s default configuration. In this post, we’ll discuss the challenges we faced recognizing keybindings and how we arrived at a solution.</p>
+
+<p><img src="../../../img/posts/world-of-keyboards.png" alt="Keybord Graphic" /></p>
+
+<!--more-->
+
+<h3 id="background">Background</h3>
+
+<p>Atom’s key binding system allows users and package authors to associate a specific <em>keystroke sequence</em> with a <em>command</em> for any focused DOM element via a CSS selector. So, for example, an implementation of vi-style modal editing could bind <code class="highlighter-rouge">i</code> to transition from command mode to insert mode as follows:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"atom-text-editor.command-mode"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"i"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vim-mode:enter-insert-mode"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>In short, the system gives users and package authors a way to map any keystroke in any context to a custom DOM event that can be handled by JavaScript. When a keydown event for the <code class="highlighter-rouge">i</code> key is fired, we walk up the DOM from the current focused element (the keydown event’s <code class="highlighter-rouge">target</code>) to the root <code class="highlighter-rouge">document</code> node. As we visit each node, we perform a selector match on the current element, and if any bindings match both the keystroke and the selector, we choose the binding with the most specific selector and dispatch its corresponding <code class="highlighter-rouge">command</code> as a custom DOM event on the current element.</p>
+
+<p>In the example above, if the text editor is in <em>command mode</em>, typing <code class="highlighter-rouge">i</code> in the editor dispatches the <code class="highlighter-rouge">vim-mode:enter-insert-mode</code> custom DOM event rather than inserting a character. In any other mode, however, we remove the <code class="highlighter-rouge">command-mode</code> class, causing the editor to no longer match the <code class="highlighter-rouge">atom-text-editor.command-mode</code> selector. In this scenario, the keydown event passes silently through the binding system and ends up performing the default action, which is inserting an <code class="highlighter-rouge">i</code> character in the editor.</p>
+
+<p>A critical step in this whole process is translating <code class="highlighter-rouge">keydown</code> event objects to human-readable keystroke descriptions like <code class="highlighter-rouge">i</code>, <code class="highlighter-rouge">ctrl-k</code>, or <code class="highlighter-rouge">ctrl-alt-cmd-S</code>. That might seem like a simple problem, but solving it on all possible keyboard layouts ended up being fairly complicated.</p>
+
+<h3 id="ambiguous-keystrokes">Ambiguous keystrokes</h3>
+
+<p>On a U.S. layout, modifier keys play a very limited role in determining the typed character. Ignoring some nuance on macOS, which we’ll get to, <code class="highlighter-rouge">shift</code> is the only key that really affects the actual character typed for a given keystroke. On other layouts, the story is much different. Take for example the Swiss-German keyboard layout on macOS. If you want to type an <code class="highlighter-rouge">@</code> character on that layout, you need to hold <code class="highlighter-rouge">alt</code> and press the <code class="highlighter-rouge">g</code> key.</p>
+
+<p>For earlier versions of Atom, it was right about here that everything got really hard. Unfortunately, prior to Chrome 51, no API existed to help us determine that on a particular keyboard layout, a keystroke that <em>looked</em> like an <code class="highlighter-rouge">alt-g</code> actually inserted a <code class="highlighter-rouge">@</code> character. In many cases, this misunderstanding caused no harm, but if the character collided with a binding (as was the case with <code class="highlighter-rouge">@</code> on the Swiss German layout), that binding ended up shadowing the ability to type that character in the editor.</p>
+
+<p>But prior to Chrome 51, our options for solving this problem in a general way were severely limited. One approach could have been to build a custom map describing every key on every keyboard layout in JavaScript, which is exactly what the <code class="highlighter-rouge">keyboard-localization</code> package did. However, considering the existence of this package and the fact that new DOM APIs directly solving the problem were being actively worked on by the Chrome team, we decided to avoid hacking workarounds into core and focus on other areas until new APIs enabled a more robust solution.</p>
+
+<h3 id="new-dom-apis">New DOM APIs</h3>
+
+<p>With Atom’s upgrade to Electron 1.3, we finally had access to the promised APIs. Two new fields have been added to <code class="highlighter-rouge">KeyboardEvent</code> objects, a <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code"><code class="highlighter-rouge">code</code></a> property, which describes the physical key pressed as a human-readable string, and a <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key"><code class="highlighter-rouge">key</code></a> property, which contains the previously-unavailable information about the actual <em>character</em> typed by the user on the current keyboard layout.</p>
+
+<p>So as soon as the Electron upgrade landed on master, we set about changing the <code class="highlighter-rouge">atom-keymap</code> module to base its keystroke resolution on these new APIs, assuming it would be a 10-minute fix. It’s never that easy, is it?</p>
+
+<h3 id="the-ambiguity-continues">The ambiguity continues</h3>
+
+<p>We quickly discovered that the new DOM APIs weren’t enough. While the <code class="highlighter-rouge">KeyboardEvent.key</code> property accurately reports the typed character, it <em>doesn’t</em> tell us whether that character depends on the current combination of modifier keys. So, for example, if we see an event with a <code class="highlighter-rouge">key</code> property of <code class="highlighter-rouge">@</code> and an <code class="highlighter-rouge">altKey</code> property of <code class="highlighter-rouge">true</code>, should we interpret it as <code class="highlighter-rouge">alt-@</code> or <code class="highlighter-rouge">@</code>? If <code class="highlighter-rouge">@</code> is a printed key on the current layout, we want to honor the modifier in the keystroke descriptor, but if the user was holding <code class="highlighter-rouge">alt</code> just to <em>access</em> the <code class="highlighter-rouge">@</code> key, we don’t want to include the <code class="highlighter-rouge">alt-</code> modifier in the description.</p>
+
+<p>On Windows, the <code class="highlighter-rouge">ctrl</code> and <code class="highlighter-rouge">alt</code> key can be used as a substitute for the <code class="highlighter-rouge">AltGraph</code> key, but again, basic DOM APIs give us no way to differentiate between situations in which <code class="highlighter-rouge">ctrl-alt-</code> are used to access a specific character variant and those in which <code class="highlighter-rouge">ctrl-alt-</code> are being used as a modifier.</p>
+
+<p>On macOS, the situation is crazier. <em>Every</em> key on <em>every</em> layout is associated with an alternative character when combined the <code class="highlighter-rouge">alt</code> modifier. If we always honored the <code class="highlighter-rouge">KeyboardEvent.key</code> for every keystroke, it would be impossible to create <code class="highlighter-rouge">alt-</code> bindings for any printable key on macOS. This would ruin Atom’s default Emacs-style word-movement bindings like <code class="highlighter-rouge">alt-f</code> and <code class="highlighter-rouge">alt-b</code>.</p>
+
+<h3 id="going-directly-to-the-operating-system">Going directly to the operating system</h3>
+
+<p>We had hoped to use web standard APIs, but in the face of these challenges, we decided our best option was to write some C++ to interact with the low-level keyboard APIs on Windows and macOS directly. We already had a native module called <a href="https://github.com/atom/keyboard-layout"><code class="highlighter-rouge">keyboard-layout</code></a> for reading and observing the name of the current keyboard layout from the operating system.</p>
+
+<p>By combining an <a href="https://github.com/atom/keyboard-layout/blob/4070a66f4e2712cccf226c4464a9c984f5365d6f/chrome_headers/keycode_converter_data.inc">include file we cribbed from Chromium</a> with native APIs for converting hardware key codes to unicode characters, we were able to extend that module with a <code class="highlighter-rouge">getCurrentKeymap()</code> method. This method returns a JS object mapping physical key names (DOM 3 <code class="highlighter-rouge">KeyboardEvent.code</code> values) to objects describing the corresponding character in every modifier state based on the current keyboard layout. For example, here’s one entry from the keymap we return on macOS with the Swiss-German keyboard layout installed… our old friend <code class="highlighter-rouge">alt-g</code>.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"KeyG"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"unmodified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"g"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"withShift"</span><span class="p">:</span><span class="w"> </span><span class="s2">"G"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"withAltGraph"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"withAltGraphShift"</span><span class="p">:</span><span class="w"> </span><span class="s2">"‚"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>With this information in hand, we’re now able to determine whether <code class="highlighter-rouge">alt-</code> or <code class="highlighter-rouge">ctrl-alt-</code> are required to type the character and strip them from our keystroke descriptor or whether they’re intended as modifiers.</p>
+
+<p>Because alt-modified characters are omnipresent on macOS, on that platform we always <a href="https://github.com/atom/atom-keymap/blob/d70d346abfff57f6892faf2030990683cbb6802b/src/helpers.coffee#L125-L136">fall back to the non-modified character</a> unless the variant is in the basic ASCII character range. That means that <code class="highlighter-rouge">alt-g</code> resolves to <code class="highlighter-rouge">@</code> on a Swiss keyboard, but <code class="highlighter-rouge">alt-s</code> on a U.S. layout resolves to <code class="highlighter-rouge">alt-s</code> rather than <code class="highlighter-rouge">ß</code>. To be clear, it will still be possible to insert <code class="highlighter-rouge">ß</code> with that key-combination, but only if there aren’t any <code class="highlighter-rouge">alt-s</code> bindings that shadow it. If there are, you’ll need to <code class="highlighter-rouge">unset!</code> them in your user keymap to eliminate the conflict. Windows layouts are more selective with the alternative characters accessible via <code class="highlighter-rouge">AltGraph</code>, so we opted for a more conservative approach there and we <a href="https://github.com/atom/atom-keymap/blob/d70d346abfff57f6892faf2030990683cbb6802b/src/helpers.coffee#L137-L149">always honor the alternative character</a>.</p>
+
+<p>One additional wrinkle is non-Latin keyboard layouts. What does a Greek user expect when they type <code class="highlighter-rouge">Σ</code> with a modifier key held down? We want to be culturally-sensitive, but we also want to behave in an unsurprising way, so we copy the behavior of macOS and use our keymaps to fall back to the U.S. layout equivalent key for the purposes of resolving key bindings. For example, instead of resolving to <code class="highlighter-rouge">cmd-Σ</code>, we would resolve to <code class="highlighter-rouge">cmd-s</code>. Since key bindings are really about using characters to describe physical keys, restricting bindings to the latin character set seems like a reasonable if somewhat ethnocentric choice. At least it’s not without precedent.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>So there you have it. At last, every keyboard should work in Atom in an unsurprising way. We still have <a href="https://github.com/atom/atom/issues/12951">some issues on Linux</a> that we’re in the process of <a href="https://github.com/atom/atom/pull/12985">ironing out</a> before this lands on stable, but if you’re a Mac or Windows user, please give the new bindings implementation a spin on <a href="https://atom.io/beta">the beta channel</a> and let us know if we missed anything. These improvements will be available on Linux as soon as Travis <a href="https://github.com/travis-ci/apt-package-whitelist/issues/3434">whitelists a package we need</a>.</p>
+
+<h2 id="join-us">Join Us!</h2>
+
+<p>Are you interested in helping us further explore the interface between web technologies and native code? We’re hiring! Check out the details and apply <a href="https://jobs.lever.co/github/baaa9a2c-c249-4d06-b73f-e9bee1a3d147">here</a>.</p>
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2016/10/17/the-wonderful-world-of-keyboards.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2016/10/17/the-wonderful-world-of-keyboards.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:02 GMT -->
+</html>

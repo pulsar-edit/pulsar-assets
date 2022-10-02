@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2018/05/15/atom-1-27.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:35:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Atom 1.27 | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Atom 1.27" />
+<meta name="author" content="daviwil" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Atom 1.27 brings numerous improvements to your Git and GitHub workflows, including support for multiple co-authors, separate amend and undo, a quicker way to open a pull request on github.com, as well as pulling and pushing directly from the status bar. Update today for a richer GitHub experience, right inside your editor." />
+<meta property="og:description" content="Atom 1.27 brings numerous improvements to your Git and GitHub workflows, including support for multiple co-authors, separate amend and undo, a quicker way to open a pull request on github.com, as well as pulling and pushing directly from the status bar. Update today for a richer GitHub experience, right inside your editor." />
+<link rel="canonical" href="atom-1-27.html" />
+<meta property="og:url" content="atom-1-27.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-05-15T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@daviwil" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2018/05/15/atom-1-27.html"},"url":"https://blog.atom.io/2018/05/15/atom-1-27.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"daviwil"},"headline":"Atom 1.27","dateModified":"2018-05-15T00:00:00+00:00","datePublished":"2018-05-15T00:00:00+00:00","author":{"@type":"Person","name":"daviwil"},"description":"Atom 1.27 brings numerous improvements to your Git and GitHub workflows, including support for multiple co-authors, separate amend and undo, a quicker way to open a pull request on github.com, as well as pulling and pushing directly from the status bar. Update today for a richer GitHub experience, right inside your editor.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Atom 1.27</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> May 15, 2018 <a href="https://github.com/daviwil" class="author-link"><img class="avatar avatar-small" alt="daviwil" width="18" height="18" data-proofer-ignore="true" src="https://avatars3.githubusercontent.com/daviwil?v=3&amp;s=18" srcset="https://avatars3.githubusercontent.com/daviwil?v=3&amp;s=18 1x, https://avatars3.githubusercontent.com/daviwil?v=3&amp;s=36 2x, https://avatars3.githubusercontent.com/daviwil?v=3&amp;s=54 3x, https://avatars3.githubusercontent.com/daviwil?v=3&amp;s=72 4x"> daviwil</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p><img src="../../../img/posts/release-1-27.jpg" alt="Atom 1.27"></p>
+
+<p>Atom 1.27 brings numerous improvements to your Git and GitHub workflows, including support for multiple co-authors, separate amend and undo, a quicker way to open a pull request on github.com, as well as pulling and pushing directly from the status bar. Update today for a richer GitHub experience, right inside your editor.</p>
+
+<!--more-->
+
+<h3 id="github-package-improvements">GitHub package improvements</h3>
+
+<p>Pair programming enthusiasts rejoice: the GitHub package now supports adding multiple <a href="https://blog.github.com/2018-01-29-commit-together-with-co-authors/" title="learn more about co-authorship on GitHub.com">co-authors</a> to <a href="https://github.com/atom/github/pull/1355" title="pull request for the co authors feature">any commit</a>.  You can search by name or email to add previous committers as co-authors.  If your co-author hasn’t committed to the current repository before, don’t worry - you can still <a href="https://github.com/atom/github/pull/1374" title="pull request for adding a new co author">give them the credit they deserve</a>.</p>
+
+<p>The <em>Amend</em> functionality, once a checkbox, has now been expanded to an <a href="https://github.com/atom/github/pull/1364"><em>Undo</em> button and an action on the context menu</a> of the recent commit list.</p>
+
+<p><img src="../../../img/posts/github-package-coauthor-amend.gif" alt="co-authors"></p>
+
+<p>When it comes time to submit your work for review, you now have a quick way to <a href="https://github.com/atom/github/pull/1376">create a pull request right from the GitHub pane</a>, pushing any commits if necessary.  With just a button click, Atom launches GitHub.com in your browser so that you can fill in the pull request description, assign reviewers, and then submit it.</p>
+
+<p><img src="https://user-images.githubusercontent.com/17565/38881206-8ca2db8e-4235-11e8-98fd-e05c22cf9500.png" alt="create-pr"></p>
+
+<p>We’ve streamlined the experience for <a href="https://github.com/atom/github/pull/1308">pushing and pulling branches from the status bar</a>. Now, the action it takes is based on the status of your branch relative to its remote. This should save you a few clicks per day on common remote interactions. You can still access explicit push/pull actions by right-clicking the status bar item.</p>
+
+<p><img src="https://user-images.githubusercontent.com/927830/38132072-58071a46-33be-11e8-920a-634a65ae6305.gif" alt="push-pull-status-bar"></p>
+
+<p>Don’t forget to check out all the other improvements shipping with Atom 1.27 in the <a href="https://github.com/atom/atom/releases/tag/v1.27.0">release notes</a>! <img class="emoji" title=":memo:" alt=":memo:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dd.png" height="20" width="20"></p>
+
+<h2 id="atom-128-beta">Atom 1.28 Beta</h2>
+
+<p><img src="../../../img/release-beta.png" alt="Atom Beta"></p>
+
+<h3 id="improved-find-in-project-results-view">Improved Find-in-Project results view</h3>
+
+<p>Thanks to a <a href="https://github.com/atom/find-and-replace/pull/1002">pull request</a> from <a href="https://github.com/PoignardAzur">@PoignardAzur</a>, the Find-in-Project results view now groups adjacent matches in the same file and highlights multiple matches on the same line.  This makes it much easier to understand the context around the matches:</p>
+
+<p><strong>Before</strong></p>
+
+<p><img src="https://user-images.githubusercontent.com/8573618/37409962-ecbec81a-27e2-11e8-8cee-24d33c4dc965.png" alt="before-results-view"></p>
+
+<p><strong>After</strong></p>
+
+<p><img src="https://user-images.githubusercontent.com/8573618/39080692-fa5307a8-456e-11e8-831f-539e889bb839.png" alt="after-results-view"></p>
+
+<h3 id="electron-upgrade">Electron upgrade</h3>
+
+<p>Under the hood, Atom 1.28 includes an upgrade from Electron 1.7.11 to <a href="https://electronjs.org/releases#2.0.0">2.0.0</a>, delivering a healthy batch of stability and performance improvements.</p>
+
+<p>There are many more details in the <a href="https://github.com/atom/atom/releases/tag/v1.28.0-beta0">release notes</a>.</p>
+
+<p>Get all these improvements today by joining the <a href="https://atom.io/beta">Atom Beta Channel</a>!</p>
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2018/05/15/atom-1-27.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2018/05/15/atom-1-27.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:35:24 GMT -->
+</html>

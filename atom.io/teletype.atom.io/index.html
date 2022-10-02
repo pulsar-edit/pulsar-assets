@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from teletype.atom.io/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Sep 2022 21:59:01 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teletype for Atom</title>
+  <link rel="canonical" href="index.html" />
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <meta property="og:url" content="index.html" />
+  <meta property="og:site_name" content="teletype.atom.io" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Code together in real time in Atom" />
+  <meta property="og:description" content="Teletype for Atom lets developers share their workspace with team members and collaborate on code in real time." />
+  <meta property="og:image" content="https://blog.atom.io/img/posts/teletype/teletype.png" />
+
+  <link rel="stylesheet" media="all" href="assets/teletype-08f615891d1df78519391fbd19e81498a1065e01392cf5ec230811c8e68b7647.css" />
+  <script src="assets/teletype-641b72839b4c8a5def1a72e328092adc54f3c369bf5c594ad198350647762c20.js" media="all"></script>
+</head>
+<body>
+  <section class="section hero">
+  <div class="wrapper wrapper--full">
+    <header class="header">
+      <!-- Inline SVG so the icon can be styled with CSS -->
+      <svg class="logo" viewBox="0 0 116 106" aria-label="Atom">
+        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g transform="translate(2.000000, 2.000000)">
+                <path stroke="currentColor" stroke-width="3.5" stroke-linecap="round" d="M76.189086,44.0856189 C89.2231104,70.8500357 91.9124709,96.0721711 82.0341519,101.11376 C71.8486126,106.314623 52.1597207,88.0926784 38.0575146,60.4151933 C23.9553084,32.7377081 20.7806971,6.08525653 30.9662365,0.885970525 C35.4012393,-1.37856533 41.6386021,0.799236909 48.4305372,6.26187771"></path>
+                <path stroke="currentColor" stroke-width="3.5" stroke-linecap="round" d="M11.7756915,62.476615 C4.17997299,58.5368926 -0.244183357,53.7922806 0.0104217322,48.8892012 C0.602928639,37.5171948 26.1514492,29.6016632 57.0733946,31.2067353 C87.9953399,32.8133764 112.582019,43.3334237 111.989512,54.7054302 C111.733335,59.6085096 106.83926,63.8683051 98.8757784,67"></path>
+                <path stroke="currentColor" stroke-width="3.5" stroke-linecap="round" d="M43.8264623,92.4624337 C35.5466486,98.4730696 28.1774106,100.668354 23.5681106,97.6598844 C14.0266558,91.4349207 19.916404,65.2743138 36.7236579,39.2271746 C53.5309117,13.1816113 74.8910444,-2.88667479 84.4324992,3.33986485 C88.8678339,6.23329102 89.9680476,13.4337617 88.1876447,22.9272253"></path>
+                <path fill="currentColor"                                             d="M64.8406718,49.5222731 C65.6570438,53.3004613 63.2558557,57.024333 59.4775391,57.8406772 C55.6992225,58.6570215 51.9752241,56.255915 51.1588521,52.4777269 C50.3440777,48.6995387 52.7436682,44.975667 56.5219849,44.1593228 C60.2987039,43.3429785 64.0227022,45.744085 64.8406718,49.5222731"></path>
+            </g>
+        </g>
+      </svg>
+    </header>
+  </div>
+
+  <div class="wrapper intro">
+    <h2>Collaborate in real time in Atom </h2>
+    <p><strong>Teletype<sup>(beta)</sup> for Atom</strong> lets developers share their workspace with team members and collaborate on code in real time.</p>
+    <p><a href="#getting-started">Get started</a></p>
+  </div>
+</section>
+
+<section id="demo" class="section">
+  <div class="wrapper wrapper--full wrapper--video">
+    <div class="video-container">
+      <video id="video" class="video" preload="auto" poster="assets/real-time-video-poster-6e00586e2837c850797ec62036588f1c3e25448ad232edd2f883cda4ec646431.png">
+        <source src="videos/real-time.mp4" type="video/mp4">
+      </video>
+      <div id="video-hud" class="video-hud">
+        <button id="video-button" class="video-play-button mega-octicon octicon-playback-play" aria-label="Play video"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="portals" class="section">
+  <div class="wrapper">
+    <h2>Code better, together</h2>
+    <p>Working on code together in real time is valuable for knowledge sharing and producing quality software. The <strong>Teletype</strong> package for Atom aspires to make it as easy for developers to code together as it is for them to code alone.</p>
+    <p>Teletype introduces the concept of <strong>real-time "portals"</strong> for sharing workspaces. When a host opens a portal, their active tab becomes a shared workspace. There, invited collaborators can join in and make edits in real time. As the host moves between files, collaborators follow along with the active tab automatically.</p>
+    <p class="is-centered"><img class="img" src="assets/real-time-portals-dcfec872971fec784360f3bc88e34f05f4ed93eb15455170aa15395b0e6cfabd.svg" /></p>
+  </div>
+</section>
+
+<section id="privacy" class="section">
+  <div class="wrapper">
+    <h2>How code gets shared</h2>
+    <p>Each portal comes to life in two steps:</p>
+    <ol class="privacy-list">
+      <li>
+        <p class="privacy-img-wrapper"><img class="privacy-img" src="assets/real-time-privacy-1-6716562012c4719c30a03a2773421032c854bfd1d211e2cf73fb3deba9d6f81e.svg" /></p>
+        <p>First you connect to our servers to see who is collaborating. 👋 &nbsp; Hi there.</p>
+      </li>
+      <li>
+        <p class="privacy-img-wrapper"><img class="privacy-img" src="assets/real-time-privacy-2-e213c9dd844a6445b7e9ad6f7dda39b104a74b5fcbfd47fc1ef9c38f0ec20eaf.svg" /></p>
+        <p>After that, collaborators share code directly with each other (<strong>peer-to-peer</strong>).</p>
+      </li>
+    </ol>
+    <p>There's no centralized server to spy on your keystrokes, and Teletype uses <strong>WebRTC</strong> to encrypt all communication between collaborators. What happens in the portal stays in the portal.</p>
+  </div>
+</section>
+
+<section id="getting-started" class="section">
+  <div class="wrapper">
+    <h2>Getting started</h2>
+    <h4>1. Install Atom</h4>
+    <p>Download and install <a href="https://atom.io/">Atom</a>. It's free, open source, and cross-platform. You can use it on Windows, macOS, or Linux.</p>
+    <h4>2. Install Teletype for Atom</h4>
+    <p>Install the <a href="atom://settings-view/show-package?package=teletype">teletype</a> package to start collaborating today. If you need help, take a look at <a href="https://flight-manual.atom.io/using-atom/sections/atom-packages/">how to install Atom packages</a>.</p>
+
+    <hr />
+
+    <h4>Share a portal</h4>
+    <p>Click the <span class="octicon octicon-radio-tower" aria-label="Teletype"></span> icon in the Atom status bar, and flip the switch to start sharing a portal to your workspace. Then invite people to join your portal by sending them your portal URL.</p>
+    <h4>Join a portal</h4>
+    <p>Once someone has provided you with a link to their portal, simply follow the link to join the portal. The portal opens and all collaborators can edit together in real time.</p>
+  </div>
+</section>
+
+<footer id="feedback" class="section">
+  <div class="wrapper">
+    <h2>Feedback</h2>
+    <p>We welcome your <a href="https://github.com/atom/atom/discussions">feedback</a> on this beta release. If you run into any problems, please <a href="https://github.com/atom/teletype/issues">open an issue</a> or take a look at the <a href="https://github.com/atom/teletype/blob/master/CONTRIBUTING.md">contribution guide</a> and start contributing.
+
+  </div>
+  <div class="wrapper love">
+    <a class="love" href="https://github.com/">
+      <span class="octicon octicon-code" aria-label="Made"></span> with <span class="octicon octicon-heart" aria-label="love"></span> by <span class="octicon octicon-logo-github" aria-label="GitHub"></span>
+    </a>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from teletype.atom.io/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Sep 2022 21:59:01 GMT -->
+</html>

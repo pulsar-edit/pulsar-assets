@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2018/10/23/atom-1-32.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:35:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Atom 1.32 | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Atom 1.32" />
+<meta name="author" content="maxbrunsfeld" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Atom 1.32 is out! In this release, we’ve cut Atom’s memory consumption and enabled the new Tree-sitter parsing system by default." />
+<meta property="og:description" content="Atom 1.32 is out! In this release, we’ve cut Atom’s memory consumption and enabled the new Tree-sitter parsing system by default." />
+<link rel="canonical" href="atom-1-32.html" />
+<meta property="og:url" content="atom-1-32.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-10-23T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@maxbrunsfeld" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2018/10/23/atom-1-32.html"},"url":"https://blog.atom.io/2018/10/23/atom-1-32.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"maxbrunsfeld"},"headline":"Atom 1.32","dateModified":"2018-10-23T00:00:00+00:00","datePublished":"2018-10-23T00:00:00+00:00","author":{"@type":"Person","name":"maxbrunsfeld"},"description":"Atom 1.32 is out! In this release, we’ve cut Atom’s memory consumption and enabled the new Tree-sitter parsing system by default.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Atom 1.32</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> October 23, 2018 <a href="https://github.com/maxbrunsfeld" class="author-link"><img class="avatar avatar-small" alt="maxbrunsfeld" width="18" height="18" data-proofer-ignore="true" src="https://avatars3.githubusercontent.com/maxbrunsfeld?v=3&amp;s=18" srcset="https://avatars3.githubusercontent.com/maxbrunsfeld?v=3&amp;s=18 1x, https://avatars3.githubusercontent.com/maxbrunsfeld?v=3&amp;s=36 2x, https://avatars3.githubusercontent.com/maxbrunsfeld?v=3&amp;s=54 3x, https://avatars3.githubusercontent.com/maxbrunsfeld?v=3&amp;s=72 4x"> maxbrunsfeld</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p>Atom 1.32 is out! In this release, we’ve cut Atom’s memory consumption and enabled the new Tree-sitter parsing system by default.</p>
+
+<!--more-->
+
+<h3 id="tree-sitter">Tree-sitter</h3>
+
+<p>Our new parsing system, Tree-sitter, is finally turned on by default. Tree-sitter parses your code incrementally while you type, creating syntax trees that Atom uses to provide improved syntax highlighting and code folding.</p>
+
+<p><img src="https://user-images.githubusercontent.com/378023/46065834-2429f580-c1ae-11e8-9a89-1a55f9baddb3.png" alt="Tree Sitter"></p>
+
+<p>These syntax trees also serve as the basis for two new editing commands: <code class="highlighter-rouge">Select Larger Syntax Node</code> and <code class="highlighter-rouge">Select Smaller Syntax Node</code>, bound to <kbd>Alt+Up</kbd> and <kbd>Alt+Down</kbd> by default on macOS. These commands can make many editing tasks more efficient and fun, especially when used in combination with multiple cursors.</p>
+
+<p><img src="https://user-images.githubusercontent.com/326587/47385613-623c0b80-d6bf-11e8-8fd3-3d044229cc98.gif" alt="select-larger-syntax-node"></p>
+
+<p>Currently, we use Tree-sitter for eleven languages: Bash, C, C++, ERB, EJS, Go, HTML, JavaScript, Python, Ruby, and TypeScript. Special thanks to everyone who enabled it early and reported crashes and bugs. If you’d like to help us bring the power of Tree-sitter to more languages, check out <a href="http://tree-sitter.github.io/tree-sitter/">the Tree-sitter documentation</a>.</p>
+
+<ul>
+  <li><a href="https://github.com/atom/atom/pull/17879">atom/atom#17879</a></li>
+</ul>
+
+<h3 id="reduced-memory-usage">Reduced Memory Usage</h3>
+
+<p>Through one weird trick, we reduced the memory consumption of Atom’s main and renderer processes by 45MB each.</p>
+
+<p>When you start Atom, most of the code is loaded through a <a href="https://v8.dev/blog/custom-startup-snapshots">V8 startup snapshot</a> which we generate on our build servers using a tool called <a href="https://github.com/atom/electron-link"><code class="highlighter-rouge">electron-link</code></a>. <code class="highlighter-rouge">electron-link</code> combines all of our source code together into a single large startup script. JavaScript runtimes retain the source code of loaded scripts in order to provide stack traces and other features, so minifying this startup script substantially reduces Atom’s baseline memory footprint.</p>
+
+<ul>
+  <li><a href="https://github.com/atom/atom/pull/17926">atom/atom#17926</a></li>
+</ul>
+
+<!-- end of stable changes -->
+
+<p>Don’t forget to check out all the other improvements shipping with Atom 1.32 in the <a href="https://github.com/atom/atom/releases/tag/v1.32.0">release notes</a>! <img class="emoji" title=":memo:" alt=":memo:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dd.png" height="20" width="20"></p>
+
+<p><img src="../../../img/release-beta.png" alt="Atom Beta"></p>
+
+<h2 id="atom-133-beta">Atom 1.33 Beta</h2>
+
+<h3 id="built-in-rust-support">Built-in Rust Support</h3>
+
+<p><img src="https://user-images.githubusercontent.com/378023/47344983-a5f53c00-d6e4-11e8-98df-810e9df2277a.png" alt="rust support"></p>
+
+<p>Atom now features built-in support for <a href="https://www.rust-lang.org/">the Rust programming language</a>, using the new Tree-sitter parsing system. Thanks to <a href="https://github.com/tree-sitter/tree-sitter-rust">a Tree-sitter Rust parser</a> initially created by <a href="https://github.com/MaximSokolov">@MaximSokolov</a>, Rust programmers on our beta channel should see more consistent highlighting of things like types and struct fields, as well as more reliable code folding.</p>
+
+<ul>
+  <li><a href="https://github.com/atom/atom/pull/18257">atom/atom#18257</a></li>
+</ul>
+
+<h3 id="github-package">GitHub Package</h3>
+
+<p>If you like commits, you’re in luck – the pull request detail view now shows <a href="https://github.com/atom/github/pull/1684">a list of commit details</a>. The Undo Discard button now lives <a href="https://github.com/atom/github/pull/1702">behind a context menu</a>, which should help prevent pesky accidental clicks.  We’ve <a href="https://github.com/atom/github/pull/1694">increased</a> <a href="https://github.com/atom/github/pull/1685">metrics</a> <a href="https://github.com/atom/github/pull/1744">instrumentation</a> to better understand user interactions. Also, the status bar has new Git and GitHub icons, to (hopefully!) <a href="https://github.com/atom/github/pull/1704">improve discoverability</a>.</p>
+
+<p><img src="https://user-images.githubusercontent.com/378023/47344982-a5f53c00-d6e4-11e8-94f1-fb4c29f9b3a8.png" alt="open git and github from the status-bar"></p>
+
+<p>Shout out to our first time community contributors <a href="https://github.com/mimidumpling">@mimidumpling</a> and <a href="https://github.com/colinschindler">@colinschindler</a> for their contributions, which make the GitHub package <a href="https://github.com/atom/github/pull/1731">more</a> <a href="https://github.com/atom/github/pull/1711">polished</a>.</p>
+
+<h3 id="soft-wrapping-improvements">Soft Wrapping Improvements</h3>
+
+<p>Previously, Atom only wrapped lines at whitespace boundaries. This meant that long character sequences like URLs would often be wrapped abruptly. Now, thanks to <a href="https://github.com/ariasuni">@ariasuni</a>, we also soft-wrap after <code class="highlighter-rouge">-</code> and <code class="highlighter-rouge">/</code> characters, which makes URLs more readable, and matches the behavior of most other programs.</p>
+
+<ul>
+  <li><a href="https://github.com/atom/atom/pull/17949">atom/atom#17949</a></li>
+</ul>
+
+<h3 id="ability-to-disable-snippets">Ability to Disable Snippets</h3>
+
+<p>A lot of language packages provide handy snippets, which is great. But sometimes you might want to disable them. Thanks to <a href="https://github.com/savetheclocktower">@savetheclocktower</a> and <a href="https://github.com/Ben3eeE">@Ben3eeE</a>, you can now do so:</p>
+
+<ol>
+  <li>Open a language <a href="https://flight-manual.atom.io/using-atom/sections/atom-packages/#package-settings">package’s settings</a>.</li>
+  <li>Scroll down until you see the “Snippets” section</li>
+  <li>Click on the “Enable” checkbox</li>
+</ol>
+
+<p><img src="https://user-images.githubusercontent.com/378023/47344975-a55ca580-d6e4-11e8-8859-622a75fbc8be.png" alt="disable snippets"></p>
+
+<p>Now that the default snippets are disabled, you’re free to <a href="https://flight-manual.atom.io/using-atom/sections/snippets/#creating-your-own-snippets">create your own snippets</a>.</p>
+
+<ul>
+  <li><a href="https://github.com/atom/snippets/pull/277">atom/snippets#277</a></li>
+  <li><a href="https://github.com/atom/settings-view/pull/1084">atom/settings-view#1084</a></li>
+</ul>
+
+<!-- end of beta changes -->
+
+<p>There are many more details in the <a href="https://github.com/atom/atom/releases/tag/v1.33.0-beta0">release notes</a>.</p>
+
+<p>Get all these improvements today by joining the <a href="https://atom.io/beta">Atom Beta Channel</a>!</p>
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2018/10/23/atom-1-32.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2018/10/23/atom-1-32.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:35:23 GMT -->
+</html>

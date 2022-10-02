@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2016/03/17/atom-1-6-and-1-7-beta.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Atom 1.6 and 1.7 beta | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Atom 1.6 and 1.7 beta" />
+<meta name="author" content="BinaryMuse" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Atom 1.6 and 1.7-beta are out. Atom 1.6 comes with pending pane items, improvements to pane management, and new APIs." />
+<meta property="og:description" content="Atom 1.6 and 1.7-beta are out. Atom 1.6 comes with pending pane items, improvements to pane management, and new APIs." />
+<link rel="canonical" href="atom-1-6-and-1-7-beta.html" />
+<meta property="og:url" content="atom-1-6-and-1-7-beta.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-03-17T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@BinaryMuse" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2016/03/17/atom-1-6-and-1-7-beta.html"},"url":"https://blog.atom.io/2016/03/17/atom-1-6-and-1-7-beta.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"BinaryMuse"},"headline":"Atom 1.6 and 1.7 beta","dateModified":"2016-03-17T00:00:00+00:00","datePublished":"2016-03-17T00:00:00+00:00","author":{"@type":"Person","name":"BinaryMuse"},"description":"Atom 1.6 and 1.7-beta are out. Atom 1.6 comes with pending pane items, improvements to pane management, and new APIs.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Atom 1.6 and 1.7 beta</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> March 17, 2016 <a href="https://github.com/BinaryMuse" class="author-link"><img class="avatar avatar-small" alt="BinaryMuse" width="18" height="18" data-proofer-ignore="true" src="https://avatars2.githubusercontent.com/BinaryMuse?v=3&amp;s=18" srcset="https://avatars2.githubusercontent.com/BinaryMuse?v=3&s=18 1x, https://avatars2.githubusercontent.com/BinaryMuse?v=3&s=36 2x, https://avatars2.githubusercontent.com/BinaryMuse?v=3&s=54 3x, https://avatars2.githubusercontent.com/BinaryMuse?v=3&s=72 4x" /> BinaryMuse</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p>Atom 1.6 and <a href="https://atom.io/beta">1.7-beta</a> are out. Atom 1.6 comes with pending pane items, improvements to pane management, and new APIs.</p>
+
+<h2 id="major-changes-in-160-stable">Major Changes in 1.6.0 Stable</h2>
+
+<p>Below is a summary of the noteworthy things available in Atom 1.6. If you want to see every PR that went into Atom 1.6, check out the <a href="https://github.com/atom/atom/releases/tag/v1.6.0">Atom 1.6.0 release notes</a>.</p>
+
+<h3 id="pending-pane-items">Pending Pane Items</h3>
+
+<p>Sometimes, it can be useful to take a peek at the contents of a file without opening it in a dedicated tab. For those instances, you want pending pane items.</p>
+
+<p><img src="../../../img/posts/pending-tabs-demo.gif" alt="Pending Pane Items" /></p>
+
+<p>When you single-click a file from the tree view or the find-and-replace search results, the file in question opens as a pending pane item.  When another item is opened in a pane, it replaces the pending tab in that pane instead of being appended to the list of tabs. This allows you to quickly click through several files quickly without opening each of them in a dedicated tab. In the default UI configuration, the tab’s title is italicized if the pane item is pending. If you want the tab to stick around permanently, simply double-click the file or the tab; in addition, when you edit text within a text editor that lives in a pending tab, the tab is automagically made permanent for you.</p>
+
+<p>If you’re not afraid of tab commitment (or just don’t like the feature), you can disable this functionality by unchecking Allow Pending Pane Items in the Core Settings section of the editor settings.</p>
+
+<p><img src="../../../img/posts/disable-pending-tabs.png" alt="Pending Pane Items Option" /></p>
+
+<p>Finally, if you want to open pane items as pending from your own packages, simply add <code class="highlighter-rouge">pending: true</code> to the options passed <a href="https://atom.io/docs/api/latest/Workspace#instance-open">to <code class="highlighter-rouge">Workspace::open</code></a> or <a href="https://atom.io/docs/api/latest/Pane#instance-addItem">to <code class="highlighter-rouge">Pane::addItem</code></a>:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Open a URI in as pending</span>
+<span class="nx">atom</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">itemUri</span><span class="p">,</span> <span class="p">{</span><span class="na">pending</span><span class="p">:</span> <span class="kc">true</span><span class="p">})</span>
+
+<span class="c1">// Directly add an item to a pane as pending</span>
+<span class="nx">myPane</span><span class="p">.</span><span class="nx">addItem</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="p">{</span><span class="na">pending</span><span class="p">:</span> <span class="kc">true</span><span class="p">})</span>
+</code></pre></div></div>
+
+<ul>
+  <li><a href="https://github.com/atom/atom/pull/10178">atom/atom#10178 - Open file in pending state on single click</a></li>
+  <li><a href="https://github.com/atom/atom/pull/10409">atom/atom#10409 - Further improvements to pending item functionality</a></li>
+  <li><a href="https://github.com/atom/atom/pull/10959">atom/atom#10959 - Refactor pending state to live in pane instead of items</a></li>
+</ul>
+
+<h3 id="multi-pane-usage-improvements">Multi-pane Usage Improvements</h3>
+
+<p>Previously, Atom’s pane management commands left a lot to be desired. There was only one set of commands and keybindings to create a split pane. Say you wanted to create a right split, you would use <code class="highlighter-rouge">cmd-k right</code> (or <code class="highlighter-rouge">ctrl-k right</code> in Windows and Linux) and it would create the split pane and also copy the existing file you had open to the new pane—rarely what you wanted.</p>
+
+<p>In Atom 1.6.0, a number of new commands have been added to improve working with panes. For now, the default pane-split behavior attached to keybindings like <code class="highlighter-rouge">cmd-k right</code> is unchanged, but you can bind <a href="https://gist.github.com/BinaryMuse/621bf3e66a66876e4d78#file-new-pane-commands-js">these new commands</a> in your <code class="highlighter-rouge">keymaps.cson</code> file. If you need some help deciding which keys to use, you can <a href="https://gist.github.com/BinaryMuse/621bf3e66a66876e4d78#file-sample-keybinds-cson">try this set</a>, which are based on Atom packages <a href="https://atom.io/packages/pain-split">pain-split</a> and <a href="https://atom.io/packages/move-panes">move-panes</a>.</p>
+
+<ul>
+  <li><a href="https://github.com/atom/atom/pull/7953">atom/atom#7953 - Improve multi-pane API</a></li>
+</ul>
+
+<h3 id="block-decorations">Block Decorations</h3>
+
+<p>Block decorations allow a package developer to insert DOM nodes <em>in between</em> lines. This new API opens up a number of new scenarios such as inline diffs, code evaluation, image previews, and very important use cases like watching nyan cat while you write code.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/69169/13514318/c6d9ae4a-e15c-11e5-9e58-e61a2feaa731.gif" alt="block-decorations" /></p>
+
+<p>Check out the <a href="../../02/03/introducing-block-decorations.html">block decoration blog post</a> for information on how to use them and for all the gritty details about they were implemented.</p>
+
+<ul>
+  <li><a href="https://github.com/atom/atom/pull/9930">atom/atom#9930 - Block Decorations</a></li>
+</ul>
+
+<h3 id="async-git">Async Git</h3>
+
+<p>Atom 1.6 comes bundled with <a href="https://github.com/nodegit/nodegit">NodeGit</a>.</p>
+
+<p>The new <a href="https://github.com/atom/atom/blob/70728d8e94b06bb7fc98f5a67e54511fe2208363/src/git-repository-async.js"><code class="highlighter-rouge">GitRepositoryAsync</code></a> class uses NodeGit to provide a promise-oriented API which is similar to the existing <code class="highlighter-rouge">GitRepository</code>. Package authors can get the asynchronous repository from the synchronous repository:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">repo</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="nx">project</span><span class="p">.</span><span class="nx">getRepositories</span><span class="p">()[</span><span class="mi">0</span><span class="p">].</span><span class="k">async</span>
+<span class="nx">repo</span><span class="p">.</span><span class="nx">getPathStatus</span><span class="p">(</span><span class="nx">myPath</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">status</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Do the needful.</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>In the future we’ll be deprecating <code class="highlighter-rouge">GitRepository</code> so please update your packages to use the new asynchronous APIs as soon as possible.</p>
+
+<ul>
+  <li><a href="https://github.com/atom/atom/pull/9213">atom/atom#9213 - Async Git Repository class</a></li>
+</ul>
+
+<h3 id="top-and-bottom-bar-api">Top and Bottom Bar API</h3>
+
+<p>A new API has been added to allow package authors to put UI that spans the entire width of the editor. This allows packages like <a href="https://atom.io/packages/tool-bar">tool-bar</a> to appear across the very top of Atom, and could enable the status-bar to span the entire width of the window.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/378023/10709883/5ce52e1e-7a79-11e5-8467-d69f6fd93144.png" alt="top-bottom-bars" /></p>
+
+<p>The API is an extension of our panel API:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">atom</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">addHeaderPanel</span><span class="p">({</span><span class="na">item</span><span class="p">:</span> <span class="cm">/*an item*/</span><span class="p">})</span>
+<span class="nx">atom</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">addFooterPanel</span><span class="p">({</span><span class="na">item</span><span class="p">:</span> <span class="cm">/*an item*/</span><span class="p">})</span>
+</code></pre></div></div>
+
+<p>See the <a href="https://atom.io/docs/api/latest/Workspace#instance-addHeaderPanel"><code class="highlighter-rouge">addHeaderPanel</code></a> and <a href="https://atom.io/docs/api/latest/Workspace#instance-addFooterPanel"><code class="highlighter-rouge">addFooterPanel</code></a> docs for more information.</p>
+
+<ul>
+  <li><a href="https://github.com/atom/atom/pull/9274">atom/atom#9274 - Add top/bottom bars</a></li>
+</ul>
+
+<h2 id="major-changes-in-170-beta">Major Changes in 1.7.0 Beta</h2>
+
+<p>See the <a href="https://github.com/atom/atom/releases/tag/v1.7.0-beta0">Atom 1.7.0-beta0 release notes</a> for everything that is in 1.7 beta.</p>
+
+<h3 id="crash-recovery">Crash Recovery</h3>
+
+<p>Atom periodically saves the editor’s state so that it can be restored in the case of an unexpected exit.</p>
+
+<ul>
+  <li><a href="https://github.com/atom/atom/pull/10605">atom/atom#10605 - Periodically save state and store in IndexedDB</a></li>
+  <li><a href="https://github.com/atom/atom/pull/11060">atom/atom#11060 - Serialize MarkerLayers only on quit</a></li>
+  <li><a href="https://github.com/atom/text-buffer/pull/136">atom/text-buffer#136 - Redesign History and Improve serialization performance</a></li>
+  <li><a href="https://github.com/atom/atom-patch/pull/7">atom/atom-patch#7 - Add FlatBuffers serialization</a></li>
+</ul>
+
+<h3 id="most-recently-used-tab-switching">Most Recently Used Tab Switching</h3>
+
+<p>In Atom 1.7 beta, <code class="highlighter-rouge">ctrl-tab</code> in all platforms will switch between the most recently used (MRU) tabs in an Atom window. Previously, <code class="highlighter-rouge">ctrl-tab</code> would select the next tab, which does not take into account which tabs you have been working in. MRU tab switching was a <a href="https://github.com/atom/atom/issues/5344">very heavily requested feature</a> that many other editors have as a default behavior, and we’re happy to finally have it in Atom.</p>
+
+<p><img src="../../../img/posts/mru-tab-switching.gif" alt="Most Recently Used Tab Switching" /></p>
+
+<ul>
+  <li><a href="https://github.com/atom/atom/pull/10737">atom/atom#10737 - Add MRU tab switching functionality</a></li>
+</ul>
+
+<h3 id="windows-improvements">Windows Improvements</h3>
+
+<p>There have been a number of improvements to the Windows experience in 1.7 including:</p>
+
+<ul>
+  <li><strong>Build</strong> <a href="https://github.com/atom/atom/blob/master/docs/build-instructions/windows.md">documentation</a> clarifies <a href="https://github.com/atom/atom/pull/10747">how to build in VS 2015</a>; the <a href="https://github.com/atom/atom/pull/10874">clean script handles NPM2 long paths</a> and <a href="https://github.com/atom/atom/pull/9477/commits/19334be18825781967161279786cc3807598ae93">Appveyor CI builds support added</a></li>
+  <li><strong>Installation</strong> conditions where the <a href="https://github.com/atom/atom/pull/10326">PATH would not be correctly set</a> have been addressed as well as ensuring <a href="https://github.com/atom/atom/pull/10858">pinned shortcuts are updated when Atom updates</a> and other improvements from the latest <a href="https://github.com/Squirrel/Squirrel.Windows">Squirrel installer</a> such a .msi packages and draggable splash panel.</li>
+  <li><strong>Command line</strong> <a href="https://github.com/atom/atom/pull/11053">–wait switch works from Command Prompt, PowerShell</a> and <a href="https://github.com/atom/atom/pull/11103">Bash</a> allowing you to specify Atom as your commit message editor with
+<code class="highlighter-rouge">git config --global core.editor "atom --wait"</code></li>
+  <li><strong>Portable mode</strong> is now <a href="https://flight-manual.atom.io/getting-started/sections/installing-atom/#atom-on-windows">documented in the Flight Manual</a>.</li>
+  <li><strong>Downloads</strong> from <a href="https://atom.io/">atom.io</a> using Internet Explorer on Windows 7 now have .exe extension.</li>
+  <li><strong>File types</strong> can be easily <a href="https://github.com/atom/atom/pull/10818">associated with Atom</a>. No more need to hunt for atom.exe or deal with broken associations after an update. <em>Note: Installing Atom does not take over any file associations.</em></li>
+</ul>
+
+<div style="text-align: center">
+<img src="../../../img/posts/windows-file-association-handler.png" alt="Windows file association handler on Windows 10" title="Windows file association handler on Windows 10" />
+</div>
+
+<h3 id="environment-patching-on-os-x">Environment Patching on OS X</h3>
+
+<p>On OS X, when you launch Atom from the Dock, Spotlight or Finder, it receives a different startup environment than when you launch Atom from the terminal. Most people expect Atom to be able to detect one’s terminal environment and use that, since Atom needs access to a lot of the same tools that you use through the terminal. Tools like linters, language interpreters, beautifiers and more. It just makes sense.</p>
+
+<p>Until <a href="https://github.com/atom/atom/pull/11054">atom/atom#11054</a>, packages that wanted to access these tools had to roll their own solution. Now, Atom just does the right thing out of the box.</p>
+
+<h3 id="electron-update">Electron Update</h3>
+
+<p>Electron has been upgraded in Atom 1.7 to the <code class="highlighter-rouge">0.36</code> series. The new version of Electron brings a number improvements. Check out <a href="https://github.com/atom/atom/pull/9627">the pull request</a> for more info.</p>
+
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2016/03/17/atom-1-6-and-1-7-beta.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2016/03/17/atom-1-6-and-1-7-beta.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:17 GMT -->
+</html>

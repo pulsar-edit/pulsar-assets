@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2014/11/18/avoiding-style-pollution-with-the-shadow-dom.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:28 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Avoiding Style Pollution With The Shadow DOM | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Avoiding Style Pollution With The Shadow DOM" />
+<meta name="author" content="nathansobo" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="tl;dr We’ll be rolling out a breaking change to the text editor’s DOM over the next few releases, encapsulating the editor’s content with the Shadow DOM. It’s behind a feature flag for now, so everyone has a chance to update their themes and packages before we make the change permanent." />
+<meta property="og:description" content="tl;dr We’ll be rolling out a breaking change to the text editor’s DOM over the next few releases, encapsulating the editor’s content with the Shadow DOM. It’s behind a feature flag for now, so everyone has a chance to update their themes and packages before we make the change permanent." />
+<link rel="canonical" href="avoiding-style-pollution-with-the-shadow-dom.html" />
+<meta property="og:url" content="avoiding-style-pollution-with-the-shadow-dom.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-11-18T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@nathansobo" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2014/11/18/avoiding-style-pollution-with-the-shadow-dom.html"},"url":"https://blog.atom.io/2014/11/18/avoiding-style-pollution-with-the-shadow-dom.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"nathansobo"},"headline":"Avoiding Style Pollution With The Shadow DOM","dateModified":"2014-11-18T00:00:00+00:00","datePublished":"2014-11-18T00:00:00+00:00","author":{"@type":"Person","name":"nathansobo"},"description":"tl;dr We’ll be rolling out a breaking change to the text editor’s DOM over the next few releases, encapsulating the editor’s content with the Shadow DOM. It’s behind a feature flag for now, so everyone has a chance to update their themes and packages before we make the change permanent.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Avoiding Style Pollution With The Shadow DOM</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> November 18, 2014 <a href="https://github.com/nathansobo" class="author-link"><img class="avatar avatar-small" alt="nathansobo" width="18" height="18" data-proofer-ignore="true" src="https://avatars1.githubusercontent.com/nathansobo?v=3&amp;s=18" srcset="https://avatars1.githubusercontent.com/nathansobo?v=3&s=18 1x, https://avatars1.githubusercontent.com/nathansobo?v=3&s=36 2x, https://avatars1.githubusercontent.com/nathansobo?v=3&s=54 3x, https://avatars1.githubusercontent.com/nathansobo?v=3&s=72 4x" /> nathansobo</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p><strong>tl;dr</strong> We’ll be rolling out a breaking change to the text editor’s DOM over the next few releases, encapsulating the editor’s content with the Shadow DOM. It’s behind a feature flag for now, so everyone has a chance to update their themes and packages before we make the change permanent.</p>
+
+<h2 id="the-problem">The Problem</h2>
+
+<p>One thing that sets Atom apart from the typical web application is our focus on extensibility. Whereas many web applications control markup and styles in a centralized way, Atom is much more open-ended. This creates the potential for style conflicts when style sheets and markup are written by different authors. For example, take the following screenshot, excerpted from an <a href="https://github.com/atom/atom/issues/1800">issue</a>. Notice how the the <code class="highlighter-rouge">NSWindowWillCloseNotification</code> token was getting absolutely positioned away from its proper location and also getting rounded corners, a drop shadow, and a different background color.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1789/5075773/d685870c-6e52-11e4-9ed7-4428222eee56.jpg" alt="Styling Problem" /></p>
+
+<p>This was happening because the Objective-C grammar was giving the token a class of <code class="highlighter-rouge">notification</code>, which was then getting accidentally matched by an existing style rule in core that was intended to target notifications in the user interface. Luckily, we were able to simply remove the <code class="highlighter-rouge">.notification</code> style rule in this case, but this was only a temporary fix. Since the set of scope names from language grammars is open-ended, there is always the potential for these kinds of conflicts so long as text editor content is styled in a global way.</p>
+
+<h2 id="the-solution">The Solution</h2>
+
+<p>To prevent styling conflicts once and for all, we need to isolate the editor’s content from styles intended for other elements in the workspace. A new feature of the web platform called the Shadow DOM gives us a means of doing just that. A <a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/">series of articles</a> on <em>HTML 5 Rocks</em> provides an in-depth explanation, but in short, the Shadow DOM provides a mechanism for encapsulating a portion of the document with respect to styling, events, and focus.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1789/5073349/8dcae5b6-6e3e-11e4-9981-5536ddce254c.png" alt="screenshot 2014-11-17 09 45 51" /></p>
+
+<p>In the screenshot above, note that the <code class="highlighter-rouge">#shadow-root</code> node is now the only child of the <code class="highlighter-rouge">&lt;atom-text-editor&gt;</code> element. This node can be expanded in the dev tools for development purposes, but it is invisible from the perspective of the style sheets in the surrounding DOM. Without the use of <a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201#toc-style-cat-hat">special CSS expressions</a>, no styles from the containing document can affect the contents of the shadow root. Conversely, if style sheets are loaded directly into the shadow root, they don’t affect the containing document.</p>
+
+<h2 id="updating-themes-and-packages">Updating Themes and Packages</h2>
+
+<p>In order to give authors time to update themes and packages without disrupting users, the shadow DOM will be tied to a feature flag for the next few releases. This means that packages will need to support both modes during the transition phase. We’ve prepared upgrade guides for <a href="https://flight-manual.atom.io/upgrading-to-1-0-apis/sections/upgrading-your-ui-theme-or-package-selectors/">UI themes</a> and <a href="https://flight-manual.atom.io/upgrading-to-1-0-apis/sections/upgrading-your-syntax-theme/">syntax themes</a> to explain the required changes.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1789/4940756/80704000-65dd-11e4-979b-adf3aa8ea51e.png" alt="screenshot_2014-11-06_10_50_20" /></p>
+
+<p>Please enable the option and update your package or open an issue on the package repository. We’ll be enabling the shadow DOM by default in a couple releases, and eventually we will remove the option entirely.</p>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<p>The last three months have seen a lot of upheaval in Atom core as we’ve hammered the API into shape for 1.0. A lot of this work is invisible to the everyday user, but it’s important that we take the time now to address systemic issues like the style pollution problems discussed here before we freeze Atom’s API. As you can see on the <a href="https://atom.io/roadmap">project roadmap</a>, we’re now in the final stages of this effort, after which we’ll be making a big push to get the package ecosystem switched over to the new APIs. We’re really excited for the leaner, meaner Atom core that’s just around the corner.</p>
+
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2014/11/18/avoiding-style-pollution-with-the-shadow-dom.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2014/11/18/avoiding-style-pollution-with-the-shadow-dom.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:28 GMT -->
+</html>

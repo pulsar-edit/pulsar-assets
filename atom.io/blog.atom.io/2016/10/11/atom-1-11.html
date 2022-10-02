@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2016/10/11/atom-1-11.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:02 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Atom 1.11 | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Atom 1.11" />
+<meta name="author" content="iolsen" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Atom 1.11 features performance and stability improvements and, in particular, we’re excited that Atom now asks for permission before sending any telemetry data. :boom:" />
+<meta property="og:description" content="Atom 1.11 features performance and stability improvements and, in particular, we’re excited that Atom now asks for permission before sending any telemetry data. :boom:" />
+<link rel="canonical" href="atom-1-11.html" />
+<meta property="og:url" content="atom-1-11.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-10-11T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@iolsen" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2016/10/11/atom-1-11.html"},"url":"https://blog.atom.io/2016/10/11/atom-1-11.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"iolsen"},"headline":"Atom 1.11","dateModified":"2016-10-11T00:00:00+00:00","datePublished":"2016-10-11T00:00:00+00:00","author":{"@type":"Person","name":"iolsen"},"description":"Atom 1.11 features performance and stability improvements and, in particular, we’re excited that Atom now asks for permission before sending any telemetry data. :boom:","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Atom 1.11</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> October 11, 2016 <a href="https://github.com/iolsen" class="author-link"><img class="avatar avatar-small" alt="iolsen" width="18" height="18" data-proofer-ignore="true" src="https://avatars0.githubusercontent.com/iolsen?v=3&amp;s=18" srcset="https://avatars0.githubusercontent.com/iolsen?v=3&amp;s=18 1x, https://avatars0.githubusercontent.com/iolsen?v=3&amp;s=36 2x, https://avatars0.githubusercontent.com/iolsen?v=3&amp;s=54 3x, https://avatars0.githubusercontent.com/iolsen?v=3&amp;s=72 4x"> iolsen</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p><img src="../../../img/posts/release-1-11.png" alt="Atom 1.11"></p>
+
+<p><a href="https://atom.io/">Atom 1.11</a> features performance and stability improvements and, in particular, we’re excited that Atom now asks for permission before sending any telemetry data. <img class="emoji" title=":boom:" alt=":boom:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4a5.png" height="20" width="20"></p>
+
+<!--more-->
+
+<h3 id="telemetry-permission">Telemetry Permission</h3>
+
+<p>On launching 1.11 for the first time, all users will be presented with this screen asking for their assistance in improving Atom by allowing us to collect information while they use the application:</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/378023/19137012/ef7463fa-8bab-11e6-86b1-5f3966ac0d3a.png" alt="Telemetry Permission View"></p>
+
+<p>This is something that a lot of users have been asking for. We’ve always had ways to opt out but it is only right to make it obvious and clear. Now it is!</p>
+
+<h3 id="image-view-improvements">Image View improvements</h3>
+
+<p>Three improvements to the <a href="https://atom.io/packages/image-view">image-view package</a> by first time code contributor <a href="https://github.com/ben3eee">@Ben3eeE</a> <img class="emoji" title=":tada:" alt=":tada:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f389.png" height="20" width="20"></p>
+
+<ul>
+  <li>Image View tabs that are in the pending state can now be confirmed by double-clicking the tabs</li>
+  <li>The status bar now shows the size in bytes of the image as well as the width and height</li>
+  <li>Fixed a bug where the dimensions of an image were reported as zero if more than one image was opened in the same action</li>
+</ul>
+
+<h3 id="custom-title-bar">Custom Title Bar</h3>
+
+<p><img src="https://cloud.githubusercontent.com/assets/378023/19135767/24a16dde-8ba2-11e6-83a3-b6d75180fc65.png" alt="Custom Title Bar"></p>
+
+<p>An option to show a <a href="https://github.com/atom/atom/pull/11790">custom title bar</a> on macOS got added by <a href="https://github.com/brumm">@brumm</a>. <img class="emoji" title=":sparkles:" alt=":sparkles:" src="https://github.githubassets.com/images/icons/emoji/unicode/2728.png" height="20" width="20"> It will adapt to the theme colors and be less jarring when a dark theme is used. To try it out, go to <code class="highlighter-rouge">Settings &gt; Core</code> and enable “Use Custom Title Bar”.</p>
+
+<h3 id="improvements-and-bug-fixes">Improvements and Bug Fixes</h3>
+
+<ul>
+  <li>Added a configuration option for the large file warning threshold</li>
+  <li>Fixed a regression in the environment patching on macOS for users of the zsh shell</li>
+  <li>Made the Split Pane menu items work the way they used to</li>
+</ul>
+
+<p>Don’t forget to check out all the other improvements shipping with this version in the <a href="https://github.com/atom/atom/releases/tag/v1.11.0">release notes</a>! <img class="emoji" title=":memo:" alt=":memo:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dd.png" height="20" width="20"></p>
+
+<h2 id="atom-112-beta">Atom 1.12 Beta</h2>
+
+<p><img src="../../../img/release-beta.png" alt="Release Beta"></p>
+
+<h3 id="international-keyboard-support">International Keyboard Support</h3>
+
+<p>New APIs available in Chrome 52 allowed us to take on this <a href="https://github.com/atom/atom-keymap/issues/35">long-requested feature</a>. The new APIs turned out to be less important than we originally thought but we’re nonetheless happy to report Atom users in all locales now get typical keyboard behavior in Atom’s default installation.</p>
+
+<h3 id="electron-13">Electron 1.3</h3>
+
+<p>Thanks to some amazing work by community maintainer <a href="https://github.com/thomasjo">@thomasjo</a>, Atom comes out of the Electron dark ages in this release with an update to 1.3.6, bringing Chrome 52 along for the ride.</p>
+
+<h3 id="keybinding-usability">Keybinding Usability</h3>
+
+<p>The scope specificity rules for keybindings were understandably confusing lots of Atom users. This release has a <a href="https://github.com/atom/atom/pull/12760">major simplification</a> such that user-defined keybindings take precedence.</p>
+
+<h3 id="windows-fixes">Windows Fixes</h3>
+
+<p>There are a number of tweaks specific to Atom on Windows, including:</p>
+
+<ul>
+  <li><a href="https://github.com/atom/atom/issues/12642">Shell Integration upgrade reliability</a></li>
+  <li><a href="https://github.com/atom/atom/issues/9459">Allow multiple instances on Windows</a></li>
+  <li><a href="https://github.com/atom/atom/pull/12892">Move emacs editor bindings to Darwin to avoid Windows menu conflicts</a></li>
+</ul>
+
+<p>As ever, you can find all the gory details in the full <a href="https://github.com/atom/atom/releases/tag/v1.12.0-beta0">release notes</a>.</p>
+
+<p>Get all these improvements today by joining the <a href="https://atom.io/beta">Atom Beta Channel</a>!</p>
+
+<h2 id="join-us">Join Us!</h2>
+
+<p>Don’t see what you were hoping for here? Join the Atom team at GitHub. We’re hiring! Check out the details and apply <a href="https://jobs.lever.co/github/baaa9a2c-c249-4d06-b73f-e9bee1a3d147">here</a>!</p>
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2016/10/11/atom-1-11.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2016/10/11/atom-1-11.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:02 GMT -->
+</html>

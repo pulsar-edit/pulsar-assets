@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2015/06/24/rendering-improvements.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Rendering Improvements | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Rendering Improvements" />
+<meta name="author" content="as-cii" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Over the few last months, the Atom team has been working hard to improve the editor performance and deliver you an even greater experience. Today, I am going to shed some light on a few techniques we used to speed up the rendering process." />
+<meta property="og:description" content="Over the few last months, the Atom team has been working hard to improve the editor performance and deliver you an even greater experience. Today, I am going to shed some light on a few techniques we used to speed up the rendering process." />
+<link rel="canonical" href="rendering-improvements.html" />
+<meta property="og:url" content="rendering-improvements.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-06-24T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@as-cii" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2015/06/24/rendering-improvements.html"},"url":"https://blog.atom.io/2015/06/24/rendering-improvements.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"as-cii"},"headline":"Rendering Improvements","dateModified":"2015-06-24T00:00:00+00:00","datePublished":"2015-06-24T00:00:00+00:00","author":{"@type":"Person","name":"as-cii"},"description":"Over the few last months, the Atom team has been working hard to improve the editor performance and deliver you an even greater experience. Today, I am going to shed some light on a few techniques we used to speed up the rendering process.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Rendering Improvements</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> June 24, 2015 <a href="https://github.com/as-cii" class="author-link"><img class="avatar avatar-small" alt="as-cii" width="18" height="18" data-proofer-ignore="true" src="https://avatars2.githubusercontent.com/as-cii?v=3&amp;s=18" srcset="https://avatars2.githubusercontent.com/as-cii?v=3&amp;s=18 1x, https://avatars2.githubusercontent.com/as-cii?v=3&amp;s=36 2x, https://avatars2.githubusercontent.com/as-cii?v=3&amp;s=54 3x, https://avatars2.githubusercontent.com/as-cii?v=3&amp;s=72 4x"> as-cii</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p>Over the few last months, the Atom team has been working hard to improve the editor performance and deliver you an even greater experience. Today, I am going to shed some light on a few techniques we used to speed up the rendering process.</p>
+
+<h2 id="the-rendering-architecture">The Rendering Architecture</h2>
+
+<p>Right after a new animation frame is dispatched, we ask <code class="highlighter-rouge">TextEditorPresenter</code> to compute a state object which contains all the necessary information to present a <code class="highlighter-rouge">TextEditor</code> instance to the user. This, in turn, is used by <code class="highlighter-rouge">TextEditorComponent</code> (and its collaborators, such as <code class="highlighter-rouge">LinesComponent</code>) to construct and update DOM nodes.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/482957/8272112/3a4ec350-1837-11e5-8b69-03e0dd8e949f.jpg" alt="rendering-architecture"></p>
+
+<p><code class="highlighter-rouge">TextEditorPresenter</code> acts as a facade, thereby hiding all the complexity of translating a <code class="highlighter-rouge">TextEditor</code> instance into an object that speaks the UI language. Everything from coordinates conversion to decorations’ layout is handled in the presenter. As we have changed the code, this abstraction has proven to be very valuable: it allowed us to have a better separation of concerns and to introduce <a href="https://github.com/atom/atom/pull/5762">several</a> <a href="https://github.com/atom/atom/pull/5775">improvements</a> with little or no changes in the DOM manipulation layer.</p>
+
+<p>The whole rendering process has to be extremely fast: for performance-sensitive scenarios, such as scrolling, we strive to <a href="http://www.html5rocks.com/en/tutorials/speed/rendering/">complete each frame in less than 16ms</a>. To achieve such speed we adopted several performance optimizations, for example:</p>
+
+<ul>
+  <li>Keep the DOM as small as possible by rendering only the visible lines.</li>
+  <li>Use absolute coordinates for lines and apply a <code class="highlighter-rouge">transform3d</code> on the lines’ container to simulate scrolling.</li>
+</ul>
+
+<p>Although these techniques allowed us to deliver a smooth experience, they were not without some tradeoffs; indeed, they forced the GPU to deal with an almost empty texture which grew in size based on the buffer’s dimensions. Moreover, we had to <em>overpaint</em> some lines above and below the visible ones in order to prevent the entire screen to be repainted. Ultimately, the whole mechanism was taxing on the GPU and, as a side effect, we were not able to render more than ~750k lines.</p>
+
+<h2 id="tiles-to-the-rescue">Tiles To The Rescue!</h2>
+
+<p>Instead of reasoning about lines as individual entities, we started handling them in a tiled fashion. This idea has been <a href="https://github.com/atom/atom/pull/3154">floating around for a while</a>, but we only recently had the opportunity to fully implement it. This was thanks largely to our presentation layer, which made the transition to this new approach pretty smooth. The technique we ended up employing works roughly like this:</p>
+
+<ul>
+  <li>Group arbitrary amounts of lines into tiles.</li>
+  <li>Put each tile into a separate GPU layer.</li>
+  <li>Position every line with absolute coordinates within the corresponding tile.</li>
+  <li>Simulate scrolling by translating each individual tile via a <code class="highlighter-rouge">transform3d</code>.</li>
+</ul>
+
+<p><img src="https://cloud.githubusercontent.com/assets/482957/8293801/3894b004-1938-11e5-9ed8-f6a50022222e.gif" alt="tiles-layers"></p>
+
+<p>This way, GPU layers are sufficiently big not to cause <a href="http://jankfree.org/">rendering jank</a>, but sufficiently small to have efficient paint times. The benefits are many:</p>
+
+<ul>
+  <li>Less pressure on the GPU.</li>
+  <li>(Theoretically) Unlimited renderable lines.</li>
+  <li>Reduced paint times when new tiles appear on screen.</li>
+  <li>No need for <em>overpainting</em>.</li>
+  <li>Reduced cleanup times by deleting entire tile nodes when they move off-screen instead of each line that’s no longer visible.</li>
+</ul>
+
+<p><img class="emoji" title=":tada:" alt=":tada:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f389.png" height="20" width="20"> <img class="emoji" title=":tada:" alt=":tada:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f389.png" height="20" width="20"> <img class="emoji" title=":tada:" alt=":tada:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f389.png" height="20" width="20"></p>
+
+<h2 id="whats-next">What’s Next</h2>
+
+<p>You can have a glance at the code <a href="https://github.com/atom/atom/pull/6733">here</a>. We’re also working on a tiled implementation of the gutter which will bring even more speed to Atom. You can follow the progress in the related <a href="https://github.com/atom/atom/pull/7101">pull request</a>, and we’d <img class="emoji" title=":heart:" alt=":heart:" src="https://github.githubassets.com/images/icons/emoji/unicode/2764.png" height="20" width="20"> to have your feedback!</p>
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2015/06/24/rendering-improvements.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2015/06/24/rendering-improvements.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:19 GMT -->
+</html>

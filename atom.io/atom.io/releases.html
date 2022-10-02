@@ -1,0 +1,2079 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from atom.io/releases by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:54:56 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <title>Release Notes</title>
+  <link rel="stylesheet" media="all" href="assets/application-9c7b1f09011ebb0713c230a67542502205b83fcb473d7b616d47c50fc2721202.css" data-turbolinks-track="true" />
+  <script src="assets/application-0a16b0eaf21ce685254254025a69a7091c65d44c25082fa71dd074b53951d7e2.js" data-turbolinks-track="true"></script>
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="pae0OkuKAPY5Oo/YKDGoFJ+Xqbyvvf0Z31Z42KbMR3UTakgsIyVm9QALTAUChKfbHvLXwS5/dJBaoO5djQPVKg==" />
+  <meta property="og:url" content="https://atom.io/" />
+<meta property="og:site_name" content="Atom" />
+<meta property="og:title" content="A hackable text editor for the 21st Century" />
+<meta property="og:description" content="At GitHub, we’re building the text editor we’ve always wanted: hackable to the core, but approachable on the first day without ever touching a config file. We can’t wait to see what you build with it." />
+<meta property="og:type" content="website" />
+<meta property="og:author" content='https://www.facebook.com/GitHub' />
+  <meta property="og:image" content="http://og.github.com/atom-mark/atom-mark@1200x630.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:site" content="@AtomEditor" />
+<meta property="twitter:creator" content='@github' />
+<meta property="twitter:title" content="Atom" />
+<meta property="twitter:description" content="A hackable text editor for the 21st Century" />
+  <meta property="twitter:image:src" content="http://og.github.com/atom-logo/atom-logo@1200x630.png" />
+  <meta property="twitter:image:width" content="1200" />
+  <meta property="twitter:image:height" content="630" />
+
+  <meta name="description" content="At GitHub, we’re building the text editor we’ve always wanted: hackable to the core, but approachable on the first day without ever touching a config file. We can’t wait to see what you build with it." />
+<meta name="google-site-verification" content="c1kuD-K2HIVF635lypcsWPoD4kilo5-jA_wBFyT4uMY" />
+
+
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <link rel="alternate" type="application/atom+xml" title="Atom Packages and Themes" href="packages.atom" />
+</head>
+<body class="">
+
+  
+
+  <div class="footer-push">
+    <nav class="top-bar" aria-label="Primary">
+  <div class="wrapper no-pad">
+
+    <ul class="navigation">
+      <li><h1><a href="index.html" class="logo-small" title="Atom: A hackable text editor for the 21st Century"></a></h1></li>
+      <li><a class="" href="packages.html">Packages</a></li>
+      <li><a class="" href="themes.html">Themes</a></li>
+      <li><a class="" href="docs.html">Documentation</a></li>
+      <li><a href="https://blog.atom.io/">Blog</a></li>
+      <li><a href="https://github.com/atom/atom/discussions">Discussions</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+        <a href="https://github.com/login/oauth/authorize?client_id=e2c0e43b4a123468e341&amp;redirect_uri=https%3A%2F%2Fatom.io%2Fauth%2Fgithub%2Fcallback&amp;response_type=code&amp;scope=read%3Aorg&amp;state=fd60c417fedf46982e96f13686d5d911f04186a44c08e6cb">
+          <span class="octicon octicon-log-in"></span> Sign in
+        </a>
+    </div>
+  </div>
+</nav>
+
+
+    <div id="js-pjax-container">
+      <div class="wrapper releases search-page content-push">
+  <div class="markdown-body">
+    <h1 class="releases-header">Release notes</em></h1>
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.61.0-beta0">v1.61.0-beta0 <span class="release-date">(2022-03-08)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/atom/pull/22687">atom/atom#22687</a> - Electron upgrade  to <code>v11.4.7</code>
+</li>
+<li>
+<a href="https://github.com/atom/atom/pull/23446">https://github.com/atom/atom/pull/23446</a> - Fixes <code>git-diff</code> nested repositories REDUX</li>
+<li>
+<a href="https://github.com/atom/github/pull/2676">https://github.com/atom/github/pull/2676</a> -  Correctly discard history of two files with the same name</li>
+<li>
+<a href="https://github.com/atom/language-php/pull/445">https://github.com/atom/language-php/pull/445</a> - Detects nullable types in phpdoc</li>
+<li>
+<a href="https://github.com/atom/language-php/pull/432">https://github.com/atom/language-php/pull/432</a> - Supports blade syntax in heredoc</li>
+<li>
+<a href="https://github.com/atom/language-ruby/pull/240">https://github.com/atom/language-ruby/pull/240</a> - Adds ERB highlighting inside of script tags</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.60.0...1.61.0-beta0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/23158">atom/atom#23158 - Remove <code>if (reason === crashed)</code></a></li>
+<li><a href="https://github.com/atom/atom/pull/23282">atom/atom#23282 - Remove aws-sdk</a></li>
+<li><a href="https://github.com/atom/atom/pull/23286">atom/atom#23286 - Bump path-parse from 1.0.6 to 1.0.7 in /packages/dalek</a></li>
+<li><a href="https://github.com/atom/atom/pull/23285">atom/atom#23285 - Bump lodash from 4.17.15 to 4.17.21 in /packages/dalek</a></li>
+<li><a href="https://github.com/atom/atom/pull/22687">atom/atom#22687 - Electron upgrade 11.4.7</a></li>
+<li><a href="https://github.com/atom/atom/pull/23322">atom/atom#23322 - Install using npm installed during installation of script dependencies</a></li>
+<li><a href="https://github.com/atom/atom/pull/23446">atom/atom#23446 - Fix <code>git-diff</code> nested repositories REDUX</a></li>
+<li><a href="https://github.com/atom/atom/pull/23492">atom/atom#23492 - ⬆️   language-php@0.48.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/23506">atom/atom#23506 - Bump node-fetch from 2.6.1 to 3.1.1 in /script</a></li>
+<li><a href="https://github.com/atom/atom/pull/23505">atom/atom#23505 - Bump nanoid from 3.1.22 to 3.2.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/23575">atom/atom#23575 - fix/deps: min versions of electron-chromedriver...</a></li>
+<li><a href="https://github.com/atom/atom/pull/23578">atom/atom#23578 - ⬆️  Pr-changelog@0.3.4</a></li>
+<li><a href="https://github.com/atom/atom/pull/23624">atom/atom#23624 - Bump language-ruby to 0.73.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/23647">atom/atom#23647 - deps: "downgrade" node-fetch to ^v2.6.7 in script/ (fix "Bump dependencies" job in Nightly CI)</a></li>
+<li><a href="https://github.com/atom/atom/pull/23655">atom/atom#23655 - (docs) Add FAQ link</a></li>
+<li><a href="https://github.com/atom/atom/pull/23668">atom/atom#23668 - ⬆️ electron-packager to 15.1.0 in /script</a></li>
+</ul>
+<h3>
+<a id="github" class="anchor" href="#github" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/github">github</a>
+</h3>
+<p>v0.36.9...v0.36.10</p>
+<ul>
+<li><a href="https://github.com/atom/github/pull/2676">atom/github#2676 - Hotfix in restore discard history of files with same name</a></li>
+<li><a href="https://github.com/atom/github/pull/2682">atom/github#2682 - Clarify debug line</a></li>
+<li><a href="https://github.com/atom/github/pull/2683">atom/github#2683 - update os matrix in ci</a></li>
+<li><a href="https://github.com/atom/github/pull/2712">atom/github#2712 - Remote module defaults to false</a></li>
+</ul>
+<h3>
+<a id="language-php" class="anchor" href="#language-php" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/language-php">language-php</a>
+</h3>
+<p>v0.47.0...v0.48.1</p>
+<ul>
+<li><a href="https://github.com/atom/language-php/pull/445">atom/language-php#445 - Detect nullable types in phpdoc</a></li>
+<li><a href="https://github.com/atom/language-php/pull/439">atom/language-php#439 - Replace noreturn with never</a></li>
+<li><a href="https://github.com/atom/language-php/pull/444">atom/language-php#444 - limit allowed characters to UTF-8 range (0x10FFFF)</a></li>
+<li><a href="https://github.com/atom/language-php/pull/432">atom/language-php#432 - Support blade syntax in heredoc</a></li>
+</ul>
+<h3>
+<a id="language-ruby" class="anchor" href="#language-ruby" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/language-ruby">language-ruby</a>
+</h3>
+<p>v0.72.23...v0.73.0</p>
+<ul>
+<li><a href="https://github.com/atom/language-ruby/pull/289">atom/language-ruby#289 - GitHub Actions</a></li>
+<li><a href="https://github.com/atom/language-ruby/pull/288">atom/language-ruby#288 - Bump tree-sitter-ruby to 0.17.0</a></li>
+<li><a href="https://github.com/atom/language-ruby/pull/240">atom/language-ruby#240 - Add ERB highlighting inside of script tags</a></li>
+<li><a href="https://github.com/atom/language-ruby/pull/218">atom/language-ruby#218 - add interpolated snippet</a></li>
+<li><a href="https://github.com/atom/language-ruby/pull/234">atom/language-ruby#234 - Support multiline YARD comments</a></li>
+<li><a href="https://github.com/atom/language-ruby/pull/224">atom/language-ruby#224 - Fix missing scopes on separators and <code>self</code>, differentiate <code>-&gt;</code></a></li>
+<li><a href="https://github.com/atom/language-ruby/pull/294">atom/language-ruby#294 - Fix some typos</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.60.0">v1.60.0 <span class="release-date">(2022-03-08)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/tabs/pull/531">atom/tabs#531</a> - Activate panes on any click, not just left click</li>
+<li>
+<a href="https://github.com/atom/atom/pull/13414">https://github.com/atom/atom/pull/13414</a> - Adds context menu for cinnamon desktop enviroment (Linux)</li>
+<li>
+<a href="https://github.com/atom/atom/pull/19016">https://github.com/atom/atom/pull/19016</a> - Allow line endings to be converted when copying and pasting</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.59.0...1.60.0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/22769">atom/atom#22769 - Use custom elements on TestPanelContainerItemElement</a></li>
+<li><a href="https://github.com/atom/atom/pull/22774">atom/atom#22774 - Use customElement for the specs</a></li>
+<li><a href="https://github.com/atom/atom/pull/22578">atom/atom#22578 - add await to the async isValidGitDirectory</a></li>
+<li><a href="https://github.com/atom/atom/pull/22779">atom/atom#22779 - Fix linting issues</a></li>
+<li><a href="https://github.com/atom/atom/pull/22781">atom/atom#22781 - Remove redudant await</a></li>
+<li><a href="https://github.com/atom/atom/pull/22780">atom/atom#22780 - Use custom elements on pane container element</a></li>
+<li><a href="https://github.com/atom/atom/pull/22785">atom/atom#22785 - Use customElement on pane axis</a></li>
+<li><a href="https://github.com/atom/atom/pull/22789">atom/atom#22789 - Use custom elements on text editor element spec</a></li>
+<li><a href="https://github.com/atom/atom/pull/22800">atom/atom#22800 - Updates tree-view package to v0.229.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/22787">atom/atom#22787 - Use custom element on pane resize-handle element</a></li>
+<li><a href="https://github.com/atom/atom/pull/22814">atom/atom#22814 - Bump notifications@0.72.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/22817">atom/atom#22817 - Bump keybinding-resolver@0.39.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/22818">atom/atom#22818 - Bump tabs</a></li>
+<li><a href="https://github.com/atom/atom/pull/22834">atom/atom#22834 - Bump tabs@0.110.2</a></li>
+<li><a href="https://github.com/atom/atom/pull/22841">atom/atom#22841 - Bump path-parse from 1.0.6 to 1.0.7 in /packages/about</a></li>
+<li><a href="https://github.com/atom/atom/pull/22840">atom/atom#22840 - Bump path-parse from 1.0.6 to 1.0.7</a></li>
+<li><a href="https://github.com/atom/atom/pull/22849">atom/atom#22849 - Fixes Deprecated Authentication Style</a></li>
+<li><a href="https://github.com/atom/atom/pull/22850">atom/atom#22850 - Fixes Deprecated Authentication Style-2</a></li>
+<li><a href="https://github.com/atom/atom/pull/22851">atom/atom#22851 - Bump tree-view</a></li>
+<li><a href="https://github.com/atom/atom/pull/22751">atom/atom#22751 - Use custom element on pane-element</a></li>
+<li><a href="https://github.com/atom/atom/pull/22865">atom/atom#22865 - Revert timeout increase on CI.</a></li>
+<li><a href="https://github.com/atom/atom/pull/22867">atom/atom#22867 - Use custom element on text editor element</a></li>
+<li><a href="https://github.com/atom/atom/pull/22685">atom/atom#22685 - Make sure path is not undefined (#20871)</a></li>
+<li><a href="https://github.com/atom/atom/pull/22576">atom/atom#22576 - Bump normalize-url from 4.5.0 to 4.5.1 in /script</a></li>
+<li><a href="https://github.com/atom/atom/pull/15975">atom/atom#15975 - Add custom start tiles</a></li>
+<li><a href="https://github.com/atom/atom/pull/22930">atom/atom#22930 - Update Discuss links to Github Discussions links</a></li>
+<li><a href="https://github.com/atom/atom/pull/13821">atom/atom#13821 - <img title=":memo:" alt=":memo:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dd.png" height="20" width="20" align="absmiddle"> Clarify that stack only has an effect if detail is present as well</a></li>
+<li><a href="https://github.com/atom/atom/pull/17107">atom/atom#17107 - Convert arguments to absolute paths</a></li>
+<li><a href="https://github.com/atom/atom/pull/17681">atom/atom#17681 - RFC: Pre-transpile apm packages</a></li>
+<li><a href="https://github.com/atom/atom/pull/18703">atom/atom#18703 - Update windows atom.sh launch script to support WSL changes in 1809</a></li>
+<li><a href="https://github.com/atom/atom/pull/18816">atom/atom#18816 - RFC: Grammar comment delims</a></li>
+<li><a href="https://github.com/atom/atom/pull/13414">atom/atom#13414 - Added context menu for cinnamon desktop enviroment (Linux)</a></li>
+<li><a href="https://github.com/atom/atom/pull/19623">atom/atom#19623 - RFC: Evaluating scope name additions to built-in grammars</a></li>
+<li><a href="https://github.com/atom/atom/pull/17628">atom/atom#17628 - Fix getEnvFromShell() to correctly handle newlines in env vars</a></li>
+<li><a href="https://github.com/atom/atom/pull/22931">atom/atom#22931 - ⬆️  Bump language-css@0.45.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/22943">atom/atom#22943 - Add prevent option to ::onWillDestroyPaneItem</a></li>
+<li><a href="https://github.com/atom/atom/pull/23001">atom/atom#23001 - bootstrap: Update Node requirement to 10.12+ in system requirement checker</a></li>
+<li><a href="https://github.com/atom/atom/pull/22979">atom/atom#22979 - bootstrap: Use legacy-compatible <code>catch</code> syntax (support older Node)</a></li>
+<li><a href="https://github.com/atom/atom/pull/23000">atom/atom#23000 - Remove duplicate <code>to</code></a></li>
+<li><a href="https://github.com/atom/atom/pull/12513">atom/atom#12513 - Reset the package's local storage setting if loading cannot be deferred</a></li>
+<li><a href="https://github.com/atom/atom/pull/19251">atom/atom#19251 - Only allow drag-and-drop to succeed on panes in the center workspace</a></li>
+<li><a href="https://github.com/atom/atom/pull/19016">atom/atom#19016 - Convert line endings when copy and pasting</a></li>
+<li><a href="https://github.com/atom/atom/pull/23031">atom/atom#23031 - Remember last opened state </a></li>
+<li><a href="https://github.com/atom/atom/pull/23097">atom/atom#23097 - Remove dependancy status badge.</a></li>
+<li><a href="https://github.com/atom/atom/pull/23096">atom/atom#23096 - Replace remote module with invoke calls.</a></li>
+<li><a href="https://github.com/atom/atom/pull/23132">atom/atom#23132 - Change from <code>crashed</code> to <code>render-process-gone</code></a></li>
+<li><a href="https://github.com/atom/atom/pull/23145">atom/atom#23145 - Revert "Only allow drag-and-drop to succeed on panes in the center workspace"</a></li>
+</ul>
+<h3>
+<a id="keybinding-resolver" class="anchor" href="#keybinding-resolver" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/keybinding-resolver">keybinding-resolver</a>
+</h3>
+<p>v0.39.0...v0.39.1</p>
+<ul>
+<li><a href="https://github.com/atom/keybinding-resolver/pull/68">atom/keybinding-resolver#68 - Remove LICENSE</a></li>
+<li><a href="https://github.com/atom/keybinding-resolver/pull/70">atom/keybinding-resolver#70 - Upgrade temp</a></li>
+<li><a href="https://github.com/atom/keybinding-resolver/pull/74">atom/keybinding-resolver#74 - Migrate to Github Actions</a></li>
+<li><a href="https://github.com/atom/keybinding-resolver/pull/76">atom/keybinding-resolver#76 - Fix failing specs</a></li>
+</ul>
+<h3>
+<a id="notifications" class="anchor" href="#notifications" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/notifications">notifications</a>
+</h3>
+<p>v0.71.0...v0.72.1</p>
+<ul>
+<li><a href="https://github.com/atom/notifications/pull/204">atom/notifications#204 - Migrate to Github Actions</a></li>
+</ul>
+<h3>
+<a id="tabs" class="anchor" href="#tabs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/tabs">tabs</a>
+</h3>
+<p>v0.110.0...v0.110.2</p>
+<ul>
+<li><a href="https://github.com/atom/tabs/pull/531">atom/tabs#531 - Activate panes on any click, not just left click</a></li>
+<li><a href="https://github.com/atom/tabs/pull/565">atom/tabs#565 - Migrate to Github Actions</a></li>
+<li><a href="https://github.com/atom/tabs/pull/566">atom/tabs#566 - Fix failing specs</a></li>
+</ul>
+<h3>
+<a id="tree-view" class="anchor" href="#tree-view" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/tree-view">tree-view</a>
+</h3>
+<p>v0.228.3...v0.229.1</p>
+<ul>
+<li><a href="https://github.com/atom/tree-view/pull/1381">atom/tree-view#1381 - Migrate to Github Actions</a></li>
+<li><a href="https://github.com/atom/tree-view/pull/1389">atom/tree-view#1389 - Implement option to hid tree pane on startup</a></li>
+<li><a href="https://github.com/atom/tree-view/pull/1392">atom/tree-view#1392 - Attach elements to jasmine DOM</a></li>
+</ul>
+<h3>
+<a id="language-css" class="anchor" href="#language-css" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/language-css">language-css</a>
+</h3>
+<p>v0.44.4...v0.45.1</p>
+<ul>
+<li><a href="https://github.com/atom/language-css/pull/169">atom/language-css#169 - Add generic system font families</a></li>
+<li><a href="https://github.com/atom/language-css/pull/129">atom/language-css#129 - Media query support for 'hover' (see issue #128)</a></li>
+<li><a href="https://github.com/atom/language-css/pull/154">atom/language-css#154 - Fix typo in "highlight deprecated combinators" spec</a></li>
+<li><a href="https://github.com/atom/language-css/pull/144">atom/language-css#144 - Add support for display: flow-root</a></li>
+<li><a href="https://github.com/atom/language-css/pull/151">atom/language-css#151 - Add missing scroll-snap-type values</a></li>
+<li><a href="https://github.com/atom/language-css/pull/143">atom/language-css#143 - Add justify-self and justify-items grid properties</a></li>
+<li><a href="https://github.com/atom/language-css/pull/127">atom/language-css#127 - adjust tag-names match to fix downstream issue in language-less</a></li>
+<li><a href="https://github.com/atom/language-css/pull/177">atom/language-css#177 - Migrate to Github Actions</a></li>
+<li><a href="https://github.com/atom/language-css/pull/182">atom/language-css#182 - Add in @-ms-viewport and @-o-viewport to CSS grammar</a></li>
+<li><a href="https://github.com/atom/language-css/pull/178">atom/language-css#178 - Add :focus-visible pseudoclass</a></li>
+<li><a href="https://github.com/atom/language-css/pull/173">atom/language-css#173 - Updating CSS property list</a></li>
+<li><a href="https://github.com/atom/language-css/pull/183">atom/language-css#183 - Revert "adjust tag-names match to fix downstream issue in language-less"</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.60.0-beta0">v1.60.0-beta0 <span class="release-date">(2022-02-08)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/atom/pull/13414">https://github.com/atom/atom/pull/13414</a> - Adds context menu for cinnamon desktop enviroment (Linux)</li>
+<li>
+<a href="https://github.com/atom/atom/pull/19016">https://github.com/atom/atom/pull/19016</a> - Allow line endings to be converted when copying and pasting</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.59.0...1.60.0-beta0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/22769">atom/atom#22769 - Use custom elements on TestPanelContainerItemElement</a></li>
+<li><a href="https://github.com/atom/atom/pull/22774">atom/atom#22774 - Use customElement for the specs</a></li>
+<li><a href="https://github.com/atom/atom/pull/22578">atom/atom#22578 - add await to the async isValidGitDirectory</a></li>
+<li><a href="https://github.com/atom/atom/pull/22779">atom/atom#22779 - Fix linting issues</a></li>
+<li><a href="https://github.com/atom/atom/pull/22781">atom/atom#22781 - Remove redudant await</a></li>
+<li><a href="https://github.com/atom/atom/pull/22780">atom/atom#22780 - Use custom elements on pane container element</a></li>
+<li><a href="https://github.com/atom/atom/pull/22785">atom/atom#22785 - Use customElement on pane axis</a></li>
+<li><a href="https://github.com/atom/atom/pull/22789">atom/atom#22789 - Use custom elements on text editor element spec</a></li>
+<li><a href="https://github.com/atom/atom/pull/22800">atom/atom#22800 - Updates tree-view package to v0.229.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/22787">atom/atom#22787 - Use custom element on pane resize-handle element</a></li>
+<li><a href="https://github.com/atom/atom/pull/22814">atom/atom#22814 - Bump notifications@0.72.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/22817">atom/atom#22817 - Bump keybinding-resolver@0.39.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/22818">atom/atom#22818 - Bump tabs</a></li>
+<li><a href="https://github.com/atom/atom/pull/22834">atom/atom#22834 - Bump tabs@0.110.2</a></li>
+<li><a href="https://github.com/atom/atom/pull/22841">atom/atom#22841 - Bump path-parse from 1.0.6 to 1.0.7 in /packages/about</a></li>
+<li><a href="https://github.com/atom/atom/pull/22840">atom/atom#22840 - Bump path-parse from 1.0.6 to 1.0.7</a></li>
+<li><a href="https://github.com/atom/atom/pull/22849">atom/atom#22849 - Fixes Deprecated Authentication Style</a></li>
+<li><a href="https://github.com/atom/atom/pull/22850">atom/atom#22850 - Fixes Deprecated Authentication Style-2</a></li>
+<li><a href="https://github.com/atom/atom/pull/22851">atom/atom#22851 - Bump tree-view</a></li>
+<li><a href="https://github.com/atom/atom/pull/22751">atom/atom#22751 - Use custom element on pane-element</a></li>
+<li><a href="https://github.com/atom/atom/pull/22865">atom/atom#22865 - Revert timeout increase on CI.</a></li>
+<li><a href="https://github.com/atom/atom/pull/22867">atom/atom#22867 - Use custom element on text editor element</a></li>
+<li><a href="https://github.com/atom/atom/pull/22685">atom/atom#22685 - Make sure path is not undefined (#20871)</a></li>
+<li><a href="https://github.com/atom/atom/pull/22576">atom/atom#22576 - Bump normalize-url from 4.5.0 to 4.5.1 in /script</a></li>
+<li><a href="https://github.com/atom/atom/pull/15975">atom/atom#15975 - Add custom start tiles</a></li>
+<li><a href="https://github.com/atom/atom/pull/22930">atom/atom#22930 - Update Discuss links to Github Discussions links</a></li>
+<li><a href="https://github.com/atom/atom/pull/13821">atom/atom#13821 - <img title=":memo:" alt=":memo:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dd.png" height="20" width="20" align="absmiddle"> Clarify that stack only has an effect if detail is present as well</a></li>
+<li><a href="https://github.com/atom/atom/pull/17107">atom/atom#17107 - Convert arguments to absolute paths</a></li>
+<li><a href="https://github.com/atom/atom/pull/17681">atom/atom#17681 - RFC: Pre-transpile apm packages</a></li>
+<li><a href="https://github.com/atom/atom/pull/18703">atom/atom#18703 - Update windows atom.sh launch script to support WSL changes in 1809</a></li>
+<li><a href="https://github.com/atom/atom/pull/18816">atom/atom#18816 - RFC: Grammar comment delims</a></li>
+<li><a href="https://github.com/atom/atom/pull/13414">atom/atom#13414 - Added context menu for cinnamon desktop enviroment (Linux)</a></li>
+<li><a href="https://github.com/atom/atom/pull/19623">atom/atom#19623 - RFC: Evaluating scope name additions to built-in grammars</a></li>
+<li><a href="https://github.com/atom/atom/pull/17628">atom/atom#17628 - Fix getEnvFromShell() to correctly handle newlines in env vars</a></li>
+<li><a href="https://github.com/atom/atom/pull/22931">atom/atom#22931 - ⬆️  Bump language-css@0.45.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/22943">atom/atom#22943 - Add prevent option to ::onWillDestroyPaneItem</a></li>
+<li><a href="https://github.com/atom/atom/pull/23001">atom/atom#23001 - bootstrap: Update Node requirement to 10.12+ in system requirement checker</a></li>
+<li><a href="https://github.com/atom/atom/pull/22979">atom/atom#22979 - bootstrap: Use legacy-compatible <code>catch</code> syntax (support older Node)</a></li>
+<li><a href="https://github.com/atom/atom/pull/23000">atom/atom#23000 - Remove duplicate <code>to</code></a></li>
+<li><a href="https://github.com/atom/atom/pull/12513">atom/atom#12513 - Reset the package's local storage setting if loading cannot be deferred</a></li>
+<li><a href="https://github.com/atom/atom/pull/19251">atom/atom#19251 - Only allow drag-and-drop to succeed on panes in the center workspace</a></li>
+<li><a href="https://github.com/atom/atom/pull/19016">atom/atom#19016 - Convert line endings when copy and pasting</a></li>
+<li><a href="https://github.com/atom/atom/pull/23031">atom/atom#23031 - Remember last opened state </a></li>
+<li><a href="https://github.com/atom/atom/pull/23097">atom/atom#23097 - Remove dependancy status badge.</a></li>
+<li><a href="https://github.com/atom/atom/pull/23096">atom/atom#23096 - Replace remote module with invoke calls.</a></li>
+<li><a href="https://github.com/atom/atom/pull/23132">atom/atom#23132 - Change from <code>crashed</code> to <code>render-process-gone</code></a></li>
+<li><a href="https://github.com/atom/atom/pull/23145">atom/atom#23145 - Revert "Only allow drag-and-drop to succeed on panes in the center workspace"</a></li>
+</ul>
+<h3>
+<a id="keybinding-resolver" class="anchor" href="#keybinding-resolver" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/keybinding-resolver">keybinding-resolver</a>
+</h3>
+<p>v0.39.0...v0.39.1</p>
+<ul>
+<li><a href="https://github.com/atom/keybinding-resolver/pull/68">atom/keybinding-resolver#68 - Remove LICENSE</a></li>
+<li><a href="https://github.com/atom/keybinding-resolver/pull/70">atom/keybinding-resolver#70 - Upgrade temp</a></li>
+<li><a href="https://github.com/atom/keybinding-resolver/pull/74">atom/keybinding-resolver#74 - Migrate to Github Actions</a></li>
+<li><a href="https://github.com/atom/keybinding-resolver/pull/76">atom/keybinding-resolver#76 - Fix failing specs</a></li>
+</ul>
+<h3>
+<a id="notifications" class="anchor" href="#notifications" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/notifications">notifications</a>
+</h3>
+<p>v0.71.0...v0.72.1</p>
+<ul>
+<li><a href="https://github.com/atom/notifications/pull/204">atom/notifications#204 - Migrate to Github Actions</a></li>
+</ul>
+<h3>
+<a id="tabs" class="anchor" href="#tabs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/tabs">tabs</a>
+</h3>
+<p>v0.110.0...v0.110.2</p>
+<ul>
+<li><a href="https://github.com/atom/tabs/pull/531">atom/tabs#531 - Activate panes on any click, not just left click</a></li>
+<li><a href="https://github.com/atom/tabs/pull/565">atom/tabs#565 - Migrate to Github Actions</a></li>
+<li><a href="https://github.com/atom/tabs/pull/566">atom/tabs#566 - Fix failing specs</a></li>
+</ul>
+<h3>
+<a id="tree-view" class="anchor" href="#tree-view" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/tree-view">tree-view</a>
+</h3>
+<p>v0.228.3...v0.229.1</p>
+<ul>
+<li><a href="https://github.com/atom/tree-view/pull/1381">atom/tree-view#1381 - Migrate to Github Actions</a></li>
+<li><a href="https://github.com/atom/tree-view/pull/1389">atom/tree-view#1389 - Implement option to hid tree pane on startup</a></li>
+<li><a href="https://github.com/atom/tree-view/pull/1392">atom/tree-view#1392 - Attach elements to jasmine DOM</a></li>
+</ul>
+<h3>
+<a id="language-css" class="anchor" href="#language-css" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/language-css">language-css</a>
+</h3>
+<p>v0.44.4...v0.45.1</p>
+<ul>
+<li><a href="https://github.com/atom/language-css/pull/169">atom/language-css#169 - Add generic system font families</a></li>
+<li><a href="https://github.com/atom/language-css/pull/129">atom/language-css#129 - Media query support for 'hover' (see issue #128)</a></li>
+<li><a href="https://github.com/atom/language-css/pull/154">atom/language-css#154 - Fix typo in "highlight deprecated combinators" spec</a></li>
+<li><a href="https://github.com/atom/language-css/pull/144">atom/language-css#144 - Add support for display: flow-root</a></li>
+<li><a href="https://github.com/atom/language-css/pull/151">atom/language-css#151 - Add missing scroll-snap-type values</a></li>
+<li><a href="https://github.com/atom/language-css/pull/143">atom/language-css#143 - Add justify-self and justify-items grid properties</a></li>
+<li><a href="https://github.com/atom/language-css/pull/127">atom/language-css#127 - adjust tag-names match to fix downstream issue in language-less</a></li>
+<li><a href="https://github.com/atom/language-css/pull/177">atom/language-css#177 - Migrate to Github Actions</a></li>
+<li><a href="https://github.com/atom/language-css/pull/182">atom/language-css#182 - Add in @-ms-viewport and @-o-viewport to CSS grammar</a></li>
+<li><a href="https://github.com/atom/language-css/pull/178">atom/language-css#178 - Add :focus-visible pseudoclass</a></li>
+<li><a href="https://github.com/atom/language-css/pull/173">atom/language-css#173 - Updating CSS property list</a></li>
+<li><a href="https://github.com/atom/language-css/pull/183">atom/language-css#183 - Revert "adjust tag-names match to fix downstream issue in language-less"</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.59.0">v1.59.0 <span class="release-date">(2022-02-08)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/atom/pull/22697">https://github.com/atom/atom/pull/22697</a> - Fixed command to install Atom dependencies on Ubuntu</li>
+<li>
+<a href="https://github.com/atom/atom/pull/16206">https://github.com/atom/atom/pull/16206</a> - Enable default editor keymaps for editors located outside atom-workspace</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.58.0...1.59.0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/22015">atom/atom#22015 - Update required dependencies for Debian/Ubuntu</a></li>
+<li><a href="https://github.com/atom/atom/pull/22463">atom/atom#22463 - ⬆️  Bump atom-select-list@0.8.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/16206">atom/atom#16206 - Enable default editor keymaps for editors located outside atom-workspace</a></li>
+<li><a href="https://github.com/atom/atom/pull/22448">atom/atom#22448 - Update readme install libraries instructions</a></li>
+<li><a href="https://github.com/atom/atom/pull/11786">atom/atom#11786 - fix spec toShow()</a></li>
+<li><a href="https://github.com/atom/atom/pull/22475">atom/atom#22475 - Document TextEditor::bufferRangeForScopeAtBufferPosition </a></li>
+<li><a href="https://github.com/atom/atom/pull/22478">atom/atom#22478 - Bump browserslist from 4.16.3 to 4.16.6</a></li>
+<li><a href="https://github.com/atom/atom/pull/22498">atom/atom#22498 - Update atom.desktop.ini</a></li>
+<li><a href="https://github.com/atom/atom/pull/18321">atom/atom#18321 - Implementing tree-sitter based indentation logic</a></li>
+<li><a href="https://github.com/atom/atom/pull/22250">atom/atom#22250 - Migrate from Amazon S3 to Azure blob storage</a></li>
+<li><a href="https://github.com/atom/atom/pull/22530">atom/atom#22530 - Fixes error on production CI</a></li>
+<li><a href="https://github.com/atom/atom/pull/22543">atom/atom#22543 - git-diff: Fix typo in code</a></li>
+<li><a href="https://github.com/atom/atom/pull/22541">atom/atom#22541 - Recreate #15175</a></li>
+<li><a href="https://github.com/atom/atom/pull/22553">atom/atom#22553 - tree-indenter: Fix typo</a></li>
+<li><a href="https://github.com/atom/atom/pull/22575">atom/atom#22575 - Bump normalize-url from 4.5.0 to 4.5.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/22652">atom/atom#22652 - Bump <code>async</code> dependency to 3.2.0 in /script</a></li>
+<li><a href="https://github.com/atom/atom/pull/22688">atom/atom#22688 - Bump color-string from 1.5.4 to 1.5.5</a></li>
+<li><a href="https://github.com/atom/atom/pull/22597">atom/atom#22597 - Fix/not update menu with i18n (#22594)</a></li>
+<li><a href="https://github.com/atom/atom/pull/22697">atom/atom#22697 - Fixed command to install Atom dependencies on Ubuntu</a></li>
+<li><a href="https://github.com/atom/atom/pull/22737">atom/atom#22737 - Fix typo in tree-sitter-language-mode-spec.js</a></li>
+<li><a href="https://github.com/atom/atom/pull/22733">atom/atom#22733 - Decaffeinate elements</a></li>
+<li><a href="https://github.com/atom/atom/pull/22741">atom/atom#22741 - For glibc compatibility use Ubuntu 18.04 as environment</a></li>
+<li><a href="https://github.com/atom/atom/pull/22738">atom/atom#22738 - Ubuntu 16.04 LTS environment is deprecated It will be removed on September 20, 2021. Migrate to ubuntu-latest instead.</a></li>
+<li><a href="https://github.com/atom/atom/pull/22717">atom/atom#22717 - Try removing marked</a></li>
+<li><a href="https://github.com/atom/atom/pull/22749">atom/atom#22749 - Migrate styles element to custom elements</a></li>
+<li><a href="https://github.com/atom/atom/pull/22750">atom/atom#22750 - Use custom element on pane container element</a></li>
+<li><a href="https://github.com/atom/atom/pull/22755">atom/atom#22755 - Use custom element on workspace-element</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.59.0-beta0">v1.59.0-beta0 <span class="release-date">(2021-07-27)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/atom/pull/16206">https://github.com/atom/atom/pull/16206</a> - Enable default editor keymaps for editors located outside atom-workspace</li>
+<li>
+<a href="https://github.com/atom/atom/pull/18321">https://github.com/atom/atom/pull/18321</a> - Implementing tree-sitter based indentation logic</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.58.0...1.59.0-beta0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/22015">atom/atom#22015 - Update required dependencies for Debian/Ubuntu</a></li>
+<li><a href="https://github.com/atom/atom/pull/22463">atom/atom#22463 - ⬆️  Bump atom-select-list@0.8.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/16206">atom/atom#16206 - Enable default editor keymaps for editors located outside atom-workspace</a></li>
+<li><a href="https://github.com/atom/atom/pull/22448">atom/atom#22448 - Update readme install libraries instructions</a></li>
+<li><a href="https://github.com/atom/atom/pull/11786">atom/atom#11786 - fix spec toShow()</a></li>
+<li><a href="https://github.com/atom/atom/pull/22475">atom/atom#22475 - Document TextEditor::bufferRangeForScopeAtBufferPosition </a></li>
+<li><a href="https://github.com/atom/atom/pull/22478">atom/atom#22478 - Bump browserslist from 4.16.3 to 4.16.6</a></li>
+<li><a href="https://github.com/atom/atom/pull/22498">atom/atom#22498 - Update atom.desktop.ini</a></li>
+<li><a href="https://github.com/atom/atom/pull/18321">atom/atom#18321 - Implementing tree-sitter based indentation logic</a></li>
+<li><a href="https://github.com/atom/atom/pull/22250">atom/atom#22250 - Migrate from Amazon S3 to Azure blob storage</a></li>
+<li><a href="https://github.com/atom/atom/pull/22530">atom/atom#22530 - Fixes error on production CI</a></li>
+<li><a href="https://github.com/atom/atom/pull/22543">atom/atom#22543 - git-diff: Fix typo in code</a></li>
+<li><a href="https://github.com/atom/atom/pull/22541">atom/atom#22541 - Recreate #15175</a></li>
+<li><a href="https://github.com/atom/atom/pull/22553">atom/atom#22553 - tree-indenter: Fix typo</a></li>
+<li><a href="https://github.com/atom/atom/pull/22575">atom/atom#22575 - Bump normalize-url from 4.5.0 to 4.5.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/22652">atom/atom#22652 - Bump <code>async</code> dependency to 3.2.0 in /script</a></li>
+<li><a href="https://github.com/atom/atom/pull/22688">atom/atom#22688 - Bump color-string from 1.5.4 to 1.5.5</a></li>
+<li><a href="https://github.com/atom/atom/pull/22597">atom/atom#22597 - Fix/not update menu with i18n (#22594)</a></li>
+<li><a href="https://github.com/atom/atom/pull/22697">atom/atom#22697 - Fixed command to install Atom dependencies on Ubuntu</a></li>
+<li><a href="https://github.com/atom/atom/pull/22737">atom/atom#22737 - Fix typo in tree-sitter-language-mode-spec.js</a></li>
+<li><a href="https://github.com/atom/atom/pull/22733">atom/atom#22733 - Decaffeinate elements</a></li>
+<li><a href="https://github.com/atom/atom/pull/22741">atom/atom#22741 - For glibc compatibility use Ubuntu 18.04 as environment</a></li>
+<li><a href="https://github.com/atom/atom/pull/22738">atom/atom#22738 - Ubuntu 16.04 LTS environment is deprecated It will be removed on September 20, 2021. Migrate to ubuntu-latest instead.</a></li>
+<li><a href="https://github.com/atom/atom/pull/22717">atom/atom#22717 - Try removing marked</a></li>
+<li><a href="https://github.com/atom/atom/pull/22749">atom/atom#22749 - Migrate styles element to custom elements</a></li>
+<li><a href="https://github.com/atom/atom/pull/22750">atom/atom#22750 - Use custom element on pane container element</a></li>
+<li><a href="https://github.com/atom/atom/pull/22755">atom/atom#22755 - Use custom element on workspace-element</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.58.0">v1.58.0 <span class="release-date">(2021-07-27)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/atom/pull/22315">https://github.com/atom/atom/pull/22315</a> - Update to macOS Big Sur icon.</li>
+<li>
+<a href="https://github.com/atom/atom/pull/22424">https://github.com/atom/atom/pull/22424</a> - Fix reopening a project in safeMode and devMode.</li>
+<li>
+<a href="https://github.com/atom/atom/pull/22123">https://github.com/atom/atom/pull/22123</a> - Improve contrast on Windows app icons</li>
+<li>
+<a href="https://github.com/atom/archive-view/pull/73">https://github.com/atom/archive-view/pull/73</a> - Add ability to collapse archived directories (zip, tar, e.t.c)</li>
+<li>
+<a href="https://github.com/atom/bracket-matcher/pull/405">https://github.com/atom/bracket-matcher/pull/405</a> - Handle multicursor selection inside brackets</li>
+<li>
+<a href="https://github.com/atom/find-and-replace/pull/932">https://github.com/atom/find-and-replace/pull/932</a> - Add "Open in New Tab" and "Open in New Window" right-click context menu options</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.57.0...1.58.0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/22185">atom/atom#22185 - Use n-api for native modules.</a></li>
+<li><a href="https://github.com/atom/atom/pull/21379">atom/atom#21379 - Use the built-in Visual Studio instead of windows-build-tools v4</a></li>
+<li><a href="https://github.com/atom/atom/pull/22347">atom/atom#22347 - ⬆️  Bump whitespace@0.37.8</a></li>
+<li><a href="https://github.com/atom/atom/pull/22353">atom/atom#22353 - ⬆️  Bump find-and-replace@0.219.8</a></li>
+<li><a href="https://github.com/atom/atom/pull/22354">atom/atom#22354 - Speed up blinking cursor</a></li>
+<li><a href="https://github.com/atom/atom/pull/22372">atom/atom#22372 - Bump hosted-git-info from 2.7.1 to 2.8.9 in /packages/about</a></li>
+<li><a href="https://github.com/atom/atom/pull/22371">atom/atom#22371 - Bump hosted-git-info from 2.7.1 to 2.8.9 in /script/vsts</a></li>
+<li><a href="https://github.com/atom/atom/pull/22361">atom/atom#22361 - Bump lodash from 4.17.20 to 4.17.21 in /packages/about</a></li>
+<li><a href="https://github.com/atom/atom/pull/22384">atom/atom#22384 - Bump pathwatcher@8.1.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/22386">atom/atom#22386 - Bump bracket-matcher@0.92.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/22385">atom/atom#22385 - Bump postcss from 8.1.6 to 8.2.10</a></li>
+<li><a href="https://github.com/atom/atom/pull/22395">atom/atom#22395 - Bump language-php@0.47.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/22096">atom/atom#22096 - fix: update language-python for nightly</a></li>
+<li><a href="https://github.com/atom/atom/pull/22407">atom/atom#22407 - ⬆️  Bump archive-view@0.66.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/22315">atom/atom#22315 - Replaced OS X Yosemite-era icon with macOS Big Sur icon for Atom for Macs</a></li>
+<li><a href="https://github.com/atom/atom/pull/22424">atom/atom#22424 - Pass safeMode and devMode on reopening a project</a></li>
+<li><a href="https://github.com/atom/atom/pull/22433">atom/atom#22433 - Get rpm from bionic</a></li>
+<li><a href="https://github.com/atom/atom/pull/22446">atom/atom#22446 - Update README.md to match the move to Github Discussion</a></li>
+<li><a href="https://github.com/atom/atom/pull/22447">atom/atom#22447 - Remove instructions to join slack</a></li>
+<li><a href="https://github.com/atom/atom/pull/22297">atom/atom#22297 - Fix typo in text-editor-spec.js</a></li>
+<li><a href="https://github.com/atom/atom/pull/22123">atom/atom#22123 - Fix app icons on Windows</a></li>
+<li><a href="https://github.com/atom/atom/pull/22103">atom/atom#22103 - Convert var to const/let in src files</a></li>
+<li><a href="https://github.com/atom/atom/pull/22076">atom/atom#22076 - Fix RPM dependencies</a></li>
+<li><a href="https://github.com/atom/atom/pull/22421">atom/atom#22421 - Replaced the old Atom document icon with the Big Sur icon</a></li>
+<li><a href="https://github.com/atom/atom/pull/22053">atom/atom#22053 - Fix: remove unused parser instance</a></li>
+<li><a href="https://github.com/atom/atom/pull/22450">atom/atom#22450 - script: Let bootstrap install <code>apm</code> with <code>npm ci</code></a></li>
+<li><a href="https://github.com/atom/atom/pull/22453">atom/atom#22453 - ⬆️  Bump minidump@0.22.0</a></li>
+</ul>
+<h3>
+<a id="archive-view" class="anchor" href="#archive-view" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/archive-view">archive-view</a>
+</h3>
+<p>v0.65.2...v0.66.0</p>
+<ul>
+<li><a href="https://github.com/atom/archive-view/pull/78">atom/archive-view#78 - Migrate to Github Actions</a></li>
+<li><a href="https://github.com/atom/archive-view/pull/73">atom/archive-view#73 - Add ability to collapse directories</a></li>
+</ul>
+<h3>
+<a id="bracket-matcher" class="anchor" href="#bracket-matcher" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/bracket-matcher">bracket-matcher</a>
+</h3>
+<p>v0.91.2...v0.92.0</p>
+<ul>
+<li><a href="https://github.com/atom/bracket-matcher/pull/396">atom/bracket-matcher#396 - Fix close-tag for JSX tags with member access</a></li>
+<li><a href="https://github.com/atom/bracket-matcher/pull/402">atom/bracket-matcher#402 - Bump y18n from 3.2.1 to 3.2.2</a></li>
+<li><a href="https://github.com/atom/bracket-matcher/pull/403">atom/bracket-matcher#403 - Migrate to Github Actions</a></li>
+<li><a href="https://github.com/atom/bracket-matcher/pull/405">atom/bracket-matcher#405 - Handle multicursor selection inside brackets</a></li>
+</ul>
+<h3>
+<a id="find-and-replace" class="anchor" href="#find-and-replace" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/find-and-replace">find-and-replace</a>
+</h3>
+<p>v0.219.7...v0.219.8</p>
+<ul>
+<li><a href="https://github.com/atom/find-and-replace/pull/1050">atom/find-and-replace#1050 - docs(CONTRIBUTING.md): add link to Running Specs</a></li>
+<li><a href="https://github.com/atom/find-and-replace/pull/938">atom/find-and-replace#938 - Add preserve case option for buffer replace. References #165.</a></li>
+<li><a href="https://github.com/atom/find-and-replace/pull/932">atom/find-and-replace#932 - Added "Open in New Tab" and "Open in New Window" right-click context menu options</a></li>
+<li><a href="https://github.com/atom/find-and-replace/pull/1152">atom/find-and-replace#1152 - Add searchAllPanes option</a></li>
+</ul>
+<h3>
+<a id="whitespace" class="anchor" href="#whitespace" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/whitespace">whitespace</a>
+</h3>
+<p>v0.37.7...v0.37.8</p>
+<ul>
+<li><a href="https://github.com/atom/whitespace/pull/181">atom/whitespace#181 - Add Probot no-response configuration</a></li>
+<li><a href="https://github.com/atom/whitespace/pull/182">atom/whitespace#182 - 🤖 Configure probot/no-response to allow 28 days when requesting more info on an issue</a></li>
+<li><a href="https://github.com/atom/whitespace/pull/196">atom/whitespace#196 - Migrate to Github Actions</a></li>
+<li><a href="https://github.com/atom/whitespace/pull/197">atom/whitespace#197 - Use active pane to save untitled file</a></li>
+</ul>
+<h3>
+<a id="language-php" class="anchor" href="#language-php" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/language-php">language-php</a>
+</h3>
+<p>v0.44.7...v0.47.0</p>
+<ul>
+<li><a href="https://github.com/atom/language-php/pull/398">atom/language-php#398 - Update type hints</a></li>
+<li><a href="https://github.com/atom/language-php/pull/397">atom/language-php#397 - Support UTF-8 characters in namespaces and class names</a></li>
+<li><a href="https://github.com/atom/language-php/pull/383">atom/language-php#383 - Fix tokens for calls on variables</a></li>
+<li><a href="https://github.com/atom/language-php/pull/396">atom/language-php#396 - Non-capturing catches and multiple namespaced exceptions</a></li>
+<li><a href="https://github.com/atom/language-php/pull/406">atom/language-php#406 - Update .travis.yml</a></li>
+<li><a href="https://github.com/atom/language-php/pull/405">atom/language-php#405 - Attributes</a></li>
+<li><a href="https://github.com/atom/language-php/pull/407">atom/language-php#407 - match statement</a></li>
+<li><a href="https://github.com/atom/language-php/pull/404">atom/language-php#404 - Nullsafe operator</a></li>
+<li><a href="https://github.com/atom/language-php/pull/411">atom/language-php#411 - Fix attributes with leading whitespaces</a></li>
+<li><a href="https://github.com/atom/language-php/pull/408">atom/language-php#408 - Fix methods in interface</a></li>
+<li><a href="https://github.com/atom/language-php/pull/412">atom/language-php#412 - Adding '$' character for highlight-selected</a></li>
+</ul>
+<h3>
+<a id="language-python" class="anchor" href="#language-python" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/language-python">language-python</a>
+</h3>
+<p>v0.53.5...v0.53.6</p>
+<ul>
+<li><a href="https://github.com/atom/language-python/pull/327">atom/language-python#327 - GitHub Actions</a></li>
+<li><a href="https://github.com/atom/language-python/pull/315">atom/language-python#315 - Add a lookahead for DELETE to avoid mistaking HTTP strings for SQL</a></li>
+<li><a href="https://github.com/atom/language-python/pull/325">atom/language-python#325 - Update tree-sitter-python + Add missing tree-sitter scopes</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.57.0">v1.57.0 <span class="release-date">(2021-05-11)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/atom/pull/21847">https://github.com/atom/atom/pull/21847</a> - Improve detection of incompatible native modules.</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.56.0...1.57.0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/22019">atom/atom#22019 - Fixes failing Dependency Bump script</a></li>
+<li><a href="https://github.com/atom/atom/pull/21927">atom/atom#21927 - fix: require .node files directly to detect incompatible native modules</a></li>
+<li><a href="https://github.com/atom/atom/pull/22046">atom/atom#22046 - Fixes context menu not working</a></li>
+<li><a href="https://github.com/atom/atom/pull/22050">atom/atom#22050 - Fix context menu right click not working ( alternative fix )</a></li>
+<li><a href="https://github.com/atom/atom/pull/22106">atom/atom#22106 - Bump y18n from 3.2.1 to 3.2.2</a></li>
+<li><a href="https://github.com/atom/atom/pull/22061">atom/atom#22061 - ⬆️ focus-trap@6.3.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/22060">atom/atom#22060 - ⬆️ chai@4.3.4</a></li>
+<li><a href="https://github.com/atom/atom/pull/22063">atom/atom#22063 - ⬆️ git-utils@5.7.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/22068">atom/atom#22068 - ⬆️ normalize-package-data@3.0.2</a></li>
+<li><a href="https://github.com/atom/atom/pull/22152">atom/atom#22152 - Bump settings-view@0.261.8</a></li>
+<li><a href="https://github.com/atom/atom/pull/22159">atom/atom#22159 - ⬆️  Bump tree-view@0.228.3</a></li>
+<li><a href="https://github.com/atom/atom/pull/22080">atom/atom#22080 - Fix tree-sitter-language-mode null highlight iterators</a></li>
+</ul>
+<h3>
+<a id="settings-view" class="anchor" href="#settings-view" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/settings-view">settings-view</a>
+</h3>
+<p>v0.261.7...v0.261.8</p>
+<ul>
+<li><a href="https://github.com/atom/settings-view/pull/1176">atom/settings-view#1176 - fix: update async dependency</a></li>
+<li><a href="https://github.com/atom/settings-view/pull/1182">atom/settings-view#1182 - Catch README file not found error</a></li>
+</ul>
+<h3>
+<a id="tree-view" class="anchor" href="#tree-view" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/tree-view">tree-view</a>
+</h3>
+<p>v0.228.2...v0.228.3</p>
+<ul>
+<li><a href="https://github.com/atom/tree-view/pull/1377">atom/tree-view#1377 - Wrap fs.realpathSync in a try catch</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.58.0-beta0">v1.58.0-beta0 <span class="release-date">(2021-05-11)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/find-and-replace/pull/938">https://github.com/atom/find-and-replace/pull/938</a> Adds preserve case option for buffer replace</li>
+<li>
+<a href="https://github.com/atom/find-and-replace/pull/932">https://github.com/atom/find-and-replace/pull/932</a> Adds open search result in new window or tab</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.57.0...1.58.0-beta0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/22185">atom/atom#22185 - Use n-api for native modules.</a></li>
+<li><a href="https://github.com/atom/atom/pull/21379">atom/atom#21379 - Use the built-in Visual Studio instead of windows-build-tools v4</a></li>
+<li><a href="https://github.com/atom/atom/pull/22347">atom/atom#22347 - ⬆️  Bump whitespace@0.37.8</a></li>
+<li><a href="https://github.com/atom/atom/pull/22353">atom/atom#22353 - ⬆️  Bump find-and-replace@0.219.8</a></li>
+<li><a href="https://github.com/atom/atom/pull/22354">atom/atom#22354 - Speed up blinking cursor</a></li>
+</ul>
+<h3>
+<a id="find-and-replace" class="anchor" href="#find-and-replace" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/find-and-replace">find-and-replace</a>
+</h3>
+<p>v0.219.7...v0.219.8</p>
+<ul>
+<li><a href="https://github.com/atom/find-and-replace/pull/1050">atom/find-and-replace#1050 - docs(CONTRIBUTING.md): add link to Running Specs</a></li>
+<li><a href="https://github.com/atom/find-and-replace/pull/938">atom/find-and-replace#938 - Add preserve case option for buffer replace. References #165.</a></li>
+<li><a href="https://github.com/atom/find-and-replace/pull/932">atom/find-and-replace#932 - Added "Open in New Tab" and "Open in New Window" right-click context menu options</a></li>
+<li><a href="https://github.com/atom/find-and-replace/pull/1152">atom/find-and-replace#1152 - Add searchAllPanes option</a></li>
+</ul>
+<h3>
+<a id="whitespace" class="anchor" href="#whitespace" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/whitespace">whitespace</a>
+</h3>
+<p>v0.37.7...v0.37.8</p>
+<ul>
+<li><a href="https://github.com/atom/whitespace/pull/181">atom/whitespace#181 - Add Probot no-response configuration</a></li>
+<li><a href="https://github.com/atom/whitespace/pull/182">atom/whitespace#182 - 🤖 Configure probot/no-response to allow 28 days when requesting more info on an issue</a></li>
+<li><a href="https://github.com/atom/whitespace/pull/196">atom/whitespace#196 - Migrate to Github Actions</a></li>
+<li><a href="https://github.com/atom/whitespace/pull/197">atom/whitespace#197 - Use active pane to save untitled file</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.57.0-beta0">v1.57.0-beta0 <span class="release-date">(2021-04-13)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/atom/pull/21847">https://github.com/atom/atom/pull/21847</a> - Improve detection of incompatible native modules.</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.56.0...1.57.0-beta0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/22019">atom/atom#22019 - Fixes failing Dependency Bump script</a></li>
+<li><a href="https://github.com/atom/atom/pull/21927">atom/atom#21927 - fix: require .node files directly to detect incompatible native modules</a></li>
+<li><a href="https://github.com/atom/atom/pull/22046">atom/atom#22046 - Fixes context menu not working</a></li>
+<li><a href="https://github.com/atom/atom/pull/22050">atom/atom#22050 - Fix context menu right click not working ( alternative fix )</a></li>
+<li><a href="https://github.com/atom/atom/pull/22106">atom/atom#22106 - Bump y18n from 3.2.1 to 3.2.2</a></li>
+<li><a href="https://github.com/atom/atom/pull/22061">atom/atom#22061 - ⬆️ focus-trap@6.3.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/22060">atom/atom#22060 - ⬆️ chai@4.3.4</a></li>
+<li><a href="https://github.com/atom/atom/pull/22063">atom/atom#22063 - ⬆️ git-utils@5.7.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/22068">atom/atom#22068 - ⬆️ normalize-package-data@3.0.2</a></li>
+<li><a href="https://github.com/atom/atom/pull/22152">atom/atom#22152 - Bump settings-view@0.261.8</a></li>
+<li><a href="https://github.com/atom/atom/pull/22159">atom/atom#22159 - ⬆️  Bump tree-view@0.228.3</a></li>
+<li><a href="https://github.com/atom/atom/pull/22080">atom/atom#22080 - Fix tree-sitter-language-mode null highlight iterators</a></li>
+</ul>
+<h3>
+<a id="settings-view" class="anchor" href="#settings-view" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/settings-view">settings-view</a>
+</h3>
+<p>v0.261.7...v0.261.8</p>
+<ul>
+<li><a href="https://github.com/atom/settings-view/pull/1176">atom/settings-view#1176 - fix: update async dependency</a></li>
+<li><a href="https://github.com/atom/settings-view/pull/1182">atom/settings-view#1182 - Catch README file not found error</a></li>
+</ul>
+<h3>
+<a id="tree-view" class="anchor" href="#tree-view" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/tree-view">tree-view</a>
+</h3>
+<p>v0.228.2...v0.228.3</p>
+<ul>
+<li><a href="https://github.com/atom/tree-view/pull/1377">atom/tree-view#1377 - Wrap fs.realpathSync in a try catch</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.56.0">v1.56.0 <span class="release-date">(2021-04-13)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/atom/pull/21847">https://github.com/atom/atom/pull/21847</a> - Fix buggy quitting behaviour on macOS after all windows are closed</li>
+<li>
+<a href="https://github.com/atom/atom/pull/21852">https://github.com/atom/atom/pull/21852</a> - Improve java syntax highlighting</li>
+<li>
+<a href="https://github.com/atom/atom/pull/21847">https://github.com/atom/atom/pull/21847</a> - Add setting to disable middle mouse paste. <code>(editor. selectionClipboard)</code>
+</li>
+<li>
+<a href="https://github.com/atom/atom/pull/21777">https://github.com/atom/atom/pull/21777</a> - Electron upgrade 🎉</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.55.0...1.56.0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/21753">atom/atom#21753 - Fix handling of "empty" language injections with Tree-sitter</a></li>
+<li><a href="https://github.com/atom/atom/pull/21715">atom/atom#21715 - check if testRunner is es module</a></li>
+<li><a href="https://github.com/atom/atom/pull/21848">atom/atom#21848 - Add Authorization</a></li>
+<li><a href="https://github.com/atom/atom/pull/21903">atom/atom#21903 - <img title=":arrow_up:" alt=":arrow_up:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b06.png" height="20" width="20" align="absmiddle"> github</a></li>
+<li><a href="https://github.com/atom/atom/pull/21928">atom/atom#21928 - Fixes dependency bump script</a></li>
+</ul>
+<h3>
+<a id="github" class="anchor" href="#github" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/github">github</a>
+</h3>
+<p>v0.36.7...v0.36.9</p>
+<ul>
+<li><a href="https://github.com/atom/github/pull/2459">atom/github#2459 - use action-setup-atom</a></li>
+<li><a href="https://github.com/atom/github/pull/2621">atom/github#2621 - package.json: pin @babel/core to less than 7.12.10</a></li>
+<li><a href="https://github.com/atom/github/pull/2625">atom/github#2625 - Update shell.openExternal to promise due to electron update on atom</a></li>
+<li><a href="https://github.com/atom/github/pull/2626">atom/github#2626 - Update to promise api for some methods in the electron API</a></li>
+<li><a href="https://github.com/atom/github/pull/2631">atom/github#2631 - Fix github failing tests for Atom's electron 9.4.1 upgrade</a></li>
+</ul>
+<h3>
+<a id="spell-check" class="anchor" href="#spell-check" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/spell-check">spell-check</a>
+</h3>
+<p>v0.76.2...v0.77.1</p>
+<ul>
+<li><a href="https://github.com/atom/spell-check/pull/357">atom/spell-check#357 - Add enableDebug to config</a></li>
+<li><a href="https://github.com/atom/spell-check/pull/359">atom/spell-check#359 - Fixes unable to load package</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.55.0">v1.55.0 <span class="release-date">(2021-03-09)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/github/pull/2564">https://github.com/atom/github/pull/2564</a> - Read and write git configuration without repository</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.54.0...1.55.0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/21665">atom/atom#21665 - ⬆️ postcss@8.1.6</a></li>
+<li><a href="https://github.com/atom/atom/pull/21762">atom/atom#21762 - GitHub package update</a></li>
+<li><a href="https://github.com/atom/atom/pull/21787">atom/atom#21787 - fix async confirm</a></li>
+</ul>
+<h3>
+<a id="github" class="anchor" href="#github" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/github">github</a>
+</h3>
+<p>v0.36.2...v0.36.7</p>
+<ul>
+<li><a href="https://github.com/atom/github/pull/2559">atom/github#2559 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2566">atom/github#2566 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2564">atom/github#2564 - Read and write git configuration without repository</a></li>
+<li><a href="https://github.com/atom/github/pull/2572">atom/github#2572 - Increase priority of login prompt on GitHub tab</a></li>
+<li><a href="https://github.com/atom/github/pull/2573">atom/github#2573 - Correct a flaky test</a></li>
+<li><a href="https://github.com/atom/github/pull/2574">atom/github#2574 - Trim issue and pull request templates</a></li>
+<li><a href="https://github.com/atom/github/pull/2575">atom/github#2575 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2583">atom/github#2583 - ⬆️ Bump superstring from 2.4.2 to 2.4.3</a></li>
+<li><a href="https://github.com/atom/github/pull/2584">atom/github#2584 - ⬆️  Bump whats-my-line@0.1.13</a></li>
+<li><a href="https://github.com/atom/github/pull/2585">atom/github#2585 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2587">atom/github#2587 - Accept and cancel buttons on Git identity panel</a></li>
+<li><a href="https://github.com/atom/github/pull/2586">atom/github#2586 - Some useful docs to link to</a></li>
+<li><a href="https://github.com/atom/github/pull/2588">atom/github#2588 - ⬆️  Bump whats-my-line@0.1.4</a></li>
+<li><a href="https://github.com/atom/github/pull/2592">atom/github#2592 - [Security] Bump ini from 1.3.5 to 1.3.7</a></li>
+<li><a href="https://github.com/atom/github/pull/2598">atom/github#2598 - Bump dompurify from 2.0.7 to 2.0.17</a></li>
+<li><a href="https://github.com/atom/github/pull/2617">atom/github#2617 - test: Disable failing file-patch tests for Atom CI</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.56.0-beta0">v1.56.0-beta0 <span class="release-date">(2021-03-09)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/atom/pull/21753">https://github.com/atom/atom/pull/21753</a> Fixes syntax highlighting bug across languages(Javascript, Ruby, Typescript, Html, Rust)</li>
+<li>
+<a href="https://github.com/atom/atom/pull/22003">https://github.com/atom/atom/pull/22003</a> 🎉  Upgrade electron to version 9.4.4</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.55.0...1.56.0-beta0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/21753">atom/atom#21753 - Fix handling of "empty" language injections with Tree-sitter</a></li>
+<li><a href="https://github.com/atom/atom/pull/21715">atom/atom#21715 - check if testRunner is es module</a></li>
+<li><a href="https://github.com/atom/atom/pull/21848">atom/atom#21848 - Add Authorization</a></li>
+<li><a href="https://github.com/atom/atom/pull/21903">atom/atom#21903 - <img title=":arrow_up:" alt=":arrow_up:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b06.png" height="20" width="20" align="absmiddle"> github</a></li>
+<li><a href="https://github.com/atom/atom/pull/21928">atom/atom#21928 - Fixes dependency bump script</a></li>
+</ul>
+<h3>
+<a id="github" class="anchor" href="#github" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/github">github</a>
+</h3>
+<p>v0.36.7...v0.36.9</p>
+<ul>
+<li><a href="https://github.com/atom/github/pull/2459">atom/github#2459 - use action-setup-atom</a></li>
+<li><a href="https://github.com/atom/github/pull/2621">atom/github#2621 - package.json: pin @babel/core to less than 7.12.10</a></li>
+<li><a href="https://github.com/atom/github/pull/2625">atom/github#2625 - Update shell.openExternal to promise due to electron update on atom</a></li>
+<li><a href="https://github.com/atom/github/pull/2626">atom/github#2626 - Update to promise api for some methods in the electron API</a></li>
+<li><a href="https://github.com/atom/github/pull/2631">atom/github#2631 - Fix github failing tests for Atom's electron 9.4.1 upgrade</a></li>
+</ul>
+<h3>
+<a id="spell-check" class="anchor" href="#spell-check" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/spell-check">spell-check</a>
+</h3>
+<p>v0.76.2...v0.77.1</p>
+<ul>
+<li><a href="https://github.com/atom/spell-check/pull/357">atom/spell-check#357 - Add enableDebug to config</a></li>
+<li><a href="https://github.com/atom/spell-check/pull/359">atom/spell-check#359 - Fixes unable to load package</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.54.0">v1.54.0 <span class="release-date">(2021-01-13)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/atom/pull/21495">https://github.com/atom/atom/pull/21495</a> - Add defaultFontSize setting</li>
+<li>
+<a href="https://github.com/atom/atom/pull/20393">https://github.com/atom/atom/pull/20393</a> - Skip shell functions when parsing env</li>
+<li>
+<a href="https://github.com/atom/spell-check/pull/350">https://github.com/atom/spell-check/pull/350</a> - Add cmd shortkeys for Linux and Windows</li>
+<li>
+<a href="https://github.com/atom/tree-view/pull/1359">https://github.com/atom/tree-view/pull/1359</a> - Do not wipe original file when duplicating</li>
+<li>
+<a href="https://github.com/atom/tree-view/pull/1364">https://github.com/atom/tree-view/pull/1364</a> - Fixes unable to show file warning</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.53.0...1.54.0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/21495">atom/atom#21495 - Add defaultFontSize setting</a></li>
+<li><a href="https://github.com/atom/atom/pull/21510">atom/atom#21510 - Add support for global macOS find pasteboard</a></li>
+<li><a href="https://github.com/atom/atom/pull/21518">atom/atom#21518 - ⬆️ yargs@16.1.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/21447">atom/atom#21447 - Fix WSL uname test</a></li>
+<li><a href="https://github.com/atom/atom/pull/21492">atom/atom#21492 - ⬆️ tree-sitter@0.17.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/20892">atom/atom#20892 - Use HTML native preventScroll for textEditorComponent focus</a></li>
+<li><a href="https://github.com/atom/atom/pull/21543">atom/atom#21543 - ⬆️ postcss@8.1.2</a></li>
+<li><a href="https://github.com/atom/atom/pull/21542">atom/atom#21542 - ⬆️ chart.js@2.9.4</a></li>
+<li><a href="https://github.com/atom/atom/pull/20393">atom/atom#20393 - Skip shell functions when parsing env</a></li>
+<li><a href="https://github.com/atom/atom/pull/21544">atom/atom#21544 - ⬆️ resolve@1.18.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/21589">atom/atom#21589 - ⬆️ temp@0.9.2</a></li>
+<li><a href="https://github.com/atom/atom/pull/21587">atom/atom#21587 - Fixed atom.confirm and internal use of dialog.showMessageBox</a></li>
+<li><a href="https://github.com/atom/atom/pull/21604">atom/atom#21604 - ⬆️ sinon@9.2.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/21615">atom/atom#21615 - ⬆️ tree-view@0.228.2</a></li>
+<li><a href="https://github.com/atom/atom/pull/21641">atom/atom#21641 - ⬆️ electron-osx-sign@0.5.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/21655">atom/atom#21655 - ⬆️ find-and-replace@0.219.7</a></li>
+<li><a href="https://github.com/atom/atom/pull/21657">atom/atom#21657 - Upgrade the GitHub package</a></li>
+</ul>
+<h3>
+<a id="find-and-replace" class="anchor" href="#find-and-replace" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/find-and-replace">find-and-replace</a>
+</h3>
+<p>v0.219.6...v0.219.7</p>
+<ul>
+<li><a href="https://github.com/atom/find-and-replace/pull/1142">atom/find-and-replace#1142 - FIxes broken find and replace button</a></li>
+</ul>
+<h3>
+<a id="github" class="anchor" href="#github" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/github">github</a>
+</h3>
+<p>v0.35.0...v0.36.2</p>
+<ul>
+<li><a href="https://github.com/atom/github/pull/2358">atom/github#2358 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2429">atom/github#2429 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2436">atom/github#2436 - Give dialog text editors room to expand</a></li>
+<li><a href="https://github.com/atom/github/pull/2298">atom/github#2298 - Use GitHub actions for tests</a></li>
+<li><a href="https://github.com/atom/github/pull/2437">atom/github#2437 - Only show identity on present repositories</a></li>
+<li><a href="https://github.com/atom/github/pull/2441">atom/github#2441 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2444">atom/github#2444 - ⬆️ Dugite 1.88.5 and Fix Failing Test</a></li>
+<li><a href="https://github.com/atom/github/pull/2445">atom/github#2445 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2457">atom/github#2457 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2461">atom/github#2461 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2463">atom/github#2463 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2465">atom/github#2465 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2472">atom/github#2472 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2475">atom/github#2475 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2478">atom/github#2478 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2480">atom/github#2480 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2482">atom/github#2482 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2484">atom/github#2484 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2489">atom/github#2489 - Bump lodash from 4.17.14 to 4.17.19</a></li>
+<li><a href="https://github.com/atom/github/pull/2490">atom/github#2490 - Bump lodash from 4.17.15 to 4.17.19 in /actions/schema-up</a></li>
+<li><a href="https://github.com/atom/github/pull/2491">atom/github#2491 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2494">atom/github#2494 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2496">atom/github#2496 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2503">atom/github#2503 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2507">atom/github#2507 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2508">atom/github#2508 - [Security] Bump bl from 1.2.2 to 1.2.3</a></li>
+<li><a href="https://github.com/atom/github/pull/2510">atom/github#2510 - Bump node-fetch from 2.6.0 to 2.6.1</a></li>
+<li><a href="https://github.com/atom/github/pull/2512">atom/github#2512 - Bump node-fetch from 2.6.0 to 2.6.1 in /actions/auto-sprint</a></li>
+<li><a href="https://github.com/atom/github/pull/2511">atom/github#2511 - Bump node-fetch from 2.6.0 to 2.6.1 in /actions/schema-up</a></li>
+<li><a href="https://github.com/atom/github/pull/2513">atom/github#2513 - Sync electron-* devDependencies with atom/atom</a></li>
+<li><a href="https://github.com/atom/github/pull/2514">atom/github#2514 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2515">atom/github#2515 - ⬆️ Bump sinon from 7.5.0 to 9.0.3</a></li>
+<li><a href="https://github.com/atom/github/pull/2516">atom/github#2516 - ⬆️ Bump hock from 1.3.3 to 1.4.1</a></li>
+<li><a href="https://github.com/atom/github/pull/2517">atom/github#2517 - ⬆️ Bump eslint from 6.7.2 to 6.8.0</a></li>
+<li><a href="https://github.com/atom/github/pull/2518">atom/github#2518 - ⬆️ Bump moment from 2.24.0 to 2.28.0</a></li>
+<li><a href="https://github.com/atom/github/pull/2519">atom/github#2519 - ⬆️ Bump @babel/preset-env from 7.8.2 to 7.11.5</a></li>
+<li><a href="https://github.com/atom/github/pull/2520">atom/github#2520 - ⬆️ Bump electron-devtools-installer from 2.2.4 to 3.1.1</a></li>
+<li><a href="https://github.com/atom/github/pull/2522">atom/github#2522 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2530">atom/github#2530 - Passing CI is nice</a></li>
+<li><a href="https://github.com/atom/github/pull/2528">atom/github#2528 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2532">atom/github#2532 - Scroll to first conflict when opening editor</a></li>
+<li><a href="https://github.com/atom/github/pull/2533">atom/github#2533 - Flip CI back to nightly</a></li>
+<li><a href="https://github.com/atom/github/pull/2534">atom/github#2534 - script/redownload-electron-bins.js: Fix finding the Atom repo's package.json</a></li>
+<li><a href="https://github.com/atom/github/pull/2537">atom/github#2537 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2544">atom/github#2544 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2549">atom/github#2549 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2551">atom/github#2551 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2552">atom/github#2552 - Update @babel/preset-env</a></li>
+<li><a href="https://github.com/atom/github/pull/2553">atom/github#2553 - Catch the non-workdir error from git rev-parse</a></li>
+</ul>
+<h3>
+<a id="spell-check" class="anchor" href="#spell-check" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/spell-check">spell-check</a>
+</h3>
+<p>v0.76.1...v0.76.2</p>
+<ul>
+<li><a href="https://github.com/atom/spell-check/pull/350">atom/spell-check#350 - Add cmd shortkeys for Linux and Windows</a></li>
+<li><a href="https://github.com/atom/spell-check/pull/346">atom/spell-check#346 - Add html link to IANA tag list</a></li>
+</ul>
+<h3>
+<a id="tree-view" class="anchor" href="#tree-view" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/tree-view">tree-view</a>
+</h3>
+<p>v0.228.1...v0.228.2</p>
+<ul>
+<li><a href="https://github.com/atom/tree-view/pull/1359">atom/tree-view#1359 - Do not wipe original file when duplicating</a></li>
+<li><a href="https://github.com/atom/tree-view/pull/1364">atom/tree-view#1364 - Fixes unable to show file warning</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.55.0-beta0">v1.55.0-beta0 <span class="release-date">(2021-01-13)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/github/pull/2564">https://github.com/atom/github/pull/2564</a> - Read and write git configuration without repository</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.54.0...1.55.0-beta0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/21665">atom/atom#21665 - ⬆️ postcss@8.1.6</a></li>
+<li><a href="https://github.com/atom/atom/pull/21762">atom/atom#21762 - GitHub package update</a></li>
+<li><a href="https://github.com/atom/atom/pull/21787">atom/atom#21787 - fix async confirm</a></li>
+</ul>
+<h3>
+<a id="github" class="anchor" href="#github" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/github">github</a>
+</h3>
+<p>v0.36.2...v0.36.3</p>
+<ul>
+<li><a href="https://github.com/atom/github/pull/2559">atom/github#2559 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2566">atom/github#2566 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2564">atom/github#2564 - Read and write git configuration without repository</a></li>
+<li><a href="https://github.com/atom/github/pull/2572">atom/github#2572 - Increase priority of login prompt on GitHub tab</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.54.0-beta0">v1.54.0-beta0 <span class="release-date">(2020-11-10)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/atom/pull/21495">https://github.com/atom/atom/pull/21495</a> - Add defaultFontSize setting</li>
+<li>
+<a href="https://github.com/atom/atom/pull/20393">https://github.com/atom/atom/pull/20393</a> - Skip shell functions when parsing env</li>
+<li>
+<a href="https://github.com/atom/github/pull/2507">https://github.com/atom/github/pull/2507</a> -  GraphQL schema update</li>
+<li>
+<a href="https://github.com/atom/spell-check/pull/350">https://github.com/atom/spell-check/pull/350</a> - Add cmd shortkeys for Linux and Windows</li>
+<li>
+<a href="https://github.com/atom/tree-view/pull/1359">https://github.com/atom/tree-view/pull/1359</a> - Do not wipe original file when duplicating</li>
+<li>
+<a href="https://github.com/atom/tree-view/pull/1364">https://github.com/atom/tree-view/pull/1364</a> - Fixes unable to show file warning</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.53.0...1.54.0-beta0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/21495">atom/atom#21495 - Add defaultFontSize setting</a></li>
+<li><a href="https://github.com/atom/atom/pull/21510">atom/atom#21510 - Add support for global macOS find pasteboard</a></li>
+<li><a href="https://github.com/atom/atom/pull/21518">atom/atom#21518 - ⬆️ yargs@16.1.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/21447">atom/atom#21447 - Fix WSL uname test</a></li>
+<li><a href="https://github.com/atom/atom/pull/21492">atom/atom#21492 - ⬆️ tree-sitter@0.17.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/20892">atom/atom#20892 - Use HTML native preventScroll for textEditorComponent focus</a></li>
+<li><a href="https://github.com/atom/atom/pull/21543">atom/atom#21543 - ⬆️ postcss@8.1.2</a></li>
+<li><a href="https://github.com/atom/atom/pull/21542">atom/atom#21542 - ⬆️ chart.js@2.9.4</a></li>
+<li><a href="https://github.com/atom/atom/pull/20393">atom/atom#20393 - Skip shell functions when parsing env</a></li>
+<li><a href="https://github.com/atom/atom/pull/21544">atom/atom#21544 - ⬆️ resolve@1.18.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/21589">atom/atom#21589 - ⬆️ temp@0.9.2</a></li>
+<li><a href="https://github.com/atom/atom/pull/21587">atom/atom#21587 - Fixed atom.confirm and internal use of dialog.showMessageBox</a></li>
+<li><a href="https://github.com/atom/atom/pull/21604">atom/atom#21604 - ⬆️ sinon@9.2.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/21615">atom/atom#21615 - ⬆️ tree-view@0.228.2</a></li>
+<li><a href="https://github.com/atom/atom/pull/21641">atom/atom#21641 - ⬆️ electron-osx-sign@0.5.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/21655">atom/atom#21655 - ⬆️ find-and-replace@0.219.7</a></li>
+<li><a href="https://github.com/atom/atom/pull/21657">atom/atom#21657 - Upgrade the GitHub package</a></li>
+</ul>
+<h3>
+<a id="find-and-replace" class="anchor" href="#find-and-replace" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/find-and-replace">find-and-replace</a>
+</h3>
+<p>v0.219.6...v0.219.7</p>
+<ul>
+<li><a href="https://github.com/atom/find-and-replace/pull/1142">atom/find-and-replace#1142 - FIxes broken find and replace button</a></li>
+</ul>
+<h3>
+<a id="github" class="anchor" href="#github" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/github">github</a>
+</h3>
+<p>v0.35.0...v0.36.2</p>
+<ul>
+<li><a href="https://github.com/atom/github/pull/2358">atom/github#2358 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2429">atom/github#2429 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2436">atom/github#2436 - Give dialog text editors room to expand</a></li>
+<li><a href="https://github.com/atom/github/pull/2298">atom/github#2298 - Use GitHub actions for tests</a></li>
+<li><a href="https://github.com/atom/github/pull/2437">atom/github#2437 - Only show identity on present repositories</a></li>
+<li><a href="https://github.com/atom/github/pull/2441">atom/github#2441 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2444">atom/github#2444 - ⬆️ Dugite 1.88.5 and Fix Failing Test</a></li>
+<li><a href="https://github.com/atom/github/pull/2445">atom/github#2445 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2457">atom/github#2457 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2461">atom/github#2461 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2463">atom/github#2463 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2465">atom/github#2465 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2472">atom/github#2472 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2475">atom/github#2475 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2478">atom/github#2478 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2480">atom/github#2480 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2482">atom/github#2482 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2484">atom/github#2484 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2489">atom/github#2489 - Bump lodash from 4.17.14 to 4.17.19</a></li>
+<li><a href="https://github.com/atom/github/pull/2490">atom/github#2490 - Bump lodash from 4.17.15 to 4.17.19 in /actions/schema-up</a></li>
+<li><a href="https://github.com/atom/github/pull/2491">atom/github#2491 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2494">atom/github#2494 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2496">atom/github#2496 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2503">atom/github#2503 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2507">atom/github#2507 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2508">atom/github#2508 - [Security] Bump bl from 1.2.2 to 1.2.3</a></li>
+<li><a href="https://github.com/atom/github/pull/2510">atom/github#2510 - Bump node-fetch from 2.6.0 to 2.6.1</a></li>
+<li><a href="https://github.com/atom/github/pull/2512">atom/github#2512 - Bump node-fetch from 2.6.0 to 2.6.1 in /actions/auto-sprint</a></li>
+<li><a href="https://github.com/atom/github/pull/2511">atom/github#2511 - Bump node-fetch from 2.6.0 to 2.6.1 in /actions/schema-up</a></li>
+<li><a href="https://github.com/atom/github/pull/2513">atom/github#2513 - Sync electron-* devDependencies with atom/atom</a></li>
+<li><a href="https://github.com/atom/github/pull/2514">atom/github#2514 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2515">atom/github#2515 - ⬆️ Bump sinon from 7.5.0 to 9.0.3</a></li>
+<li><a href="https://github.com/atom/github/pull/2516">atom/github#2516 - ⬆️ Bump hock from 1.3.3 to 1.4.1</a></li>
+<li><a href="https://github.com/atom/github/pull/2517">atom/github#2517 - ⬆️ Bump eslint from 6.7.2 to 6.8.0</a></li>
+<li><a href="https://github.com/atom/github/pull/2518">atom/github#2518 - ⬆️ Bump moment from 2.24.0 to 2.28.0</a></li>
+<li><a href="https://github.com/atom/github/pull/2519">atom/github#2519 - ⬆️ Bump @babel/preset-env from 7.8.2 to 7.11.5</a></li>
+<li><a href="https://github.com/atom/github/pull/2520">atom/github#2520 - ⬆️ Bump electron-devtools-installer from 2.2.4 to 3.1.1</a></li>
+<li><a href="https://github.com/atom/github/pull/2522">atom/github#2522 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2530">atom/github#2530 - Passing CI is nice</a></li>
+<li><a href="https://github.com/atom/github/pull/2528">atom/github#2528 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2532">atom/github#2532 - Scroll to first conflict when opening editor</a></li>
+<li><a href="https://github.com/atom/github/pull/2533">atom/github#2533 - Flip CI back to nightly</a></li>
+<li><a href="https://github.com/atom/github/pull/2534">atom/github#2534 - script/redownload-electron-bins.js: Fix finding the Atom repo's package.json</a></li>
+<li><a href="https://github.com/atom/github/pull/2537">atom/github#2537 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2544">atom/github#2544 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2549">atom/github#2549 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2551">atom/github#2551 - GraphQL schema update</a></li>
+<li><a href="https://github.com/atom/github/pull/2552">atom/github#2552 - Update @babel/preset-env</a></li>
+<li><a href="https://github.com/atom/github/pull/2553">atom/github#2553 - Catch the non-workdir error from git rev-parse</a></li>
+</ul>
+<h3>
+<a id="spell-check" class="anchor" href="#spell-check" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/spell-check">spell-check</a>
+</h3>
+<p>v0.76.1...v0.76.2</p>
+<ul>
+<li><a href="https://github.com/atom/spell-check/pull/350">atom/spell-check#350 - Add cmd shortkeys for Linux and Windows</a></li>
+<li><a href="https://github.com/atom/spell-check/pull/346">atom/spell-check#346 - Add html link to IANA tag list</a></li>
+</ul>
+<h3>
+<a id="tree-view" class="anchor" href="#tree-view" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/tree-view">tree-view</a>
+</h3>
+<p>v0.228.1...v0.228.2</p>
+<ul>
+<li><a href="https://github.com/atom/tree-view/pull/1359">atom/tree-view#1359 - Do not wipe original file when duplicating</a></li>
+<li><a href="https://github.com/atom/tree-view/pull/1364">atom/tree-view#1364 - Fixes unable to show file warning</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.53.0">v1.53.0 <span class="release-date">(2020-11-10)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/atom/pull/21367">https://github.com/atom/atom/pull/21367</a> - Fix version information</li>
+<li>
+<a href="https://github.com/atom/atom/pull/21425">https://github.com/atom/atom/pull/21425</a> - Update Debian dependencies, fixes installing Atom on Ubuntu Groovy</li>
+<li>
+<a href="https://github.com/atom/atom/pull/21446">https://github.com/atom/atom/pull/21446</a> - Clarify the context under which log-file is used</li>
+<li>
+<a href="https://github.com/atom/github/pull/2425">https://github.com/atom/github/pull/2425</a> - Hide git and GitHub tab avatar alt text when offline</li>
+<li>
+<a href="https://github.com/atom/github/pull/2426">https://github.com/atom/github/pull/2426</a> - Create repository for single file</li>
+<li>
+<a href="https://github.com/atom/tree-view/pull/1315">https://github.com/atom/tree-view/pull/1315</a> - Always show Tree View</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.52.0...1.53.0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/21267">atom/atom#21267 - Revert build template</a></li>
+<li><a href="https://github.com/atom/atom/pull/21287">atom/atom#21287 - Bump lodash from 4.17.15 to 4.17.20 in /packages/about</a></li>
+<li><a href="https://github.com/atom/atom/pull/21242">atom/atom#21242 - Bump bl from 3.0.0 to 3.0.1 in /script</a></li>
+<li><a href="https://github.com/atom/atom/pull/20956">atom/atom#20956 - ⬆️ github@0.35.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/21196">atom/atom#21196 - ⬆️ tree-sitter@0.16.2</a></li>
+<li><a href="https://github.com/atom/atom/pull/21028">atom/atom#21028 - ⬆️ electron-osx-sign@0.4.17</a></li>
+<li><a href="https://github.com/atom/atom/pull/21029">atom/atom#21029 - ⬆️ etch@0.14.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/21262">atom/atom#21262 - Ci publish template</a></li>
+<li><a href="https://github.com/atom/atom/pull/21269">atom/atom#21269 - CI build template including patches</a></li>
+<li><a href="https://github.com/atom/atom/pull/21298">atom/atom#21298 - CI test template</a></li>
+<li><a href="https://github.com/atom/atom/pull/21299">atom/atom#21299 - ⬆️ async@3.2.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/21193">atom/atom#21193 - ⬆️ fs-admin@0.15.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/21081">atom/atom#21081 - Cross-platform CI scripts</a></li>
+<li><a href="https://github.com/atom/atom/pull/21310">atom/atom#21310 - ⬆️ tree-view@0.228.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/21294">atom/atom#21294 - Bump node-fetch from 2.6.0 to 2.6.1 in /script</a></li>
+<li><a href="https://github.com/atom/atom/pull/21293">atom/atom#21293 - Bump node-fetch from 2.2.0 to 2.6.1 in /script/vsts</a></li>
+<li><a href="https://github.com/atom/atom/pull/21249">atom/atom#21249 - Bump decompress from 4.2.0 to 4.2.1 in /script/vsts</a></li>
+<li><a href="https://github.com/atom/atom/pull/20521">atom/atom#20521 - Bump acorn from 5.7.3 to 5.7.4</a></li>
+<li><a href="https://github.com/atom/atom/pull/20043">atom/atom#20043 - Bump mixin-deep from 1.3.1 to 1.3.2 in /script</a></li>
+<li><a href="https://github.com/atom/atom/pull/20632">atom/atom#20632 - Bump https-proxy-agent from 2.2.1 to 2.2.4 in /script/vsts</a></li>
+<li><a href="https://github.com/atom/atom/pull/21212">atom/atom#21212 - update npm@6.14.8</a></li>
+<li><a href="https://github.com/atom/atom/pull/21109">atom/atom#21109 - Parallelize Tests in CI (+ Refactor and Improvements)</a></li>
+<li><a href="https://github.com/atom/atom/pull/21319">atom/atom#21319 - ⬆️ postcss@8.0.3</a></li>
+<li><a href="https://github.com/atom/atom/pull/20042">atom/atom#20042 - Bump eslint-utils from 1.3.1 to 1.4.3 in /script</a></li>
+<li><a href="https://github.com/atom/atom/pull/21331">atom/atom#21331 - ⬆️ postcss@8.0.5</a></li>
+<li><a href="https://github.com/atom/atom/pull/21336">atom/atom#21336 - DependsOn windows_tests</a></li>
+<li><a href="https://github.com/atom/atom/pull/21042">atom/atom#21042 - ⬆️ scrollbar-style@3.2.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/21046">atom/atom#21046 - ⬆️ typescript-simple@8.0.6</a></li>
+<li><a href="https://github.com/atom/atom/pull/21338">atom/atom#21338 - ⬆️ tree-sitter@0.16.2</a></li>
+<li><a href="https://github.com/atom/atom/pull/21295">atom/atom#21295 - Tests: retry timed out steps automatically</a></li>
+<li><a href="https://github.com/atom/atom/pull/21340">atom/atom#21340 - Remove random-words dependancy</a></li>
+<li><a href="https://github.com/atom/atom/pull/21343">atom/atom#21343 - Dependancy updates</a></li>
+<li><a href="https://github.com/atom/atom/pull/21036">atom/atom#21036 - ⬆️ mocha-junit-reporter@2.0.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/21367">atom/atom#21367 - Fix version information</a></li>
+<li><a href="https://github.com/atom/atom/pull/21256">atom/atom#21256 - ⬆️ focus-trap@6.0.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/21364">atom/atom#21364 - ⬆️ postcss@8.0.8</a></li>
+<li><a href="https://github.com/atom/atom/pull/21376">atom/atom#21376 - ⬆️ postcss@8.0.9</a></li>
+<li><a href="https://github.com/atom/atom/pull/21374">atom/atom#21374 - ⬆️ etch@0.14.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/21377">atom/atom#21377 - ⬆️ tree-sitter@0.17.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/21384">atom/atom#21384 - Fixes issue with re-opening closed PRs</a></li>
+<li><a href="https://github.com/atom/atom/pull/21396">atom/atom#21396 - Prevent node_modules/nan pattern from matching node_modules/nanoid</a></li>
+<li><a href="https://github.com/atom/atom/pull/21391">atom/atom#21391 - ⬆️ postcss@8.1.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/21388">atom/atom#21388 - ⬆️ language-java@0.32.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/21406">atom/atom#21406 - ⬆️ postcss@8.1.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/21398">atom/atom#21398 - exclude test folders from the packaged app</a></li>
+<li><a href="https://github.com/atom/atom/pull/21344">atom/atom#21344 - ⬆️ colors@3.1.2</a></li>
+<li><a href="https://github.com/atom/atom/pull/21411">atom/atom#21411 - ⬆️ sinon@9.1.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/21405">atom/atom#21405 - ⬆️ marked@1.2.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/21418">atom/atom#21418 - ⬆️ find-and-replace@0.219.6</a></li>
+<li><a href="https://github.com/atom/atom/pull/21419">atom/atom#21419 - ⬆️ settings-view@0.261.6</a></li>
+<li><a href="https://github.com/atom/atom/pull/21425">atom/atom#21425 - Update Debian dependencies, fixes Ubuntu Groovy</a></li>
+<li><a href="https://github.com/atom/atom/pull/21231">atom/atom#21231 - ⬆️ mocha@6.2.3</a></li>
+<li><a href="https://github.com/atom/atom/pull/21430">atom/atom#21430 - Merge dependency bumps</a></li>
+<li><a href="https://github.com/atom/atom/pull/21437">atom/atom#21437 - ⬆️ focus-trap@6.1.2</a></li>
+<li><a href="https://github.com/atom/atom/pull/21446">atom/atom#21446 - Clarify the context under which log-file is used</a></li>
+<li><a href="https://github.com/atom/atom/pull/21413">atom/atom#21413 - script/bootstrap: Make <code>apm --version</code> print the Atom version currently being bootstrapped</a></li>
+<li><a href="https://github.com/atom/atom/pull/21326">atom/atom#21326 - Separate lint into own job</a></li>
+</ul>
+<h3>
+<a id="find-and-replace" class="anchor" href="#find-and-replace" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/find-and-replace">find-and-replace</a>
+</h3>
+<p>v0.219.5...v0.219.6</p>
+<ul>
+<li><a href="https://github.com/atom/find-and-replace/pull/1137">atom/find-and-replace#1137 - Add devtools catch</a></li>
+</ul>
+<h3>
+<a id="fuzzy-finder" class="anchor" href="#fuzzy-finder" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/fuzzy-finder">fuzzy-finder</a>
+</h3>
+<p>v1.14.2...v1.14.3</p>
+<ul>
+<li><a href="https://github.com/atom/fuzzy-finder/pull/417">atom/fuzzy-finder#417 - Bump sinon@9.0.3</a></li>
+</ul>
+<h3>
+<a id="github" class="anchor" href="#github" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/github">github</a>
+</h3>
+<p>v0.34.2...v0.35.0</p>
+<ul>
+<li><a href="https://github.com/atom/github/pull/2415">atom/github#2415 - Populate StubItem panes that are deserialized after package initialization</a></li>
+<li><a href="https://github.com/atom/github/pull/2419">atom/github#2419 - [Security] Bump acorn from 6.4.0 to 6.4.1</a></li>
+<li><a href="https://github.com/atom/github/pull/2424">atom/github#2424 - Fix sprint projects link in CONTRIBUTING doc</a></li>
+<li><a href="https://github.com/atom/github/pull/2425">atom/github#2425 - Hide git and GitHub tab avatar alt text when offline</a></li>
+<li><a href="https://github.com/atom/github/pull/2426">atom/github#2426 - Create repository for single file</a></li>
+<li><a href="https://github.com/atom/github/pull/2427">atom/github#2427 - Bump CI host images</a></li>
+<li><a href="https://github.com/atom/github/pull/2428">atom/github#2428 - Git identity panel</a></li>
+</ul>
+<h3>
+<a id="settings-view" class="anchor" href="#settings-view" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/settings-view">settings-view</a>
+</h3>
+<p>v0.261.5...v0.261.6</p>
+<ul>
+<li><a href="https://github.com/atom/settings-view/pull/1161">atom/settings-view#1161 - Use marked instead of roaster + update marked</a></li>
+</ul>
+<h3>
+<a id="spell-check" class="anchor" href="#spell-check" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/spell-check">spell-check</a>
+</h3>
+<p>v0.76.1...v0.76.2</p>
+<ul>
+<li><a href="https://github.com/atom/spell-check/pull/350">atom/spell-check#350 - Add cmd shortkeys for Linux and Windows</a></li>
+<li><a href="https://github.com/atom/spell-check/pull/346">atom/spell-check#346 - Add html link to IANA tag list</a></li>
+</ul>
+<h3>
+<a id="tree-view" class="anchor" href="#tree-view" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/tree-view">tree-view</a>
+</h3>
+<p>v0.228.0...v0.228.1</p>
+<ul>
+<li><a href="https://github.com/atom/tree-view/pull/1315">atom/tree-view#1315 - Always show Tree View</a></li>
+<li><a href="https://github.com/atom/tree-view/pull/1333">atom/tree-view#1333 - Typo in Settings</a></li>
+<li><a href="https://github.com/atom/tree-view/pull/1354">atom/tree-view#1354 - ⬆️  pathwatcher@8.1.0</a></li>
+<li><a href="https://github.com/atom/tree-view/pull/1358">atom/tree-view#1358 - Fix Uncaught Error: ENOENT: no such file or directory</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.53.0-beta0">v1.53.0-beta0 <span class="release-date">(2020-10-13)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/atom/pull/21425">https://github.com/atom/atom/pull/21425</a> - Fixes atom unable to install on ubuntu groovy.</li>
+<li>
+<a href="https://github.com/atom/github/pull/2425">https://github.com/atom/github/pull/2425</a> - The alt text on your avatar in the Git tab no longer overflows when you're offline.</li>
+<li>
+<a href="https://github.com/atom/tree-view/pull/1358">https://github.com/atom/tree-view/pull/1358</a> - Allows files to be moved to a root directory that has a ',' comma as part of its name</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.52.0...1.53.0-beta0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/21267">atom/atom#21267 - Revert build template</a></li>
+<li><a href="https://github.com/atom/atom/pull/21287">atom/atom#21287 - Bump lodash from 4.17.15 to 4.17.20 in /packages/about</a></li>
+<li><a href="https://github.com/atom/atom/pull/21242">atom/atom#21242 - Bump bl from 3.0.0 to 3.0.1 in /script</a></li>
+<li><a href="https://github.com/atom/atom/pull/20956">atom/atom#20956 - ⬆️ github@0.35.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/21196">atom/atom#21196 - ⬆️ tree-sitter@0.16.2</a></li>
+<li><a href="https://github.com/atom/atom/pull/21028">atom/atom#21028 - ⬆️ electron-osx-sign@0.4.17</a></li>
+<li><a href="https://github.com/atom/atom/pull/21029">atom/atom#21029 - ⬆️ etch@0.14.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/21262">atom/atom#21262 - Ci publish template</a></li>
+<li><a href="https://github.com/atom/atom/pull/21269">atom/atom#21269 - CI build template including patches</a></li>
+<li><a href="https://github.com/atom/atom/pull/21298">atom/atom#21298 - CI test template</a></li>
+<li><a href="https://github.com/atom/atom/pull/21299">atom/atom#21299 - ⬆️ async@3.2.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/21193">atom/atom#21193 - ⬆️ fs-admin@0.15.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/21081">atom/atom#21081 - Cross-platform CI scripts</a></li>
+<li><a href="https://github.com/atom/atom/pull/21310">atom/atom#21310 - ⬆️ tree-view@0.228.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/21294">atom/atom#21294 - Bump node-fetch from 2.6.0 to 2.6.1 in /script</a></li>
+<li><a href="https://github.com/atom/atom/pull/21293">atom/atom#21293 - Bump node-fetch from 2.2.0 to 2.6.1 in /script/vsts</a></li>
+<li><a href="https://github.com/atom/atom/pull/21249">atom/atom#21249 - Bump decompress from 4.2.0 to 4.2.1 in /script/vsts</a></li>
+<li><a href="https://github.com/atom/atom/pull/20521">atom/atom#20521 - Bump acorn from 5.7.3 to 5.7.4</a></li>
+<li><a href="https://github.com/atom/atom/pull/20043">atom/atom#20043 - Bump mixin-deep from 1.3.1 to 1.3.2 in /script</a></li>
+<li><a href="https://github.com/atom/atom/pull/20632">atom/atom#20632 - Bump https-proxy-agent from 2.2.1 to 2.2.4 in /script/vsts</a></li>
+<li><a href="https://github.com/atom/atom/pull/21212">atom/atom#21212 - update npm@6.14.8</a></li>
+<li><a href="https://github.com/atom/atom/pull/21109">atom/atom#21109 - Parallelize Tests in CI (+ Refactor and Improvements)</a></li>
+<li><a href="https://github.com/atom/atom/pull/21319">atom/atom#21319 - ⬆️ postcss@8.0.3</a></li>
+<li><a href="https://github.com/atom/atom/pull/20042">atom/atom#20042 - Bump eslint-utils from 1.3.1 to 1.4.3 in /script</a></li>
+<li><a href="https://github.com/atom/atom/pull/21331">atom/atom#21331 - ⬆️ postcss@8.0.5</a></li>
+<li><a href="https://github.com/atom/atom/pull/21336">atom/atom#21336 - DependsOn windows_tests</a></li>
+<li><a href="https://github.com/atom/atom/pull/21042">atom/atom#21042 - ⬆️ scrollbar-style@3.2.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/21046">atom/atom#21046 - ⬆️ typescript-simple@8.0.6</a></li>
+<li><a href="https://github.com/atom/atom/pull/21338">atom/atom#21338 - ⬆️ tree-sitter@0.16.2</a></li>
+<li><a href="https://github.com/atom/atom/pull/21295">atom/atom#21295 - Tests: retry timed out steps automatically</a></li>
+<li><a href="https://github.com/atom/atom/pull/21340">atom/atom#21340 - Remove random-words dependancy</a></li>
+<li><a href="https://github.com/atom/atom/pull/21343">atom/atom#21343 - Dependancy updates</a></li>
+<li><a href="https://github.com/atom/atom/pull/21036">atom/atom#21036 - ⬆️ mocha-junit-reporter@2.0.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/21367">atom/atom#21367 - Fix version information</a></li>
+<li><a href="https://github.com/atom/atom/pull/21256">atom/atom#21256 - ⬆️ focus-trap@6.0.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/21364">atom/atom#21364 - ⬆️ postcss@8.0.8</a></li>
+<li><a href="https://github.com/atom/atom/pull/21376">atom/atom#21376 - ⬆️ postcss@8.0.9</a></li>
+<li><a href="https://github.com/atom/atom/pull/21374">atom/atom#21374 - ⬆️ etch@0.14.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/21377">atom/atom#21377 - ⬆️ tree-sitter@0.17.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/21384">atom/atom#21384 - Fixes issue with re-opening closed PRs</a></li>
+<li><a href="https://github.com/atom/atom/pull/21396">atom/atom#21396 - Prevent node_modules/nan pattern from matching node_modules/nanoid</a></li>
+<li><a href="https://github.com/atom/atom/pull/21391">atom/atom#21391 - ⬆️ postcss@8.1.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/21388">atom/atom#21388 - ⬆️ language-java@0.32.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/21406">atom/atom#21406 - ⬆️ postcss@8.1.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/21398">atom/atom#21398 - exclude test folders from the packaged app</a></li>
+<li><a href="https://github.com/atom/atom/pull/21344">atom/atom#21344 - ⬆️ colors@3.1.2</a></li>
+<li><a href="https://github.com/atom/atom/pull/21411">atom/atom#21411 - ⬆️ sinon@9.1.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/21405">atom/atom#21405 - ⬆️ marked@1.2.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/21418">atom/atom#21418 - ⬆️ find-and-replace@0.219.6</a></li>
+<li><a href="https://github.com/atom/atom/pull/21419">atom/atom#21419 - ⬆️ settings-view@0.261.6</a></li>
+<li><a href="https://github.com/atom/atom/pull/21425">atom/atom#21425 - Update Debian dependencies, fixes Ubuntu Groovy</a></li>
+<li><a href="https://github.com/atom/atom/pull/21231">atom/atom#21231 - ⬆️ mocha@6.2.3</a></li>
+<li><a href="https://github.com/atom/atom/pull/21430">atom/atom#21430 - Merge dependency bumps</a></li>
+<li><a href="https://github.com/atom/atom/pull/21437">atom/atom#21437 - ⬆️ focus-trap@6.1.2</a></li>
+<li><a href="https://github.com/atom/atom/pull/21446">atom/atom#21446 - Clarify the context under which log-file is used</a></li>
+<li><a href="https://github.com/atom/atom/pull/21413">atom/atom#21413 - script/bootstrap: Make <code>apm --version</code> print the Atom version currently being bootstrapped</a></li>
+<li><a href="https://github.com/atom/atom/pull/21326">atom/atom#21326 - Separate lint into own job</a></li>
+</ul>
+<h3>
+<a id="find-and-replace" class="anchor" href="#find-and-replace" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/find-and-replace">find-and-replace</a>
+</h3>
+<p>v0.219.5...v0.219.6</p>
+<ul>
+<li><a href="https://github.com/atom/find-and-replace/pull/1137">atom/find-and-replace#1137 - Add devtools catch</a></li>
+</ul>
+<h3>
+<a id="fuzzy-finder" class="anchor" href="#fuzzy-finder" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/fuzzy-finder">fuzzy-finder</a>
+</h3>
+<p>v1.14.2...v1.14.3</p>
+<ul>
+<li><a href="https://github.com/atom/fuzzy-finder/pull/417">atom/fuzzy-finder#417 - Bump sinon@9.0.3</a></li>
+</ul>
+<h3>
+<a id="github" class="anchor" href="#github" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/github">github</a>
+</h3>
+<p>v0.34.2...v0.35.0</p>
+<ul>
+<li><a href="https://github.com/atom/github/pull/2415">atom/github#2415 - Populate StubItem panes that are deserialized after package initialization</a></li>
+<li><a href="https://github.com/atom/github/pull/2419">atom/github#2419 - [Security] Bump acorn from 6.4.0 to 6.4.1</a></li>
+<li><a href="https://github.com/atom/github/pull/2424">atom/github#2424 - Fix sprint projects link in CONTRIBUTING doc</a></li>
+<li><a href="https://github.com/atom/github/pull/2425">atom/github#2425 - Hide git and GitHub tab avatar alt text when offline</a></li>
+<li><a href="https://github.com/atom/github/pull/2426">atom/github#2426 - Create repository for single file</a></li>
+<li><a href="https://github.com/atom/github/pull/2427">atom/github#2427 - Bump CI host images</a></li>
+<li><a href="https://github.com/atom/github/pull/2428">atom/github#2428 - Git identity panel</a></li>
+</ul>
+<h3>
+<a id="settings-view" class="anchor" href="#settings-view" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/settings-view">settings-view</a>
+</h3>
+<p>v0.261.5...v0.261.6</p>
+<ul>
+<li><a href="https://github.com/atom/settings-view/pull/1161">atom/settings-view#1161 - Use marked instead of roaster + update marked</a></li>
+</ul>
+<h3>
+<a id="tree-view" class="anchor" href="#tree-view" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/tree-view">tree-view</a>
+</h3>
+<p>v0.228.0...v0.228.1</p>
+<ul>
+<li><a href="https://github.com/atom/tree-view/pull/1315">atom/tree-view#1315 - Always show Tree View</a></li>
+<li><a href="https://github.com/atom/tree-view/pull/1333">atom/tree-view#1333 - Typo in Settings</a></li>
+<li><a href="https://github.com/atom/tree-view/pull/1354">atom/tree-view#1354 - ⬆️  pathwatcher@8.1.0</a></li>
+<li><a href="https://github.com/atom/tree-view/pull/1358">atom/tree-view#1358 - Fix Uncaught Error: ENOENT: no such file or directory</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.52.0">v1.52.0 <span class="release-date">(2020-10-13)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/atom/pull/21079">https://github.com/atom/atom/pull/21079</a> - Upgrade to electron 6 🎉</li>
+<li>
+<a href="https://github.com/atom/atom/pull/20212">https://github.com/atom/atom/pull/20212</a> - Support semantic highlighting on tree-sitter grammars</li>
+<li>
+<a href="https://github.com/atom/language-php/pull/394">https://github.com/atom/language-php/pull/394</a> - Improve php syntax highlighting</li>
+<li>
+<a href="https://github.com/atom/language-python/pull/318">https://github.com/atom/language-python/pull/318</a> - Improve python syntax highlighting</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.51.0...1.52.0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/21095">atom/atom#21095 - ⬆️  find-and-replace@0.219.5</a></li>
+<li><a href="https://github.com/atom/atom/pull/21096">atom/atom#21096 - ⬆️  settings-view@0.261.5</a></li>
+<li><a href="https://github.com/atom/atom/pull/20212">atom/atom#20212 - Support semanticolor</a></li>
+<li><a href="https://github.com/atom/atom/pull/21179">atom/atom#21179 - Bump language-php to 0.44.6</a></li>
+<li><a href="https://github.com/atom/atom/pull/21079">atom/atom#21079 - Electron 6 Take Two</a></li>
+<li><a href="https://github.com/atom/atom/pull/21198">atom/atom#21198 - ⬆️ language-python@0.53.5</a></li>
+<li><a href="https://github.com/atom/atom/pull/21248">atom/atom#21248 - ⬆️ language-php@0.44.7</a></li>
+<li><a href="https://github.com/atom/atom/pull/21230">atom/atom#21230 - CI build template</a></li>
+<li><a href="https://github.com/atom/atom/pull/21230">atom/atom#21230 - CI build template</a></li>
+<li><a href="https://github.com/atom/atom/pull/21264">atom/atom#21264 - CI build template patch</a></li>
+<li><a href="https://github.com/atom/atom/pull/21264">atom/atom#21264 - CI build template patch</a></li>
+<li><a href="https://github.com/atom/atom/pull/21267">atom/atom#21267 - Revert build template</a></li>
+</ul>
+<h3>
+<a id="find-and-replace" class="anchor" href="#find-and-replace" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/find-and-replace">find-and-replace</a>
+</h3>
+<p>v0.219.3...v0.219.5</p>
+<ul>
+<li><a href="https://github.com/atom/find-and-replace/pull/1128">atom/find-and-replace#1128 - Fix broken replace all function</a></li>
+</ul>
+<h3>
+<a id="settings-view" class="anchor" href="#settings-view" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/settings-view">settings-view</a>
+</h3>
+<p>v0.261.4...v0.261.5</p>
+<ul>
+<li><a href="https://github.com/atom/settings-view/pull/1156">atom/settings-view#1156 - Fix scroll in package settings pane</a></li>
+</ul>
+<h3>
+<a id="language-php" class="anchor" href="#language-php" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/language-php">language-php</a>
+</h3>
+<p>v0.44.5...v0.44.7</p>
+<ul>
+<li><a href="https://github.com/atom/language-php/pull/394">atom/language-php#394 - Fix meta.use end regex</a></li>
+<li><a href="https://github.com/atom/language-php/pull/399">atom/language-php#399 - Fix multiline ternary, add named arguments</a></li>
+</ul>
+<h3>
+<a id="language-python" class="anchor" href="#language-python" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/language-python">language-python</a>
+</h3>
+<p>v0.53.4...v0.53.5</p>
+<ul>
+<li><a href="https://github.com/atom/language-python/pull/318">atom/language-python#318 - Added async (line 851)</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.52.0-beta0">v1.52.0-beta0 <span class="release-date">(2020-09-09)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/atom/pull/21079">https://github.com/atom/atom/pull/21079</a> - Upgrade to electron 6 🎉</li>
+<li>
+<a href="https://github.com/atom/atom/pull/20212">https://github.com/atom/atom/pull/20212</a> - Support semantic highlighting on tree-sitter grammars</li>
+<li>
+<a href="https://github.com/atom/language-php/pull/394">https://github.com/atom/language-php/pull/394</a> - Improve php syntax highlighting</li>
+<li>
+<a href="https://github.com/atom/language-python/pull/318">https://github.com/atom/language-python/pull/318</a> - Improve python syntax highlighting</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.51.0...1.52.0-beta0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/21095">atom/atom#21095 - ⬆️  find-and-replace@0.219.5</a></li>
+<li><a href="https://github.com/atom/atom/pull/21096">atom/atom#21096 - ⬆️  settings-view@0.261.5</a></li>
+<li><a href="https://github.com/atom/atom/pull/20212">atom/atom#20212 - Support semanticolor</a></li>
+<li><a href="https://github.com/atom/atom/pull/21179">atom/atom#21179 - Bump language-php to 0.44.6</a></li>
+<li><a href="https://github.com/atom/atom/pull/21079">atom/atom#21079 - Electron 6 Take Two</a></li>
+<li><a href="https://github.com/atom/atom/pull/21198">atom/atom#21198 - ⬆️ language-python@0.53.5</a></li>
+<li><a href="https://github.com/atom/atom/pull/21248">atom/atom#21248 - ⬆️ language-php@0.44.7</a></li>
+<li><a href="https://github.com/atom/atom/pull/21230">atom/atom#21230 - CI build template</a></li>
+<li><a href="https://github.com/atom/atom/pull/21230">atom/atom#21230 - CI build template</a></li>
+<li><a href="https://github.com/atom/atom/pull/21264">atom/atom#21264 - CI build template patch</a></li>
+<li><a href="https://github.com/atom/atom/pull/21264">atom/atom#21264 - CI build template patch</a></li>
+<li><a href="https://github.com/atom/atom/pull/21267">atom/atom#21267 - Revert build template</a></li>
+</ul>
+<h3>
+<a id="find-and-replace" class="anchor" href="#find-and-replace" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/find-and-replace">find-and-replace</a>
+</h3>
+<p>v0.219.3...v0.219.5</p>
+<ul>
+<li><a href="https://github.com/atom/find-and-replace/pull/1128">atom/find-and-replace#1128 - Fix broken replace all function</a></li>
+</ul>
+<h3>
+<a id="settings-view" class="anchor" href="#settings-view" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/settings-view">settings-view</a>
+</h3>
+<p>v0.261.4...v0.261.5</p>
+<ul>
+<li><a href="https://github.com/atom/settings-view/pull/1156">atom/settings-view#1156 - Fix scroll in package settings pane</a></li>
+</ul>
+<h3>
+<a id="language-php" class="anchor" href="#language-php" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/language-php">language-php</a>
+</h3>
+<p>v0.44.5...v0.44.7</p>
+<ul>
+<li><a href="https://github.com/atom/language-php/pull/394">atom/language-php#394 - Fix meta.use end regex</a></li>
+<li><a href="https://github.com/atom/language-php/pull/399">atom/language-php#399 - Fix multiline ternary, add named arguments</a></li>
+</ul>
+<h3>
+<a id="language-python" class="anchor" href="#language-python" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/language-python">language-python</a>
+</h3>
+<p>v0.53.4...v0.53.5</p>
+<ul>
+<li><a href="https://github.com/atom/language-python/pull/318">atom/language-python#318 - Added async (line 851)</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.51.0">v1.51.0 <span class="release-date">(2020-09-09)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/atom/pull/20899">https://github.com/atom/atom/pull/20899</a> - Faster listing of available packages</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.50.0...1.51.0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/21039">atom/atom#21039 - ⬆️ prebuild-install@5.3.5</a></li>
+<li><a href="https://github.com/atom/atom/pull/21061">atom/atom#21061 - no PR triggers on release builds</a></li>
+<li><a href="https://github.com/atom/atom/pull/20856">atom/atom#20856 - Miscellaneous python3-related updates and fixes</a></li>
+<li><a href="https://github.com/atom/atom/pull/20899">atom/atom#20899 - Faster atom.packages.getAvailablePackages</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.51.0-beta0">v1.51.0-beta0 <span class="release-date">(2020-08-11)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/atom/pull/20899">https://github.com/atom/atom/pull/20899</a> - Improve the performance of getting the list of all available atom packages</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.50.0...1.51.0-beta0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/21039">atom/atom#21039 - ⬆️ prebuild-install@5.3.5</a></li>
+<li><a href="https://github.com/atom/atom/pull/21061">atom/atom#21061 - no PR triggers on release builds</a></li>
+<li><a href="https://github.com/atom/atom/pull/20856">atom/atom#20856 - Miscellaneous python3-related updates and fixes</a></li>
+<li><a href="https://github.com/atom/atom/pull/20899">atom/atom#20899 - Faster atom.packages.getAvailablePackages</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.50.0">v1.50.0 <span class="release-date">(2020-08-11)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/atom/pull/20804">https://github.com/atom/atom/pull/20804</a> - Fix multi cursor correct setting</li>
+<li>
+<a href="https://github.com/atom/atom/pull/20910">https://github.com/atom/atom/pull/20910</a> - Add async and await keywords to Rust highlighter</li>
+<li>
+<a href="https://github.com/atom/language-gfm/pull/240">https://github.com/atom/language-gfm/pull/240</a> - Improve GitHub favoured markdown syntax highlighting</li>
+<li>
+<a href="https://github.com/atom/language-php/pull/377">https://github.com/atom/language-php/pull/377</a> - Add support for arrow functions</li>
+<li>
+<a href="https://github.com/atom/language-php/pull/378">https://github.com/atom/language-php/pull/378</a> - Add support for numeric literal separator</li>
+<li>
+<a href="https://github.com/atom/language-php/pull/379">https://github.com/atom/language-php/pull/379</a> - Add missing operators: spread, exponentiation, null coalescing</li>
+<li>
+<a href="https://github.com/atom/language-php/pull/380">https://github.com/atom/language-php/pull/380</a> - Add support for typed properties, anonymous classes, object serialization</li>
+<li>
+<a href="https://github.com/atom/language-php/pull/384">https://github.com/atom/language-php/pull/384</a> - Fix parsing class with capital letter after instanceof correctly</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.49.0...1.50.0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/20406">atom/atom#20406 - Fix .deb install on ubuntu 20.04</a></li>
+<li><a href="https://github.com/atom/atom/pull/20716">atom/atom#20716 - Review/finalize Python approach for mid 2020</a></li>
+<li><a href="https://github.com/atom/atom/pull/20804">atom/atom#20804 - fix multi cursor correct setting</a></li>
+<li><a href="https://github.com/atom/atom/pull/20927">atom/atom#20927 - ⬆️ language-gfm@0.90.8</a></li>
+<li><a href="https://github.com/atom/atom/pull/20928">atom/atom#20928 - ⬆️ language-typescript@0.6.3</a></li>
+<li><a href="https://github.com/atom/atom/pull/20989">atom/atom#20989 - Fix Typos</a></li>
+<li><a href="https://github.com/atom/atom/pull/20560">atom/atom#20560 - ⬆️ language-php@0.44.5</a></li>
+<li><a href="https://github.com/atom/atom/pull/20910">atom/atom#20910 - Add async and await keywords to Rust highlighter</a></li>
+<li><a href="https://github.com/atom/atom/pull/20999">atom/atom#20999 - Automate dependency bumps</a></li>
+<li><a href="https://github.com/atom/atom/pull/21041">atom/atom#21041 - ⬆️ resolve@1.17.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/21043">atom/atom#21043 - ⬆️ semver@7.3.2</a></li>
+</ul>
+<h3>
+<a id="language-gfm" class="anchor" href="#language-gfm" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/language-gfm">language-gfm</a>
+</h3>
+<p>v0.90.7...v0.90.8</p>
+<ul>
+<li><a href="https://github.com/atom/language-gfm/pull/240">atom/language-gfm#240 - Refactor grammar in order to improve readability and address a bug in syntax highlighting of Atom and GitHub</a></li>
+</ul>
+<h3>
+<a id="language-php" class="anchor" href="#language-php" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/language-php">language-php</a>
+</h3>
+<p>v0.44.4...v0.44.5</p>
+<ul>
+<li><a href="https://github.com/atom/language-php/pull/377">atom/language-php#377 - Arrow functions</a></li>
+<li><a href="https://github.com/atom/language-php/pull/378">atom/language-php#378 - Numeric literal separator</a></li>
+<li><a href="https://github.com/atom/language-php/pull/379">atom/language-php#379 - Missing operators: spread, exponentiation, null coalescing</a></li>
+<li><a href="https://github.com/atom/language-php/pull/380">atom/language-php#380 - Typed properties, anonymous classes, object serialization</a></li>
+<li><a href="https://github.com/atom/language-php/pull/384">atom/language-php#384 - Parse class with capitol letter after instanceof correctly</a></li>
+</ul>
+<h3>
+<a id="language-typescript" class="anchor" href="#language-typescript" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/language-typescript">language-typescript</a>
+</h3>
+<p>v0.6.2...v0.6.3</p>
+<ul>
+<li><a href="https://github.com/atom/language-typescript/pull/44">atom/language-typescript#44 - fileTypes</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.50.0-beta0">v1.50.0-beta0 <span class="release-date">(2020-07-14)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/atom/pull/20804">https://github.com/atom/atom/pull/20804</a> - Fix multi cursor correct setting</li>
+<li>
+<a href="https://github.com/atom/atom/pull/20910">https://github.com/atom/atom/pull/20910</a> - Add async and await keywords to Rust highlighter</li>
+<li>
+<a href="https://github.com/atom/atom/pull/20406">https://github.com/atom/atom/pull/20406</a> - Fix can't install the .deb package in Ubuntu 20.04</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.49.0...1.50.0-beta0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/20406">atom/atom#20406 - Fix .deb install on ubuntu 20.04</a></li>
+<li><a href="https://github.com/atom/atom/pull/20716">atom/atom#20716 - Review/finalize Python approach for mid 2020</a></li>
+<li><a href="https://github.com/atom/atom/pull/20804">atom/atom#20804 - fix multi cursor correct setting</a></li>
+<li><a href="https://github.com/atom/atom/pull/20927">atom/atom#20927 - ⬆️ language-gfm@0.90.8</a></li>
+<li><a href="https://github.com/atom/atom/pull/20928">atom/atom#20928 - ⬆️ language-typescript@0.6.3</a></li>
+<li><a href="https://github.com/atom/atom/pull/20989">atom/atom#20989 - Fix Typos</a></li>
+<li><a href="https://github.com/atom/atom/pull/20560">atom/atom#20560 - ⬆️ language-php@0.44.5</a></li>
+<li><a href="https://github.com/atom/atom/pull/20910">atom/atom#20910 - Add async and await keywords to Rust highlighter</a></li>
+<li><a href="https://github.com/atom/atom/pull/20999">atom/atom#20999 - Automate dependency bumps</a></li>
+<li><a href="https://github.com/atom/atom/pull/21041">atom/atom#21041 - ⬆️ resolve@1.17.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/21043">atom/atom#21043 - ⬆️ semver@7.3.2</a></li>
+</ul>
+<h3>
+<a id="language-gfm" class="anchor" href="#language-gfm" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/language-gfm">language-gfm</a>
+</h3>
+<p>v0.90.7...v0.90.8</p>
+<ul>
+<li><a href="https://github.com/atom/language-gfm/pull/240">atom/language-gfm#240 - Refactor grammar in order to improve readability and address a bug in syntax highlighting of Atom and GitHub</a></li>
+</ul>
+<h3>
+<a id="language-php" class="anchor" href="#language-php" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/language-php">language-php</a>
+</h3>
+<p>v0.44.4...v0.44.5</p>
+<ul>
+<li><a href="https://github.com/atom/language-php/pull/377">atom/language-php#377 - Arrow functions</a></li>
+<li><a href="https://github.com/atom/language-php/pull/378">atom/language-php#378 - Numeric literal separator</a></li>
+<li><a href="https://github.com/atom/language-php/pull/379">atom/language-php#379 - Missing operators: spread, exponentiation, null coalescing</a></li>
+<li><a href="https://github.com/atom/language-php/pull/380">atom/language-php#380 - Typed properties, anonymous classes, object serialization</a></li>
+<li><a href="https://github.com/atom/language-php/pull/384">atom/language-php#384 - Parse class with capitol letter after instanceof correctly</a></li>
+</ul>
+<h3>
+<a id="language-typescript" class="anchor" href="#language-typescript" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/language-typescript">language-typescript</a>
+</h3>
+<p>v0.6.2...v0.6.3</p>
+<ul>
+<li><a href="https://github.com/atom/language-typescript/pull/44">atom/language-typescript#44 - fileTypes</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.49.0">v1.49.0 <span class="release-date">(2020-07-14)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/atom/pull/20799">https://github.com/atom/atom/pull/20799</a> - Fix <code>chrome-sandbox</code> file permissions on linux distross</li>
+<li>
+<a href="https://github.com/atom/atom/pull/20855">https://github.com/atom/atom/pull/20855</a> - Enable webview support</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.48.0...1.49.0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/20750">atom/atom#20750 - ⬆️ spell-check@0.76.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/20741">atom/atom#20741 - Enable WebView on main-process in electron options</a></li>
+<li><a href="https://github.com/atom/atom/pull/20830">atom/atom#20830 - ⬆️ text-buffer@13.17.3</a></li>
+<li><a href="https://github.com/atom/atom/pull/20799">atom/atom#20799 - Fix <code>chrome-sandbox</code> file permissions</a></li>
+<li><a href="https://github.com/atom/atom/pull/20855">atom/atom#20855 - Enable webview support with the correct option</a></li>
+<li><a href="https://github.com/atom/atom/pull/20879">atom/atom#20879 - Use the "ELECTRON_CUSTOM_VERSION" env var in build scripts</a></li>
+<li><a href="https://github.com/atom/atom/pull/20547">atom/atom#20547 - Await configuration loading on Windows</a></li>
+<li><a href="https://github.com/atom/atom/pull/20804">atom/atom#20804 - fix multi cursor correct setting</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.48.0">v1.48.0 <span class="release-date">(2020-06-10)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/spell-check/pull/332">https://github.com/atom/spell-check/pull/332</a> Fix cannot load the checker for xx-YY</li>
+<li>
+<a href="https://github.com/atom/atom/pull/20703">https://github.com/atom/atom/pull/20703</a> Upgrade apm to 2.5.0</li>
+<li>
+<a href="https://github.com/atom/atom/pull/20711">https://github.com/atom/atom/pull/20711</a> Update npm to 6.14.4 for Python 3 support</li>
+<li>
+<a href="https://github.com/atom/atom/pull/20444">https://github.com/atom/atom/pull/20444</a> Add setting to disable multi cursor on click</li>
+<li>
+<a href="https://github.com/atom/atom/pull/20799">https://github.com/atom/atom/pull/20799</a> - Fix <code>chrome-sandbox</code> file permissions on linux distross</li>
+<li>
+<a href="https://github.com/atom/atom/pull/20855">https://github.com/atom/atom/pull/20855</a> - Enable webview support</li>
+<li>
+<a href="https://github.com/atom/atom/pull/20614">https://github.com/atom/atom/pull/20614</a> - Improve Java syntax highlighting</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.47.0...1.48.0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/20614">atom/atom#20614 - ⬆️ language-java@0.31.5</a></li>
+<li><a href="https://github.com/atom/atom/pull/20703">atom/atom#20703 - Upgrade apm to 2.5.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/20711">atom/atom#20711 - script: Update npm to 6.14.4 for Python 3 support</a></li>
+<li><a href="https://github.com/atom/atom/pull/20444">atom/atom#20444 - feat: add setting to disable multi cursor on click</a></li>
+<li><a href="https://github.com/atom/atom/pull/20799">atom/atom#20799 - Fix <code>chrome-sandbox</code> file permissions</a></li>
+<li><a href="https://github.com/atom/atom/pull/20855">atom/atom#20855 - Enable webview support with the correct option</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.49.0-beta0">v1.49.0-beta0 <span class="release-date">(2020-06-10)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/atom/pull/20799">https://github.com/atom/atom/pull/20799</a> - Fix <code>chrome-sandbox</code> file permissions on linux distross</li>
+<li>
+<a href="https://github.com/atom/atom/pull/20855">https://github.com/atom/atom/pull/20855</a> - Enable webview support</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.48.0...1.49.0-beta0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/20750">atom/atom#20750 - ⬆️ spell-check@0.76.1</a></li>
+<li><a href="https://github.com/atom/atom/pull/20741">atom/atom#20741 - Enable WebView on main-process in electron options</a></li>
+<li><a href="https://github.com/atom/atom/pull/20830">atom/atom#20830 - ⬆️ text-buffer@13.17.3</a></li>
+<li><a href="https://github.com/atom/atom/pull/20799">atom/atom#20799 - Fix <code>chrome-sandbox</code> file permissions</a></li>
+<li><a href="https://github.com/atom/atom/pull/20855">atom/atom#20855 - Enable webview support with the correct option</a></li>
+<li><a href="https://github.com/atom/atom/pull/20879">atom/atom#20879 - Use the "ELECTRON_CUSTOM_VERSION" env var in build scripts</a></li>
+<li><a href="https://github.com/atom/atom/pull/20547">atom/atom#20547 - Await configuration loading on Windows</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.48.0-beta0">v1.48.0-beta0 <span class="release-date">(2020-05-19)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/spell-check/pull/332">https://github.com/atom/spell-check/pull/332</a> Fix cannot load the checker for xx-YY</li>
+<li>
+<a href="https://github.com/atom/atom/pull/20703">https://github.com/atom/atom/pull/20703</a> Upgrade apm to 2.5.0</li>
+<li>
+<a href="https://github.com/atom/atom/pull/20711">https://github.com/atom/atom/pull/20711</a> Update npm to 6.14.4 for Python 3 support</li>
+<li>
+<a href="https://github.com/atom/atom/pull/20444">https://github.com/atom/atom/pull/20444</a> Add setting to disable multi cursor on click</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.47.0...1.48.0-beta0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/20614">atom/atom#20614 - ⬆️ language-java@0.31.5</a></li>
+<li><a href="https://github.com/atom/atom/pull/20703">atom/atom#20703 - Upgrade apm to 2.5.0</a></li>
+<li><a href="https://github.com/atom/atom/pull/20711">atom/atom#20711 - script: Update npm to 6.14.4 for Python 3 support</a></li>
+<li><a href="https://github.com/atom/atom/pull/20444">atom/atom#20444 - feat: add setting to disable multi cursor on click</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.47.0">v1.47.0 <span class="release-date">(2020-05-19)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/spell-check/pull/332">https://github.com/atom/spell-check/pull/332</a> Fix cannot load the checker for xx-YY</li>
+<li>
+<a href="https://github.com/atom/atom/pull/20172">https://github.com/atom/atom/pull/20172</a> Upgrade to electron 5.0.12 🎉</li>
+<li>
+<a href="https://github.com/atom/atom/pull/19862">https://github.com/atom/atom/pull/19862</a> Add overlay when resizing panels to prevent panes stealing focus</li>
+<li>
+<a href="https://github.com/atom/language-c/pull/330">https://github.com/atom/language-c/pull/330</a> Improve C++ syntax highlighting</li>
+<li>
+<a href="https://github.com/atom/language-ruby/pull/276">https://github.com/atom/language-ruby/pull/276</a> Improve Ruby syntax highlighting</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.46.0...1.47.0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/20494">atom/atom#20494 - Bump Azure Devops Windows images to version vs2017-win2016</a></li>
+<li><a href="https://github.com/atom/atom/pull/20172">atom/atom#20172 - Upgrade to electron 5.0.12</a></li>
+<li><a href="https://github.com/atom/atom/pull/20559">atom/atom#20559 - ⬆️settings-view@0.261.4</a></li>
+<li><a href="https://github.com/atom/atom/pull/19862">atom/atom#19862 - Add overlay when resizing panels to prevent panes stealing focus</a></li>
+<li><a href="https://github.com/atom/atom/pull/20406">atom/atom#20406 - Fix .deb install on ubuntu 20.04</a></li>
+<li><a href="https://github.com/atom/atom/pull/20347">atom/atom#20347 - If Text Editor Component uses the scroll event, consume it / prevent bubbling</a></li>
+<li><a href="https://github.com/atom/atom/pull/20750">atom/atom#20750 - ⬆️ spell-check@0.76.1</a></li>
+</ul>
+<h3>
+<a id="fuzzy-finder" class="anchor" href="#fuzzy-finder" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/fuzzy-finder">fuzzy-finder</a>
+</h3>
+<p>v1.14.1...v1.14.2</p>
+<ul>
+<li><a href="https://github.com/atom/fuzzy-finder/pull/409">atom/fuzzy-finder#409 - ⬆️@atom/fuzzy-native@1.1.2</a></li>
+</ul>
+<h3>
+<a id="github" class="anchor" href="#github" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/github">github</a>
+</h3>
+<p>v0.34.1-3...v0.34.2-3</p>
+<ul>
+<li><a href="https://github.com/atom/github/pull/2413">atom/github#2413 - Fixes failing tests on electron 5</a></li>
+</ul>
+<h3>
+<a id="settings-view" class="anchor" href="#settings-view" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/settings-view">settings-view</a>
+</h3>
+<p>v0.261.3...v0.261.4</p>
+<ul>
+<li><a href="https://github.com/atom/settings-view/pull/1146">atom/settings-view#1146 - color .setting-description alignment</a></li>
+</ul>
+<h3>
+<a id="snippets" class="anchor" href="#snippets" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/snippets">snippets</a>
+</h3>
+<p>v1.5.0...v1.5.1</p>
+<ul>
+<li><a href="https://github.com/atom/snippets/pull/299">atom/snippets#299 - Decaf the tests (2nd attempt)</a></li>
+</ul>
+<h3>
+<a id="spell-check" class="anchor" href="#spell-check" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/spell-check">spell-check</a>
+</h3>
+<p>v0.76.0...v0.76.1</p>
+<ul>
+<li><a href="https://github.com/atom/spell-check/pull/332">atom/spell-check#332 - Fix issues with Windows and Mac checking, reduce noise</a></li>
+</ul>
+<h3>
+<a id="language-c" class="anchor" href="#language-c" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/language-c">language-c</a>
+</h3>
+<p>v0.60.18...v0.60.19</p>
+<ul>
+<li><a href="https://github.com/atom/language-c/pull/330">atom/language-c#330 - Scopes after <img title=":arrow_up:" alt=":arrow_up:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b06.png" height="20" width="20" align="absmiddle"> tree-sitter-c and tree-sitter-cpp</a></li>
+</ul>
+<h3>
+<a id="language-ruby" class="anchor" href="#language-ruby" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/language-ruby">language-ruby</a>
+</h3>
+<p>v0.72.22...v0.72.23</p>
+<ul>
+<li><a href="https://github.com/atom/language-ruby/pull/276">atom/language-ruby#276 - [tree-sitter] add variable identifier support in assignments expressions</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.47.0-beta0">v1.47.0-beta0 <span class="release-date">(2020-05-05)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/atom/pull/20172">https://github.com/atom/atom/pull/20172</a> Upgrade to electron 5.0.12 🎉</li>
+<li>
+<a href="https://github.com/atom/atom/pull/19862">https://github.com/atom/atom/pull/19862</a> Add overlay when resizing panels to prevent panes stealing focus</li>
+<li>
+<a href="https://github.com/atom/language-c/pull/330">https://github.com/atom/language-c/pull/330</a> Improve C++ syntax highlighting</li>
+<li>
+<a href="https://github.com/atom/language-ruby/pull/276">https://github.com/atom/language-ruby/pull/276</a> Improve Ruby syntax highlighting</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.46.0...v1.47.0-beta0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/20494">atom/atom#20494 - Bump Azure Devops Windows images to version vs2017-win2016</a></li>
+<li><a href="https://github.com/atom/atom/pull/20172">atom/atom#20172 - Upgrade to electron 5.0.12</a></li>
+<li><a href="https://github.com/atom/atom/pull/20559">atom/atom#20559 - ⬆️settings-view@0.261.4</a></li>
+<li><a href="https://github.com/atom/atom/pull/19862">atom/atom#19862 - Add overlay when resizing panels to prevent panes stealing focus</a></li>
+<li><a href="https://github.com/atom/atom/pull/20406">atom/atom#20406 - Fix .deb install on ubuntu 20.04</a></li>
+<li><a href="https://github.com/atom/atom/pull/20347">atom/atom#20347 - If Text Editor Component uses the scroll event, consume it / prevent bubbling</a></li>
+</ul>
+<h3>
+<a id="fuzzy-finder" class="anchor" href="#fuzzy-finder" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/fuzzy-finder">fuzzy-finder</a>
+</h3>
+<p>v1.14.1...v1.14.2</p>
+<ul>
+<li><a href="https://github.com/atom/fuzzy-finder/pull/409">atom/fuzzy-finder#409 - ⬆️@atom/fuzzy-native@1.1.2</a></li>
+</ul>
+<h3>
+<a id="github" class="anchor" href="#github" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/github">github</a>
+</h3>
+<p>v0.34.1-3...v0.34.2-3</p>
+<ul>
+<li><a href="https://github.com/atom/github/pull/2413">atom/github#2413 - Fixes failing tests on electron 5</a></li>
+</ul>
+<h3>
+<a id="settings-view" class="anchor" href="#settings-view" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/settings-view">settings-view</a>
+</h3>
+<p>v0.261.3...v0.261.4</p>
+<ul>
+<li><a href="https://github.com/atom/settings-view/pull/1146">atom/settings-view#1146 - color .setting-description alignment</a></li>
+</ul>
+<h3>
+<a id="snippets" class="anchor" href="#snippets" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/snippets">snippets</a>
+</h3>
+<p>v1.5.0...v1.5.1</p>
+<ul>
+<li><a href="https://github.com/atom/snippets/pull/299">atom/snippets#299 - Decaf the tests (2nd attempt)</a></li>
+</ul>
+<h3>
+<a id="language-c" class="anchor" href="#language-c" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/language-c">language-c</a>
+</h3>
+<p>v0.60.18...v0.60.19</p>
+<ul>
+<li><a href="https://github.com/atom/language-c/pull/330">atom/language-c#330 - Scopes after <img title=":arrow_up:" alt=":arrow_up:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b06.png" height="20" width="20" align="absmiddle"> tree-sitter-c and tree-sitter-cpp</a></li>
+</ul>
+<h3>
+<a id="language-ruby" class="anchor" href="#language-ruby" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/language-ruby">language-ruby</a>
+</h3>
+<p>v0.72.22...v0.72.23</p>
+<ul>
+<li><a href="https://github.com/atom/language-ruby/pull/276">atom/language-ruby#276 - [tree-sitter] add variable identifier support in assignments expressions</a></li>
+</ul>
+
+      </div>
+      <hr />
+      <div class="release">
+        <h2><a href="https://github.com/atom/atom/releases/tag/v1.46.0">v1.46.0 <span class="release-date">(2020-05-05)</span></a></h2>
+        <h2>
+<a id="notable-changes" class="anchor" href="#notable-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notable Changes</h2>
+<ul>
+<li>
+<a href="https://github.com/atom/atom/pull/20458">https://github.com/atom/atom/pull/20458</a> MacOS app has been notarized!</li>
+<li>
+<a href="https://github.com/atom/find-and-replace/pull/1109">https://github.com/atom/find-and-replace/pull/1109</a> Adds option to prevent search result to be overwritten by a new search</li>
+<li>
+<a href="https://github.com/atom/find-and-replace/pull/1105">https://github.com/atom/find-and-replace/pull/1105</a> Maintains scroll position after opening a file from the results page</li>
+</ul>
+
+<h3>
+<a id="atom-core" class="anchor" href="#atom-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/atom">Atom Core</a>
+</h3>
+<p>v1.45.0...v1.46.0</p>
+<ul>
+<li><a href="https://github.com/atom/atom/pull/20397">atom/atom#20397 - ⬆️ find-and-replace@0.219.3</a></li>
+<li><a href="https://github.com/atom/atom/pull/20398">atom/atom#20398 - ⬆️archive-view@0.65.2</a></li>
+<li><a href="https://github.com/atom/atom/pull/20458">atom/atom#20458 - Re-enable Macos Notarization and Fix Startup Issues</a></li>
+<li><a href="https://github.com/atom/atom/pull/20456">atom/atom#20456 - Bump Azure Devops Mac images to version 10.14</a></li>
+<li><a href="https://github.com/atom/atom/pull/20462">atom/atom#20462 - Fix to get ⬆️ spell-check@0.76.0 #20400 to merge</a></li>
+<li><a href="https://github.com/atom/atom/pull/20469">atom/atom#20469 - Fix native dependencies fail to load when notarized</a></li>
+</ul>
+<h3>
+<a id="archive-view" class="anchor" href="#archive-view" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/archive-view">archive-view</a>
+</h3>
+<p>v0.65.1...v0.65.2</p>
+<ul>
+<li><a href="https://github.com/atom/archive-view/pull/67">atom/archive-view#67 - 👕Pin linter to standard v11</a></li>
+</ul>
+<h3>
+<a id="find-and-replace" class="anchor" href="#find-and-replace" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/find-and-replace">find-and-replace</a>
+</h3>
+<p>v0.219.1...v0.219.3</p>
+<ul>
+<li><a href="https://github.com/atom/find-and-replace/pull/1105">atom/find-and-replace#1105 - Maintain previous scroll position</a></li>
+<li><a href="https://github.com/atom/find-and-replace/pull/1109">atom/find-and-replace#1109 - Add option to save search resulst from being overwrittenby next search</a></li>
+</ul>
+<h3>
+<a id="github" class="anchor" href="#github" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/github">github</a>
+</h3>
+<p>v0.34.0...v0.34.1-3</p>
+<ul>
+<li><a href="https://github.com/atom/github/pull/2406">atom/github#2406 - bump dugite version to 1.88.2</a></li>
+<li><a href="https://github.com/atom/github/pull/2298">atom/github#2298 - Use GitHub actions for tests</a></li>
+</ul>
+<h3>
+<a id="spell-check" class="anchor" href="#spell-check" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/spell-check">spell-check</a>
+</h3>
+<p>v0.75.0...v0.76.0</p>
+<ul>
+<li><a href="https://github.com/atom/spell-check/pull/314">atom/spell-check#314 - Split checkers to explictly handle macOS/Windows system checkers verses locale-based checking</a></li>
+</ul>
+<h3>
+<a id="symbols-view" class="anchor" href="#symbols-view" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/atom/symbols-view">symbols-view</a>
+</h3>
+<p>v0.118.2...v0.118.4</p>
+<ul>
+<li><a href="https://github.com/atom/symbols-view/pull/242">atom/symbols-view#242 - Add Probot no-response configuration</a></li>
+<li><a href="https://github.com/atom/symbols-view/pull/243">atom/symbols-view#243 - 🤖 Configure probot/no-response to allow 28 days when requesting more info on an issue</a></li>
+<li><a href="https://github.com/atom/symbols-view/pull/250">atom/symbols-view#250 - ⬆️ctags@3.1.0</a></li>
+<li><a href="https://github.com/atom/symbols-view/pull/252">atom/symbols-view#252 - Recompile ctags-darwin against SDK 10.15</a></li>
+</ul>
+
+      </div>
+      <hr />
+  </div>
+</div>
+
+    </div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper no-pad">
+      <ul class="footer-left">
+        <li><a href="https://docs.github.com/en/github/site-policy/github-open-source-applications-terms-and-conditions">Terms of Use</a></li>
+        <li><a href="https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-privacy-statement">Privacy</a></li>
+        <li><a href="https://github.com/atom/atom/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+        <li><a href="releases.html">Releases</a></li>
+        <li><a href='https://flight-manual.atom.io/faq/'>FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from atom.io/releases by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:54:57 GMT -->
+</html>

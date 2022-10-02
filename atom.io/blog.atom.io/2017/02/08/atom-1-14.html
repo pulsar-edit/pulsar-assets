@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2017/02/08/atom-1-14.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:02 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Atom 1.14 | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Atom 1.14" />
+<meta name="author" content="iolsen" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Atom 1.14 has shipped today with improved large file performance, a 64-bit Windows installation, improved MRU tab traversal, and more." />
+<meta property="og:description" content="Atom 1.14 has shipped today with improved large file performance, a 64-bit Windows installation, improved MRU tab traversal, and more." />
+<link rel="canonical" href="atom-1-14.html" />
+<meta property="og:url" content="atom-1-14.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-02-08T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@iolsen" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2017/02/08/atom-1-14.html"},"url":"https://blog.atom.io/2017/02/08/atom-1-14.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"iolsen"},"headline":"Atom 1.14","dateModified":"2017-02-08T00:00:00+00:00","datePublished":"2017-02-08T00:00:00+00:00","author":{"@type":"Person","name":"iolsen"},"description":"Atom 1.14 has shipped today with improved large file performance, a 64-bit Windows installation, improved MRU tab traversal, and more.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Atom 1.14</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> February 8, 2017 <a href="https://github.com/iolsen" class="author-link"><img class="avatar avatar-small" alt="iolsen" width="18" height="18" data-proofer-ignore="true" src="https://avatars0.githubusercontent.com/iolsen?v=3&amp;s=18" srcset="https://avatars0.githubusercontent.com/iolsen?v=3&amp;s=18 1x, https://avatars0.githubusercontent.com/iolsen?v=3&amp;s=36 2x, https://avatars0.githubusercontent.com/iolsen?v=3&amp;s=54 3x, https://avatars0.githubusercontent.com/iolsen?v=3&amp;s=72 4x"> iolsen</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p><img src="../../../img/posts/release-1-14.png" alt="Atom 1.14"></p>
+
+<p><a href="https://atom.io/">Atom 1.14</a> has shipped today with improved large file performance, a 64-bit Windows installation, improved MRU tab traversal, and more.</p>
+
+<!--more-->
+
+<h3 id="large-file-performance">Large file performance</h3>
+<p>A fundamental component of the text editor called the display layer <a href="https://github.com/atom/text-buffer/pull/185">has been redesigned</a> to rely on a new data structure that is implemented in C++. These changes enable Atom to open larger files more quickly while using much less memory. Improvements in this area are ongoing, so expect more in upcoming releases.</p>
+
+<h3 id="64-bit-windows-installation">64-bit Windows installation</h3>
+<p>Atom 1.14 makes available a <a href="https://github.com/atom/atom/pull/13135">64-bit installation</a> for Windows! <img class="emoji" title=":tada:" alt=":tada:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f389.png" height="20" width="20"></p>
+
+<h3 id="mru-tab-traversal">MRU tab traversal</h3>
+<p>There was some—lets call it <em>pointed</em>—feedback about our initial implementation of most-recently-used tab traversal that we’ve addressed in this release:</p>
+
+<ul>
+  <li>An MRU-ordered list of the tabs to visit now appears during MRU traversal.</li>
+  <li>There is an option in the tabs package settings to make ctrl-tab and ctrl-shift-tab do MRU or simple left/right traversal.</li>
+  <li>Fixed a bug in keyup handling such that the MRU order doesn’t appear to randomly change.</li>
+</ul>
+
+<p><img src="https://cloud.githubusercontent.com/assets/553742/20579681/075e7d00-b183-11e6-80c9-d61b7986e9fe.gif" alt="New MRU UX"></p>
+
+<h3 id="other-114-improvements">Other 1.14 improvements:</h3>
+<ul>
+  <li><a href="https://github.com/atom/language-csharp/pull/87">Overhaul of the bundled C# grammar</a></li>
+  <li><a href="https://github.com/atom/atom/pull/13516">Upgrade find-and-replace to use new marker layer API for fast clearing of markers</a></li>
+  <li><a href="https://github.com/atom/atom/pull/11852">Option for avoiding overlay movements</a></li>
+  <li><a href="https://github.com/atom/atom/pull/13523">Reduce the impact of leaking Editor, Selection, &amp; Cursor objects</a></li>
+</ul>
+
+<p>Don’t forget to check out all the other improvements shipping with this version in the <a href="https://github.com/atom/atom/releases/tag/v1.14.0">release notes</a>! <img class="emoji" title=":memo:" alt=":memo:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dd.png" height="20" width="20"></p>
+
+<h2 id="atom-115-beta">Atom 1.15 Beta</h2>
+
+<p><img src="../../../img/release-beta.png" alt="Release Beta">
+This is a quiet month because most of the team is toiling away on cool stuff that’s not yet shipping. But we do have a few goodies hitting Beta!</p>
+
+<h3 id="duplicate-selections-with-multiple-lines">Duplicate selections with multiple lines</h3>
+<p>The behavior when duplicating lines when there are multiple selections is now more intuitive.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1789/21907555/37f06b88-d8cd-11e6-8c5c-3376a7e52e37.gif" alt="Line Duplication With Multiple Selections"></p>
+
+<h3 id="tabs-of-deleted-files-are-retained">Tabs of deleted files are retained</h3>
+<p>By <a href="https://github.com/atom/tabs/issues/306">popular demand</a> Atom will now keep open the tab of any file, modified or not, when it’s deleted outside the editor. You can turn off this behavior with a new core setting:</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/553742/22088980/e1f25d3e-dd9c-11e6-81de-53846a511971.png" alt="Deleted File Tab Setting"></p>
+
+<h3 id="cursors-are-always-visible-by-default">Cursors are always visible by default</h3>
+<p>Atom has always done the MacOS thing and not shown a blinking cursor at the end of a text selection. That’s atypical for a text editor aimed at developers so it’s now <a href="https://github.com/atom/atom/pull/13664">turned on by default and configurable</a>.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/553742/22612719/59ab55ec-ea27-11e6-939f-20f526ed73ba.gif" alt="blinky-cursor"></p>
+
+<h3 id="other-updates">Other updates</h3>
+<ul>
+  <li>Apm now <a href="https://github.com/atom/settings-view/pull/898">honors system HTTP proxy settings</a>.</li>
+  <li>Removals from the Jump List on Windows are <a href="https://github.com/atom/atom/pull/13685">now handled correctly</a>.</li>
+  <li>
+<a href="https://github.com/atom/atom/pull/13696/files">Node 6 is now required to <em>build</em> Atom</a>.</li>
+</ul>
+
+<p>There are many more details in the <a href="https://github.com/atom/atom/releases/tag/v1.15.0-beta0">release notes</a>.</p>
+
+<p>Get all these improvements today by joining the <a href="https://atom.io/beta">Atom Beta Channel</a>!</p>
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2017/02/08/atom-1-14.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2017/02/08/atom-1-14.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:36:02 GMT -->
+</html>

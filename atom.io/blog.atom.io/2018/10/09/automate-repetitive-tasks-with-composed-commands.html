@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<!-- Mirrored from blog.atom.io/2018/10/09/automate-repetitive-tasks-with-composed-commands.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:35:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../css/application.css">
+  <link rel="shortcut icon" href="../../../favicon.ico"/>
+  <link type="application/atom+xml" rel="alternate" href="../../../feed.xml" title="Atom Blog" />
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Automate Repetitive Tasks with Composed Commands | Atom Blog</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Automate Repetitive Tasks with Composed Commands" />
+<meta name="author" content="jasonrudolph" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="When working with text, it’s common to find yourself performing a certain set of actions in the same order, time and time again. By taking advantage of Atom’s hackability, you can eliminate this repetition with a custom command to perform an entire sequence of actions for you." />
+<meta property="og:description" content="When working with text, it’s common to find yourself performing a certain set of actions in the same order, time and time again. By taking advantage of Atom’s hackability, you can eliminate this repetition with a custom command to perform an entire sequence of actions for you." />
+<link rel="canonical" href="automate-repetitive-tasks-with-composed-commands.html" />
+<meta property="og:url" content="automate-repetitive-tasks-with-composed-commands.html" />
+<meta property="og:site_name" content="Atom Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-10-09T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@AtomEditor" />
+<meta name="twitter:creator" content="@jasonrudolph" />
+<meta property="article:publisher" content="https://www.facebook.com/GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.atom.io/2018/10/09/automate-repetitive-tasks-with-composed-commands.html"},"url":"https://blog.atom.io/2018/10/09/automate-repetitive-tasks-with-composed-commands.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://blog.atom.io/img/blog-logo.png"},"name":"jasonrudolph"},"headline":"Automate Repetitive Tasks with Composed Commands","dateModified":"2018-10-09T00:00:00+00:00","datePublished":"2018-10-09T00:00:00+00:00","author":{"@type":"Person","name":"jasonrudolph"},"description":"When working with text, it’s common to find yourself performing a certain set of actions in the same order, time and time again. By taking advantage of Atom’s hackability, you can eliminate this repetition with a custom command to perform an entire sequence of actions for you.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-48', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+
+  <div class="footer-push">
+
+    <div class="top-bar">
+  <div class="wrapper">
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs">Documentation</a></li>
+      <li><a href="../../../index.html" class="is-selected">Blog</a></li>
+      <li><a href="https://discuss.atom.io/">Discuss</a></li>
+    </ul>
+
+    <div class="top-bar-right">
+      <a href="../../../feed.xml" class="rss-link"><span class="octicon octicon-rss"></span> Subscribe</a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrapper content-push">
+<div class="post">
+  <h2 class="post-name">Automate Repetitive Tasks with Composed Commands</h2>
+
+  <p class="who-when">
+    <span class="octicon octicon-calendar"></span> October 9, 2018 <a href="https://github.com/jasonrudolph" class="author-link"><img class="avatar avatar-small" alt="jasonrudolph" width="18" height="18" data-proofer-ignore="true" src="https://avatars3.githubusercontent.com/jasonrudolph?v=3&amp;s=18" srcset="https://avatars3.githubusercontent.com/jasonrudolph?v=3&s=18 1x, https://avatars3.githubusercontent.com/jasonrudolph?v=3&s=36 2x, https://avatars3.githubusercontent.com/jasonrudolph?v=3&s=54 3x, https://avatars3.githubusercontent.com/jasonrudolph?v=3&s=72 4x" /> jasonrudolph</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="AtomEditor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </p>
+  <div class="post markdown">
+    <p>When working with text, it’s common to find yourself performing a certain set of actions in the same order, time and time again. By taking advantage of Atom’s hackability, you can eliminate this repetition with a custom command to perform an entire sequence of actions for you.</p>
+
+<!--more-->
+
+<h3 id="thinking-in-commands">Thinking in commands</h3>
+
+<p>Many of the actions that you perform in Atom are accessible as <a href="https://flight-manual.atom.io/getting-started/sections/atom-basics/#command-palette">commands</a>. Whether you’re moving the cursor to the right, saving the current file, closing a tab, or pushing code to a Git repository, each action is a named command. And while you may currently perform those actions using the menu, using the keyboard, or clicking with your mouse, they can also be triggered programatically.</p>
+
+<h3 id="composing-a-command-to-run-other-commands">Composing a command to run other commands</h3>
+
+<p>Imagine you often encounter files where you want to change the use of whitespace. For example, assume you want to convert tabs to spaces, trim any trailing whitespace on each line, and convert line endings from Windows-style (CRLF) to Unix-style (LF). You could accomplish this by running these three commands, one after another:</p>
+
+<ul>
+  <li><a href="https://github.com/atom/whitespace/blob/v0.37.7/lib/whitespace.js#L58">Whitespace: Convert All Tabs to Spaces</a></li>
+  <li><a href="https://github.com/atom/whitespace/blob/v0.37.7/lib/whitespace.js#L15">Whitespace: Removing Trailing Whitespace</a></li>
+  <li><a href="https://github.com/atom/line-ending-selector/blob/v0.7.7/README.md#atom-commands">Line Ending Selector: Convert to LF</a></li>
+</ul>
+
+<p>Or, you could combine them into a single <a href="https://flight-manual.atom.io/behind-atom/sections/keymaps-in-depth/#composed-commands">“composed” command</a>. Let’s give that a shot.</p>
+
+<h4 id="1-open-your-init-script">1. Open your init script</h4>
+
+<p>First, activate the <a href="https://flight-manual.atom.io/getting-started/sections/atom-basics/#command-palette">command palette</a>, and run the “Application: Open Your Init Script” command.</p>
+
+<p><img width="776" alt="open init script via command palette" src="https://user-images.githubusercontent.com/2988/46099338-8249df00-c194-11e8-80ca-2d2c8af77ff9.png" /></p>
+
+<h4 id="2-add-a-custom-command">2. Add a custom command</h4>
+
+<p>Next, paste in the snippet below to define your new command:</p>
+
+<div class="language-coffeescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">atom</span><span class="p">.</span><span class="na">commands</span><span class="p">.</span><span class="na">add</span> <span class="s">'atom-workpace'</span><span class="p">,</span> <span class="s">'me:personalize-whitespace'</span><span class="p">,</span> <span class="o">-&gt;</span>
+  <span class="nx">view</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">views</span><span class="p">.</span><span class="na">getView</span><span class="p">(</span><span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">getActiveTextEditor</span><span class="p">())</span>
+  <span class="nx">atom</span><span class="p">.</span><span class="na">commands</span><span class="p">.</span><span class="na">dispatch</span><span class="p">(</span><span class="nx">view</span><span class="p">,</span> <span class="s">'whitespace:convert-all-tabs-to-spaces'</span><span class="p">)</span>
+  <span class="p">.</span><span class="na">then</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="nx">atom</span><span class="p">.</span><span class="na">commands</span><span class="p">.</span><span class="na">dispatch</span><span class="p">(</span><span class="nx">view</span><span class="p">,</span> <span class="s">'whitespace:remove-trailing-whitespace'</span><span class="p">)</span>
+  <span class="p">.</span><span class="na">then</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="nx">atom</span><span class="p">.</span><span class="na">commands</span><span class="p">.</span><span class="na">dispatch</span><span class="p">(</span><span class="nx">view</span><span class="p">,</span> <span class="s">'line-ending-selector:convert-to-LF'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>For the purposes of this example, there are two important items to note in this snippet:</p>
+
+<ul>
+  <li>On line 1, the second argument specifies the name of the new command. In this case, it’s <code class="highlighter-rouge">me:personalize-whitespace</code>.</li>
+  <li>Line 3 invokes, the first command (<code class="highlighter-rouge">whitespace:convert-all-tabs-to-spaces</code>). Once that command completes, line 4 invokes the second command (<code class="highlighter-rouge">whitespace:remove-trailing-whitespace</code>). And once that command completes, line 5 invokes the final command (<code class="highlighter-rouge">line-ending-selector:convert-to-LF</code>).</li>
+</ul>
+
+<p>As you venture into defining your own composed commands, <a href="https://atom.io/docs/api">Atom’s API docs</a> can guide you in understanding the details of each function used above as well as the many other functions available to help you customize Atom.</p>
+
+<h4 id="3-reload-atom-to-pick-up-your-new-command">3. Reload Atom to pick up your new command</h4>
+
+<p>Each time you open a new Atom window, Atom loads your <a href="https://flight-manual.atom.io/hacking-atom/sections/the-init-file/#the-init-file">init script</a>. You can reload Atom to pick up changes you’ve made to your init script. To do so, activate the command palette, and run the “Window: Reload” command.</p>
+
+<p><img width="775" alt="reload atom via command palette" src="https://user-images.githubusercontent.com/2988/46098990-9e994c00-c193-11e8-87c3-01a42c6b18e4.png" /></p>
+
+<h4 id="4-use-your-new-command">4. Use your new command</h4>
+
+<p>Now your new command is ready for action. Open a file where you want to run the new command (<a href="https://gist.github.com/jasonrudolph/c9422a2671a4bee2ff12633705eded33#file-hello-rs">example file</a>), activate the command palette, find your new command by name (“Me: Personalize Whitespace”), and run it:</p>
+
+<p><img src="https://user-images.githubusercontent.com/2988/46299239-e7c01600-c56e-11e8-9b8a-bfff5f7febae.gif" alt="demo" /></p>
+
+<h3 id="context-matters">Context matters</h3>
+
+<p>Note that some commands are designed to be executed only in specific contexts. For example, the <code class="highlighter-rouge">line-ending-selector:convert-to-LF</code> command <a href="https://github.com/atom/line-ending-selector/blob/v0.7.7/lib/main.js#L53-L54">assumes that there is an active text editor</a> in your Atom workspace. If you run that command when there are no active text editors open in Atom, the command obviously can’t change any line endings.</p>
+
+<p>If you see that a command isn’t functioning as expected, it can be helpful to look at the command’s implementation to understand what assumptions the command is making.</p>
+
+<h3 id="next-steps">Next steps</h3>
+
+<p>With just the few simple steps shown above, you’re ready to combine any repetitive sequence of commands into a single composed command:</p>
+
+<ul>
+  <li>Check out the <a href="https://flight-manual.atom.io/getting-started/sections/atom-basics/#command-palette">command palette</a> to see the hundreds of commands available to you, including commands from the community <a href="https://atom.io/packages">packages</a> you’ve installed.</li>
+  <li>Want to get things done even faster? You can also <a href="https://flight-manual.atom.io/behind-atom/sections/keymaps-in-depth/#composed-commands">define a keyboard shortcut</a> for your new command.</li>
+  <li>Explore public init scripts to <a href="https://github.com/search?q=filename%3Ainit.coffee+filename%3Ainit.js+atom.commands.dispatch&amp;type=Code">see how other people combine commands to improve their workflows</a>. You might just find inspiration for your own composed commands.</li>
+  <li>Need help? Hop into the <a href="https://atom-slack.herokuapp.com/">Atom Slack</a> or ask for help <a href="https://discuss.atom.io/">on the forum</a>.</li>
+</ul>
+
+<p>Happy automating!</p>
+
+
+  </div>
+</div>
+
+<div class="feedback">
+  <p>Have feedback on this post? Let <a class="twitter-handle" href="https://twitter.com/intent/tweet?text=@AtomEditor%20&amp;related=atomeditor&amp;url=/2018/10/09/automate-repetitive-tasks-with-composed-commands.html">@AtomEditor</a> know on Twitter.</p>
+  <p>Need help or found a bug? <a href="https://atom.io/contact">Contact us.</a></p>
+</div>
+</div>
+
+    <div class="footer-pad"></div>
+  </div>
+
+  <footer>
+  <div class="footer">
+    <div class="wrapper">
+      <ul class="footer-left">
+        <li><a href="https://github.com/site/terms">Terms of Use</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com/"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<!-- Mirrored from blog.atom.io/2018/10/09/automate-repetitive-tasks-with-composed-commands.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Sep 2022 14:35:23 GMT -->
+</html>
